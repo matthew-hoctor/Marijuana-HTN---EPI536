@@ -1,0 +1,110 @@
+---
+title: "DAG"
+author: "Matthew Hoctor, Bryon Langford"
+date: "6/24/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#library(dplyr)
+#library(readxl)
+#library(tidyverse)
+#library(ggplot2)
+#library(CarletonStats)
+#library(pwr)
+#library(BSDA)
+#library(exact2x2)
+#library(car)
+#library(dvmisc)
+#library(emmeans)
+#library(gridExtra)
+#library(DescTools)
+#library(epitools)
+#library(pROC)
+#library(rje)
+#library(lmtest)
+#library(gtsummary)
+#library(mfp)
+#library(linearspline)
+library(dagitty)
+```
+
+# Preliminary DAG
+
+This DAG is based on Vidot et al.'s causal scheme [link](https://pubmed.ncbi.nlm.nih.gov/31439096/):
+
+```{r}
+g <- dagitty("dag {
+Survey_Year -> Cannabis
+Survey_Year -> Hypertension
+Age -> Cannabis
+Age -> Hypertension
+Alcohol -> Hypertension
+BMI -> Hypertension
+Cannabis -> Alcohol
+Cannabis -> BMI
+Cannabis -> Hypertension
+Cannabis -> Tobacco
+Gender -> Cannabis
+Gender -> Hypertension
+Race -> Cannabis
+Race -> Hypertension
+Tobacco -> Hypertension
+}
+")
+
+coordinates(g) <- 
+  list(
+    x=c(Cannabis=0,
+        Hypertension=2,
+        Alcohol=1,Tobacco=1,BMI=1,Gender=1,Age=1,Race=1,Survey_Year=1),
+    y=c(Alcohol=0,Tobacco=1,BMI=2,
+        Cannabis=3,
+        Hypertension=3,
+        Gender=4,Age=5,Race=6,Survey_Year=7)
+  )
+
+plot(g)
+```
+
+## Code for Daggity.net
+
+dag {
+bb="0,0,1,1"
+"Survey Year" [adjusted,pos="0.340,0.791"]
+Age [adjusted,pos="0.336,0.573"]
+Alcohol [pos="0.355,0.105"]
+BMI [pos="0.347,0.313"]
+Cannabis [exposure,pos="0.169,0.401"]
+Gender [adjusted,pos="0.336,0.466"]
+Hypertension [outcome,pos="0.554,0.402"]
+Race [adjusted,pos="0.340,0.685"]
+Tobacco [pos="0.344,0.209"]
+"Survey Year" -> Cannabis
+"Survey Year" -> Hypertension
+Age -> Cannabis
+Age -> Hypertension
+Alcohol -> Hypertension
+BMI -> Hypertension
+Cannabis -> Alcohol
+Cannabis -> BMI
+Cannabis -> Hypertension
+Cannabis -> Tobacco
+Gender -> Cannabis
+Gender -> Hypertension
+Race -> Cannabis
+Race -> Hypertension
+Tobacco -> Hypertension
+}
+
+
