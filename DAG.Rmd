@@ -43,8 +43,8 @@ library(dagitty)
 
 This DAG is based on Vidot et al.'s causal scheme [link](https://pubmed.ncbi.nlm.nih.gov/31439096/):
 
-```{r}
-g <- dagitty("dag {
+```{r Vidot DAG}
+g0 <- dagitty("dag {
 Survey_Year -> Cannabis
 Survey_Year -> Hypertension
 Age -> Cannabis
@@ -63,18 +63,18 @@ Tobacco -> Hypertension
 }
 ")
 
-coordinates(g) <- 
+coordinates(g0) <- 
   list(
     x=c(Cannabis=0,
-        Hypertension=2,
-        Alcohol=1,Tobacco=1,BMI=1,Gender=1,Age=1,Race=1,Survey_Year=1),
+        Alcohol=1,Tobacco=1,BMI=1,Gender=1,Age=1,Race=1,Survey_Year=1,
+        Hypertension=2),
     y=c(Alcohol=0,Tobacco=1,BMI=2,
         Cannabis=3,
         Hypertension=3,
         Gender=4,Age=5,Race=6,Survey_Year=7)
   )
 
-plot(g)
+plot(g0)
 ```
 
 ## Code for Daggity.net
@@ -107,4 +107,44 @@ Race -> Hypertension
 Tobacco -> Hypertension
 }
 
+# Diet as a mediator
 
+```{r diet DAG}
+g1 <- dagitty("dag {
+Survey_Year -> Cannabis
+Survey_Year -> Hypertension
+Age -> Cannabis
+Age -> Hypertension
+Alcohol -> Hypertension
+BMI -> Hypertension
+Cannabis -> Alcohol
+Cannabis -> BMI
+Cannabis -> Diet
+Cannabis -> Hypertension
+Cannabis -> Tobacco
+Diet -> BMI
+Diet -> Hypertension
+Gender -> Cannabis
+Gender -> Hypertension
+Race -> Cannabis
+Race -> Hypertension
+Tobacco -> Hypertension
+}
+")
+
+coordinates(g1) <- 
+  list(
+    x=c(Cannabis=0,
+        Diet=0.66,
+        Alcohol=1,Tobacco=1,Gender=1,Age=1,Race=1,Survey_Year=1,
+        BMI=1.33,
+        Hypertension=2),
+    y=c(Alcohol=0,Tobacco=1,
+        Diet=2,BMI=2,
+        Cannabis=3,
+        Hypertension=3,
+        Gender=4,Age=5,Race=6,Survey_Year=7)
+  )
+
+plot(g1)
+```
