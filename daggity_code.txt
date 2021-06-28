@@ -1,0 +1,39 @@
+dag {
+Age [adjusted,pos="1.000,3.500"]
+Alcohol [pos="2.000,2.000"]
+BMI [pos="2.666,2.500"]
+Cannabis [outcome,pos="0.000,3.000"]
+Diet [pos="1.333,2.500"]
+Education [adjusted,pos="2.000,4.000"]
+Gender [adjusted,pos="2.000,3.500"]
+Geographical_Region [latent,pos="3.000,3.500"]
+Hypertension [exposure,pos="4.000,3.000"]
+Income [latent,pos="3.000,4.000"]
+Race [adjusted,pos="2.000,4.500"]
+Survey_Year [adjusted,pos="1.000,4.000"]
+Tobacco [pos="2.000,1.500"]
+Age -> Cannabis
+Age -> Hypertension
+Alcohol -> Hypertension
+BMI -> Hypertension
+Cannabis -> Alcohol
+Cannabis -> BMI
+Cannabis -> Diet
+Cannabis -> Hypertension
+Cannabis -> Tobacco
+Diet -> BMI
+Diet -> Hypertension
+Education -> Cannabis
+Education -> Hypertension
+Gender -> Cannabis
+Gender -> Hypertension
+Geographical_Region -> Cannabis
+Geographical_Region -> Hypertension
+Income -> Cannabis
+Income -> Hypertension
+Race -> Cannabis
+Race -> Hypertension
+Survey_Year -> Cannabis
+Survey_Year -> Hypertension
+Tobacco -> Hypertension
+}
