@@ -130,6 +130,8 @@ Education -> Cannabis
 Education -> Hypertension
 Gender -> Cannabis
 Gender -> Hypertension
+Income -> Cannabis
+Income -> Hypertension
 Race -> Cannabis
 Race -> Hypertension
 Tobacco -> Hypertension
@@ -140,14 +142,14 @@ coordinates(g1) <-
   list(
     x=c(Cannabis=0,
         Diet=0.66,
-        Alcohol=1,Tobacco=1,Gender=1,Age=1,Race=1,Survey_Year=1,Education=1,
+        Alcohol=1,Tobacco=1,Gender=1,Age=1,Race=1,Survey_Year=1,Education=1,Income=1,
         BMI=1.33,
         Hypertension=2),
     y=c(Alcohol=0,Tobacco=1,
         Diet=2,BMI=2,
         Cannabis=3,
         Hypertension=3,
-        Gender=4,Age=5,Race=6,Survey_Year=7,Education=8)
+        Gender=4,Age=5,Race=6,Survey_Year=7,Education=8,Income=9)
   )
 
 plot(g1)
