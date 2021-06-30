@@ -5,7 +5,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
 
  * [Zotero Library](https://www.zotero.org/groups/4332547/cannabis_use__hypertension_-_epi_536)
  * [Preliminary DAG](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/DAG.html)
- * [Variables Brainsorming](https://docs.google.com/document/d/1I32zdycnB1OHuiGyzimFrwIUNzz-mqvXsJvqh28yaIg/edit)
+ * [Variables Brainsorming](https://docs.google.com/spreadsheets/d/1i8GbTjo4PRI1TzPGiHzXwNliISFwh2TPdQciPLfy830/edit#gid=0)
  
 ## Project Submissions
 
