@@ -30,4 +30,5 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [Health Insurance Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/HIQ_E.htm)
  * [Diet & Nutrition Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DBQ_E.htm)
  * [Food Security Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/FSQ_E.htm)
+ * [Drug Use Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DUQ_E.htm)
  
