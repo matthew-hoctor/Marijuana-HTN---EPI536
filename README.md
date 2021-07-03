@@ -35,4 +35,5 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Drug Use Codebook 2011-2012, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DUQ_G.htm)
    * [Drug Use Codebook 2013-2014, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DUQ_H.htm)
    * [Drug Use Codebook 2015-2016, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DUQ_I.htm)
+   * [Drug Use Codebook 2015-2016, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DUQ_J.htm)
  
