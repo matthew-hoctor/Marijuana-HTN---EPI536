@@ -16,6 +16,9 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE}
 #library(dplyr)
 #library(readxl)
 #library(tidyverse)
@@ -135,6 +138,8 @@ Income -> Hypertension
 Race -> Cannabis
 Race -> Hypertension
 Tobacco -> Hypertension
+Cannabis [exposure]
+Hypertension [outcome]
 }
 ")
 
@@ -154,3 +159,5 @@ coordinates(g1) <-
 
 plot(g1)
 ```
+
+

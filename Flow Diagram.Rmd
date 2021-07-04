@@ -1,0 +1,257 @@
+---
+title: "Flow Diagram"
+author: "Matthew Hoctor, Bryon Langford"
+date: "7/4/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE}
+#library(dplyr)
+#library(readxl)
+#library(tidyverse)
+#library(ggplot2)
+#library(CarletonStats)
+#library(pwr)
+#library(BSDA)
+#library(exact2x2)
+#library(car)
+#library(dvmisc)
+#library(emmeans)
+#library(gridExtra)
+#library(DescTools)
+#library(epitools)
+#library(pROC)
+#library(rje)
+#library(lmtest)
+#library(gtsummary)
+#library(mfp)
+#library(linearspline)
+#library(dagitty)
+library(DiagrammeR)
+#library(metagear)
+library(Gmisc, quietly = FALSE)
+library(glue)
+library(htmlTable)
+library(grid)
+library(magrittr)
+```
+
+# Preliminary Flow Chart
+
+```{r}
+#Set the values which will go into each label.
+a1 <- 'Total available patients\n(n = x)'
+b1 <- ''
+c1 <- ''
+d1 <- 'Included for analysis\n(n = x - y - z)'
+e1 <- 'Data linked with\nexternal dataset'
+a2 <- ''
+b2 <- 'Excluded because of\nexclusion criteria (n = y)'
+c2 <- 'Excluded because of\nmissing values (n = z)'
+d2 <- ''
+e2 <- ''
+
+#Create a node dataframe
+ndf <- create_node_df(
+  n = 10,
+  label = c(a1, b1, c1, d1, e1, #Column 1
+            a2, b2, c2, d2, e2), #Column 2
+  style = c('solid', 'invis', 'invis', 'solid', 'solid', #Column 1
+            'invis', 'solid', 'solid', 'invis', 'invis'), #Column 2
+  shape = c('box', 'point', 'point', 'box', 'box', #Column 1 
+            'plaintext', 'box', 'box', 'point', 'point'), #Column 2
+  width = c(3, 0.001, 0.001, 3, 3, #Column 1
+            2, 2.5, 2.5, 0.001, 0.001), #Column 2
+  height = c(1, 0.001, 0.001, 1, 1, #Column 1
+             1, 1, 1, 0.001, 0.001), #Column 2
+  fontsize = c(rep(14, 10)),
+  fontname = c(rep('Helvetica', 10)),
+  penwidth = 1.5,
+  fixedsize = 'true')
+
+#Create an edge dataframe
+edf <- create_edge_df(
+  from = c(1, 2, 3, 4, #Column 1
+           6, 7, 8, 9, #Column 2
+           2, 3 #Horizontals
+           ),
+  to = c(2, 3, 4, 5, #Column 1
+         7, 8, 9, 10, #Column 2
+         7, 8 #Horizontals
+         ),
+  arrowhead = c('none', 'none', 'normal', 'normal', #Column 1
+                'none', 'none', 'none', 'none', #Column 2
+                'normal', 'normal' #Horizontals
+                ),
+  color = c('black', 'black', 'black', 'black', #Column 1
+            '#00000000', '#00000000', '#00000000', '#00000000', #Column 2
+            'black', 'black' #Horizontals
+            ),
+  constraint = c(rep('true', 8), #Columns
+                 rep('false', 2) #Horizontals
+                 )
+)
+  
+g <- create_graph(ndf,
+                  edf,
+                  attr_theme = NULL)
+
+#Not run: but to run this in R Studio, uncomment below
+render_graph(g)
+
+#export_graph(g, file_name = "STROBE.png")
+```
+
+# Preliminary Flow Chart 2
+
+```{r}
+# Define some sample data
+data <- list(a=50000, b=800, c=600, d=400)
+
+
+DiagrammeR::grViz("
+digraph graph2 {
+
+graph [layout = dot]
+
+# node definitions with substituted label text
+node [shape = rectangle, width = 4, fillcolor = Biege]
+a [label = '@@1']
+b [label = '@@2']
+c [label = '@@3']
+d [label = '@@4']
+e [label = '@@5']
+
+a -> b -> c -> d
+a -> e
+
+}
+
+[1]:  paste0('NHANES Data 2007-2018 (n = ', data$a, ')')
+[2]: paste0('Remove Errors (n = ', data$b, ')')
+[3]: paste0('Identify Potential Customers (n = ', data$c, ')')
+[4]: paste0('Select Top Priorities (n = ', data$d, ')')
+[5]: paste0('Select Top Priorities (n = ', data$d, ')')
+")
+```
+
+# Gmisc method flowchart
+
+Documentation https://cran.r-project.org/web/packages/Gmisc/vignettes/Grid-based_flowcharts.html
+
+```{r}
+org_cohort <- boxGrob(glue("Stockholm population",
+                           "n = {pop}",
+                           pop = txtInt(1632798),
+                           .sep = "\n"))
+eligible <- boxGrob(glue("Eligible",
+                          "n = {pop}",
+                           pop = txtInt(10032),
+                           .sep = "\n"))
+included <- boxGrob(glue("Randomized",
+                         "n = {incl}",
+                         incl = txtInt(122),
+                         .sep = "\n"))
+grp_a <- boxGrob(glue("Treatment A",
+                      "n = {recr}",
+                      recr = txtInt(43),
+                      .sep = "\n"))
+
+grp_b <- boxGrob(glue("Treatment B",
+                      "n = {recr}",
+                      recr = txtInt(122 - 43 - 30),
+                      .sep = "\n"))
+
+excluded <- boxGrob(glue("Excluded (n = {tot}):",
+                         " - not interested: {uninterested}",
+                         " - contra-indicated: {contra}",
+                         tot = 30,
+                         uninterested = 12,
+                         contra = 30 - 12,
+                         .sep = "\n"),
+                    just = "left")
+
+grid.newpage()
+vert <- spreadVertical(org_cohort,
+                       eligible = eligible,
+                       included = included,
+                       grps = grp_a)
+grps <- alignVertical(reference = vert$grps,
+                      grp_a, grp_b) %>%
+  spreadHorizontal()
+vert$grps <- NULL
+
+excluded <- moveBox(excluded,
+                    x = .8,
+                    y = coords(vert$included)$top + distance(vert$eligible, vert$included, half = TRUE, center = FALSE))
+
+for (i in 1:(length(vert) - 1)) {
+  connectGrob(vert[[i]], vert[[i + 1]], type = "vert") %>%
+    print
+}
+connectGrob(vert$included, grps[[1]], type = "N")
+connectGrob(vert$included, grps[[2]], type = "N")
+
+connectGrob(vert$eligible, excluded, type = "L")
+
+# Print boxes
+vert
+grps
+excluded
+```
+
+# Based on r-bloggers
+
+Documentation: https://www.r-bloggers.com/2018/05/flow-charts-in-r/
+
+```{r}
+grid.newpage()
+# set some parameters to use repeatedly
+leftx <- .25
+midx <- .5
+rightx <- .75
+width <- .4
+gp <- gpar(fill = "lightgrey")
+# create boxes
+(total <- boxGrob("Total\n N = NNN", 
+ x=midx, y=.9, box_gp = gp, width = width))
+(rando <- boxGrob("Randomized\n N = NNN", 
+ x=midx, y=.75, box_gp = gp, width = width))
+# connect boxes like this
+connectGrob(total, rando, "v")
+(inel <- boxGrob("Ineligible\n N = NNN", 
+ x=rightx, y=.825, box_gp = gp, width = .25, height = .05))
+connectGrob(total, inel, "-")
+(g1 <- boxGrob("Allocated to Group 1\n N = NNN", 
+ x=leftx, y=.5, box_gp = gp, width = width))
+(g2 <- boxGrob("Allocated to Group 2\n N = NNN", 
+ x=rightx, y=.5, box_gp = gp, width = width))
+connectGrob(rando, g1, "N")
+connectGrob(rando, g2, "N")
+(g11 <- boxGrob("Followed up\n N = NNN", 
+ x=leftx, y=.3, box_gp = gp, width = width))
+(g21 <- boxGrob("Followed up\n N = NNN", 
+ x=rightx, y=.3, box_gp = gp, width = width))
+connectGrob(g1, g11, "N")
+connectGrob(g2, g21, "N")
+(g12 <- boxGrob("Completed\n N = NNN", 
+ x=leftx, y=.1, box_gp = gp, width = width))
+(g22 <- boxGrob("Completed\n N = NNN", 
+ x=rightx, y=.1, box_gp = gp, width = width))
+connectGrob(g11, g12, "N")
+connectGrob(g21, g22, "N")
+```
+
