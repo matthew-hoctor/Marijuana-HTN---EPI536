@@ -26,7 +26,14 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [Demographics Data](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&CycleBeginYear=2007)
  * [Examination Data](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&CycleBeginYear=2007)
  * [Questionnaire Data](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&CycleBeginYear=2007)
- * [Demographics Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DEMO_E.htm)
+ * Demographics
+   * [Demographics Codebook 2005-2006, 20-59 years](https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DEMO_D.htm)
+   * [Demographics Codebook 2007-2008, 20-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DEMO_E.htm)
+   * [Demographics Codebook 2009-2010, 18+ years](https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DEMO_F.htm)
+   * [Demographics Codebook 2011-2012, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DEMO_G.htm)
+   * [Demographics Codebook 2013-2014, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DEMO_H.htm)
+   * [Demographics Codebook 2015-2016, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.htm)
+   * [Demographics Codebook 2017-2018, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DEMO_J.htm)
  * [Body Measures Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BMX_E.htm)
  * [Diet & Nutrition Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DBQ_E.htm)
  * Drug Use Questionnaire
