@@ -11,8 +11,8 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  
 ## Project Submissions
 
- * [P1](https://docs.google.com/document/d/1esZGLAKbPTJrz6zvrJ-1xNRxyqSH3nybW6i7Mtf3SCg/edit)
- * [P2](https://docs.google.com/document/d/1nWiKf8g7Vi5TEQGirxIsV6bc-sPBX1ftXxgPAh7D3qI/edit)
+ * [P1 - Research Hypothesis](https://docs.google.com/document/d/1esZGLAKbPTJrz6zvrJ-1xNRxyqSH3nybW6i7Mtf3SCg/edit)
+ * [P2 - Analysis Plan](https://docs.google.com/document/d/1nWiKf8g7Vi5TEQGirxIsV6bc-sPBX1ftXxgPAh7D3qI/edit)
 
 ## Getting Started
 
@@ -36,5 +36,5 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Drug Use Codebook 2011-2012, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DUQ_G.htm)
    * [Drug Use Codebook 2013-2014, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DUQ_H.htm)
    * [Drug Use Codebook 2015-2016, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DUQ_I.htm)
-   * [Drug Use Codebook 2015-2016, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DUQ_J.htm)
+   * [Drug Use Codebook 2017-2018, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DUQ_J.htm)
  
