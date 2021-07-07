@@ -153,24 +153,52 @@ a -> e
 Documentation https://cran.r-project.org/web/packages/Gmisc/vignettes/Grid-based_flowcharts.html
 
 ```{r}
-org_cohort <- boxGrob(glue("Stockholm population",
+nhanes05 <- boxGrob(glue("NHANES 2005-2006",
+                           "n = {pop}",
+                           pop = txtInt(10348),
+                           .sep = "\n"))
+nhanes07 <- boxGrob(glue("NHANES 2007-2008",
+                           "n = {pop}",
+                           pop = txtInt(9950),
+                           .sep = "\n"))
+nhanes09 <- boxGrob(glue("NHANES 2009-2010",
+                           "n = {pop}",
+                           pop = txtInt(10537),
+                           .sep = "\n"))
+nhanes11 <- boxGrob(glue("NHANES 2011-2012",
+                           "n = {pop}",
+                           pop = txtInt(10537),
+                           .sep = "\n"))
+nhanes13 <- boxGrob(glue("NHANES 2013-2014",
+                           "n = {pop}",
+                           pop = txtInt(10537),
+                           .sep = "\n"))
+nhanes15 <- boxGrob(glue("NHANES 2015-2016",
+                           "n = {pop}",
+                           pop = txtInt(10537),
+                           .sep = "\n"))
+nhanes17 <- boxGrob(glue("NHANES 2017-2018",
+                           "n = {pop}",
+                           pop = txtInt(10537),
+                           .sep = "\n"))
+org_cohort <- boxGrob(glue("NHANES 2005-2018",
                            "n = {pop}",
                            pop = txtInt(1632798),
                            .sep = "\n"))
-eligible <- boxGrob(glue("Eligible",
+eligible <- boxGrob(glue("Initial Analytic Sample",
                           "n = {pop}",
-                           pop = txtInt(10032),
+                           pop = txtInt(12345),
                            .sep = "\n"))
-included <- boxGrob(glue("Randomized",
+included <- boxGrob(glue("Final Analytic Sample",
                          "n = {incl}",
-                         incl = txtInt(122),
+                         incl = txtInt(12345),
                          .sep = "\n"))
-grp_a <- boxGrob(glue("Treatment A",
+women <- boxGrob(glue("Women",
                       "n = {recr}",
                       recr = txtInt(43),
                       .sep = "\n"))
 
-grp_b <- boxGrob(glue("Treatment B",
+men <- boxGrob(glue("Men",
                       "n = {recr}",
                       recr = txtInt(122 - 43 - 30),
                       .sep = "\n"))
@@ -185,29 +213,47 @@ excluded <- boxGrob(glue("Excluded (n = {tot}):",
                     just = "left")
 
 grid.newpage()
+horz <- spreadHorizontal(nhanes05,
+                         nhanes07,
+                         nhanes09,
+                         nhanes11,
+                         nhanes13,
+                         nhanes15,
+                         nhanes17)
 vert <- spreadVertical(org_cohort,
                        eligible = eligible,
                        included = included,
-                       grps = grp_a)
+                       grps = women)
 grps <- alignVertical(reference = vert$grps,
-                      grp_a, grp_b) %>%
+                      women, men) %>%
   spreadHorizontal()
 vert$grps <- NULL
+
+grps2 <- alignVertical(reference = horz$grps,
+                      nhanes05, nhanes07, nhanes09, nhanes11, nhanes13, nhanes15, nhanes17) %>%
+  spreadHorizontal()
 
 excluded <- moveBox(excluded,
                     x = .8,
                     y = coords(vert$included)$top + distance(vert$eligible, vert$included, half = TRUE, center = FALSE))
 
+for (i in 1:(length(horz) - 1)) {
+  connectGrob(horz[[i]], horz[[i + 1]], type = "horizontal") %>%
+    print
+}
+
 for (i in 1:(length(vert) - 1)) {
   connectGrob(vert[[i]], vert[[i + 1]], type = "vert") %>%
     print
 }
+connectGrob(horz$included, grps[[1]], type = "N")
 connectGrob(vert$included, grps[[1]], type = "N")
 connectGrob(vert$included, grps[[2]], type = "N")
 
 connectGrob(vert$eligible, excluded, type = "L")
 
 # Print boxes
+horz
 vert
 grps
 excluded
@@ -255,3 +301,51 @@ connectGrob(g11, g12, "N")
 connectGrob(g21, g22, "N")
 ```
 
+# Gmisc method flowchart 2
+
+Documentation https://cran.r-project.org/web/packages/Gmisc/vignettes/Grid-based_flowcharts.html
+
+```{r}
+nhanes05 <- boxGrob(glue("NHANES 2005-2006",
+                           "n = {pop}",
+                           pop = txtInt(10348),
+                           .sep = "\n"))
+nhanes07 <- boxGrob(glue("NHANES 2007-2008",
+                           "n = {pop}",
+                           pop = txtInt(9950),
+                           .sep = "\n"))
+nhanes09 <- boxGrob(glue("NHANES 2009-2010",
+                           "n = {pop}",
+                           pop = txtInt(10537),
+                           .sep = "\n"))
+nhanes11 <- boxGrob(glue("NHANES 2011-2012",
+                           "n = {pop}",
+                           pop = txtInt(9756),
+                           .sep = "\n"))
+nhanes13 <- boxGrob(glue("NHANES 2013-2014",
+                           "n = {pop}",
+                           pop = txtInt(10175),
+                           .sep = "\n"))
+nhanes15 <- boxGrob(glue("NHANES 2015-2016",
+                           "n = {pop}",
+                           pop = txtInt(9971),
+                           .sep = "\n"))
+nhanes17 <- boxGrob(glue("NHANES 2017-2018",
+                           "n = {pop}",
+                           pop = txtInt(9254),
+                           .sep = "\n"))
+org_cohort <- boxGrob(glue("NHANES 2005-2018",
+                           "n = {pop}",
+                           pop = txtInt(10348+9950+10537+9756+10175+9971+9254),
+                           .sep = "\n"))
+grid.newpage()
+horz <- spreadVertical(nhanes05,
+                         nhanes07,
+                         nhanes09,
+                         nhanes11,
+                         nhanes13,
+                         nhanes15,
+                         nhanes17) %>% spreadHorizontal()
+
+horz
+```

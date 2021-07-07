@@ -34,8 +34,8 @@ library(Statamarkdown)
 The following STATA chunk imports and describes the sociodemographic NHANES dataset:
 
 ```{stata}
-import sasxport5 "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\DEMO_E.XPT"
-save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_E.dta",replace
+import sasxport5 "DEMO_E.XPT"
+save "temp_DEMO_E.dta",replace
 de
 clear
 ```
@@ -47,8 +47,8 @@ clear
 The following STATA chunk imports and describes the body measures NHANES dataset:
 
 ```{stata}
-import sasxport5 "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\BMX_E.XPT"
-save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_E.dta",replace
+import sasxport5 "BMX_E.XPT"
+save "temp_BMX_E.dta",replace
 de
 clear
 ```
@@ -58,9 +58,9 @@ clear
 The following STATA chunk imports the body measures NHANES dataset, keeps only the needed variables, saves and describes the resulting data subset:
 
 ```{stata}
-import sasxport5 "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\BMX_E.XPT"
+import sasxport5 "BMX_E.XPT"
 keep seqn bmdstats bm*wt bm*ht bmxbmi bm*waist
-save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_E.dta",replace
+save "temp_BMX_E.dta",replace
 de
 clear
 ```
@@ -68,9 +68,9 @@ clear
 ## c import diet behaviour and nutrition
 
 ```{stata}
-import sasxport5 "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\DBQ_E.XPT"
+import sasxport5 "DBQ_E.XPT"
 keep seqn dbq360 dbd381 dbq400 dbd411 dbq421
-save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DBQ_E.dta",replace
+save "temp_DBQ_E.dta",replace
 de
 clear
 ```
@@ -78,9 +78,9 @@ clear
 ## d import health insurance
 
 ```{stata}
-import sasxport5 "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\HIQ_E.XPT"
+import sasxport5 "HIQ_E.XPT"
 keep seqn hiq011 hiq031a  hiq031b hiq031c hiq031d hiq031e hiq031f hiq031g hiq031h hiq031i hiq031j hiq031aa
-save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_HIQ_E.dta",replace
+save "temp_HIQ_E.dta",replace
 de
 clear
 ```
@@ -92,8 +92,8 @@ clear
 The following STATA chunk imports and describes the Food Security NHANES dataset:
 
 ```{stata}
-import sasxport5 "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\FSQ_E.XPT"
-#save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_FSQ_E.dta",replace
+import sasxport5 "FSQ_E.XPT"
+#save "temp_FSQ_E.dta",replace
 de
 clear
 ```
@@ -103,9 +103,9 @@ clear
 The following STATA chunk imports the food security NHANES dataset, keeps only the needed variables, saves and describes the resulting data subset:
 
 ```{stata}
-import sasxport5 "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\FSQ_E.XPT"
+import sasxport5 "FSQ_E.XPT"
 keep seqn fsdch
-save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_FSQ_E.dta",replace
+save "temp_FSQ_E.dta",replace
 de
 clear
 ```
@@ -115,9 +115,9 @@ clear
 ## c demographics and body measurement files
 
 ```{stata}
-use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_E.dta", clear
-save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
-merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_E.dta"
+use "temp_DEMO_E.dta", clear
+save "NHANES0708_merged.dta",replace
+merge 1:1 seqn using "temp_BMX_E.dta"
 rename _merge Merge_BM
 tab Merge_BM
 duplicates report seqn
@@ -127,8 +127,8 @@ save,replace
 ## d merge food security data into main dataset
 
 ```{stata}
-use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta", clear
-merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_FSQ_E.dta"
+use "NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp_FSQ_E.dta"
 rename _merge Merge_FS
 tab Merge_FS
 duplicates report seqn
@@ -140,8 +140,8 @@ save,replace
 ## a merge diet & nutrition data into main dataset
 
 ```{stata}
-use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta", clear
-merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DBQ_E.dta"
+use "NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp_DBQ_E.dta"
 rename _merge Merge_DB
 tab Merge_DB
 duplicates report seqn
@@ -151,8 +151,8 @@ save,replace
 ## b merge health insurance data into main dataset
 
 ```{stata}
-use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta", clear
-merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_HIQ_E.dta"
+use "NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp_HIQ_E.dta"
 rename _merge Merge_HI
 tab Merge_HI
 duplicates report seqn
