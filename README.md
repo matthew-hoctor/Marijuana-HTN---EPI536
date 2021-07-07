@@ -8,11 +8,14 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [DAG on Daggity.net](http://dagitty.net/dags.html?id=DHjoMb#)
  * [Dataset Assembly](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Dataset.html)
  * [Variables Table](https://docs.google.com/spreadsheets/d/1i8GbTjo4PRI1TzPGiHzXwNliISFwh2TPdQciPLfy830/edit#gid=0)
+ * [Discussion & Ideas](https://docs.google.com/document/d/1t_8FqfcYVIMI_mKpDdhFYoWq-HbAZvgTPWsuXJigQXM/edit)
+ * [Data Cleaning Plan](https://docs.google.com/document/d/13fL2GJl13hHvVIi2gTaqwxHL0G8jI0FdORji8mqZoAQ/edit)
  
 ## Project Submissions
 
  * [P1 - Research Hypothesis](https://docs.google.com/document/d/1esZGLAKbPTJrz6zvrJ-1xNRxyqSH3nybW6i7Mtf3SCg/edit)
  * [P2 - Analysis Plan](https://docs.google.com/document/d/1nWiKf8g7Vi5TEQGirxIsV6bc-sPBX1ftXxgPAh7D3qI/edit)
+ * [P3 - Analytic Sample Derivation](https://docs.google.com/document/d/1PQ5jV66IcMB9udq3kbU3LO_Ym2BZ7SkBW_SZbJ63FsA/edit)
 
 ## Getting Started
 
