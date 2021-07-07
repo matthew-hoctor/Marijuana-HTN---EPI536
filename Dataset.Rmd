@@ -20,7 +20,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(engine.path = list(
   stata = "C:/Program Files/Stata17/StataBE-64",
-  stata = "your mac path to stata"
+  stata = "/Applications/Stata"
 ))
 ```
 
