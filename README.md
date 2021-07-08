@@ -22,6 +22,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [STATA in RStudio](https://bookdown.org/yihui/rmarkdown-cookbook/eng-stata.html)
  * [STATA and RMarkdown](https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown.html)
  * [RStudio Git Integration Setup](https://happygitwithr.com/rstudio-git-github.html)
+ * [Flowchart STATA Package](https://github.com/IsaacDodd/flowchart)
 
 ## NHANES Data & Documentation
 
