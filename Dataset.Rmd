@@ -29,15 +29,45 @@ library(Statamarkdown)
 ```
 
 # 1 Downloading data from the NHANES website
-Test Edit
 
-# 2 Import Sociodemographic XPT
+## Starting with 2007-2008
+
+```{r 2007-2008 downloads}
+if(!file.exists("data/DEMO_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DEMO_E.XPT", 
+                destfile = "data/DEMO_E.XPT",
+                method = "auto")
+}
+if(!file.exists("data/DUQ_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DUQ_E.XPT", 
+                destfile = "data/DUQ_E.XPT",
+                method = "auto")
+}
+if(!file.exists("data/BPX_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BPX_E.XPT", 
+                destfile = "data/BPX_E.XPT",
+                method = "auto")
+}
+```
+
+
+## 2009-2010
+
+## 2011-2012
+
+## 2013-2014
+
+## 2015-2016
+
+## 2017-2018
+
+# 2 Import XPTs for 2007-2008
 
 The following STATA chunk imports and describes the sociodemographic NHANES dataset:
 
 ```{stata}
-import sasxport5 "DEMO_E.XPT"
-save "temp_DEMO_E.dta",replace
-de
-clear
+# import sasxport5 "DEMO_E.XPT"
+# save "temp_DEMO_E.dta",replace
+# de
+# clear
 ```
