@@ -18,10 +18,11 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(engine.path = list(
-  stata = "C:/Program Files/Stata17/StataBE-64",
-  stata = "/Applications/Stata"
-))
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if (!(Sys.info()["sysname"] == "Windows"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata"))
 ```
 
 ```{r libraries, include=FALSE}
@@ -35,10 +36,10 @@ library(Statamarkdown)
 The following STATA chunk imports and describes the sociodemographic NHANES dataset:
 
 ```{stata}
-# import sasxport5 "DEMO_E.XPT"
-# save "temp_DEMO_E.dta",replace
-# de
-# clear
+import sasxport5 "data/2007-2008/DEMO_E.XPT"
+save "temp/2007-2008/DEMO_E.dta",replace
+de
+clear
 ```
 
 ## Drug Use, DUQ_XYZ.XPT
