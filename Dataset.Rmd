@@ -90,13 +90,13 @@ clear
 ## Merge Files
 
 ```{stata}
-# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_E.dta", clear
-# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
-# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_E.dta"
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace
+use "temp\2007-2008\DEMO_E.dta", clear
+save "data\NHANES0708_merged.dta",replace
+merge 1:1 seqn using "temp\2007-2008\BMX_E.dta"
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace
 ```
 
 # 2 Import XPTs for 2009-2010
@@ -160,13 +160,13 @@ clear
 ## Merge Files
 
 ```{stata}
-# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_F.dta", clear
-# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
-# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_F.dta"
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace
+use "temp\2009-2010\DEMO_F.dta", clear
+save "data\NHANES0708_merged.dta",replace
+merge 1:1 seqn using "temp\2009-2010\BMX_F.dta"
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace
 ```
 
 # 3 Import XPTs for 2011-2012
@@ -230,13 +230,13 @@ clear
 ## Merge Files
 
 ```{stata}
-# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_G.dta", clear
-# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
-# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_G.dta"
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace
+use "temp\2011-2012\DEMO_G.dta", clear
+save "data\NHANES0708_merged.dta",replace
+merge 1:1 seqn using "temp\2011-2012\BMX_G.dta"
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace
 ```
 
 # 4 Import XPTs for 2013-2014
@@ -300,13 +300,13 @@ clear
 ## Merge Files
 
 ```{stata}
-# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_H.dta", clear
-# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
-# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_H.dta"
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace
+use "temp\2013-2014\DEMO_H.dta", clear
+save "data\NHANES0708_merged.dta",replace
+merge 1:1 seqn using "temp\2013-2014\BMX_H.dta"
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace
 ```
 
 # 5 Import XPTs for 2015-2016
@@ -370,13 +370,13 @@ clear
 ## Merge Files
 
 ```{stata}
-# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_I.dta", clear
-# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
-# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_I.dta"
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace
+use "temp\2015-2016\DEMO_I.dta", clear
+save "data\NHANES0708_merged.dta",replace
+merge 1:1 seqn using "temp\2015-2016\BMX_I.dta"
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace
 ```
 
 # 6 Import XPTs for 2017-2018
@@ -440,13 +440,13 @@ clear
 ## Merge Files
 
 ```{stata}
-# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_J.dta", clear
-# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
-# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_J.dta"
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace
+use "temp\2017-2018DEMO_J.dta", clear
+save "data\NHANES0708_merged.dta",replace
+merge 1:1 seqn using "temp\2017-2018\BMX_J.dta"
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace
 ```
 
 
