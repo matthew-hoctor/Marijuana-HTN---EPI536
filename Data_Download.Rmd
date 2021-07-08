@@ -1,0 +1,281 @@
+---
+title: "Data Download"
+author: "Bryon Langford, Matthew Hoctor"
+date: "6/30/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(engine.path = list(
+  stata = "C:/Program Files/Stata17/StataBE-64",
+  stata = "/Applications/Stata"
+))
+```
+
+```{r libraries, include=FALSE}
+#library(Statamarkdown)
+```
+
+# Starting with 2007-2008
+
+Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
+
+```{r 2007-2008 downloads}
+if(!file.exists("data/2007-2008/DEMO_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DEMO_E.XPT", 
+                destfile = "data/2007-2008/DEMO_E.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2007-2008/DUQ_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DUQ_E.XPT", 
+                destfile = "data/2007-2008/DUQ_E.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2007-2008/BPX_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BPX_E.XPT", 
+                destfile = "data/2007-2008/BPX_E.XPT",
+                method = "auto")
+}
+# if(!file.exists("data/2007-2008/DR1IFF_E.XPT")){
+#   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DR1IFF_E.XPT", 
+#                 destfile = "data/2007-2008/DR1IFF_E.XPT",
+#                 method = "auto")
+# }
+if(!file.exists("data/2007-2008/BMX_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BMX_E.XPT", 
+                destfile = "data/2007-2008/BMX_E.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2007-2008/SMQ_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/SMQ_E.XPT", 
+                destfile = "data/2007-2008/SMQ_E.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2007-2008/ALQ_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/ALQ_E.XPT", 
+                destfile = "data/2007-2008/ALQ_E.XPT",
+                method = "auto")
+}
+```
+
+# 2009-2010
+
+Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
+
+```{r 2009-2010 downloads}
+if(!file.exists("data/2009-2010/DEMO_F.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DEMO_F.XPT", 
+                destfile = "data/2009-2010/DEMO_F.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2009-2010/DUQ_F.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DUQ_F.XPT", 
+                destfile = "data/2009-2010/DUQ_F.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2009-2010/BPX_F.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BPX_F.XPT", 
+                destfile = "data/2009-2010/BPX_F.XPT",
+                method = "auto")
+}
+# if(!file.exists("data/2009-2010/DR1IFF_F.XPT")){
+#   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DR1IFF_F.XPT", 
+#                 destfile = "data/2009-2010/DR1IFF_F.XPT",
+#                 method = "auto")
+# }
+if(!file.exists("data/2009-2010/BMX_F.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BMX_F.XPT", 
+                destfile = "data/2009-2010/BMX_F.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2009-2010/SMQ_F.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/SMQ_F.XPT", 
+                destfile = "data/2009-2010/SMQ_F.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2009-2010/ALQ_F.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/ALQ_F.XPT", 
+                destfile = "data/2009-2010/ALQ_F.XPT",
+                method = "auto")
+}
+```
+
+# 2011-2012
+
+Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
+
+```{r 2011-2012 downloads}
+if(!file.exists("data/2011-2012/DEMO_G.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DEMO_G.XPT", 
+                destfile = "data/2011-2012/DEMO_G.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2011-2012/DUQ_G.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DUQ_G.XPT", 
+                destfile = "data/2011-2012/DUQ_G.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2011-2012/BPX_G.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/BPX_G.XPT", 
+                destfile = "data/2011-2012/BPX_G.XPT",
+                method = "auto")
+}
+# if(!file.exists("data/2011-2012/DR1IFF_G.XPT")){
+#   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DR1IFF_G.XPT", 
+#                 destfile = "data/2011-2012/DR1IFF_G.XPT",
+#                 method = "auto")
+# }
+if(!file.exists("data/2011-2012/BMX_G.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/BMX_G.XPT", 
+                destfile = "data/2011-2012/BMX_G.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2011-2012/SMQ_G.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/SMQ_G.XPT", 
+                destfile = "data/2011-2012/SMQ_G.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2011-2012/ALQ_G.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/ALQ_G.XPT", 
+                destfile = "data/2011-2012/ALQ_G.XPT",
+                method = "auto")
+}
+```
+
+# 2013-2014
+
+Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
+
+```{r 2013-2014 downloads}
+if(!file.exists("data/2013-2014/DEMO_H.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DEMO_H.XPT", 
+                destfile = "data/2013-2014/DEMO_H.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2013-2014/DUQ_H.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DUQ_H.XPT", 
+                destfile = "data/2013-2014/DUQ_H.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2013-2014/BPX_H.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/BPX_H.XPT", 
+                destfile = "data/2013-2014/BPX_H.XPT",
+                method = "auto")
+}
+# if(!file.exists("data/2013-2014/DR1IFF_H.XPT")){
+#   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DR1IFF_H.XPT", 
+#                 destfile = "data/2013-2014/DR1IFF_H.XPT",
+#                 method = "auto")
+# }
+if(!file.exists("data/2013-2014/BMX_H.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/BMX_H.XPT", 
+                destfile = "data/2013-2014/BMX_H.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2013-2014/SMQ_H.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/SMQ_H.XPT", 
+                destfile = "data/2013-2014/SMQ_H.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2013-2014/ALQ_H.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/ALQ_H.XPT", 
+                destfile = "data/2013-2014/ALQ_H.XPT",
+                method = "auto")
+}
+```
+
+# 2015-2016
+
+Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
+
+```{r 2015-2016 downloads}
+if(!file.exists("data/2015-2016/DEMO_I.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.XPT", 
+                destfile = "data/2015-2016/DEMO_I.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2015-2016/DUQ_I.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DUQ_I.XPT", 
+                destfile = "data/2015-2016/DUQ_I.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2015-2016/BPX_I.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BPX_I.XPT", 
+                destfile = "data/2015-2016/BPX_I.XPT",
+                method = "auto")
+}
+# if(!file.exists("data/2015-2016/DR1IFF_I.XPT")){
+#   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR1IFF_I.XPT", 
+#                 destfile = "data/2015-2016/DR1IFF_I.XPT",
+#                 method = "auto")
+# }
+if(!file.exists("data/2015-2016/BMX_I.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BMX_I.XPT", 
+                destfile = "data/2015-2016/BMX_I.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2015-2016/SMQ_I.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/SMQ_I.XPT", 
+                destfile = "data/2015-2016/SMQ_I.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2015-2016/ALQ_I.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/ALQ_I.XPT", 
+                destfile = "data/2015-2016/ALQ_I.XPT",
+                method = "auto")
+}
+```
+
+# 2017-2018
+
+Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
+
+```{r 2017-2018 downloads}
+if(!file.exists("data/2017-2018/DEMO_J.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DEMO_J.XPT", 
+                destfile = "data/2017-2018/DEMO_J.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2017-2018/DUQ_J.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DUQ_J.XPT", 
+                destfile = "data/2017-2018/DUQ_J.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2017-2018/BPX_J.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BPX_J.XPT", 
+                destfile = "data/2017-2018/BPX_J.XPT",
+                method = "auto")
+}
+# if(!file.exists("data/2017-2018/DR1IFF_J.XPT")){
+#   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DR1IFF_J.XPT", 
+#                 destfile = "data/2017-2018/DR1IFF_J.XPT",
+#                 method = "auto")
+# }
+if(!file.exists("data/2017-2018/BMX_J.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.XPT", 
+                destfile = "data/2017-2018/BMX_J.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2017-2018/SMQ_J.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SMQ_J.XPT", 
+                destfile = "data/2017-2018/SMQ_J.XPT",
+                method = "auto")
+}
+if(!file.exists("data/2017-2018/ALQ_J.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/ALQ_J.XPT", 
+                destfile = "data/2017-2018/ALQ_J.XPT",
+                method = "auto")
+}
+```
