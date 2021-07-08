@@ -251,24 +251,81 @@ div.tocify {
 <h1>1 Downloading data from the NHANES website</h1>
 <div id="starting-with-2007-2008" class="section level2">
 <h2>Starting with 2007-2008</h2>
-<pre class="r"><code>if(!file.exists(&quot;data/DEMO_E.XPT&quot;)){
+<p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
+<pre class="r"><code>if(!file.exists(&quot;data/2007-2008/DEMO_E.XPT&quot;)){
   download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DEMO_E.XPT&quot;, 
-                destfile = &quot;data/DEMO_E.XPT&quot;,
+                destfile = &quot;data/2007-2008/DEMO_E.XPT&quot;,
                 method = &quot;auto&quot;)
 }
-if(!file.exists(&quot;data/DUQ_E.XPT&quot;)){
+if(!file.exists(&quot;data/2007-2008/DUQ_E.XPT&quot;)){
   download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DUQ_E.XPT&quot;, 
-                destfile = &quot;data/DUQ_E.XPT&quot;,
+                destfile = &quot;data/2007-2008/DUQ_E.XPT&quot;,
                 method = &quot;auto&quot;)
 }
-if(!file.exists(&quot;data/BPX_E.XPT&quot;)){
+if(!file.exists(&quot;data/2007-2008/BPX_E.XPT&quot;)){
   download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BPX_E.XPT&quot;, 
-                destfile = &quot;data/BPX_E.XPT&quot;,
+                destfile = &quot;data/2007-2008/BPX_E.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2007-2008/DR1IFF_E.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DR1IFF_E.XPT&quot;, 
+                destfile = &quot;data/2007-2008/DR1IFF_E.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2007-2008/BMX_E.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BMX_E.XPT&quot;, 
+                destfile = &quot;data/2007-2008/BMX_E.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2007-2008/SMQ_E.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/SMQ_E.XPT&quot;, 
+                destfile = &quot;data/2007-2008/SMQ_E.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2007-2008/ALQ_E.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/ALQ_E.XPT&quot;, 
+                destfile = &quot;data/2007-2008/ALQ_E.XPT&quot;,
                 method = &quot;auto&quot;)
 }</code></pre>
 </div>
 <div id="section" class="section level2">
 <h2>2009-2010</h2>
+<p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
+<pre class="r"><code>if(!file.exists(&quot;data/2009-2010/DEMO_F.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DEMO_F.XPT&quot;, 
+                destfile = &quot;data/2009-2010/DEMO_F.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2009-2010/DUQ_F.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DUQ_F.XPT&quot;, 
+                destfile = &quot;data/2009-2010/DUQ_F.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2009-2010/BPX_F.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BPX_F.XPT&quot;, 
+                destfile = &quot;data/2009-2010/BPX_F.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2009-2010/DR1IFF_F.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DR1IFF_F.XPT&quot;, 
+                destfile = &quot;data/2009-2010/DR1IFF_F.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2009-2010/BMX_F.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BMX_F.XPT&quot;, 
+                destfile = &quot;data/2009-2010/BMX_F.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2009-2010/SMQ_F.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/SMQ_F.XPT&quot;, 
+                destfile = &quot;data/2009-2010/SMQ_F.XPT&quot;,
+                method = &quot;auto&quot;)
+}
+if(!file.exists(&quot;data/2009-2010/ALQ_F.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/ALQ_F.XPT&quot;, 
+                destfile = &quot;data/2009-2010/ALQ_F.XPT&quot;,
+                method = &quot;auto&quot;)
+}</code></pre>
 </div>
 <div id="section-1" class="section level2">
 <h2>2011-2012</h2>
