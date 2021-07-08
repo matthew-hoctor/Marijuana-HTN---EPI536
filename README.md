@@ -11,6 +11,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [Variables Table](https://docs.google.com/spreadsheets/d/1i8GbTjo4PRI1TzPGiHzXwNliISFwh2TPdQciPLfy830/edit#gid=0)
  * [Discussion & Ideas](https://docs.google.com/document/d/1t_8FqfcYVIMI_mKpDdhFYoWq-HbAZvgTPWsuXJigQXM/edit)
  * [Data Cleaning Plan](https://docs.google.com/document/d/13fL2GJl13hHvVIi2gTaqwxHL0G8jI0FdORji8mqZoAQ/edit)
+ * [Data Download Script](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Data_Download.html)
  
 ## Project Submissions
 
