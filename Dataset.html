@@ -247,109 +247,2324 @@ div.tocify {
 </div>
 
 
-<div id="downloading-data-from-the-nhanes-website" class="section level1">
-<h1>1 Downloading data from the NHANES website</h1>
-<div id="starting-with-2007-2008" class="section level2">
-<h2>Starting with 2007-2008</h2>
-<p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
-<pre class="r"><code>if(!file.exists(&quot;data/2007-2008/DEMO_E.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DEMO_E.XPT&quot;, 
-                destfile = &quot;data/2007-2008/DEMO_E.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2007-2008/DUQ_E.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DUQ_E.XPT&quot;, 
-                destfile = &quot;data/2007-2008/DUQ_E.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2007-2008/BPX_E.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BPX_E.XPT&quot;, 
-                destfile = &quot;data/2007-2008/BPX_E.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2007-2008/DR1IFF_E.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DR1IFF_E.XPT&quot;, 
-                destfile = &quot;data/2007-2008/DR1IFF_E.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2007-2008/BMX_E.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BMX_E.XPT&quot;, 
-                destfile = &quot;data/2007-2008/BMX_E.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2007-2008/SMQ_E.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/SMQ_E.XPT&quot;, 
-                destfile = &quot;data/2007-2008/SMQ_E.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2007-2008/ALQ_E.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/ALQ_E.XPT&quot;, 
-                destfile = &quot;data/2007-2008/ALQ_E.XPT&quot;,
-                method = &quot;auto&quot;)
-}</code></pre>
-</div>
-<div id="section" class="section level2">
-<h2>2009-2010</h2>
-<p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
-<pre class="r"><code>if(!file.exists(&quot;data/2009-2010/DEMO_F.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DEMO_F.XPT&quot;, 
-                destfile = &quot;data/2009-2010/DEMO_F.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2009-2010/DUQ_F.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DUQ_F.XPT&quot;, 
-                destfile = &quot;data/2009-2010/DUQ_F.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2009-2010/BPX_F.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BPX_F.XPT&quot;, 
-                destfile = &quot;data/2009-2010/BPX_F.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2009-2010/DR1IFF_F.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DR1IFF_F.XPT&quot;, 
-                destfile = &quot;data/2009-2010/DR1IFF_F.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2009-2010/BMX_F.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BMX_F.XPT&quot;, 
-                destfile = &quot;data/2009-2010/BMX_F.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2009-2010/SMQ_F.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/SMQ_F.XPT&quot;, 
-                destfile = &quot;data/2009-2010/SMQ_F.XPT&quot;,
-                method = &quot;auto&quot;)
-}
-if(!file.exists(&quot;data/2009-2010/ALQ_F.XPT&quot;)){
-  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/ALQ_F.XPT&quot;, 
-                destfile = &quot;data/2009-2010/ALQ_F.XPT&quot;,
-                method = &quot;auto&quot;)
-}</code></pre>
-</div>
-<div id="section-1" class="section level2">
-<h2>2011-2012</h2>
-</div>
-<div id="section-2" class="section level2">
-<h2>2013-2014</h2>
-</div>
-<div id="section-3" class="section level2">
-<h2>2015-2016</h2>
-</div>
-<div id="section-4" class="section level2">
-<h2>2017-2018</h2>
-</div>
-</div>
 <div id="import-xpts-for-2007-2008" class="section level1">
-<h1>2 Import XPTs for 2007-2008</h1>
+<h1>1 Import XPTs for 2007-2008</h1>
+<div id="demographics-demo_xyz.xpt" class="section level2">
+<h2>Demographics, DEMO_XYZ.XPT</h2>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
-<pre class="stata"><code># import sasxport5 &quot;DEMO_E.XPT&quot;
-# save &quot;temp_DEMO_E.dta&quot;,replace
-# de
-# clear</code></pre>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DEMO_E.XPT&quot;
+save &quot;temp/2007-2008/DEMO_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/DEMO_E.dta saved
+
+
+Contains data from temp/2007-2008/DEMO_E.dta
+  obs:        10,149                          
+ vars:            43                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+sddsrvyr        double  %10.0g                Data Release Number
+ridstatr        double  %10.0g                Interview/Examination Status
+ridexmon        double  %10.0g                Six month time period
+riagendr        double  %10.0g                Gender
+ridageyr        double  %10.0g                Age at Screening Adjudicated -
+                                                Recode
+ridagemn        double  %10.0g                Age in Months at Screening -
+                                                Recode
+ridageex        double  %10.0g                Age in Months at Exam - Recode
+ridreth1        double  %10.0g                Race/Ethnicity - Recode
+dmqmilit        double  %10.0g                Served in the US Armed Forces
+dmdborn2        double  %10.0g                Country of Birth - Recode
+dmdcitzn        double  %10.0g                Citizenship Status
+dmdyrsus        double  %10.0g                Length of time in US
+dmdeduc3        double  %10.0g                Education Level - Children/Youth
+                                                6-19
+dmdeduc2        double  %10.0g                Education Level - Adults 20+
+dmdschol        double  %10.0g                Now attending school?
+dmdmartl        double  %10.0g                Marital Status
+dmdhhsiz        double  %10.0g                Total number of people in the
+                                                Household
+dmdfmsiz        double  %10.0g                Total number of people in the
+                                                Family
+indhhin2        double  %10.0g                Annual Household Income
+indfmin2        double  %10.0g                Annual Family Income
+indfmpir        double  %10.0g                Ratio of family income to poverty
+ridexprg        double  %10.0g                Pregnancy Status at Exam - Recode
+dmdhrgnd        double  %10.0g                HH Ref Person Gender
+dmdhrage        double  %10.0g                HH Ref Person Age
+dmdhrbr2        double  %10.0g                HH Ref Person Country of Birth
+dmdhredu        double  %10.0g                HH Ref Person Education Level
+dmdhrmar        double  %10.0g                HH Ref Person Marital Status
+dmdhsedu        double  %10.0g                HH Ref Person&#39;s Spouse Education
+                                                Level
+sialang         double  %10.0g                Language of SP Interview
+siaproxy        double  %10.0g                Proxy used in SP Interview?
+siaintrp        double  %10.0g                Interpreter used in SP Interview?
+fialang         double  %10.0g                Language of Family Interview
+fiaproxy        double  %10.0g                Proxy used in Family Interview?
+fiaintrp        double  %10.0g                Interpreter used in Family
+                                                Interview?
+mialang         double  %10.0g                Language of MEC Interview
+miaproxy        double  %10.0g                Proxy used in MEC Interview?
+miaintrp        double  %10.0g                Interpreter used in MEC
+                                                Interview?
+aialang         double  %10.0g                Language of ACASI Interview
+wtint2yr        double  %10.0g                Full Sample 2 Year Interview
+                                                Weight
+wtmec2yr        double  %10.0g                Full Sample 2 Year MEC Exam
+                                                Weight
+sdmvpsu         double  %10.0g                Masked Variance Pseudo-PSU
+sdmvstra        double  %10.0g                Masked Variance Pseudo-Stratum
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt" class="section level2">
+<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DUQ_E.XPT&quot;
+save &quot;temp/2007-2008/DUQ_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/DUQ_E.dta saved
+
+
+Contains data from temp/2007-2008/DUQ_E.dta
+  obs:         4,625                          
+ vars:            37                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+duaisc          double  %10.0g                Interview status code
+duq200          double  %10.0g                Ever used marijuana or hashish
+duq210          double  %10.0g                Age when first tried marijuana
+duq220q         double  %10.0g                Last time used marijuana or
+                                                hashish
+duq220u         double  %10.0g                Last time used marijuana or
+                                                hashish/unit
+duq230          double  %10.0g                # days used marijuana or
+                                                hashish/month
+duq240          double  %10.0g                Ever used
+                                                cocaine/heroin/methamphetamine
+duq250          double  %10.0g                Ever use any form of cocaine
+duq260          double  %10.0g                Age first used cocaine
+duq270q         double  %10.0g                Last time you used cocaine, in
+                                                any form
+duq270u         double  %10.0g                Last time you used cocaine/unit
+duq272          double  %10.0g                # of time you used cocaine
+duq280          double  %10.0g                # of days used cocaine/month
+duq290          double  %10.0g                Ever used heroin
+duq300          double  %10.0g                Age first used heroin
+duq310q         double  %10.0g                Last time used heroin
+duq310u         double  %10.0g                Last time used heroin/unit
+duq320          double  %10.0g                # of days used heroin/month
+duq330          double  %10.0g                Ever used methamphetamine
+duq340          double  %10.0g                Age first used methamphetamine
+duq350q         double  %10.0g                Last time used methamphetamine
+duq350u         double  %10.0g                Last time used
+                                                methamphetamine/unit
+duq352          double  %10.0g                # times used methamphetamine
+duq360          double  %10.0g                # days used methamphetamine/month
+duq370          double  %10.0g                Ever use a needle to inject
+                                                illegal drug
+duq380a         double  %10.0g                Drugs injected - Cocaine
+duq380b         double  %10.0g                Drugs injected - Heroin
+duq380c         double  %10.0g                Drugs injected - Methamphetamine
+duq380d         double  %10.0g                Drugs injected - Steroids
+duq380e         double  %10.0g                Drugs injected - Any other drugs
+duq390          double  %10.0g                Age first injected drugs
+duq400q         double  %10.0g                Last time injected drugs
+duq400u         double  %10.0g                Last time injected drugs/unit
+duq410          double  %10.0g                # times injected drugs/lifetime
+duq420          double  %10.0g                How often did you inject drugs
+duq430          double  %10.0g                Ever been in rehabilitation
+                                                program
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt" class="section level2">
+<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/BPX_E.XPT&quot;
+save &quot;temp/2007-2008/BPX_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/BPX_E.dta saved
+
+
+Contains data from temp/2007-2008/BPX_E.dta
+  obs:         9,762                          
+ vars:            27                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+peascst1        double  %10.0g                Blood Pressure Status
+peasctm1        double  %10.0g                Blood Pressure Time in Seconds
+peascct1        double  %10.0g                Blood Pressure Comment
+bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
+bpq150a         double  %10.0g                Had food in the past 30 minutes?
+bpq150b         double  %10.0g                Had alcohol in the past 30
+                                                minutes?
+bpq150c         double  %10.0g                Had coffee in the past 30
+                                                minutes?
+bpq150d         double  %10.0g                Had cigarettes in the past 30
+                                                minutes?
+bpaarm          double  %10.0g                Arm selected:
+bpacsz          double  %10.0g                Coded cuff size
+bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse *
+                                                2):
+bpxpuls         double  %10.0g                Pulse regular or irregular?
+bpxpty          double  %10.0g                Pulse type:
+bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
+                                                Hg)
+bpxsy1          double  %10.0g                Systolic:  Blood pres (1st rdg)
+                                                mm Hg
+bpxdi1          double  %10.0g                Diastolic:  Blood pres (1st rdg)
+                                                mm Hg
+bpaen1          double  %10.0g                Enhancement used first reading
+bpxsy2          double  %10.0g                Systolic:  Blood pres (2nd rdg)
+                                                mm Hg
+bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
+                                                mm Hg
+bpaen2          double  %10.0g                Enhancement used second reading
+bpxsy3          double  %10.0g                Systolic:  Blood pres (3rd rdg)
+                                                mm Hg
+bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
+                                                mm Hg
+bpaen3          double  %10.0g                Enhancement used third reading
+bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
+                                                Hg
+bpxdi4          double  %10.0g                Diastolic:  Blood pres (4th rdg)
+                                                mm Hg
+bpaen4          double  %10.0g                Enhancement used fourth reading
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt" class="section level2">
+<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/BMX_E.XPT&quot;
+save &quot;temp/2007-2008/BMX_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/BMX_E.dta saved
+
+
+Contains data from temp/2007-2008/BMX_E.dta
+  obs:         9,762                          
+ vars:            23                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bmdstats        double  %10.0g                Body Measures Component Status
+                                                Code
+bmxwt           double  %10.0g                Weight (kg)
+bmiwt           double  %10.0g                Weight Comment
+bmxrecum        double  %10.0g                Recumbent Length (cm)
+bmirecum        double  %10.0g                Recumbent Length Comment
+bmxhead         double  %10.0g                Head Circumference (cm)
+bmihead         double  %10.0g                Head Circumference Comment
+bmxht           double  %10.0g                Standing Height (cm)
+bmiht           double  %10.0g                Standing Height Comment
+bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
+bmxleg          double  %10.0g                Upper Leg Length (cm)
+bmileg          double  %10.0g                Upper Leg Length Comment
+bmxarml         double  %10.0g                Upper Arm Length (cm)
+bmiarml         double  %10.0g                Upper Arm Length Comment
+bmxarmc         double  %10.0g                Arm Circumference (cm)
+bmiarmc         double  %10.0g                Arm Circumference Comment
+bmxwaist        double  %10.0g                Waist Circumference (cm)
+bmiwaist        double  %10.0g                Waist Circumference Comment
+bmxtri          double  %10.0g                Triceps Skinfold (mm)
+bmitri          double  %10.0g                Triceps Skinfold Comment
+bmxsub          double  %10.0g                Subscapular Skinfold (mm)
+bmisub          double  %10.0g                Subscapular Skinfold Comment
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt" class="section level2">
+<h2>Smoking, SMQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/SMQ_E.XPT&quot;
+save &quot;temp/2007-2008/SMQ_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/SMQ_E.dta saved
+
+
+Contains data from temp/2007-2008/SMQ_E.dta
+  obs:         7,145                          
+ vars:            37                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smd030          double  %10.0g                Age started smoking cigarettes
+                                                regularly
+smq040          double  %10.0g                Do you now smoke cigarettes
+smq050q         double  %10.0g                How long since quit smoking
+                                                cigarettes
+smq050u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smd055          double  %10.0g                Age last smoked cigarettes
+                                                regularly
+smd057          double  %10.0g                # cigarettes smoked per day when
+                                                quit
+smq077          double  %10.0g                How soon after waking do you
+                                                smoke
+smd641          double  %10.0g                # days smoked cigs during past 30
+                                                days
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+smd093          double  %10.0g                May I please see the pack of
+                                                cigarettes
+smdupca         str12   %12s                  Cig 12-digit Universal Product
+                                                Code-UPC
+smd100br        str50   %50s                  Cigarette Brand/sub-brand
+smd100fl        double  %10.0g                Filter type
+smd100mn        double  %10.0g                Menthol indicator
+smd100ln        double  %10.0g                Length
+smd100tr        double  %10.0g                FTC Tar Content
+smd100ni        double  %10.0g                FTC Nicotine Content
+smd100co        double  %10.0g                FTC Carbon Monoxide Content
+smq620          double  %10.0g                Ever tried cigarette smoking
+smd630          double  %10.0g                Age first smoked whole cigarette
+smq660          double  %10.0g                Brands of cigarettes smoked/past
+                                                mo
+smq664m         double  %10.0g                Menthol or non-menthol Marlboro
+smq664c         double  %10.0g                Menthol or non-menthol Camels
+smq664w         double  %10.0g                Menthol or non-menthol Winston
+smq664b         double  %10.0g                Menthol or non-menthol
+                                                BensonHedges
+smq664o         double  %10.0g                Menthol or non-menthol other
+                                                brand
+smq666m         double  %10.0g                Regular, light or ultralite
+                                                Marlboro
+smq666c         double  %10.0g                Regular, light or ultralite
+                                                Camels
+smq666k         double  %10.0g                Regular, light or ultralite Kools
+smq666w         double  %10.0g                Regular, light or ultralite
+                                                Winston
+smq666b         double  %10.0g                Regular, light or ultralite
+                                                BensonHedges
+smq666s         double  %10.0g                Regular, light or ultralite Salem
+smq666o         double  %10.0g                Regular, light or ultralite other
+                                                brand
+smq670          double  %10.0g                Tried to quit smoking
+smaquex2        double  %10.0g                Questionnaire Mode Flag
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt" class="section level2">
+<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/ALQ_E.XPT&quot;
+save &quot;temp/2007-2008/ALQ_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/ALQ_E.dta saved
+
+
+Contains data from temp/2007-2008/ALQ_E.dta
+  obs:         5,707                          
+ vars:             9                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
+alq110          double  %10.0g                Had at least 12 alcohol
+                                                drinks/lifetime?
+alq120q         double  %10.0g                How often drink alcohol over past
+                                                12 mos
+alq120u         double  %10.0g                # days drink alcohol per wk, mo,
+                                                yr
+alq130          double  %10.0g                Avg # alcoholic drinks/day -past
+                                                12 mos
+alq140q         double  %10.0g                #days have 5 or more drinks/past
+                                                12 mos
+alq140u         double  %10.0g                # days per week, month, year?
+alq150          double  %10.0g                Ever have 5 or more drinks every
+                                                day?
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="merge-files" class="section level2">
+<h2>Merge Files</h2>
+<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_E.dta&quot;, clear
+# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
+# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_E.dta&quot;
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace</code></pre>
 <pre><code>Unknown #command
-delimiter now ;
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
 Unknown #command</code></pre>
+</div>
+</div>
+<div id="import-xpts-for-2009-2010" class="section level1">
+<h1>2 Import XPTs for 2009-2010</h1>
+<div id="demographics-demo_xyz.xpt-1" class="section level2">
+<h2>Demographics, DEMO_XYZ.XPT</h2>
+<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DEMO_F.XPT&quot;
+save &quot;temp/2009-2010/DEMO_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2009-2010/DEMO_F.dta not found)
+file temp/2009-2010/DEMO_F.dta saved
+
+
+Contains data from temp/2009-2010/DEMO_F.dta
+  obs:        10,537                          
+ vars:            43                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+sddsrvyr        double  %10.0g                Data Release Number
+ridstatr        double  %10.0g                Interview/Examination Status
+ridexmon        double  %10.0g                Six month time period
+riagendr        double  %10.0g                Gender
+ridageyr        double  %10.0g                Age at Screening Adjudicated -
+                                                Recode
+ridagemn        double  %10.0g                Age in Months at Screening -
+                                                Recode
+ridageex        double  %10.0g                Age in Months at Exam - Recode
+ridreth1        double  %10.0g                Race/Ethnicity - Recode
+dmqmilit        double  %10.0g                Served in the US Armed Forces
+dmdborn2        double  %10.0g                Country of Birth - Recode
+dmdcitzn        double  %10.0g                Citizenship Status
+dmdyrsus        double  %10.0g                Length of time in US
+dmdeduc3        double  %10.0g                Education Level - Children/Youth
+                                                6-19
+dmdeduc2        double  %10.0g                Education Level - Adults 20+
+dmdschol        double  %10.0g                Now attending school?
+dmdmartl        double  %10.0g                Marital Status
+dmdhhsiz        double  %10.0g                Total number of people in the
+                                                Household
+dmdfmsiz        double  %10.0g                Total number of people in the
+                                                Family
+indhhin2        double  %10.0g                Annual Household Income
+indfmin2        double  %10.0g                Annual Family Income
+indfmpir        double  %10.0g                Ratio of family income to poverty
+ridexprg        double  %10.0g                Pregnancy Status at Exam - Recode
+dmdhrgnd        double  %10.0g                HH Ref Person Gender
+dmdhrage        double  %10.0g                HH Ref Person Age
+dmdhrbr2        double  %10.0g                HH Ref Person Country of Birth
+dmdhredu        double  %10.0g                HH Ref Person Education Level
+dmdhrmar        double  %10.0g                HH Ref Person Marital Status
+dmdhsedu        double  %10.0g                HH Ref Person&#39;s Spouse Education
+                                                Level
+sialang         double  %10.0g                Language of SP Interview
+siaproxy        double  %10.0g                Proxy used in SP Interview?
+siaintrp        double  %10.0g                Interpreter used in SP Interview?
+fialang         double  %10.0g                Language of Family Interview
+fiaproxy        double  %10.0g                Proxy used in Family Interview?
+fiaintrp        double  %10.0g                Interpreter used in Family
+                                                Interview?
+mialang         double  %10.0g                Language of MEC Interview
+miaproxy        double  %10.0g                Proxy used in MEC Interview?
+miaintrp        double  %10.0g                Interpreter used in MEC
+                                                Interview?
+aialang         double  %10.0g                Language of ACASI Interview
+wtint2yr        double  %10.0g                Full Sample 2 Year Interview
+                                                Weight
+wtmec2yr        double  %10.0g                Full Sample 2 Year MEC Exam
+                                                Weight
+sdmvpsu         double  %10.0g                Masked Variance Pseudo-PSU
+sdmvstra        double  %10.0g                Masked Variance Pseudo-Stratum
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt-1" class="section level2">
+<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DUQ_F.XPT&quot;
+save &quot;temp/2009-2010/DUQ_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2009-2010/DUQ_F.dta not found)
+file temp/2009-2010/DUQ_F.dta saved
+
+
+Contains data from temp/2009-2010/DUQ_F.dta
+  obs:         5,302                          
+ vars:            42                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+duq200          double  %10.0g                Ever used marijuana or hashish
+duq210          double  %10.0g                Age when first tried marijuana
+duq211          double  %10.0g                Used marijuana every month for a
+                                                year?
+duq213          double  %10.0g                Age started regularly using
+                                                marijuana
+duq215q         double  %10.0g                Time since last used marijuana
+                                                regularly
+duq215u         double  %10.0g                Time since used marijuana
+                                                regularly/unit
+duq217          double  %10.0g                How often would you use
+                                                marijuana?
+duq219          double  %10.0g                How many joints or pipes smoke in
+                                                a day?
+duq220q         double  %10.0g                Last time used marijuana or
+                                                hashish
+duq220u         double  %10.0g                Last time used marijuana or
+                                                hashish/unit
+duq230          double  %10.0g                # days used marijuana or
+                                                hashish/month
+duq240          double  %10.0g                Ever used
+                                                cocaine/heroin/methamphetamine
+duq250          double  %10.0g                Ever use any form of cocaine
+duq260          double  %10.0g                Age first used cocaine
+duq270q         double  %10.0g                Last time you used cocaine, in
+                                                any form
+duq270u         double  %10.0g                Last time you used cocaine/unit
+duq272          double  %10.0g                # of time you used cocaine
+duq280          double  %10.0g                # of days used cocaine/month
+duq290          double  %10.0g                Ever used heroin
+duq300          double  %10.0g                Age first used heroin
+duq310q         double  %10.0g                Last time used heroin
+duq310u         double  %10.0g                Last time used heroin/unit
+duq320          double  %10.0g                # of days used heroin/month
+duq330          double  %10.0g                Ever used methamphetamine
+duq340          double  %10.0g                Age first used methamphetamine
+duq350q         double  %10.0g                Last time used methamphetamine
+duq350u         double  %10.0g                Last time used
+                                                methamphetamine/unit
+duq352          double  %10.0g                # times used methamphetamine
+duq360          double  %10.0g                # days used methamphetamine/month
+duq370          double  %10.0g                Ever use a needle to inject
+                                                illegal drug
+duq380a         double  %10.0g                Drugs injected - Cocaine
+duq380b         double  %10.0g                Drugs injected - Heroin
+duq380c         double  %10.0g                Drugs injected - Methamphetamine
+duq380d         double  %10.0g                Drugs injected - Steroids
+duq380e         double  %10.0g                Drugs injected - Any other drugs
+duq390          double  %10.0g                Age first injected drugs
+duq400q         double  %10.0g                Last time injected drugs
+duq400u         double  %10.0g                Last time injected drugs/unit
+duq410          double  %10.0g                # times injected drugs/lifetime
+duq420          double  %10.0g                How often did you inject drugs
+duq430          double  %10.0g                Ever been in rehabilitation
+                                                program
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt-1" class="section level2">
+<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/BPX_F.XPT&quot;
+save &quot;temp/2009-2010/BPX_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2009-2010/BPX_F.dta not found)
+file temp/2009-2010/BPX_F.dta saved
+
+
+Contains data from temp/2009-2010/BPX_F.dta
+  obs:        10,253                          
+ vars:            27                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+peascst1        double  %10.0g                Blood Pressure Status
+peasctm1        double  %10.0g                Blood Pressure Time in Seconds
+peascct1        double  %10.0g                Blood Pressure Comment
+bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
+bpq150a         double  %10.0g                Had food in the past 30 minutes?
+bpq150b         double  %10.0g                Had alcohol in the past 30
+                                                minutes?
+bpq150c         double  %10.0g                Had coffee in the past 30
+                                                minutes?
+bpq150d         double  %10.0g                Had cigarettes in the past 30
+                                                minutes?
+bpaarm          double  %10.0g                Arm selected:
+bpacsz          double  %10.0g                Coded cuff size
+bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse *
+                                                2):
+bpxpuls         double  %10.0g                Pulse regular or irregular?
+bpxpty          double  %10.0g                Pulse type:
+bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
+                                                Hg)
+bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
+                                                Hg
+bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
+                                                mm Hg
+bpaen1          double  %10.0g                Enhancement used first reading
+bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
+                                                Hg
+bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
+                                                mm Hg
+bpaen2          double  %10.0g                Enhancement used second reading
+bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
+                                                Hg
+bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
+                                                mm Hg
+bpaen3          double  %10.0g                Enhancement used third reading
+bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
+                                                Hg
+bpxdi4          double  %10.0g                Diastolic:  Blood pres (4th rdg)
+                                                mm Hg
+bpaen4          double  %10.0g                Enhancement used fourth reading
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt-1" class="section level2">
+<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/BMX_F.XPT&quot;
+save &quot;temp/2009-2010/BMX_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2009-2010/BMX_F.dta not found)
+file temp/2009-2010/BMX_F.dta saved
+
+
+Contains data from temp/2009-2010/BMX_F.dta
+  obs:        10,253                          
+ vars:            23                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bmdstats        double  %10.0g                Body Measures Component Status
+                                                Code
+bmxwt           double  %10.0g                Weight (kg)
+bmiwt           double  %10.0g                Weight Comment
+bmxrecum        double  %10.0g                Recumbent Length (cm)
+bmirecum        double  %10.0g                Recumbent Length Comment
+bmxhead         double  %10.0g                Head Circumference (cm)
+bmihead         double  %10.0g                Head Circumference Comment
+bmxht           double  %10.0g                Standing Height (cm)
+bmiht           double  %10.0g                Standing Height Comment
+bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
+bmxleg          double  %10.0g                Upper Leg Length (cm)
+bmileg          double  %10.0g                Upper Leg Length Comment
+bmxarml         double  %10.0g                Upper Arm Length (cm)
+bmiarml         double  %10.0g                Upper Arm Length Comment
+bmxarmc         double  %10.0g                Arm Circumference (cm)
+bmiarmc         double  %10.0g                Arm Circumference Comment
+bmxwaist        double  %10.0g                Waist Circumference (cm)
+bmiwaist        double  %10.0g                Waist Circumference Comment
+bmxtri          double  %10.0g                Triceps Skinfold (mm)
+bmitri          double  %10.0g                Triceps Skinfold Comment
+bmxsub          double  %10.0g                Subscapular Skinfold (mm)
+bmisub          double  %10.0g                Subscapular Skinfold Comment
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt-1" class="section level2">
+<h2>Smoking, SMQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/SMQ_F.XPT&quot;
+save &quot;temp/2009-2010/SMQ_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2009-2010/SMQ_F.dta not found)
+file temp/2009-2010/SMQ_F.dta saved
+
+
+Contains data from temp/2009-2010/SMQ_F.dta
+  obs:         7,528                          
+ vars:            37                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smd030          double  %10.0g                Age started smoking cigarettes
+                                                regularly
+smq040          double  %10.0g                Do you now smoke cigarettes
+smq050q         double  %10.0g                How long since quit smoking
+                                                cigarettes
+smq050u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smd055          double  %10.0g                Age last smoked cigarettes
+                                                regularly
+smd057          double  %10.0g                # cigarettes smoked per day when
+                                                quit
+smq077          double  %10.0g                How soon after waking do you
+                                                smoke
+smd641          double  %10.0g                # days smoked cigs during past 30
+                                                days
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+smd093          double  %10.0g                May I please see the pack of
+                                                cigarettes
+smdupca         str12   %12s                  Cig 12-digit Universal Product
+                                                Code-UPC
+smd100br        str50   %50s                  Cigarette Brand/sub-brand
+smd100fl        double  %10.0g                Filter type
+smd100mn        double  %10.0g                Menthol indicator
+smd100ln        double  %10.0g                Length
+smd100tr        double  %10.0g                FTC Tar Content
+smd100ni        double  %10.0g                FTC Nicotine Content
+smd100co        double  %10.0g                FTC Carbon Monoxide Content
+smq620          double  %10.0g                Ever tried cigarette smoking
+smd630          double  %10.0g                Age first smoked whole cigarette
+smq660          double  %10.0g                Brands of cigarettes smoked/past
+                                                mo
+smq664m         double  %10.0g                Menthol or non-menthol Marlboro
+smq664c         double  %10.0g                Menthol or non-menthol Camels
+smq664w         double  %10.0g                Menthol or non-menthol Winston
+smq664b         double  %10.0g                Menthol or non-menthol
+                                                BensonHedges
+smq664o         double  %10.0g                Menthol or non-menthol other
+                                                brand
+smq666m         double  %10.0g                Regular, light or ultralite
+                                                Marlboro
+smq666c         double  %10.0g                Regular, light or ultralite
+                                                Camels
+smq666k         double  %10.0g                Regular, light or ultralite Kools
+smq666w         double  %10.0g                Regular, light or ultralite
+                                                Winston
+smq666b         double  %10.0g                Regular, light or ultralite
+                                                BensonHedges
+smq666s         double  %10.0g                Regular, light or ultralite Salem
+smq666o         double  %10.0g                Regular, light or ultralite other
+                                                brand
+smq670          double  %10.0g                Tried to quit smoking
+smaquex2        double  %10.0g                Questionnaire Mode Flag
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt-1" class="section level2">
+<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/ALQ_F.XPT&quot;
+save &quot;temp/2009-2010/ALQ_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2009-2010/ALQ_F.dta not found)
+file temp/2009-2010/ALQ_F.dta saved
+
+
+Contains data from temp/2009-2010/ALQ_F.dta
+  obs:         6,059                          
+ vars:             9                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
+alq110          double  %10.0g                Had at least 12 alcohol
+                                                drinks/lifetime?
+alq120q         double  %10.0g                How often drink alcohol over past
+                                                12 mos
+alq120u         double  %10.0g                # days drink alcohol per wk, mo,
+                                                yr
+alq130          double  %10.0g                Avg # alcoholic drinks/day -past
+                                                12 mos
+alq140q         double  %10.0g                #days have 5 or more drinks/past
+                                                12 mos
+alq140u         double  %10.0g                # days per week, month, year?
+alq150          double  %10.0g                Ever have 5 or more drinks every
+                                                day?
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="merge-files-1" class="section level2">
+<h2>Merge Files</h2>
+<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_F.dta&quot;, clear
+# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
+# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_F.dta&quot;
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace</code></pre>
+<pre><code>Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command</code></pre>
+</div>
+</div>
+<div id="import-xpts-for-2011-2012" class="section level1">
+<h1>1 Import XPTs for 2011-2012</h1>
+<div id="demographics-demo_xyz.xpt-2" class="section level2">
+<h2>Demographics, DEMO_XYZ.XPT</h2>
+<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DEMO_G.XPT&quot;
+save &quot;temp/2011-2012/DEMO_G.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2011-2012/DEMO_G.dta not found)
+file temp/2011-2012/DEMO_G.dta saved
+
+
+Contains data from temp/2011-2012/DEMO_G.dta
+  obs:         9,756                          
+ vars:            48                          8 Jul 2021 14:49
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+sddsrvyr        double  %10.0g                Data release cycle
+ridstatr        double  %10.0g                Interview/Examination status
+riagendr        double  %10.0g                Gender
+ridageyr        double  %10.0g                Age in years at screening
+ridagemn        double  %10.0g                Age in months at screening - 0 to
+                                                24 mos
+ridreth1        double  %10.0g                Race/Hispanic origin
+ridreth3        double  %10.0g                Race/Hispanic origin w/ NH Asian
+ridexmon        double  %10.0g                Six month time period
+ridexagy        double  %10.0g                Age in years at exam - 2 to 19
+                                                years
+ridexagm        double  %10.0g                Age in months at exam - 0 to 19
+                                                years
+dmqmiliz        double  %10.0g                Served active duty in US Armed
+                                                Forces
+dmqadfc         double  %10.0g                Served in a foreign country
+dmdborn4        double  %10.0g                Country of birth
+dmdcitzn        double  %10.0g                Citizenship status
+dmdyrsus        double  %10.0g                Length of time in US
+dmdeduc3        double  %10.0g                Education level - Children/Youth
+                                                6-19
+dmdeduc2        double  %10.0g                Education level - Adults 20+
+dmdmartl        double  %10.0g                Marital status
+ridexprg        double  %10.0g                Pregnancy status at exam
+sialang         double  %10.0g                Language of SP Interview
+siaproxy        double  %10.0g                Proxy used in SP Interview?
+siaintrp        double  %10.0g                Interpreter used in SP Interview?
+fialang         double  %10.0g                Language of Family Interview
+fiaproxy        double  %10.0g                Proxy used in Family Interview?
+fiaintrp        double  %10.0g                Interpreter used in Family
+                                                Interview?
+mialang         double  %10.0g                Language of MEC Interview
+miaproxy        double  %10.0g                Proxy used in MEC Interview?
+miaintrp        double  %10.0g                Interpreter used in MEC
+                                                Interview?
+aialanga        double  %10.0g                Language of ACASI Interview
+wtint2yr        double  %10.0g                Full sample 2 year interview
+                                                weight
+wtmec2yr        double  %10.0g                Full sample 2 year MEC exam
+                                                weight
+sdmvpsu         double  %10.0g                Masked variance pseudo-PSU
+sdmvstra        double  %10.0g                Masked variance pseudo-stratum
+indhhin2        double  %10.0g                Annual household income
+indfmin2        double  %10.0g                Annual family income
+indfmpir        double  %10.0g                Ratio of family income to poverty
+dmdhhsiz        double  %10.0g                Total number of people in the
+                                                Household
+dmdfmsiz        double  %10.0g                Total number of people in the
+                                                Family
+dmdhhsza        double  %10.0g                # of children 5 years or younger
+                                                in HH
+dmdhhszb        double  %10.0g                # of children 6-17 years old in
+                                                HH
+dmdhhsze        double  %10.0g                # of adults 60 years or older in
+                                                HH
+dmdhrgnd        double  %10.0g                HH ref person&#39;s gender
+dmdhrage        double  %10.0g                HH ref person&#39;s age in years
+dmdhrbr4        double  %10.0g                HH ref person&#39;s country of birth
+dmdhredu        double  %10.0g                HH ref person&#39;s education level
+dmdhrmar        double  %10.0g                HH ref person&#39;s marital status
+dmdhsedu        double  %10.0g                HH ref person&#39;s spouse&#39;s
+                                                education level
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt-2" class="section level2">
+<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DUQ_G.XPT&quot;
+save &quot;temp/2011-2012/DUQ_G.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2011-2012/DUQ_G.dta not found)
+file temp/2011-2012/DUQ_G.dta saved
+
+
+Contains data from temp/2011-2012/DUQ_G.dta
+  obs:         4,796                          
+ vars:            42                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+duq200          double  %10.0g                Ever used marijuana or hashish
+duq210          double  %10.0g                Age when first tried marijuana
+duq211          double  %10.0g                Used marijuana every month for a
+                                                year?
+duq213          double  %10.0g                Age started regularly using
+                                                marijuana
+duq215q         double  %10.0g                Time since last used marijuana
+                                                regularly
+duq215u         double  %10.0g                Time since used marijuana
+                                                regularly/unit
+duq217          double  %10.0g                How often would you use
+                                                marijuana?
+duq219          double  %10.0g                How many joints or pipes smoke in
+                                                a day?
+duq220q         double  %10.0g                Last time used marijuana or
+                                                hashish
+duq220u         double  %10.0g                Last time used marijuana or
+                                                hashish/unit
+duq230          double  %10.0g                # days used marijuana or
+                                                hashish/month
+duq240          double  %10.0g                Ever used
+                                                cocaine/heroin/methamphetamine
+duq250          double  %10.0g                Ever use any form of cocaine
+duq260          double  %10.0g                Age first used cocaine
+duq270q         double  %10.0g                Last time you used cocaine, in
+                                                any form
+duq270u         double  %10.0g                Last time you used cocaine/unit
+duq272          double  %10.0g                # of time you used cocaine
+duq280          double  %10.0g                # of days used cocaine/month
+duq290          double  %10.0g                Ever used heroin
+duq300          double  %10.0g                Age first used heroin
+duq310q         double  %10.0g                Last time used heroin
+duq310u         double  %10.0g                Last time used heroin/unit
+duq320          double  %10.0g                # of days used heroin/month
+duq330          double  %10.0g                Ever used methamphetamine
+duq340          double  %10.0g                Age first used methamphetamine
+duq350q         double  %10.0g                Last time used methamphetamine
+duq350u         double  %10.0g                Last time used
+                                                methamphetamine/unit
+duq352          double  %10.0g                # times used methamphetamine
+duq360          double  %10.0g                # days used methamphetamine/month
+duq370          double  %10.0g                Ever use a needle to inject
+                                                illegal drug
+duq380a         double  %10.0g                Drugs injected - Cocaine
+duq380b         double  %10.0g                Drugs injected - Heroin
+duq380c         double  %10.0g                Drugs injected - Methamphetamine
+duq380d         double  %10.0g                Drugs injected - Steroids
+duq380e         double  %10.0g                Drugs injected - Any other drugs
+duq390          double  %10.0g                Age first injected drugs
+duq400q         double  %10.0g                Last time injected drugs
+duq400u         double  %10.0g                Last time injected drugs/unit
+duq410          double  %10.0g                # times injected drugs/lifetime
+duq420          double  %10.0g                How often did you inject drugs
+duq430          double  %10.0g                Ever been in rehabilitation
+                                                program
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt-2" class="section level2">
+<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/BPX_G.XPT&quot;
+save &quot;temp/2011-2012/BPX_G.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2011-2012/BPX_G.dta not found)
+file temp/2011-2012/BPX_G.dta saved
+
+
+Contains data from temp/2011-2012/BPX_G.dta
+  obs:         9,338                          
+ vars:            27                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+peascst1        double  %10.0g                Blood Pressure Status
+peasctm1        double  %10.0g                Blood Pressure Time in Seconds
+peascct1        double  %10.0g                Blood Pressure Comment
+bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
+bpq150a         double  %10.0g                Had food in the past 30 minutes?
+bpq150b         double  %10.0g                Had alcohol in the past 30
+                                                minutes?
+bpq150c         double  %10.0g                Had coffee in the past 30
+                                                minutes?
+bpq150d         double  %10.0g                Had cigarettes in the past 30
+                                                minutes?
+bpaarm          double  %10.0g                Arm selected
+bpacsz          double  %10.0g                Coded cuff size
+bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse * 2)
+bpxpuls         double  %10.0g                Pulse regular or irregular?
+bpxpty          double  %10.0g                Pulse type
+bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
+                                                Hg)
+bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
+                                                Hg
+bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
+                                                mm Hg
+bpaen1          double  %10.0g                Enhancement used first reading
+bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
+                                                Hg
+bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
+                                                mm Hg
+bpaen2          double  %10.0g                Enhancement used second reading
+bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
+                                                Hg
+bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
+                                                mm Hg
+bpaen3          double  %10.0g                Enhancement used third reading
+bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
+                                                Hg
+bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
+                                                mm Hg
+bpaen4          double  %10.0g                Enhancement used fourth reading
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt-2" class="section level2">
+<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/BMX_G.XPT&quot;
+save &quot;temp/2011-2012/BMX_G.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2011-2012/BMX_G.dta not found)
+file temp/2011-2012/BMX_G.dta saved
+
+
+Contains data from temp/2011-2012/BMX_G.dta
+  obs:         9,338                          
+ vars:            26                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bmdstats        double  %10.0g                Body Measures Component Status
+                                                Code
+bmxwt           double  %10.0g                Weight (kg)
+bmiwt           double  %10.0g                Weight Comment
+bmxrecum        double  %10.0g                Recumbent Length (cm)
+bmirecum        double  %10.0g                Recumbent Length Comment
+bmxhead         double  %10.0g                Head Circumference (cm)
+bmihead         double  %10.0g                Head Circumference Comment
+bmxht           double  %10.0g                Standing Height (cm)
+bmiht           double  %10.0g                Standing Height Comment
+bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
+bmdbmic         double  %10.0g                BMI Category -
+                                                Children/Adolescents
+bmxleg          double  %10.0g                Upper Leg Length (cm)
+bmileg          double  %10.0g                Upper Leg Length Comment
+bmxarml         double  %10.0g                Upper Arm Length (cm)
+bmiarml         double  %10.0g                Upper Arm Length Comment
+bmxarmc         double  %10.0g                Arm Circumference (cm)
+bmiarmc         double  %10.0g                Arm Circumference Comment
+bmxwaist        double  %10.0g                Waist Circumference (cm)
+bmiwaist        double  %10.0g                Waist Circumference Comment
+bmxsad1         double  %10.0g                Sagittal Abdominal Diameter 1st
+                                                (cm)
+bmxsad2         double  %10.0g                Sagittal Abdominal Diameter 2nd
+                                                (cm)
+bmxsad3         double  %10.0g                Sagittal Abdominal Diameter 3rd
+                                                (cm)
+bmxsad4         double  %10.0g                Sagittal Abdominal Diameter 4th
+                                                (cm)
+bmdavsad        double  %10.0g                Average Sagittal Abdominal
+                                                Diameter (cm)
+bmdsadcm        double  %10.0g                Sagittal Abdominal Diameter
+                                                Comment
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt-2" class="section level2">
+<h2>Smoking, SMQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/SMQ_G.XPT&quot;
+save &quot;temp/2011-2012/SMQ_G.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2011-2012/SMQ_G.dta not found)
+file temp/2011-2012/SMQ_G.dta saved
+
+
+Contains data from temp/2011-2012/SMQ_G.dta
+  obs:         6,790                          
+ vars:            30                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smd030          double  %10.0g                Age started smoking cigarettes
+                                                regularly
+smq040          double  %10.0g                Do you now smoke cigarettes
+smq050q         double  %10.0g                How long since quit smoking
+                                                cigarettes
+smq050u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smd055          double  %10.0g                Age last smoked cigarettes
+                                                regularly
+smd057          double  %10.0g                # cigarettes smoked per day when
+                                                quit
+smq077          double  %10.0g                How soon after waking do you
+                                                smoke
+smd641          double  %10.0g                # days smoked cigs during past 30
+                                                days
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+smd093          double  %10.0g                May I please see the pack of
+                                                cigarettes
+smdupca         str12   %12s                  Cig 12-digit Universal Product
+                                                Code-UPC
+smd100br        str50   %50s                  Cigarette Brand/sub-brand
+smd100fl        double  %10.0g                Filter type
+smd100mn        double  %10.0g                Menthol indicator
+smd100ln        double  %10.0g                Length
+smd100tr        double  %10.0g                FTC Tar Content
+smd100ni        double  %10.0g                FTC Nicotine Content
+smd100co        double  %10.0g                FTC Carbon Monoxide Content
+smq621          double  %10.0g                Cigarettes smoked in entire life
+smd630          double  %10.0g                Age first smoked whole cigarette
+smq660          double  %10.0g                Brands of cigarettes smoked/past
+                                                mo
+smq664m         double  %10.0g                Menthol or non-menthol Marlboro
+smq664c         double  %10.0g                Menthol or non-menthol Camels
+smq664w         double  %10.0g                Menthol or non-menthol Winston
+smq664b         double  %10.0g                Menthol or non-menthol
+                                                BensonHedges
+smq664o         double  %10.0g                Menthol or non-menthol other
+                                                brand
+smq670          double  %10.0g                Tried to quit smoking
+smaquex2        double  %10.0g                Questionnaire Mode Flag
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt-2" class="section level2">
+<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/ALQ_G.XPT&quot;
+save &quot;temp/2011-2012/ALQ_G.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2011-2012/ALQ_G.dta not found)
+file temp/2011-2012/ALQ_G.dta saved
+
+
+Contains data from temp/2011-2012/ALQ_G.dta
+  obs:         5,615                          
+ vars:            10                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
+alq110          double  %10.0g                Had at least 12 alcohol
+                                                drinks/lifetime?
+alq120q         double  %10.0g                How often drink alcohol over past
+                                                12 mos
+alq120u         double  %10.0g                # days drink alcohol per wk, mo,
+                                                yr
+alq130          double  %10.0g                Avg # alcoholic drinks/day - past
+                                                12 mos
+alq141q         double  %10.0g                # days have 4/5 drinks - past 12
+                                                mos
+alq141u         double  %10.0g                # days per week, month, year?
+alq151          double  %10.0g                Ever have 4/5 or more drinks
+                                                every day?
+alq155          double  %10.0g                How many years did you drink
+                                                every day?
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="merge-files-2" class="section level2">
+<h2>Merge Files</h2>
+<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_G.dta&quot;, clear
+# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
+# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_G.dta&quot;
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace</code></pre>
+<pre><code>Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command</code></pre>
+</div>
+</div>
+<div id="import-xpts-for-2013-2014" class="section level1">
+<h1>1 Import XPTs for 2013-2014</h1>
+<div id="demographics-demo_xyz.xpt-3" class="section level2">
+<h2>Demographics, DEMO_XYZ.XPT</h2>
+<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DEMO_H.XPT&quot;
+save &quot;temp/2013-2014/DEMO_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2013-2014/DEMO_H.dta not found)
+file temp/2013-2014/DEMO_H.dta saved
+
+
+Contains data from temp/2013-2014/DEMO_H.dta
+  obs:        10,175                          
+ vars:            47                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+sddsrvyr        double  %10.0g                Data release cycle
+ridstatr        double  %10.0g                Interview/Examination status
+riagendr        double  %10.0g                Gender
+ridageyr        double  %10.0g                Age in years at screening
+ridagemn        double  %10.0g                Age in months at screening - 0 to
+                                                24 mos
+ridreth1        double  %10.0g                Race/Hispanic origin
+ridreth3        double  %10.0g                Race/Hispanic origin w/ NH Asian
+ridexmon        double  %10.0g                Six month time period
+ridexagm        double  %10.0g                Age in months at exam - 0 to 19
+                                                years
+dmqmiliz        double  %10.0g                Served active duty in US Armed
+                                                Forces
+dmqadfc         double  %10.0g                Served in a foreign country
+dmdborn4        double  %10.0g                Country of birth
+dmdcitzn        double  %10.0g                Citizenship status
+dmdyrsus        double  %10.0g                Length of time in US
+dmdeduc3        double  %10.0g                Education level - Children/Youth
+                                                6-19
+dmdeduc2        double  %10.0g                Education level - Adults 20+
+dmdmartl        double  %10.0g                Marital status
+ridexprg        double  %10.0g                Pregnancy status at exam
+sialang         double  %10.0g                Language of SP Interview
+siaproxy        double  %10.0g                Proxy used in SP Interview?
+siaintrp        double  %10.0g                Interpreter used in SP Interview?
+fialang         double  %10.0g                Language of Family Interview
+fiaproxy        double  %10.0g                Proxy used in Family Interview?
+fiaintrp        double  %10.0g                Interpreter used in Family
+                                                Interview?
+mialang         double  %10.0g                Language of MEC Interview
+miaproxy        double  %10.0g                Proxy used in MEC Interview?
+miaintrp        double  %10.0g                Interpreter used in MEC
+                                                Interview?
+aialanga        double  %10.0g                Language of ACASI Interview
+dmdhhsiz        double  %10.0g                Total number of people in the
+                                                Household
+dmdfmsiz        double  %10.0g                Total number of people in the
+                                                Family
+dmdhhsza        double  %10.0g                # of children 5 years or younger
+                                                in HH
+dmdhhszb        double  %10.0g                # of children 6-17 years old in
+                                                HH
+dmdhhsze        double  %10.0g                # of adults 60 years or older in
+                                                HH
+dmdhrgnd        double  %10.0g                HH ref person&#39;s gender
+dmdhrage        double  %10.0g                HH ref person&#39;s age in years
+dmdhrbr4        double  %10.0g                HH ref person&#39;s country of birth
+dmdhredu        double  %10.0g                HH ref person&#39;s education level
+dmdhrmar        double  %10.0g                HH ref person&#39;s marital status
+dmdhsedu        double  %10.0g                HH ref person&#39;s spouse&#39;s
+                                                education level
+wtint2yr        double  %10.0g                Full sample 2 year interview
+                                                weight
+wtmec2yr        double  %10.0g                Full sample 2 year MEC exam
+                                                weight
+sdmvpsu         double  %10.0g                Masked variance pseudo-PSU
+sdmvstra        double  %10.0g                Masked variance pseudo-stratum
+indhhin2        double  %10.0g                Annual household income
+indfmin2        double  %10.0g                Annual family income
+indfmpir        double  %10.0g                Ratio of family income to poverty
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt-3" class="section level2">
+<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DUQ_H.XPT&quot;
+save &quot;temp/2013-2014/DUQ_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2013-2014/DUQ_H.dta not found)
+file temp/2013-2014/DUQ_H.dta saved
+
+
+Contains data from temp/2013-2014/DUQ_H.dta
+  obs:         5,057                          
+ vars:            42                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+duq200          double  %10.0g                Ever used marijuana or hashish
+duq210          double  %10.0g                Age when first tried marijuana
+duq211          double  %10.0g                Used marijuana every month for a
+                                                year?
+duq213          double  %10.0g                Age started regularly using
+                                                marijuana
+duq215q         double  %10.0g                Time since last used marijuana
+                                                regularly
+duq215u         double  %10.0g                Time since used marijuana
+                                                regularly/unit
+duq217          double  %10.0g                How often would you use
+                                                marijuana?
+duq219          double  %10.0g                How many joints or pipes smoke in
+                                                a day?
+duq220q         double  %10.0g                Last time used marijuana or
+                                                hashish
+duq220u         double  %10.0g                Last time used marijuana or
+                                                hashish/unit
+duq230          double  %10.0g                # days used marijuana or
+                                                hashish/month
+duq240          double  %10.0g                Ever used
+                                                cocaine/heroin/methamphetamine
+duq250          double  %10.0g                Ever use any form of cocaine
+duq260          double  %10.0g                Age first used cocaine
+duq270q         double  %10.0g                Last time you used cocaine, in
+                                                any form
+duq270u         double  %10.0g                Last time you used cocaine/unit
+duq272          double  %10.0g                # of time you used cocaine
+duq280          double  %10.0g                # of days used cocaine/month
+duq290          double  %10.0g                Ever used heroin
+duq300          double  %10.0g                Age first used heroin
+duq310q         double  %10.0g                Last time used heroin
+duq310u         double  %10.0g                Last time used heroin/unit
+duq320          double  %10.0g                # of days used heroin/month
+duq330          double  %10.0g                Ever used methamphetamine
+duq340          double  %10.0g                Age first used methamphetamine
+duq350q         double  %10.0g                Last time used methamphetamine
+duq350u         double  %10.0g                Last time used
+                                                methamphetamine/unit
+duq352          double  %10.0g                # times used methamphetamine
+duq360          double  %10.0g                # days used methamphetamine/month
+duq370          double  %10.0g                Ever use a needle to inject
+                                                illegal drug
+duq380a         double  %10.0g                Drugs injected - Cocaine
+duq380b         double  %10.0g                Drugs injected - Heroin
+duq380c         double  %10.0g                Drugs injected - Methamphetamine
+duq380d         double  %10.0g                Drugs injected - Steroids
+duq380e         double  %10.0g                Drugs injected - Any other drugs
+duq390          double  %10.0g                Age first injected drugs
+duq400q         double  %10.0g                Last time injected drugs
+duq400u         double  %10.0g                Last time injected drugs/unit
+duq410          double  %10.0g                # times injected drugs/lifetime
+duq420          double  %10.0g                How often did you inject drugs
+duq430          double  %10.0g                Ever been in rehabilitation
+                                                program
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt-3" class="section level2">
+<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/BPX_H.XPT&quot;
+save &quot;temp/2013-2014/BPX_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2013-2014/BPX_H.dta not found)
+file temp/2013-2014/BPX_H.dta saved
+
+
+Contains data from temp/2013-2014/BPX_H.dta
+  obs:         9,813                          
+ vars:            23                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+peascst1        double  %10.0g                Blood Pressure Status
+peasctm1        double  %10.0g                Blood Pressure Time in Seconds
+peascct1        double  %10.0g                Blood Pressure Comment
+bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
+bpaarm          double  %10.0g                Arm selected
+bpacsz          double  %10.0g                Coded cuff size
+bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse * 2)
+bpxpuls         double  %10.0g                Pulse regular or irregular?
+bpxpty          double  %10.0g                Pulse type
+bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
+                                                Hg)
+bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
+                                                Hg
+bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
+                                                mm Hg
+bpaen1          double  %10.0g                Enhancement used first reading
+bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
+                                                Hg
+bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
+                                                mm Hg
+bpaen2          double  %10.0g                Enhancement used second reading
+bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
+                                                Hg
+bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
+                                                mm Hg
+bpaen3          double  %10.0g                Enhancement used third reading
+bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
+                                                Hg
+bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
+                                                mm Hg
+bpaen4          double  %10.0g                Enhancement used fourth reading
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt-3" class="section level2">
+<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/BMX_H.XPT&quot;
+save &quot;temp/2013-2014/BMX_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2013-2014/BMX_H.dta not found)
+file temp/2013-2014/BMX_H.dta saved
+
+
+Contains data from temp/2013-2014/BMX_H.dta
+  obs:         9,813                          
+ vars:            26                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bmdstats        double  %10.0g                Body Measures Component Status
+                                                Code
+bmxwt           double  %10.0g                Weight (kg)
+bmiwt           double  %10.0g                Weight Comment
+bmxrecum        double  %10.0g                Recumbent Length (cm)
+bmirecum        double  %10.0g                Recumbent Length Comment
+bmxhead         double  %10.0g                Head Circumference (cm)
+bmihead         double  %10.0g                Head Circumference Comment
+bmxht           double  %10.0g                Standing Height (cm)
+bmiht           double  %10.0g                Standing Height Comment
+bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
+bmdbmic         double  %10.0g                BMI Category - Children/Youth
+bmxleg          double  %10.0g                Upper Leg Length (cm)
+bmileg          double  %10.0g                Upper Leg Length Comment
+bmxarml         double  %10.0g                Upper Arm Length (cm)
+bmiarml         double  %10.0g                Upper Arm Length Comment
+bmxarmc         double  %10.0g                Arm Circumference (cm)
+bmiarmc         double  %10.0g                Arm Circumference Comment
+bmxwaist        double  %10.0g                Waist Circumference (cm)
+bmiwaist        double  %10.0g                Waist Circumference Comment
+bmxsad1         double  %10.0g                Sagittal Abdominal Diameter 1st
+                                                (cm)
+bmxsad2         double  %10.0g                Sagittal Abdominal Diameter 2nd
+                                                (cm)
+bmxsad3         double  %10.0g                Sagittal Abdominal Diameter 3rd
+                                                (cm)
+bmxsad4         double  %10.0g                Sagittal Abdominal Diameter 4th
+                                                (cm)
+bmdavsad        double  %10.0g                Average Sagittal Abdominal
+                                                Diameter (cm)
+bmdsadcm        double  %10.0g                Sagittal Abdominal Diameter
+                                                Comment
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt-3" class="section level2">
+<h2>Smoking, SMQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/SMQ_H.XPT&quot;
+save &quot;temp/2013-2014/SMQ_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2013-2014/SMQ_H.dta not found)
+file temp/2013-2014/SMQ_H.dta saved
+
+
+Contains data from temp/2013-2014/SMQ_H.dta
+  obs:         7,168                          
+ vars:            32                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smd030          double  %10.0g                Age started smoking cigarettes
+                                                regularly
+smq040          double  %10.0g                Do you now smoke cigarettes
+smq050q         double  %10.0g                How long since quit smoking
+                                                cigarettes
+smq050u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smd055          double  %10.0g                Age last smoked cigarettes
+                                                regularly
+smd057          double  %10.0g                # cigarettes smoked per day when
+                                                quit
+smq078          double  %10.0g                How soon after waking do you
+                                                smoke
+smd641          double  %10.0g                # days smoked cigs during past 30
+                                                days
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+smd093          double  %10.0g                May I please see the pack of
+                                                cigarettes
+smdupca         str12   %12s                  Cig 12-digit Universal Product
+                                                Code-UPC
+smd100br        str50   %50s                  Cigarette Brand/sub-brand
+smd100fl        double  %10.0g                Cigarette Filter type
+smd100mn        double  %10.0g                Cigarette Menthol indicator
+smd100ln        double  %10.0g                Cigarette Length
+smd100tr        double  %10.0g                FTC Tar Content
+smd100ni        double  %10.0g                FTC Nicotine Content
+smd100co        double  %10.0g                FTC Carbon Monoxide Content
+smq621          double  %10.0g                Cigarettes smoked in entire life
+smd630          double  %10.0g                Age first smoked whole cigarette
+smq661          double  %10.0g                Brand of cigarettes smoked past
+                                                30 days
+smq665a         double  %10.0g                Marlboro variety
+smq665b         double  %10.0g                Camel variety
+smq665c         double  %10.0g                Newport variety
+smq665d         double  %10.0g                Other brand
+smq670          double  %10.0g                Tried to quit smoking
+smq848          double  %10.0g                # times stopped smoking
+                                                cigarettes
+smq852q         double  %10.0g                How long were you able to stop
+                                                smoking
+smq852u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smaquex2        double  %10.0g                Questionnaire Mode Flag
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt-3" class="section level2">
+<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/ALQ_H.XPT&quot;
+save &quot;temp/2013-2014/ALQ_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2013-2014/ALQ_H.dta not found)
+file temp/2013-2014/ALQ_H.dta saved
+
+
+Contains data from temp/2013-2014/ALQ_H.dta
+  obs:         5,924                          
+ vars:            10                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
+alq110          double  %10.0g                Had at least 12 alcohol
+                                                drinks/lifetime?
+alq120q         double  %10.0g                How often drink alcohol over past
+                                                12 mos
+alq120u         double  %10.0g                # days drink alcohol per wk, mo,
+                                                yr
+alq130          double  %10.0g                Avg # alcoholic drinks/day - past
+                                                12 mos
+alq141q         double  %10.0g                # days have 4/5 drinks - past 12
+                                                mos
+alq141u         double  %10.0g                # days per week, month, year?
+alq151          double  %10.0g                Ever have 4/5 or more drinks
+                                                every day?
+alq160          double  %10.0g                # days have 4/5 or more drinks in
+                                                2 hrs
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="merge-files-3" class="section level2">
+<h2>Merge Files</h2>
+<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_H.dta&quot;, clear
+# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
+# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_H.dta&quot;
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace</code></pre>
+<pre><code>Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command</code></pre>
+</div>
+</div>
+<div id="import-xpts-for-2015-2016" class="section level1">
+<h1>1 Import XPTs for 2015-2016</h1>
+<div id="demographics-demo_xyz.xpt-4" class="section level2">
+<h2>Demographics, DEMO_XYZ.XPT</h2>
+<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DEMO_I.XPT&quot;
+save &quot;temp/2015-2016/DEMO_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2015-2016/DEMO_I.dta not found)
+file temp/2015-2016/DEMO_I.dta saved
+
+
+Contains data from temp/2015-2016/DEMO_I.dta
+  obs:         9,971                          
+ vars:            47                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+sddsrvyr        double  %10.0g                Data release cycle
+ridstatr        double  %10.0g                Interview/Examination status
+riagendr        double  %10.0g                Gender
+ridageyr        double  %10.0g                Age in years at screening
+ridagemn        double  %10.0g                Age in months at screening - 0 to
+                                                24 mos
+ridreth1        double  %10.0g                Race/Hispanic origin
+ridreth3        double  %10.0g                Race/Hispanic origin w/ NH Asian
+ridexmon        double  %10.0g                Six month time period
+ridexagm        double  %10.0g                Age in months at exam - 0 to 19
+                                                years
+dmqmiliz        double  %10.0g                Served active duty in US Armed
+                                                Forces
+dmqadfc         double  %10.0g                Served in a foreign country
+dmdborn4        double  %10.0g                Country of birth
+dmdcitzn        double  %10.0g                Citizenship status
+dmdyrsus        double  %10.0g                Length of time in US
+dmdeduc3        double  %10.0g                Education level - Children/Youth
+                                                6-19
+dmdeduc2        double  %10.0g                Education level - Adults 20+
+dmdmartl        double  %10.0g                Marital status
+ridexprg        double  %10.0g                Pregnancy status at exam
+sialang         double  %10.0g                Language of SP Interview
+siaproxy        double  %10.0g                Proxy used in SP Interview?
+siaintrp        double  %10.0g                Interpreter used in SP Interview?
+fialang         double  %10.0g                Language of Family Interview
+fiaproxy        double  %10.0g                Proxy used in Family Interview?
+fiaintrp        double  %10.0g                Interpreter used in Family
+                                                Interview?
+mialang         double  %10.0g                Language of MEC Interview
+miaproxy        double  %10.0g                Proxy used in MEC Interview?
+miaintrp        double  %10.0g                Interpreter used in MEC
+                                                Interview?
+aialanga        double  %10.0g                Language of ACASI Interview
+dmdhhsiz        double  %10.0g                Total number of people in the
+                                                Household
+dmdfmsiz        double  %10.0g                Total number of people in the
+                                                Family
+dmdhhsza        double  %10.0g                # of children 5 years or younger
+                                                in HH
+dmdhhszb        double  %10.0g                # of children 6-17 years old in
+                                                HH
+dmdhhsze        double  %10.0g                # of adults 60 years or older in
+                                                HH
+dmdhrgnd        double  %10.0g                HH ref person&#39;s gender
+dmdhrage        double  %10.0g                HH ref person&#39;s age in years
+dmdhrbr4        double  %10.0g                HH ref person&#39;s country of birth
+dmdhredu        double  %10.0g                HH ref person&#39;s education level
+dmdhrmar        double  %10.0g                HH ref person&#39;s marital status
+dmdhsedu        double  %10.0g                HH ref person&#39;s spouse&#39;s
+                                                education level
+wtint2yr        double  %10.0g                Full sample 2 year interview
+                                                weight
+wtmec2yr        double  %10.0g                Full sample 2 year MEC exam
+                                                weight
+sdmvpsu         double  %10.0g                Masked variance pseudo-PSU
+sdmvstra        double  %10.0g                Masked variance pseudo-stratum
+indhhin2        double  %10.0g                Annual household income
+indfmin2        double  %10.0g                Annual family income
+indfmpir        double  %10.0g                Ratio of family income to poverty
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt-4" class="section level2">
+<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DUQ_I.XPT&quot;
+save &quot;temp/2015-2016/DUQ_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2015-2016/DUQ_I.dta not found)
+file temp/2015-2016/DUQ_I.dta saved
+
+
+Contains data from temp/2015-2016/DUQ_I.dta
+  obs:         4,843                          
+ vars:            42                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+duq200          double  %10.0g                Ever used marijuana or hashish
+duq210          double  %10.0g                Age when first tried marijuana
+duq211          double  %10.0g                Used marijuana every month for a
+                                                year?
+duq213          double  %10.0g                Age started regularly using
+                                                marijuana
+duq215q         double  %10.0g                Time since last used marijuana
+                                                regularly
+duq215u         double  %10.0g                Time since used marijuana
+                                                regularly/unit
+duq217          double  %10.0g                How often would you use
+                                                marijuana?
+duq219          double  %10.0g                How many joints or pipes smoke in
+                                                a day?
+duq220q         double  %10.0g                Last time used marijuana or
+                                                hashish
+duq220u         double  %10.0g                Last time used marijuana or
+                                                hashish/unit
+duq230          double  %10.0g                # days used marijuana or
+                                                hashish/month
+duq240          double  %10.0g                Ever used
+                                                cocaine/heroin/methamphetamine
+duq250          double  %10.0g                Ever use any form of cocaine
+duq260          double  %10.0g                Age first used cocaine
+duq270q         double  %10.0g                Last time you used cocaine, in
+                                                any form
+duq270u         double  %10.0g                Last time you used cocaine/unit
+duq272          double  %10.0g                # of time you used cocaine
+duq280          double  %10.0g                # of days used cocaine/month
+duq290          double  %10.0g                Ever used heroin
+duq300          double  %10.0g                Age first used heroin
+duq310q         double  %10.0g                Last time used heroin
+duq310u         double  %10.0g                Last time used heroin/unit
+duq320          double  %10.0g                # of days used heroin/month
+duq330          double  %10.0g                Ever used methamphetamine
+duq340          double  %10.0g                Age first used methamphetamine
+duq350q         double  %10.0g                Last time used methamphetamine
+duq350u         double  %10.0g                Last time used
+                                                methamphetamine/unit
+duq352          double  %10.0g                # times used methamphetamine
+duq360          double  %10.0g                # days used methamphetamine/month
+duq370          double  %10.0g                Ever use a needle to inject
+                                                illegal drug
+duq380a         double  %10.0g                Drugs injected - Cocaine
+duq380b         double  %10.0g                Drugs injected - Heroin
+duq380c         double  %10.0g                Drugs injected - Methamphetamine
+duq380d         double  %10.0g                Drugs injected - Steroids
+duq380e         double  %10.0g                Drugs injected - Any other drugs
+duq390          double  %10.0g                Age first injected drugs
+duq400q         double  %10.0g                Last time injected drugs
+duq400u         double  %10.0g                Last time injected drugs/unit
+duq410          double  %10.0g                # times injected drugs/lifetime
+duq420          double  %10.0g                How often did you inject drugs
+duq430          double  %10.0g                Ever been in rehabilitation
+                                                program
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt-4" class="section level2">
+<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/BPX_I.XPT&quot;
+save &quot;temp/2015-2016/BPX_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2015-2016/BPX_I.dta not found)
+file temp/2015-2016/BPX_I.dta saved
+
+
+Contains data from temp/2015-2016/BPX_I.dta
+  obs:         9,544                          
+ vars:            21                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+peascct1        double  %10.0g                Blood Pressure Comment
+bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
+bpaarm          double  %10.0g                Arm selected
+bpacsz          double  %10.0g                Coded cuff size
+bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse * 2)
+bpxpuls         double  %10.0g                Pulse regular or irregular?
+bpxpty          double  %10.0g                Pulse type
+bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
+                                                Hg)
+bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
+                                                Hg
+bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
+                                                mm Hg
+bpaen1          double  %10.0g                Enhancement used first reading
+bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
+                                                Hg
+bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
+                                                mm Hg
+bpaen2          double  %10.0g                Enhancement used second reading
+bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
+                                                Hg
+bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
+                                                mm Hg
+bpaen3          double  %10.0g                Enhancement used third reading
+bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
+                                                Hg
+bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
+                                                mm Hg
+bpaen4          double  %10.0g                Enhancement used fourth reading
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt-4" class="section level2">
+<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/BMX_I.XPT&quot;
+save &quot;temp/2015-2016/BMX_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2015-2016/BMX_I.dta not found)
+file temp/2015-2016/BMX_I.dta saved
+
+
+Contains data from temp/2015-2016/BMX_I.dta
+  obs:         9,544                          
+ vars:            26                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bmdstats        double  %10.0g                Body Measures Component Status
+                                                Code
+bmxwt           double  %10.0g                Weight (kg)
+bmiwt           double  %10.0g                Weight Comment
+bmxrecum        double  %10.0g                Recumbent Length (cm)
+bmirecum        double  %10.0g                Recumbent Length Comment
+bmxhead         double  %10.0g                Head Circumference (cm)
+bmihead         double  %10.0g                Head Circumference Comment
+bmxht           double  %10.0g                Standing Height (cm)
+bmiht           double  %10.0g                Standing Height Comment
+bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
+bmdbmic         double  %10.0g                BMI Category - Children/Youth
+bmxleg          double  %10.0g                Upper Leg Length (cm)
+bmileg          double  %10.0g                Upper Leg Length Comment
+bmxarml         double  %10.0g                Upper Arm Length (cm)
+bmiarml         double  %10.0g                Upper Arm Length Comment
+bmxarmc         double  %10.0g                Arm Circumference (cm)
+bmiarmc         double  %10.0g                Arm Circumference Comment
+bmxwaist        double  %10.0g                Waist Circumference (cm)
+bmiwaist        double  %10.0g                Waist Circumference Comment
+bmxsad1         double  %10.0g                Sagittal Abdominal Diameter 1st
+                                                (cm)
+bmxsad2         double  %10.0g                Sagittal Abdominal Diameter 2nd
+                                                (cm)
+bmxsad3         double  %10.0g                Sagittal Abdominal Diameter 3rd
+                                                (cm)
+bmxsad4         double  %10.0g                Sagittal Abdominal Diameter 4th
+                                                (cm)
+bmdavsad        double  %10.0g                Average Sagittal Abdominal
+                                                Diameter (cm)
+bmdsadcm        double  %10.0g                Sagittal Abdominal Diameter
+                                                Comment
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt-4" class="section level2">
+<h2>Smoking, SMQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/SMQ_I.XPT&quot;
+save &quot;temp/2015-2016/SMQ_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2015-2016/SMQ_I.dta not found)
+file temp/2015-2016/SMQ_I.dta saved
+
+
+Contains data from temp/2015-2016/SMQ_I.dta
+  obs:         7,001                          
+ vars:            42                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smd030          double  %10.0g                Age started smoking cigarettes
+                                                regularly
+smq040          double  %10.0g                Do you now smoke cigarettes?
+smq050q         double  %10.0g                How long since quit smoking
+                                                cigarettes
+smq050u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smd055          double  %10.0g                Age last smoked cigarettes
+                                                regularly
+smd057          double  %10.0g                # cigarettes smoked per day when
+                                                quit
+smq078          double  %10.0g                How soon after waking do you
+                                                smoke
+smd641          double  %10.0g                # days smoked cigs during past 30
+                                                days
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+smd093          double  %10.0g                May I please see the pack of
+                                                cigarettes
+smdupca         str12   %12s                  Cig 12-digit Universal Product
+                                                Code-UPC
+smd100br        str50   %50s                  Cigarette Brand/sub-brand
+smd100fl        double  %10.0g                Cigarette Filter type
+smd100mn        double  %10.0g                Cigarette Menthol indicator
+smd100ln        double  %10.0g                Cigarette Length
+smd100tr        double  %10.0g                FTC Tar Content
+smd100ni        double  %10.0g                FTC Nicotine Content
+smd100co        double  %10.0g                FTC Carbon Monoxide Content
+smq621          double  %10.0g                Cigarettes smoked in entire life
+smd630          double  %10.0g                Age first smoked whole cigarette
+smq661          double  %10.0g                Brand of cigarettes smoked past
+                                                30 days
+smq665a         double  %10.0g                Marlboro variety
+smq665b         double  %10.0g                Camel variety
+smq665c         double  %10.0g                Newport variety
+smq665d         double  %10.0g                Other brand
+smq670          double  %10.0g                Tried to quit smoking
+smq848          double  %10.0g                # times stopped smoking
+                                                cigarettes
+smq852q         double  %10.0g                How long were you able to stop
+                                                smoking
+smq852u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smq925          double  %10.0g                Ever smoked a cigarette even 1
+                                                time?
+smq930          double  %10.0g                Age smoked first cigarette
+smq935          double  %10.0g                Do you now smoke cigarettes?
+smq080          double  %10.0g                # days smoked cigs during past 30
+                                                days
+smq890          double  %10.0g                Ever smoked a cigar even 1 time?
+smq895          double  %10.0g                How many days smoked a cigar?
+smq900          double  %10.0g                Ever used an e-cigarette?
+smq905          double  %10.0g                How many days used an
+                                                e-cigarette?
+smq910          double  %10.0g                Ever used smokeless tobacco?
+smq915          double  %10.0g                How many days used smokeless
+                                                tobacco?
+smaquex2        double  %10.0g                Questionnaire Mode Flag
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt-4" class="section level2">
+<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/ALQ_I.XPT&quot;
+save &quot;temp/2015-2016/ALQ_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2015-2016/ALQ_I.dta not found)
+file temp/2015-2016/ALQ_I.dta saved
+
+
+Contains data from temp/2015-2016/ALQ_I.dta
+  obs:         5,735                          
+ vars:            10                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
+alq110          double  %10.0g                Had at least 12 alcohol
+                                                drinks/lifetime?
+alq120q         double  %10.0g                How often drink alcohol over past
+                                                12 mos
+alq120u         double  %10.0g                # days drink alcohol per wk, mo,
+                                                yr
+alq130          double  %10.0g                Avg # alcoholic drinks/day - past
+                                                12 mos
+alq141q         double  %10.0g                # days have 4/5 drinks - past 12
+                                                mos
+alq141u         double  %10.0g                # days per week, month, year?
+alq151          double  %10.0g                Ever have 4/5 or more drinks
+                                                every day?
+alq160          double  %10.0g                # days have 4/5 or more drinks in
+                                                2 hrs
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="merge-files-4" class="section level2">
+<h2>Merge Files</h2>
+<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_I.dta&quot;, clear
+# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
+# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_I.dta&quot;
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace</code></pre>
+<pre><code>Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command</code></pre>
+</div>
+</div>
+<div id="import-xpts-for-2017-2018" class="section level1">
+<h1>1 Import XPTs for 2017-2018</h1>
+<div id="demographics-demo_xyz.xpt-5" class="section level2">
+<h2>Demographics, DEMO_XYZ.XPT</h2>
+<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DEMO_J.XPT&quot;
+save &quot;temp/2017-2018/DEMO_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2017-2018/DEMO_J.dta not found)
+file temp/2017-2018/DEMO_J.dta saved
+
+
+Contains data from temp/2017-2018/DEMO_J.dta
+  obs:         9,254                          
+ vars:            46                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+sddsrvyr        double  %10.0g                Data release cycle
+ridstatr        double  %10.0g                Interview/Examination status
+riagendr        double  %10.0g                Gender
+ridageyr        double  %10.0g                Age in years at screening
+ridagemn        double  %10.0g                Age in months at screening - 0 to
+                                                24 mos
+ridreth1        double  %10.0g                Race/Hispanic origin
+ridreth3        double  %10.0g                Race/Hispanic origin w/ NH Asian
+ridexmon        double  %10.0g                Six month time period
+ridexagm        double  %10.0g                Age in months at exam - 0 to 19
+                                                years
+dmqmiliz        double  %10.0g                Served active duty in US Armed
+                                                Forces
+dmqadfc         double  %10.0g                Served in a foreign country
+dmdborn4        double  %10.0g                Country of birth
+dmdcitzn        double  %10.0g                Citizenship status
+dmdyrsus        double  %10.0g                Length of time in US
+dmdeduc3        double  %10.0g                Education level - Children/Youth
+                                                6-19
+dmdeduc2        double  %10.0g                Education level - Adults 20+
+dmdmartl        double  %10.0g                Marital status
+ridexprg        double  %10.0g                Pregnancy status at exam
+sialang         double  %10.0g                Language of SP Interview
+siaproxy        double  %10.0g                Proxy used in SP Interview?
+siaintrp        double  %10.0g                Interpreter used in SP Interview?
+fialang         double  %10.0g                Language of Family Interview
+fiaproxy        double  %10.0g                Proxy used in Family Interview?
+fiaintrp        double  %10.0g                Interpreter used in Family
+                                                Interview?
+mialang         double  %10.0g                Language of MEC Interview
+miaproxy        double  %10.0g                Proxy used in MEC Interview?
+miaintrp        double  %10.0g                Interpreter used in MEC
+                                                Interview?
+aialanga        double  %10.0g                Language of ACASI Interview
+dmdhhsiz        double  %10.0g                Total number of people in the
+                                                Household
+dmdfmsiz        double  %10.0g                Total number of people in the
+                                                Family
+dmdhhsza        double  %10.0g                # of children 5 years or younger
+                                                in HH
+dmdhhszb        double  %10.0g                # of children 6-17 years old in
+                                                HH
+dmdhhsze        double  %10.0g                # of adults 60 years or older in
+                                                HH
+dmdhrgnd        double  %10.0g                HH ref person&#39;s gender
+dmdhragz        double  %10.0g                HH ref person&#39;s age in years
+dmdhredz        double  %10.0g                HH ref person&#39;s education level
+dmdhrmaz        double  %10.0g                HH ref person&#39;s marital status
+dmdhsedz        double  %10.0g                HH ref person&#39;s spouse&#39;s
+                                                education level
+wtint2yr        double  %10.0g                Full sample 2 year interview
+                                                weight
+wtmec2yr        double  %10.0g                Full sample 2 year MEC exam
+                                                weight
+sdmvpsu         double  %10.0g                Masked variance pseudo-PSU
+sdmvstra        double  %10.0g                Masked variance pseudo-stratum
+indhhin2        double  %10.0g                Annual household income
+indfmin2        double  %10.0g                Annual family income
+indfmpir        double  %10.0g                Ratio of family income to poverty
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt-5" class="section level2">
+<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DUQ_J.XPT&quot;
+save &quot;temp/2017-2018/DUQ_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2017-2018/DUQ_J.dta not found)
+file temp/2017-2018/DUQ_J.dta saved
+
+
+Contains data from temp/2017-2018/DUQ_J.dta
+  obs:         4,572                          
+ vars:            41                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+duq200          double  %10.0g                Ever used marijuana or hashish
+duq210          double  %10.0g                Age when first tried marijuana
+duq211          double  %10.0g                Used marijuana every month for a
+                                                year?
+duq213          double  %10.0g                Age started regularly using
+                                                marijuana
+duq215q         double  %10.0g                Time since last used marijuana
+                                                regularly
+duq215u         double  %10.0g                Time since used marijuana
+                                                regularly/unit
+duq217          double  %10.0g                How often would you use
+                                                marijuana?
+duq219          double  %10.0g                How many joints or pipes smoke in
+                                                a day?
+duq220q         double  %10.0g                Last time used marijuana or
+                                                hashish
+duq220u         double  %10.0g                Last time used marijuana or
+                                                hashish/unit
+duq230          double  %10.0g                # days used marijuana or
+                                                hashish/month
+duq240          double  %10.0g                Ever used
+                                                cocaine/heroin/methamphetamine
+duq250          double  %10.0g                Ever use any form of cocaine
+duq260          double  %10.0g                Age first used cocaine
+duq270q         double  %10.0g                Last time you used cocaine, in
+                                                any form
+duq270u         double  %10.0g                Last time you used cocaine/unit
+duq272          double  %10.0g                # of time you used cocaine
+duq280          double  %10.0g                # of days used cocaine/month
+duq290          double  %10.0g                Ever used heroin
+duq300          double  %10.0g                Age first used heroin
+duq310q         double  %10.0g                Last time used heroin
+duq310u         double  %10.0g                Last time used heroin/unit
+duq320          double  %10.0g                # of days used heroin/month
+duq330          double  %10.0g                Ever used methamphetamine
+duq340          double  %10.0g                Age first used methamphetamine
+duq350q         double  %10.0g                Last time used methamphetamine
+duq350u         double  %10.0g                Last time used
+                                                methamphetamine/unit
+duq352          double  %10.0g                # times used methamphetamine
+duq360          double  %10.0g                # days used methamphetamine/month
+duq370          double  %10.0g                Ever use a needle to inject
+                                                illegal drug
+duq380a         double  %10.0g                Drugs injected - Cocaine
+duq380b         double  %10.0g                Drugs injected - Heroin
+duq380c         double  %10.0g                Drugs injected - Methamphetamine
+dud380f         double  %10.0g                Drugs injected - Steroids or
+                                                other drugs
+duq390          double  %10.0g                Age first injected drugs
+duq400q         double  %10.0g                Last time injected drugs
+duq400u         double  %10.0g                Last time injected drugs/unit
+duq410          double  %10.0g                # times injected drugs/lifetime
+duq420          double  %10.0g                How often did you inject drugs
+duq430          double  %10.0g                Ever been in rehabilitation
+                                                program
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt-5" class="section level2">
+<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/BPX_J.XPT&quot;
+save &quot;temp/2017-2018/BPX_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2017-2018/BPX_J.dta not found)
+file temp/2017-2018/BPX_J.dta saved
+
+
+Contains data from temp/2017-2018/BPX_J.dta
+  obs:         8,704                          
+ vars:            21                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+peascct1        double  %10.0g                Blood Pressure Comment
+bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
+bpaarm          double  %10.0g                Arm selected
+bpacsz          double  %10.0g                Coded cuff size
+bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse * 2)
+bpxpuls         double  %10.0g                Pulse regular or irregular?
+bpxpty          double  %10.0g                Pulse type
+bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
+                                                Hg)
+bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
+                                                Hg
+bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
+                                                mm Hg
+bpaen1          double  %10.0g                Enhancement used first reading
+bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
+                                                Hg
+bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
+                                                mm Hg
+bpaen2          double  %10.0g                Enhancement used second reading
+bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
+                                                Hg
+bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
+                                                mm Hg
+bpaen3          double  %10.0g                Enhancement used third reading
+bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
+                                                Hg
+bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
+                                                mm Hg
+bpaen4          double  %10.0g                Enhancement used fourth reading
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt-5" class="section level2">
+<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/BMX_J.XPT&quot;
+save &quot;temp/2017-2018/BMX_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2017-2018/BMX_J.dta not found)
+file temp/2017-2018/BMX_J.dta saved
+
+
+Contains data from temp/2017-2018/BMX_J.dta
+  obs:         8,704                          
+ vars:            21                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bmdstats        double  %10.0g                Body Measures Component Status
+                                                Code
+bmxwt           double  %10.0g                Weight (kg)
+bmiwt           double  %10.0g                Weight Comment
+bmxrecum        double  %10.0g                Recumbent Length (cm)
+bmirecum        double  %10.0g                Recumbent Length Comment
+bmxhead         double  %10.0g                Head Circumference (cm)
+bmihead         double  %10.0g                Head Circumference Comment
+bmxht           double  %10.0g                Standing Height (cm)
+bmiht           double  %10.0g                Standing Height Comment
+bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
+bmxleg          double  %10.0g                Upper Leg Length (cm)
+bmileg          double  %10.0g                Upper Leg Length Comment
+bmxarml         double  %10.0g                Upper Arm Length (cm)
+bmiarml         double  %10.0g                Upper Arm Length Comment
+bmxarmc         double  %10.0g                Arm Circumference (cm)
+bmiarmc         double  %10.0g                Arm Circumference Comment
+bmxwaist        double  %10.0g                Waist Circumference (cm)
+bmiwaist        double  %10.0g                Waist Circumference Comment
+bmxhip          double  %10.0g                Hip Circumference (cm)
+bmihip          double  %10.0g                Hip Circumference Comment
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt-5" class="section level2">
+<h2>Smoking, SMQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/SMQ_J.XPT&quot;
+save &quot;temp/2017-2018/SMQ_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2017-2018/SMQ_J.dta not found)
+file temp/2017-2018/SMQ_J.dta saved
+
+
+Contains data from temp/2017-2018/SMQ_J.dta
+  obs:         6,724                          
+ vars:            37                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smd030          double  %10.0g                Age started smoking cigarettes
+                                                regularly
+smq040          double  %10.0g                Do you now smoke cigarettes?
+smq050q         double  %10.0g                How long since quit smoking
+                                                cigarettes
+smq050u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smd057          double  %10.0g                # cigarettes smoked per day when
+                                                quit
+smq078          double  %10.0g                How soon after waking do you
+                                                smoke
+smd641          double  %10.0g                # days smoked cigs during past 30
+                                                days
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+smd093          double  %10.0g                May I please see the pack of
+                                                cigarettes
+smdupca         str12   %12s                  Cig 12-digit Universal Product
+                                                Code-UPC
+smd100br        str50   %50s                  Cigarette Brand/sub-brand
+smd100fl        double  %10.0g                Cigarette Filter type
+smd100mn        double  %10.0g                Cigarette Menthol indicator
+smd100ln        double  %10.0g                Cigarette Length
+smd100tr        double  %10.0g                FTC Tar Content
+smd100ni        double  %10.0g                FTC Nicotine Content
+smd100co        double  %10.0g                FTC Carbon Monoxide Content
+smq621          double  %10.0g                Cigarettes smoked in entire life
+smd630          double  %10.0g                Age first smoked whole cigarette
+smq661          double  %10.0g                Brand of cigarettes smoked past
+                                                30 days
+smq665a         double  %10.0g                Marlboro variety
+smq665b         double  %10.0g                Camel variety
+smq665c         double  %10.0g                Newport variety
+smq665d         double  %10.0g                Other brand
+smq670          double  %10.0g                Tried to quit smoking
+smq848          double  %10.0g                # times stopped smoking
+                                                cigarettes
+smq852q         double  %10.0g                How long were you able to stop
+                                                smoking
+smq852u         double  %10.0g                Unit of measure
+                                                (day/week/month/year)
+smq890          double  %10.0g                Ever smoked a cigar even 1 time?
+smq895          double  %10.0g                How many days smoked a cigar?
+smq900          double  %10.0g                Ever used an e-cigarette?
+smq905          double  %10.0g                How many days used an
+                                                e-cigarette?
+smq910          double  %10.0g                Ever used smokeless tobacco?
+smq915          double  %10.0g                How many days used smokeless
+                                                tobacco?
+smaquex2        double  %10.0g                Questionnaire Mode Flag
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt-5" class="section level2">
+<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/ALQ_J.XPT&quot;
+save &quot;temp/2017-2018/ALQ_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2017-2018/ALQ_J.dta not found)
+file temp/2017-2018/ALQ_J.dta saved
+
+
+Contains data from temp/2017-2018/ALQ_J.dta
+  obs:         5,533                          
+ vars:            10                          8 Jul 2021 14:50
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+alq111          double  %10.0g                Ever had a drink of any kind of
+                                                alcohol
+alq121          double  %10.0g                Past 12 mo how often have alcohol
+                                                drink
+alq130          double  %10.0g                Avg # alcohol drinks/day - past
+                                                12 mos
+alq142          double  %10.0g                # days have 4 or 5 drinks/past 12
+                                                mos
+alq270          double  %10.0g                # times 4-5 drinks in 2 hrs/past
+                                                12 mos
+alq280          double  %10.0g                # times 8+ drinks in 1 day/past
+                                                12 mos
+alq290          double  %10.0g                # times 12+ drinks in 1 day/past
+                                                12 mos
+alq151          double  %10.0g                Ever have 4/5 or more drinks
+                                                every day?
+alq170          double  %10.0g                Past 30 days # times 4-5 drinks
+                                                on an oc
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="merge-files-5" class="section level2">
+<h2>Merge Files</h2>
+<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_J.dta&quot;, clear
+# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
+# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_J.dta&quot;
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace</code></pre>
+<pre><code>Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command</code></pre>
+</div>
 </div>
 
 

@@ -44,12 +44,410 @@ clear
 
 ## Drug Use, DUQ_XYZ.XPT
 
+```{stata}
+import sasxport5 "data/2007-2008/DUQ_E.XPT"
+save "temp/2007-2008/DUQ_E.dta",replace
+de
+clear
+```
+
 ## Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2007-2008/BPX_E.XPT"
+save "temp/2007-2008/BPX_E.dta",replace
+de
+clear
+```
 
 ## Body Measurements, BMX_XYZ.XPT
 
+```{stata}
+import sasxport5 "data/2007-2008/BMX_E.XPT"
+save "temp/2007-2008/BMX_E.dta",replace
+de
+clear
+```
+
 ## Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2007-2008/SMQ_E.XPT"
+save "temp/2007-2008/SMQ_E.dta",replace
+de
+clear
+```
 
 ## Alcohol, ALQ_XYZ.XPT
 
+```{stata}
+import sasxport5 "data/2007-2008/ALQ_E.XPT"
+save "temp/2007-2008/ALQ_E.dta",replace
+de
+clear
+```
+
 ## Merge Files
+
+```{stata}
+# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_E.dta", clear
+# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
+# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_E.dta"
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace
+```
+
+# 2 Import XPTs for 2009-2010
+
+## Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2009-2010/DEMO_F.XPT"
+save "temp/2009-2010/DEMO_F.dta",replace
+de
+clear
+```
+
+## Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/DUQ_F.XPT"
+save "temp/2009-2010/DUQ_F.dta",replace
+de
+clear
+```
+
+## Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/BPX_F.XPT"
+save "temp/2009-2010/BPX_F.dta",replace
+de
+clear
+```
+
+## Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/BMX_F.XPT"
+save "temp/2009-2010/BMX_F.dta",replace
+de
+clear
+```
+
+## Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/SMQ_F.XPT"
+save "temp/2009-2010/SMQ_F.dta",replace
+de
+clear
+```
+
+## Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/ALQ_F.XPT"
+save "temp/2009-2010/ALQ_F.dta",replace
+de
+clear
+```
+
+## Merge Files
+
+```{stata}
+# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_F.dta", clear
+# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
+# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_F.dta"
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace
+```
+
+# 3 Import XPTs for 2011-2012
+
+## Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2011-2012/DEMO_G.XPT"
+save "temp/2011-2012/DEMO_G.dta",replace
+de
+clear
+```
+
+## Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/DUQ_G.XPT"
+save "temp/2011-2012/DUQ_G.dta",replace
+de
+clear
+```
+
+## Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/BPX_G.XPT"
+save "temp/2011-2012/BPX_G.dta",replace
+de
+clear
+```
+
+## Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/BMX_G.XPT"
+save "temp/2011-2012/BMX_G.dta",replace
+de
+clear
+```
+
+## Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/SMQ_G.XPT"
+save "temp/2011-2012/SMQ_G.dta",replace
+de
+clear
+```
+
+## Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/ALQ_G.XPT"
+save "temp/2011-2012/ALQ_G.dta",replace
+de
+clear
+```
+
+## Merge Files
+
+```{stata}
+# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_G.dta", clear
+# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
+# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_G.dta"
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace
+```
+
+# 4 Import XPTs for 2013-2014
+
+## Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2013-2014/DEMO_H.XPT"
+save "temp/2013-2014/DEMO_H.dta",replace
+de
+clear
+```
+
+## Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/DUQ_H.XPT"
+save "temp/2013-2014/DUQ_H.dta",replace
+de
+clear
+```
+
+## Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/BPX_H.XPT"
+save "temp/2013-2014/BPX_H.dta",replace
+de
+clear
+```
+
+## Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/BMX_H.XPT"
+save "temp/2013-2014/BMX_H.dta",replace
+de
+clear
+```
+
+## Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/SMQ_H.XPT"
+save "temp/2013-2014/SMQ_H.dta",replace
+de
+clear
+```
+
+## Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/ALQ_H.XPT"
+save "temp/2013-2014/ALQ_H.dta",replace
+de
+clear
+```
+
+## Merge Files
+
+```{stata}
+# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_H.dta", clear
+# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
+# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_H.dta"
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace
+```
+
+# 5 Import XPTs for 2015-2016
+
+## Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2015-2016/DEMO_I.XPT"
+save "temp/2015-2016/DEMO_I.dta",replace
+de
+clear
+```
+
+## Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/DUQ_I.XPT"
+save "temp/2015-2016/DUQ_I.dta",replace
+de
+clear
+```
+
+## Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/BPX_I.XPT"
+save "temp/2015-2016/BPX_I.dta",replace
+de
+clear
+```
+
+## Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/BMX_I.XPT"
+save "temp/2015-2016/BMX_I.dta",replace
+de
+clear
+```
+
+## Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/SMQ_I.XPT"
+save "temp/2015-2016/SMQ_I.dta",replace
+de
+clear
+```
+
+## Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/ALQ_I.XPT"
+save "temp/2015-2016/ALQ_I.dta",replace
+de
+clear
+```
+
+## Merge Files
+
+```{stata}
+# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_I.dta", clear
+# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
+# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_I.dta"
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace
+```
+
+# 6 Import XPTs for 2017-2018
+
+## Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2017-2018/DEMO_J.XPT"
+save "temp/2017-2018/DEMO_J.dta",replace
+de
+clear
+```
+
+## Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/DUQ_J.XPT"
+save "temp/2017-2018/DUQ_J.dta",replace
+de
+clear
+```
+
+## Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/BPX_J.XPT"
+save "temp/2017-2018/BPX_J.dta",replace
+de
+clear
+```
+
+## Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/BMX_J.XPT"
+save "temp/2017-2018/BMX_J.dta",replace
+de
+clear
+```
+
+## Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/SMQ_J.XPT"
+save "temp/2017-2018/SMQ_J.dta",replace
+de
+clear
+```
+
+## Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/ALQ_J.XPT"
+save "temp/2017-2018/ALQ_J.dta",replace
+de
+clear
+```
+
+## Merge Files
+
+```{stata}
+# use "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_J.dta", clear
+# save "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta",replace
+# merge 1:1 seqn using "C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_J.dta"
+# rename _merge Merge_BM
+# tab Merge_BM
+# duplicates report seqn
+# save,replace
+```
+
+
+
