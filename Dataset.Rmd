@@ -29,9 +29,11 @@ if ((Sys.info()["sysname"] == "Darwin"))
 library(Statamarkdown)
 ```
 
-# 1 Import XPTs for 2007-2008
+# Import Files
 
-## Demographics, DEMO_XYZ.XPT
+## 1 Import XPTs for 2007-2008
+
+### Demographics, DEMO_XYZ.XPT
 
 The following STATA chunk imports and describes the sociodemographic NHANES dataset:
 
@@ -42,52 +44,378 @@ de
 clear
 ```
 
-## Drug Use, DUQ_XYZ.XPT
+### Drug Use, DUQ_XYZ.XPT
 
 ```{stata}
 import sasxport5 "data/2007-2008/DUQ_E.XPT"
+keep seqn duq200 duq220q duq230 duq210
 save "temp/2007-2008/DUQ_E.dta",replace
 de
 clear
 ```
 
-## Blood Pressure, BPX_XYZ.XPT
+### Blood Pressure, BPX_XYZ.XPT
 
 ```{stata}
 import sasxport5 "data/2007-2008/BPX_E.XPT"
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
 save "temp/2007-2008/BPX_E.dta",replace
 de
 clear
 ```
 
-## Body Measurements, BMX_XYZ.XPT
+### Body Measurements, BMX_XYZ.XPT
 
 ```{stata}
 import sasxport5 "data/2007-2008/BMX_E.XPT"
+keep seqn bmxwt bmxbmi bmxht bmxwaist
 save "temp/2007-2008/BMX_E.dta",replace
 de
 clear
 ```
 
-## Smoking, SMQ_XYZ.XPT
+### Smoking, SMQ_XYZ.XPT
 
 ```{stata}
 import sasxport5 "data/2007-2008/SMQ_E.XPT"
+keep seqn smd650
 save "temp/2007-2008/SMQ_E.dta",replace
 de
 clear
 ```
 
-## Alcohol, ALQ_XYZ.XPT
+### Alcohol, ALQ_XYZ.XPT
 
 ```{stata}
 import sasxport5 "data/2007-2008/ALQ_E.XPT"
+keep seqn alq130
 save "temp/2007-2008/ALQ_E.dta",replace
 de
 clear
 ```
 
-## Merge Files
+## 2 Import XPTs for 2009-2010
+
+### Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2009-2010/DEMO_F.XPT"
+save "temp/2009-2010/DEMO_F.dta",replace
+de
+clear
+```
+
+### Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/DUQ_F.XPT"
+keep seqn duq200 duq220q duq230 duq210
+save "temp/2009-2010/DUQ_F.dta",replace
+de
+clear
+```
+
+### Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/BPX_F.XPT"
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
+save "temp/2009-2010/BPX_F.dta",replace
+de
+clear
+```
+
+### Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/BMX_F.XPT"
+keep seqn bmxwt bmxbmi bmxht bmxwaist
+save "temp/2009-2010/BMX_F.dta",replace
+de
+clear
+```
+
+### Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/SMQ_F.XPT"
+keep seqn smd650
+save "temp/2009-2010/SMQ_F.dta",replace
+de
+clear
+```
+
+### Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/ALQ_F.XPT"
+keep seqn alq130
+save "temp/2009-2010/ALQ_F.dta",replace
+de
+clear
+```
+
+## 3 Import XPTs for 2011-2012
+
+### Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2011-2012/DEMO_G.XPT"
+save "temp/2011-2012/DEMO_G.dta",replace
+de
+clear
+```
+
+### Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/DUQ_G.XPT"
+keep seqn duq200 duq220q duq230 duq210
+save "temp/2011-2012/DUQ_G.dta",replace
+de
+clear
+```
+
+### Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/BPX_G.XPT"
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
+save "temp/2011-2012/BPX_G.dta",replace
+de
+clear
+```
+
+### Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/BMX_G.XPT"
+keep seqn bmxwt bmxbmi bmxht bmxwaist
+save "temp/2011-2012/BMX_G.dta",replace
+de
+clear
+```
+
+### Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/SMQ_G.XPT"
+keep seqn smd650
+save "temp/2011-2012/SMQ_G.dta",replace
+de
+clear
+```
+
+### Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/ALQ_G.XPT"
+keep seqn alq130
+save "temp/2011-2012/ALQ_G.dta",replace
+de
+clear
+```
+
+## 4 Import XPTs for 2013-2014
+
+### Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2013-2014/DEMO_H.XPT"
+save "temp/2013-2014/DEMO_H.dta",replace
+de
+clear
+```
+
+### Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/DUQ_H.XPT"
+keep seqn duq200 duq220q duq230 duq210
+save "temp/2013-2014/DUQ_H.dta",replace
+de
+clear
+```
+
+### Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/BPX_H.XPT"
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
+save "temp/2013-2014/BPX_H.dta",replace
+de
+clear
+```
+
+### Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/BMX_H.XPT"
+keep seqn bmxwt bmxbmi bmxht bmxwaist
+save "temp/2013-2014/BMX_H.dta",replace
+de
+clear
+```
+
+### Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/SMQ_H.XPT"
+keep seqn smd650
+save "temp/2013-2014/SMQ_H.dta",replace
+de
+clear
+```
+
+### Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/ALQ_H.XPT"
+keep seqn alq130
+save "temp/2013-2014/ALQ_H.dta",replace
+de
+clear
+```
+
+## 5 Import XPTs for 2015-2016
+
+### Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2015-2016/DEMO_I.XPT"
+save "temp/2015-2016/DEMO_I.dta",replace
+de
+clear
+```
+
+### Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/DUQ_I.XPT"
+keep seqn duq200 duq220q duq230 duq210
+save "temp/2015-2016/DUQ_I.dta",replace
+de
+clear
+```
+
+### Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/BPX_I.XPT"
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
+save "temp/2015-2016/BPX_I.dta",replace
+de
+clear
+```
+
+### Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/BMX_I.XPT"
+keep seqn bmxwt bmxbmi bmxht bmxwaist
+save "temp/2015-2016/BMX_I.dta",replace
+de
+clear
+```
+
+### Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/SMQ_I.XPT"
+keep seqn smd650
+save "temp/2015-2016/SMQ_I.dta",replace
+de
+clear
+```
+
+### Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/ALQ_I.XPT"
+keep seqn alq130
+save "temp/2015-2016/ALQ_I.dta",replace
+de
+clear
+```
+
+## 6 Import XPTs for 2017-2018
+
+### Demographics, DEMO_XYZ.XPT
+
+The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+
+```{stata}
+import sasxport5 "data/2017-2018/DEMO_J.XPT"
+save "temp/2017-2018/DEMO_J.dta",replace
+de
+clear
+```
+
+### Drug Use, DUQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/DUQ_J.XPT"
+keep seqn duq200 duq220q duq230 duq210
+save "temp/2017-2018/DUQ_J.dta",replace
+de
+clear
+```
+
+### Blood Pressure, BPX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/BPX_J.XPT"
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
+save "temp/2017-2018/BPX_J.dta",replace
+de
+clear
+```
+
+### Body Measurements, BMX_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/BMX_J.XPT"
+keep seqn bmxwt bmxbmi bmxht bmxwaist
+save "temp/2017-2018/BMX_J.dta",replace
+de
+clear
+```
+
+### Smoking, SMQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/SMQ_J.XPT"
+keep seqn smd650
+save "temp/2017-2018/SMQ_J.dta",replace
+de
+clear
+```
+
+### Alcohol, ALQ_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/ALQ_J.XPT"
+keep seqn alq130
+save "temp/2017-2018/ALQ_J.dta",replace
+de
+clear
+```
+
+# Merge Files
+
+## 2007-2008
+
+Starting with the demographics file.
+
+### BMX merge
 
 ```{stata}
 use "temp\2007-2008\DEMO_E.dta", clear
@@ -99,69 +427,59 @@ duplicates report seqn
 save,replace
 ```
 
-# 2 Import XPTs for 2009-2010
-
-## Demographics, DEMO_XYZ.XPT
-
-The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+### ALQ merge
 
 ```{stata}
-import sasxport5 "data/2009-2010/DEMO_F.XPT"
-save "temp/2009-2010/DEMO_F.dta",replace
-de
-clear
+use "data\NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp\2007-2008\ALQ_E.dta"
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace
 ```
 
-## Drug Use, DUQ_XYZ.XPT
+### BPX merge
 
 ```{stata}
-import sasxport5 "data/2009-2010/DUQ_F.XPT"
-save "temp/2009-2010/DUQ_F.dta",replace
-de
-clear
+use "data\NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp\2007-2008\BPX_E.dta"
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace
 ```
 
-## Blood Pressure, BPX_XYZ.XPT
+### DUQ merge
 
 ```{stata}
-import sasxport5 "data/2009-2010/BPX_F.XPT"
-save "temp/2009-2010/BPX_F.dta",replace
-de
-clear
+use "data\NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp\2007-2008\DUQ_E.dta"
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace
 ```
 
-## Body Measurements, BMX_XYZ.XPT
+### SMQ merge
 
 ```{stata}
-import sasxport5 "data/2009-2010/BMX_F.XPT"
-save "temp/2009-2010/BMX_F.dta",replace
-de
-clear
+use "data\NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp\2007-2008\SMQ_E.dta"
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace
 ```
 
-## Smoking, SMQ_XYZ.XPT
+## 2009-2010
 
-```{stata}
-import sasxport5 "data/2009-2010/SMQ_F.XPT"
-save "temp/2009-2010/SMQ_F.dta",replace
-de
-clear
-```
+Starting with the demographics file.
 
-## Alcohol, ALQ_XYZ.XPT
-
-```{stata}
-import sasxport5 "data/2009-2010/ALQ_F.XPT"
-save "temp/2009-2010/ALQ_F.dta",replace
-de
-clear
-```
-
-## Merge Files
+### BMX merge
 
 ```{stata}
 use "temp\2009-2010\DEMO_F.dta", clear
-save "data\NHANES0708_merged.dta",replace
+save "data\NHANES0910_merged.dta",replace
 merge 1:1 seqn using "temp\2009-2010\BMX_F.dta"
 rename _merge Merge_BM
 tab Merge_BM
@@ -169,69 +487,59 @@ duplicates report seqn
 save,replace
 ```
 
-# 3 Import XPTs for 2011-2012
-
-## Demographics, DEMO_XYZ.XPT
-
-The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+### ALQ merge
 
 ```{stata}
-import sasxport5 "data/2011-2012/DEMO_G.XPT"
-save "temp/2011-2012/DEMO_G.dta",replace
-de
-clear
+use "data\NHANES0910_merged.dta", clear
+merge 1:1 seqn using "temp\2009-2010\ALQ_F.dta"
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace
 ```
 
-## Drug Use, DUQ_XYZ.XPT
+### BPX merge
 
 ```{stata}
-import sasxport5 "data/2011-2012/DUQ_G.XPT"
-save "temp/2011-2012/DUQ_G.dta",replace
-de
-clear
+use "data\NHANES0910_merged.dta", clear
+merge 1:1 seqn using "temp\2009-2010\BPX_F.dta"
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace
 ```
 
-## Blood Pressure, BPX_XYZ.XPT
+### DUQ merge
 
 ```{stata}
-import sasxport5 "data/2011-2012/BPX_G.XPT"
-save "temp/2011-2012/BPX_G.dta",replace
-de
-clear
+use "data\NHANES0910_merged.dta", clear
+merge 1:1 seqn using "temp\2009-2010\DUQ_F.dta"
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace
 ```
 
-## Body Measurements, BMX_XYZ.XPT
+### SMQ merge
 
 ```{stata}
-import sasxport5 "data/2011-2012/BMX_G.XPT"
-save "temp/2011-2012/BMX_G.dta",replace
-de
-clear
+use "data\NHANES0910_merged.dta", clear
+merge 1:1 seqn using "temp\2009-2010\SMQ_F.dta"
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace
 ```
 
-## Smoking, SMQ_XYZ.XPT
+## 2011-2012
 
-```{stata}
-import sasxport5 "data/2011-2012/SMQ_G.XPT"
-save "temp/2011-2012/SMQ_G.dta",replace
-de
-clear
-```
+Starting with the demographics file.
 
-## Alcohol, ALQ_XYZ.XPT
-
-```{stata}
-import sasxport5 "data/2011-2012/ALQ_G.XPT"
-save "temp/2011-2012/ALQ_G.dta",replace
-de
-clear
-```
-
-## Merge Files
+### BMX merge
 
 ```{stata}
 use "temp\2011-2012\DEMO_G.dta", clear
-save "data\NHANES0708_merged.dta",replace
+save "data\NHANES1112_merged.dta",replace
 merge 1:1 seqn using "temp\2011-2012\BMX_G.dta"
 rename _merge Merge_BM
 tab Merge_BM
@@ -239,69 +547,59 @@ duplicates report seqn
 save,replace
 ```
 
-# 4 Import XPTs for 2013-2014
-
-## Demographics, DEMO_XYZ.XPT
-
-The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+### ALQ merge
 
 ```{stata}
-import sasxport5 "data/2013-2014/DEMO_H.XPT"
-save "temp/2013-2014/DEMO_H.dta",replace
-de
-clear
+use "data\NHANES1112_merged.dta", clear
+merge 1:1 seqn using "temp\2011-2012\ALQ_G.dta"
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace
 ```
 
-## Drug Use, DUQ_XYZ.XPT
+### BPX merge
 
 ```{stata}
-import sasxport5 "data/2013-2014/DUQ_H.XPT"
-save "temp/2013-2014/DUQ_H.dta",replace
-de
-clear
+use "data\NHANES1112_merged.dta", clear
+merge 1:1 seqn using "temp\2011-2012\BPX_G.dta"
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace
 ```
 
-## Blood Pressure, BPX_XYZ.XPT
+### DUQ merge
 
 ```{stata}
-import sasxport5 "data/2013-2014/BPX_H.XPT"
-save "temp/2013-2014/BPX_H.dta",replace
-de
-clear
+use "data\NHANES1112_merged.dta", clear
+merge 1:1 seqn using "temp\2011-2012\DUQ_G.dta"
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace
 ```
 
-## Body Measurements, BMX_XYZ.XPT
+### SMQ merge
 
 ```{stata}
-import sasxport5 "data/2013-2014/BMX_H.XPT"
-save "temp/2013-2014/BMX_H.dta",replace
-de
-clear
+use "data\NHANES1112_merged.dta", clear
+merge 1:1 seqn using "temp\2011-2012\SMQ_G.dta"
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace
 ```
 
-## Smoking, SMQ_XYZ.XPT
+## 2013-2014
 
-```{stata}
-import sasxport5 "data/2013-2014/SMQ_H.XPT"
-save "temp/2013-2014/SMQ_H.dta",replace
-de
-clear
-```
+Starting with the demographics file.
 
-## Alcohol, ALQ_XYZ.XPT
-
-```{stata}
-import sasxport5 "data/2013-2014/ALQ_H.XPT"
-save "temp/2013-2014/ALQ_H.dta",replace
-de
-clear
-```
-
-## Merge Files
+### BMX merge
 
 ```{stata}
 use "temp\2013-2014\DEMO_H.dta", clear
-save "data\NHANES0708_merged.dta",replace
+save "data\NHANES1314_merged.dta",replace
 merge 1:1 seqn using "temp\2013-2014\BMX_H.dta"
 rename _merge Merge_BM
 tab Merge_BM
@@ -309,69 +607,59 @@ duplicates report seqn
 save,replace
 ```
 
-# 5 Import XPTs for 2015-2016
-
-## Demographics, DEMO_XYZ.XPT
-
-The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+### ALQ merge
 
 ```{stata}
-import sasxport5 "data/2015-2016/DEMO_I.XPT"
-save "temp/2015-2016/DEMO_I.dta",replace
-de
-clear
+use "data\NHANES1314_merged.dta", clear
+merge 1:1 seqn using "temp\2013-2014\ALQ_H.dta"
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace
 ```
 
-## Drug Use, DUQ_XYZ.XPT
+### BPX merge
 
 ```{stata}
-import sasxport5 "data/2015-2016/DUQ_I.XPT"
-save "temp/2015-2016/DUQ_I.dta",replace
-de
-clear
+use "data\NHANES1314_merged.dta", clear
+merge 1:1 seqn using "temp\2013-2014\BPX_H.dta"
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace
 ```
 
-## Blood Pressure, BPX_XYZ.XPT
+### DUQ merge
 
 ```{stata}
-import sasxport5 "data/2015-2016/BPX_I.XPT"
-save "temp/2015-2016/BPX_I.dta",replace
-de
-clear
+use "data\NHANES1314_merged.dta", clear
+merge 1:1 seqn using "temp\2013-2014\DUQ_H.dta"
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace
 ```
 
-## Body Measurements, BMX_XYZ.XPT
+### SMQ merge
 
 ```{stata}
-import sasxport5 "data/2015-2016/BMX_I.XPT"
-save "temp/2015-2016/BMX_I.dta",replace
-de
-clear
+use "data\NHANES1314_merged.dta", clear
+merge 1:1 seqn using "temp\2013-2014\SMQ_H.dta"
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace
 ```
 
-## Smoking, SMQ_XYZ.XPT
+## 2015-2016
 
-```{stata}
-import sasxport5 "data/2015-2016/SMQ_I.XPT"
-save "temp/2015-2016/SMQ_I.dta",replace
-de
-clear
-```
+Starting with the demographics file.
 
-## Alcohol, ALQ_XYZ.XPT
-
-```{stata}
-import sasxport5 "data/2015-2016/ALQ_I.XPT"
-save "temp/2015-2016/ALQ_I.dta",replace
-de
-clear
-```
-
-## Merge Files
+### BMX merge
 
 ```{stata}
 use "temp\2015-2016\DEMO_I.dta", clear
-save "data\NHANES0708_merged.dta",replace
+save "data\NHANES1516_merged.dta",replace
 merge 1:1 seqn using "temp\2015-2016\BMX_I.dta"
 rename _merge Merge_BM
 tab Merge_BM
@@ -379,69 +667,59 @@ duplicates report seqn
 save,replace
 ```
 
-# 6 Import XPTs for 2017-2018
-
-## Demographics, DEMO_XYZ.XPT
-
-The following STATA chunk imports and describes the sociodemographic NHANES dataset:
+### ALQ merge
 
 ```{stata}
-import sasxport5 "data/2017-2018/DEMO_J.XPT"
-save "temp/2017-2018/DEMO_J.dta",replace
-de
-clear
+use "data\NHANES1516_merged.dta", clear
+merge 1:1 seqn using "temp\2015-2016\ALQ_I.dta"
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace
 ```
 
-## Drug Use, DUQ_XYZ.XPT
+### BPX merge
 
 ```{stata}
-import sasxport5 "data/2017-2018/DUQ_J.XPT"
-save "temp/2017-2018/DUQ_J.dta",replace
-de
-clear
+use "data\NHANES1516_merged.dta", clear
+merge 1:1 seqn using "temp\2015-2016\BPX_I.dta"
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace
 ```
 
-## Blood Pressure, BPX_XYZ.XPT
+### DUQ merge
 
 ```{stata}
-import sasxport5 "data/2017-2018/BPX_J.XPT"
-save "temp/2017-2018/BPX_J.dta",replace
-de
-clear
+use "data\NHANES1516_merged.dta", clear
+merge 1:1 seqn using "temp\2015-2016\DUQ_I.dta"
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace
 ```
 
-## Body Measurements, BMX_XYZ.XPT
+### SMQ merge
 
 ```{stata}
-import sasxport5 "data/2017-2018/BMX_J.XPT"
-save "temp/2017-2018/BMX_J.dta",replace
-de
-clear
+use "data\NHANES1516_merged.dta", clear
+merge 1:1 seqn using "temp\2015-2016\SMQ_I.dta"
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace
 ```
 
-## Smoking, SMQ_XYZ.XPT
+## 2017-2018
+
+Starting with the demographics file, DEMO_J, and merging with the body measures file, BMX_J
+
+### BMX merge
 
 ```{stata}
-import sasxport5 "data/2017-2018/SMQ_J.XPT"
-save "temp/2017-2018/SMQ_J.dta",replace
-de
-clear
-```
-
-## Alcohol, ALQ_XYZ.XPT
-
-```{stata}
-import sasxport5 "data/2017-2018/ALQ_J.XPT"
-save "temp/2017-2018/ALQ_J.dta",replace
-de
-clear
-```
-
-## Merge Files
-
-```{stata}
-use "temp\2017-2018DEMO_J.dta", clear
-save "data\NHANES0708_merged.dta",replace
+use "temp\2017-2018\DEMO_J.dta", clear
+save "data\NHANES1718_merged.dta",replace
 merge 1:1 seqn using "temp\2017-2018\BMX_J.dta"
 rename _merge Merge_BM
 tab Merge_BM
@@ -450,4 +728,74 @@ save,replace
 ```
 
 
+### ALQ merge
+
+```{stata}
+use "data\NHANES1718_merged.dta", clear
+merge 1:1 seqn using "temp\2017-2018\ALQ_J.dta"
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace
+```
+
+### BPX merge
+
+```{stata}
+use "data\NHANES1718_merged.dta", clear
+merge 1:1 seqn using "temp\2017-2018\BPX_J.dta"
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace
+```
+
+### DUQ merge
+
+```{stata}
+use "data\NHANES1718_merged.dta", clear
+merge 1:1 seqn using "temp\2017-2018\DUQ_J.dta"
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace
+```
+
+### SMQ merge
+
+```{stata}
+use "data\NHANES1718_merged.dta", clear
+merge 1:1 seqn using "temp\2017-2018\SMQ_J.dta"
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace
+```
+# Appending datasets
+
+
+```{stata}
+use "data\NHANES0708_merged.dta", clear
+save "data\NHANES0718.dta",replace
+append using "data\NHANES0910_merged.dta"
+append using "data\NHANES1112_merged.dta"
+append using "data\NHANES1314_merged.dta"
+append using "data\NHANES1516_merged.dta"
+append using "data\NHANES1718_merged.dta"
+
+duplicates report seqn
+
+save,replace
+```
+
+```{stata}
+use "data\NHANES0718.dta", clear
+
+merge 1:1 seqn using "data\HEI2015R_00518.dta"
+rename _merge Merge_HEI
+tab Merge_HEI
+duplicates report seqn
+
+save,replace
+```
 
