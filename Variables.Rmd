@@ -60,12 +60,14 @@ ta miss_SBP3 miss_SBP4
 egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
 
 ta  NmissSBP miss_SBP1
+
+#save "data\NHANES0718_new.dta",replace
 ```
 
 ## Median DBP
 
 ```{stata create median DBP}
-use "data\NHANES0718.dta", clear
+use "data\NHANES0718_new.dta", clear
 
 egen NmissDBP = rowmiss(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
 egen MaxDBP = rowmax(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
@@ -94,9 +96,30 @@ ta  NmissDBP miss_DBP1
 
 egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
 ta NmissSBP NmissDBP
+
+#save "data\NHANES0718_new.dta",replace
 ```
 
+## BP Categories
 
+```{stata HTN categories}
+use "data\NHANES0718_new.dta", clear
+
+gen BP_cat=.
+  replace BP_cat=0 if MedSBP<120 & MedDBP<80
+  replace BP_cat=1 if MedSBP>=120
+  replace BP_cat=2 if MedSBP>=130 | MedDBP>=80
+  replace BP_cat=3 if MedSBP>=140 | MedDBP>=90
+  
+ta BP_cat
+
+label define BP_cat 0 "Normal" 1 "Elevated" 2 "Stage 1 HTN" 3 "Stage 2 HTN"
+label values BP_cat BP_cat
+label variable BP_cat "BP Category"
+ta BP_cat,m
+
+#save,replace
+```
 
 # Cannabis Use Categories
 

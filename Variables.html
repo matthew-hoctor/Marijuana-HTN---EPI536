@@ -282,7 +282,9 @@ ta miss_SBP3 miss_SBP4
 
 egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
 
-ta  NmissSBP miss_SBP1</code></pre>
+ta  NmissSBP miss_SBP1
+
+#save &quot;data\NHANES0718_new.dta&quot;,replace</code></pre>
 <pre><code>           |       miss_SBP2
  miss_SBP1 |         0          1 |     Total
 -----------+----------------------+----------
@@ -307,11 +309,13 @@ ta  NmissSBP miss_SBP1</code></pre>
          3 |       545        135 |       680 
          4 |         0     16,008 |    16,008 
 -----------+----------------------+----------
-     Total |    42,051     17,791 |    59,842 </code></pre>
+     Total |    42,051     17,791 |    59,842 
+
+Unknown #command</code></pre>
 </div>
 <div id="median-dbp" class="section level2">
 <h2>Median DBP</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
 
 egen NmissDBP = rowmiss(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
 egen MaxDBP = rowmax(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
@@ -345,7 +349,9 @@ egen NmissDBP = rowmiss(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
 ta  NmissDBP miss_DBP1
 
 egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
-ta NmissSBP NmissDBP</code></pre>
+ta NmissSBP NmissDBP
+
+#save &quot;data\NHANES0718_new.dta&quot;,replace</code></pre>
 <pre><code>           |       miss_DBP2
  miss_DBP1 |         0          1 |     Total
 -----------+----------------------+----------
@@ -380,7 +386,61 @@ ta NmissSBP NmissDBP</code></pre>
          3 |         0          0        680          0 |       680 
          4 |         0          0          0     16,008 |    16,008 
 -----------+--------------------------------------------+----------
-     Total |    42,666        488        680     16,008 |    59,842 </code></pre>
+     Total |    42,666        488        680     16,008 |    59,842 
+
+Unknown #command</code></pre>
+</div>
+<div id="bp-categories-1" class="section level2">
+<h2>BP Categories</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+gen BP_cat=.
+  replace BP_cat=0 if MedSBP&lt;120 &amp; MedDBP&lt;80
+  replace BP_cat=1 if MedSBP&gt;=120
+  replace BP_cat=2 if MedSBP&gt;=130 | MedDBP&gt;=80
+  replace BP_cat=3 if MedSBP&gt;=140 | MedDBP&gt;=90
+  
+ta BP_cat
+
+label define BP_cat 0 &quot;Normal&quot; 1 &quot;Elevated&quot; 2 &quot;Stage 1 HTN&quot; 3 &quot;Stage 2 HTN&quot;
+label values BP_cat BP_cat
+label variable BP_cat &quot;BP Category&quot;
+ta BP_cat,m
+
+#save,replace</code></pre>
+<pre><code>(59,842 missing values generated)
+
+(23,071 real changes made)
+
+(35,763 real changes made)
+
+(30,628 real changes made)
+
+(23,612 real changes made)
+
+     BP_cat |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |     23,071       38.55       38.55
+          1 |      6,143       10.27       48.82
+          2 |      7,016       11.72       60.54
+          3 |     23,612       39.46      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+
+
+
+
+BP Category |      Freq.     Percent        Cum.
+------------+-----------------------------------
+     Normal |     23,071       38.55       38.55
+   Elevated |      6,143       10.27       48.82
+Stage 1 HTN |      7,016       11.72       60.54
+Stage 2 HTN |     23,612       39.46      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+Unknown #command</code></pre>
 </div>
 </div>
 <div id="cannabis-use-categories" class="section level1">
