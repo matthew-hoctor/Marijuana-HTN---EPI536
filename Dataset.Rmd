@@ -48,7 +48,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2007-2008/DUQ_E.XPT"
-keep seqn duq200 duq220q duq230 duq210
+keep seqn duq200 duq220q duq220u duq230 duq210
 save "temp/2007-2008/DUQ_E.dta",replace
 de
 clear
@@ -131,7 +131,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2009-2010/DUQ_F.XPT"
-keep seqn duq200 duq220q duq230 duq210
+keep seqn duq200 duq220q duq220u duq230 duq210
 save "temp/2009-2010/DUQ_F.dta",replace
 de
 clear
@@ -214,7 +214,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2011-2012/DUQ_G.XPT"
-keep seqn duq200 duq220q duq230 duq210
+keep seqn duq200 duq220q duq220u duq230 duq210
 save "temp/2011-2012/DUQ_G.dta",replace
 de
 clear
@@ -297,7 +297,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2013-2014/DUQ_H.XPT"
-keep seqn duq200 duq220q duq230 duq210
+keep seqn duq200 duq220q duq220u duq230 duq210
 save "temp/2013-2014/DUQ_H.dta",replace
 de
 clear
@@ -380,7 +380,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2015-2016/DUQ_I.XPT"
-keep seqn duq200 duq220q duq230 duq210
+keep seqn duq200 duq220q duq220u duq230 duq210
 save "temp/2015-2016/DUQ_I.dta",replace
 de
 clear
@@ -463,7 +463,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2017-2018/DUQ_J.XPT"
-keep seqn duq200 duq220q duq230 duq210
+keep seqn duq200 duq220q duq220u duq230 duq210
 save "temp/2017-2018/DUQ_J.dta",replace
 de
 clear
