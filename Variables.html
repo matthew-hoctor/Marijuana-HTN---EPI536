@@ -449,23 +449,15 @@ file data\NHANES0718_new.dta saved</code></pre>
 
 gen BP_miss=0
   replace BP_miss=1 if BP_cat==.
-  
-ta BP_miss
 
-label define BP_miss 0 &quot;Not Missing BP&quot; 1 &quot;Missing BP&quot; 2 &quot;Stage 1 HTN&quot; 3 &quot;Stage 2 HTN&quot;
+label define BP_miss 0 &quot;Not Missing BP&quot; 1 &quot;Missing BP&quot;
 label values BP_miss BP_miss
 label variable BP_miss &quot;Meets BP Inclusion Criteria&quot;
+
 ta BP_miss,m
 
-#save,replace</code></pre>
+save,replace</code></pre>
 <pre><code>(17,168 real changes made)
-
-    BP_miss |      Freq.     Percent        Cum.
-------------+-----------------------------------
-          0 |     42,674       71.31       71.31
-          1 |     17,168       28.69      100.00
-------------+-----------------------------------
-      Total |     59,842      100.00
 
       Meets BP |
      Inclusion |
@@ -476,11 +468,268 @@ Not Missing BP |     42,674       71.31       71.31
 ---------------+-----------------------------------
          Total |     59,842      100.00
 
-Unknown #command</code></pre>
+file data\NHANES0718_new.dta saved</code></pre>
 </div>
 </div>
 <div id="cannabis-use-categories" class="section level1">
 <h1>Cannabis Use Categories</h1>
+<div id="mj-use-categories" class="section level2">
+<h2>MJ Use Categories</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+ta duq200
+ta duq220q
+ta duq220u</code></pre>
+<pre><code>  Ever used |
+  marijuana |
+ or hashish |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |     10,974       53.05       53.05
+          2 |      9,664       46.71       99.76
+          7 |         29        0.14       99.90
+          9 |         21        0.10      100.00
+------------+-----------------------------------
+      Total |     20,688      100.00
+
+
+  Last time |
+       used |
+  marijuana |
+ or hashish |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |        167        1.52        1.52
+          1 |      2,112       19.26       20.78
+          2 |      1,200       10.94       31.73
+          3 |        834        7.61       39.33
+          4 |        454        4.14       43.47
+          5 |        554        5.05       48.52
+          6 |        457        4.17       52.69
+          7 |        307        2.80       55.49
+          8 |        287        2.62       58.11
+          9 |        235        2.14       60.25
+         10 |        417        3.80       64.05
+         11 |        138        1.26       65.31
+         12 |        205        1.87       67.18
+         13 |        131        1.19       68.37
+         14 |        110        1.00       69.38
+         15 |        329        3.00       72.38
+         16 |         98        0.89       73.27
+         17 |         91        0.83       74.10
+         18 |        142        1.29       75.40
+         19 |         68        0.62       76.02
+         20 |        459        4.19       80.20
+         21 |         66        0.60       80.80
+         22 |        109        0.99       81.80
+         23 |         77        0.70       82.50
+         24 |         87        0.79       83.29
+         25 |        320        2.92       86.21
+         26 |         73        0.67       86.88
+         27 |         89        0.81       87.69
+         28 |         86        0.78       88.47
+         29 |         58        0.53       89.00
+         30 |        401        3.66       92.66
+         31 |         59        0.54       93.20
+         32 |         90        0.82       94.02
+         33 |         71        0.65       94.67
+         34 |         45        0.41       95.08
+         35 |        157        1.43       96.51
+         36 |         57        0.52       97.03
+         37 |         33        0.30       97.33
+         38 |         49        0.45       97.77
+         39 |         29        0.26       98.04
+         40 |         64        0.58       98.62
+         41 |         10        0.09       98.71
+         42 |          6        0.05       98.77
+         43 |          6        0.05       98.82
+         44 |          3        0.03       98.85
+         45 |          5        0.05       98.90
+         46 |          1        0.01       98.91
+         47 |          1        0.01       98.91
+         48 |          2        0.02       98.93
+         50 |          1        0.01       98.94
+         55 |          2        0.02       98.96
+         56 |          1        0.01       98.97
+         60 |          4        0.04       99.01
+         71 |          1        0.01       99.02
+         84 |          1        0.01       99.02
+         88 |          1        0.01       99.03
+         90 |          3        0.03       99.06
+        112 |          1        0.01       99.07
+        143 |          1        0.01       99.08
+        228 |          1        0.01       99.09
+        258 |          1        0.01       99.10
+        291 |          1        0.01       99.11
+        321 |          2        0.02       99.12
+        365 |          1        0.01       99.13
+        369 |          1        0.01       99.14
+       7777 |         45        0.41       99.55
+       9999 |         49        0.45      100.00
+------------+-----------------------------------
+      Total |     10,966      100.00
+
+
+  Last time |
+       used |
+  marijuana |
+         or |
+hashish/uni |
+          t |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      2,446       22.35       22.35
+          2 |        641        5.86       28.21
+          3 |      1,344       12.28       40.49
+          4 |      6,442       58.87       99.36
+          7 |         32        0.29       99.65
+          9 |         38        0.35      100.00
+------------+-----------------------------------
+      Total |     10,943      100.00</code></pre>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+recode duq200 2=0 1=1 7=. 9=., gen(MJ_cat)
+  replace MJ_cat=2 if duq230&lt;77
+
+label define MJ_cat 0 &quot;Never Use&quot; 1 &quot;Past Use&quot; 2 &quot;Current Use&quot;
+label values MJ_cat MJ_cat
+label variable MJ_cat &quot;Cannabis Use Category&quot;
+ta MJ_cat,m
+
+ta MJ_cat duq200,m
+
+save,replace</code></pre>
+<pre><code>(9714 differences between duq200 and MJ_cat)
+
+(3,176 real changes made)
+
+
+
+
+
+   Cannabis |
+        Use |
+   Category |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Never Use |      9,664       16.15       16.15
+   Past Use |      7,798       13.03       29.18
+Current Use |      3,176        5.31       34.49
+          . |     39,204       65.51      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+
+   Cannabis |
+        Use |       Ever used marijuana or hashish
+   Category |         1          2          7          9 |     Total
+------------+--------------------------------------------+----------
+  Never Use |         0      9,664          0          0 |     9,664 
+   Past Use |     7,798          0          0          0 |     7,798 
+Current Use |     3,176          0          0          0 |     3,176 
+          . |         0          0         29         21 |    39,204 
+------------+--------------------------------------------+----------
+      Total |    10,974      9,664         29         21 |    59,842 
+
+            | Ever used
+   Cannabis | marijuana
+        Use | or hashish
+   Category |         . |     Total
+------------+-----------+----------
+  Never Use |         0 |     9,664 
+   Past Use |         0 |     7,798 
+Current Use |         0 |     3,176 
+          . |    39,154 |    39,204 
+------------+-----------+----------
+      Total |    39,154 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
+<div id="mj-frequency-categories" class="section level2">
+<h2>MJ Frequency Categories</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+recode duq230 min/10=0 11/20=1 21/30=2 31/max=., gen(MJ_freq)
+#  replace MJ_cat=2 if duq230&lt;77
+
+label define MJ_freq 0 &quot;1-10 days&quot; 1 &quot;11-20 days&quot; 2 &quot;21-30 days&quot;
+label values MJ_freq MJ_freq
+label variable MJ_freq &quot;Cannabis Use Frequency In the Past 30 Days&quot;
+ta MJ_freq,m
+
+ta MJ_freq duq200,m
+
+#save,replace</code></pre>
+<pre><code>(3186 differences between duq230 and MJ_freq)
+
+Unknown #command
+
+
+
+
+   Cannabis |
+        Use |
+  Frequency |
+In the Past |
+    30 Days |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  1-10 days |      1,788        2.99        2.99
+ 11-20 days |        425        0.71        3.70
+ 21-30 days |        963        1.61        5.31
+          . |     56,666       94.69      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+
+  Cannabis |
+       Use |
+ Frequency |
+    In the |
+   Past 30 |             Ever used marijuana or hashish
+      Days |         1          2          7          9          . |     Total
+-----------+-------------------------------------------------------+----------
+ 1-10 days |     1,788          0          0          0          0 |     1,788 
+11-20 days |       425          0          0          0          0 |       425 
+21-30 days |       963          0          0          0          0 |       963 
+         . |     7,798      9,664         29         21     39,154 |    56,666 
+-----------+-------------------------------------------------------+----------
+     Total |    10,974      9,664         29         21     39,154 |    59,842 
+
+Unknown #command</code></pre>
+</div>
+<div id="generate-missing-mj-variable" class="section level2">
+<h2>Generate Missing MJ Variable</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+gen MJ_miss=0
+  replace MJ_miss=1 if MJ_cat==.
+
+label define MJ_miss 0 &quot;Not Missing MJ&quot; 1 &quot;Missing MJ&quot;
+label values MJ_miss MJ_miss
+label variable MJ_miss &quot;Meets MJ Inclusion Criteria&quot;
+
+ta MJ_miss,m
+ta MJ_miss BP_miss,m
+
+save,replace</code></pre>
+<pre><code>(39,204 real changes made)
+
+      Meets MJ |
+     Inclusion |
+      Criteria |      Freq.     Percent        Cum.
+---------------+-----------------------------------
+Not Missing MJ |     20,638       34.49       34.49
+    Missing MJ |     39,204       65.51      100.00
+---------------+-----------------------------------
+         Total |     59,842      100.00
+
+      Meets MJ |  Meets BP Inclusion
+     Inclusion |       Criteria
+      Criteria | Not Missi  Missing B |     Total
+---------------+----------------------+----------
+Not Missing MJ |    19,811        827 |    20,638 
+    Missing MJ |    22,863     16,341 |    39,204 
+---------------+----------------------+----------
+         Total |    42,674     17,168 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
 </div>
 
 

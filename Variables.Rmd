@@ -102,7 +102,7 @@ ta NmissSBP NmissDBP
 
 ## BP Categories
 
-```{stata HTN categories}
+```{stata BP categories}
 use "data\NHANES0718_new.dta", clear
 
 gen BP_cat=0
@@ -129,24 +129,79 @@ use "data\NHANES0718_new.dta", clear
 
 gen BP_miss=0
   replace BP_miss=1 if BP_cat==.
-  
-ta BP_miss
 
-label define BP_miss 0 "Not Missing BP" 1 "Missing BP" 2 "Stage 1 HTN" 3 "Stage 2 HTN"
+label define BP_miss 0 "Not Missing BP" 1 "Missing BP"
 label values BP_miss BP_miss
 label variable BP_miss "Meets BP Inclusion Criteria"
+
 ta BP_miss,m
 
-#save,replace
+save,replace
 ```
 
 # Cannabis Use Categories
 
+## MJ Use Categories
 
+```{stata exploring data}
+use "data\NHANES0718_new.dta", clear
 
+ta duq200
+ta duq220q
+ta duq220u
+```
 
+```{stata MJ categories}
+use "data\NHANES0718_new.dta", clear
 
+recode duq200 2=0 1=1 7=. 9=., gen(MJ_cat)
+  replace MJ_cat=2 if duq230<77
 
+label define MJ_cat 0 "Never Use" 1 "Past Use" 2 "Current Use"
+label values MJ_cat MJ_cat
+label variable MJ_cat "Cannabis Use Category"
+ta MJ_cat,m
+
+ta MJ_cat duq200,m
+
+save,replace
+```
+
+## MJ Frequency Categories
+
+```{stata MJ Frequency Categories}
+use "data\NHANES0718_new.dta", clear
+
+recode duq230 min/10=0 11/20=1 21/30=2 31/max=., gen(MJ_freq)
+#  replace MJ_cat=2 if duq230<77
+
+label define MJ_freq 0 "1-10 days" 1 "11-20 days" 2 "21-30 days"
+label values MJ_freq MJ_freq
+label variable MJ_freq "Cannabis Use Frequency In the Past 30 Days"
+ta MJ_freq,m
+
+ta MJ_freq duq200,m
+
+#save,replace
+```
+
+## Generate Missing MJ Variable
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+gen MJ_miss=0
+  replace MJ_miss=1 if MJ_cat==.
+
+label define MJ_miss 0 "Not Missing MJ" 1 "Missing MJ"
+label values MJ_miss MJ_miss
+label variable MJ_miss "Meets MJ Inclusion Criteria"
+
+ta MJ_miss,m
+ta MJ_miss BP_miss,m
+
+save,replace
+```
 
 
 
