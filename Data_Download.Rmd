@@ -28,7 +28,7 @@ knitr::opts_chunk$set(engine.path = list(
 #library(Statamarkdown)
 ```
 
-# Starting with 2007-2008
+# 2007-2008
 
 Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
 
@@ -66,6 +66,16 @@ if(!file.exists("data/2007-2008/SMQ_E.XPT")){
 if(!file.exists("data/2007-2008/ALQ_E.XPT")){
   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/ALQ_E.XPT", 
                 destfile = "data/2007-2008/ALQ_E.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2007-2008/DR1TOT_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DR1TOT_E.XPT", 
+                destfile = "data/2007-2008/DR1TOT_E.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2007-2008/DR2TOT_E.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DR2TOT_E.XPT", 
+                destfile = "data/2007-2008/DR2TOT_E.XPT",
                 mode = "wb")
 }
 ```
@@ -110,6 +120,16 @@ if(!file.exists("data/2009-2010/ALQ_F.XPT")){
                 destfile = "data/2009-2010/ALQ_F.XPT",
                 mode = "wb")
 }
+if(!file.exists("data/2009-2010/DR1TOT_F.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DR1TOT_F.XPT", 
+                destfile = "data/2009-2010/DR1TOT_F.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2009-2010/DR2TOT_F.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DR2TOT_F.XPT", 
+                destfile = "data/2009-2010/DR2TOT_F.XPT",
+                mode = "wb")
+}
 ```
 
 # 2011-2012
@@ -150,6 +170,16 @@ if(!file.exists("data/2011-2012/SMQ_G.XPT")){
 if(!file.exists("data/2011-2012/ALQ_G.XPT")){
   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/ALQ_G.XPT", 
                 destfile = "data/2011-2012/ALQ_G.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2011-2012/DR1TOT_G.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DR1TOT_G.XPT", 
+                destfile = "data/2011-2012/DR1TOT_G.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2011-2012/DR2TOT_G.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DR2TOT_G.XPT", 
+                destfile = "data/2011-2012/DR2TOT_G.XPT",
                 mode = "wb")
 }
 ```
@@ -194,6 +224,16 @@ if(!file.exists("data/2013-2014/ALQ_H.XPT")){
                 destfile = "data/2013-2014/ALQ_H.XPT",
                 mode = "wb")
 }
+if(!file.exists("data/2013-2014/DR1TOT_H.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DR1TOT_H.XPT", 
+                destfile = "data/2013-2014/DR1TOT_H.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2013-2014/DR2TOT_H.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DR2TOT_H.XPT", 
+                destfile = "data/2013-2014/DR2TOT_H.XPT",
+                mode = "wb")
+}
 ```
 
 # 2015-2016
@@ -236,6 +276,16 @@ if(!file.exists("data/2015-2016/ALQ_I.XPT")){
                 destfile = "data/2015-2016/ALQ_I.XPT",
                mode = "wb")
 }
+if(!file.exists("data/2015-2016/DR1TOT_I.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR1TOT_I.XPT", 
+                destfile = "data/2015-2016/DR1TOT_I.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2015-2016/DR2TOT_I.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR2TOT_I.XPT", 
+                destfile = "data/2015-2016/DR2TOT_I.XPT",
+                mode = "wb")
+}
 ```
 
 # 2017-2018
@@ -277,5 +327,15 @@ if(!file.exists("data/2017-2018/ALQ_J.XPT")){
   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/ALQ_J.XPT", 
                 destfile = "data/2017-2018/ALQ_J.XPT",
                mode = "wb")
+}
+if(!file.exists("data/2017-2018/DR1TOT_J.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DR1TOT_J.XPT", 
+                destfile = "data/2017-2018/DR1TOT_J.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2017-2018/DR2TOT_J.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DR2TOT_J.XPT", 
+                destfile = "data/2017-2018/DR2TOT_J.XPT",
+                mode = "wb")
 }
 ```

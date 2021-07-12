@@ -94,6 +94,26 @@ de
 clear
 ```
 
+### Day 1 Nutrition, DR1TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2007-2008/DR1TOT_E.XPT"
+keep seqn dr1tkcal
+save "temp/2007-2008/DR1TOT_E.dta",replace
+de
+clear
+```
+
+### Day 2 Nutrition, DR2TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2007-2008/DR2TOT_E.XPT"
+keep seqn dr2tkcal
+save "temp/2007-2008/DR2TOT_E.dta",replace
+de
+clear
+```
+
 ## 2 Import XPTs for 2009-2010
 
 ### Demographics, DEMO_XYZ.XPT
@@ -153,6 +173,26 @@ clear
 import sasxport5 "data/2009-2010/ALQ_F.XPT"
 keep seqn alq130
 save "temp/2009-2010/ALQ_F.dta",replace
+de
+clear
+```
+
+### Day 1 Nutrition, DR1TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/DR1TOT_F.XPT"
+keep seqn dr1tkcal
+save "temp/2009-2010/DR1TOT_F.dta",replace
+de
+clear
+```
+
+### Day 2 Nutrition, DR2TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2009-2010/DR2TOT_F.XPT"
+keep seqn dr2tkcal
+save "temp/2009-2010/DR2TOT_F.dta",replace
 de
 clear
 ```
@@ -220,6 +260,26 @@ de
 clear
 ```
 
+### Day 1 Nutrition, DR1TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/DR1TOT_G.XPT"
+keep seqn dr1tkcal
+save "temp/2011-2012/DR1TOT_G.dta",replace
+de
+clear
+```
+
+### Day 2 Nutrition, DR2TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2011-2012/DR2TOT_G.XPT"
+keep seqn dr2tkcal
+save "temp/2011-2012/DR2TOT_G.dta",replace
+de
+clear
+```
+
 ## 4 Import XPTs for 2013-2014
 
 ### Demographics, DEMO_XYZ.XPT
@@ -279,6 +339,26 @@ clear
 import sasxport5 "data/2013-2014/ALQ_H.XPT"
 keep seqn alq130
 save "temp/2013-2014/ALQ_H.dta",replace
+de
+clear
+```
+
+### Day 1 Nutrition, DR1TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/DR1TOT_H.XPT"
+keep seqn dr1tkcal
+save "temp/2013-2014/DR1TOT_H.dta",replace
+de
+clear
+```
+
+### Day 2 Nutrition, DR2TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2013-2014/DR2TOT_H.XPT"
+keep seqn dr2tkcal
+save "temp/2013-2014/DR2TOT_H.dta",replace
 de
 clear
 ```
@@ -346,6 +426,26 @@ de
 clear
 ```
 
+### Day 1 Nutrition, DR1TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/DR1TOT_I.XPT"
+keep seqn dr1tkcal
+save "temp/2015-2016/DR1TOT_I.dta",replace
+de
+clear
+```
+
+### Day 2 Nutrition, DR2TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2015-2016/DR2TOT_I.XPT"
+keep seqn dr2tkcal
+save "temp/2015-2016/DR2TOT_I.dta",replace
+de
+clear
+```
+
 ## 6 Import XPTs for 2017-2018
 
 ### Demographics, DEMO_XYZ.XPT
@@ -405,6 +505,26 @@ clear
 import sasxport5 "data/2017-2018/ALQ_J.XPT"
 keep seqn alq130
 save "temp/2017-2018/ALQ_J.dta",replace
+de
+clear
+```
+
+### Day 1 Nutrition, DR1TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/DR1TOT_J.XPT"
+keep seqn dr1tkcal
+save "temp/2017-2018/DR1TOT_J.dta",replace
+de
+clear
+```
+
+### Day 2 Nutrition, DR2TOT_XYZ.XPT
+
+```{stata}
+import sasxport5 "data/2017-2018/DR2TOT_J.XPT"
+keep seqn dr2tkcal
+save "temp/2017-2018/DR2TOT_J.dta",replace
 de
 clear
 ```
@@ -471,6 +591,28 @@ duplicates report seqn
 save,replace
 ```
 
+### DR1TOT merge
+
+```{stata}
+use "data\NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp\2007-2008\DR1TOT_E.dta"
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace
+```
+
+### DR2TOT merge
+
+```{stata}
+use "data\NHANES0708_merged.dta", clear
+merge 1:1 seqn using "temp\2007-2008\DR2TOT_E.dta"
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace
+```
+
 ## 2009-2010
 
 Starting with the demographics file.
@@ -527,6 +669,28 @@ use "data\NHANES0910_merged.dta", clear
 merge 1:1 seqn using "temp\2009-2010\SMQ_F.dta"
 rename _merge Merge_SM
 tab Merge_SM
+duplicates report seqn
+save,replace
+```
+
+### DR1TOT merge
+
+```{stata}
+use "data\NHANES0910_merged.dta", clear
+merge 1:1 seqn using "temp\2009-2010\DR1TOT_F.dta"
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace
+```
+
+### DR2TOT merge
+
+```{stata}
+use "data\NHANES0910_merged.dta", clear
+merge 1:1 seqn using "temp\2009-2010\DR2TOT_F.dta"
+rename _merge Merge_D2
+tab Merge_D2
 duplicates report seqn
 save,replace
 ```
@@ -591,6 +755,28 @@ duplicates report seqn
 save,replace
 ```
 
+### DR1TOT merge
+
+```{stata}
+use "data\NHANES1112_merged.dta", clear
+merge 1:1 seqn using "temp\2011-2012\DR1TOT_G.dta"
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace
+```
+
+### DR2TOT merge
+
+```{stata}
+use "data\NHANES1112_merged.dta", clear
+merge 1:1 seqn using "temp\2011-2012\DR2TOT_G.dta"
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace
+```
+
 ## 2013-2014
 
 Starting with the demographics file.
@@ -647,6 +833,28 @@ use "data\NHANES1314_merged.dta", clear
 merge 1:1 seqn using "temp\2013-2014\SMQ_H.dta"
 rename _merge Merge_SM
 tab Merge_SM
+duplicates report seqn
+save,replace
+```
+
+### DR1TOT merge
+
+```{stata}
+use "data\NHANES1314_merged.dta", clear
+merge 1:1 seqn using "temp\2013-2014\DR1TOT_H.dta"
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace
+```
+
+### DR2TOT merge
+
+```{stata}
+use "data\NHANES1314_merged.dta", clear
+merge 1:1 seqn using "temp\2013-2014\DR2TOT_H.dta"
+rename _merge Merge_D2
+tab Merge_D2
 duplicates report seqn
 save,replace
 ```
@@ -711,6 +919,28 @@ duplicates report seqn
 save,replace
 ```
 
+### DR1TOT merge
+
+```{stata}
+use "data\NHANES1516_merged.dta", clear
+merge 1:1 seqn using "temp\2015-2016\DR1TOT_I.dta"
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace
+```
+
+### DR2TOT merge
+
+```{stata}
+use "data\NHANES1516_merged.dta", clear
+merge 1:1 seqn using "temp\2015-2016\DR2TOT_I.dta"
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace
+```
+
 ## 2017-2018
 
 Starting with the demographics file, DEMO_J, and merging with the body measures file, BMX_J
@@ -771,8 +1001,30 @@ tab Merge_SM
 duplicates report seqn
 save,replace
 ```
-# Appending datasets
 
+### DR1TOT merge
+
+```{stata}
+use "data\NHANES1718_merged.dta", clear
+merge 1:1 seqn using "temp\2017-2018\DR1TOT_J.dta"
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace
+```
+
+### DR2TOT merge
+
+```{stata}
+use "data\NHANES1718_merged.dta", clear
+merge 1:1 seqn using "temp\2017-2018\DR2TOT_J.dta"
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace
+```
+
+# Appending datasets
 
 ```{stata}
 use "data\NHANES0708_merged.dta", clear
@@ -791,11 +1043,11 @@ save,replace
 ```{stata}
 use "data\NHANES0718.dta", clear
 
-merge 1:1 seqn using "data\HEI2015R_00518.dta"
+merge 1:1 seqn using "data\HEI2015R_00518.dta", keep(match master)
 rename _merge Merge_HEI
 tab Merge_HEI
 duplicates report seqn
 
-save,replace
+save, replace
 ```
 
