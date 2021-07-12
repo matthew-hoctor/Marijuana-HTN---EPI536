@@ -1,0 +1,114 @@
+---
+title: "Variables"
+author: "Bryon Langford, Matthew Hoctor"
+date: "7/12/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if ((Sys.info()["sysname"] == "Darwin"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata/StataIC"))
+```
+
+```{r libraries, include=FALSE}
+library(Statamarkdown)
+```
+
+# BP categories
+
+## Median SBP
+
+```{stata create median SBP}
+use "data\NHANES0718.dta", clear
+
+egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
+egen MaxSBP = rowmax(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
+
+egen MedSBP = rowmedian(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
+  replace  MedSBP=. if NmissSBP>2
+  replace  MedSBP=. if NmissSBP==2 & MedSBP!=MaxSBP
+
+save "data\NHANES0718_new.dta",replace
+```
+
+```{stata exploring missing SBP values}
+use "data\NHANES0718.dta", clear
+
+gen miss_SBP1=missing(bpxsy1)
+gen miss_SBP2=missing(bpxsy2)
+gen miss_SBP3=missing(bpxsy3)
+gen miss_SBP4=missing(bpxsy4)
+
+ta miss_SBP1 miss_SBP2
+ta miss_SBP3 miss_SBP4
+
+egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
+
+ta  NmissSBP miss_SBP1
+```
+
+## Median DBP
+
+```{stata create median DBP}
+use "data\NHANES0718.dta", clear
+
+egen NmissDBP = rowmiss(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
+egen MaxDBP = rowmax(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
+
+egen MedDBP = rowmedian(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
+  replace  MedDBP=. if NmissDBP>2
+  replace  MedDBP=. if NmissDBP==2 & MedDBP!=MaxDBP
+
+save "data\NHANES0718_new.dta",replace
+```
+
+```{stata exploring missing DBP values}
+use "data\NHANES0718.dta", clear
+
+gen miss_DBP1=missing(bpxdi1)
+gen miss_DBP2=missing(bpxdi2)
+gen miss_DBP3=missing(bpxdi3)
+gen miss_DBP4=missing(bpxdi4)
+
+ta miss_DBP1 miss_DBP2
+ta miss_DBP3 miss_DBP4
+
+egen NmissDBP = rowmiss(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
+
+ta  NmissDBP miss_DBP1
+
+egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
+ta NmissSBP NmissDBP
+```
+
+
+
+# Cannabis Use Categories
+
+
+
+
+
+
+
+
+
+
+
+
+
