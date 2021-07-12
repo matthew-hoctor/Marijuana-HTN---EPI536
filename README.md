@@ -32,6 +32,16 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [Demographics Data](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&CycleBeginYear=2007)
  * [Examination Data](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&CycleBeginYear=2007)
  * [Questionnaire Data](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&CycleBeginYear=2007)
+ * [Body Measures Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BMX_E.htm)
+ * [Diet & Nutrition Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DBQ_E.htm)
+ * BP
+   * [BP Codebook 2005-2006, 20-59 years](https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/BPX_D.htm)
+   * [BP Codebook 2007-2008, 20-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BPX_E.htm)
+   * [BP Codebook 2009-2010, 18+ years](https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BPX_F.htm)
+   * [BP Codebook 2011-2012, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/BPX_G.htm)
+   * [BP Codebook 2013-2014, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/BPX_H.htm)
+   * [BP Codebook 2015-2016, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BPX_I.htm)
+   * [BP Codebook 2017-2018, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BPX_J.htm)
  * Demographics
    * [Demographics Codebook 2005-2006, 20-59 years](https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DEMO_D.htm)
    * [Demographics Codebook 2007-2008, 20-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DEMO_E.htm)
@@ -40,8 +50,6 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Demographics Codebook 2013-2014, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DEMO_H.htm)
    * [Demographics Codebook 2015-2016, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.htm)
    * [Demographics Codebook 2017-2018, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DEMO_J.htm)
- * [Body Measures Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/BMX_E.htm)
- * [Diet & Nutrition Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DBQ_E.htm)
  * Drug Use Questionnaire
    * [Drug Use Codebook 2005-2006, 20-59 years](https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DUQ_D.htm)
    * [Drug Use Codebook 2007-2008, 20-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DUQ_E.htm)
