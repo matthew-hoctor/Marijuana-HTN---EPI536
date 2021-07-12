@@ -105,11 +105,12 @@ ta NmissSBP NmissDBP
 ```{stata HTN categories}
 use "data\NHANES0718_new.dta", clear
 
-gen BP_cat=.
-  replace BP_cat=0 if MedSBP<120 & MedDBP<80
+gen BP_cat=0
+#  replace BP_cat=0 if MedSBP<120 & MedDBP<80
   replace BP_cat=1 if MedSBP>=120
   replace BP_cat=2 if MedSBP>=130 | MedDBP>=80
   replace BP_cat=3 if MedSBP>=140 | MedDBP>=90
+  replace BP_cat=. if MedSBP==. | MedDBP==.
   
 ta BP_cat
 
@@ -117,6 +118,24 @@ label define BP_cat 0 "Normal" 1 "Elevated" 2 "Stage 1 HTN" 3 "Stage 2 HTN"
 label values BP_cat BP_cat
 label variable BP_cat "BP Category"
 ta BP_cat,m
+
+save,replace
+```
+
+## Generate Missing BP Variable
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+gen BP_miss=0
+  replace BP_miss=1 if BP_cat==.
+  
+ta BP_miss
+
+label define BP_miss 0 "Not Missing BP" 1 "Missing BP" 2 "Stage 1 HTN" 3 "Stage 2 HTN"
+label values BP_miss BP_miss
+label variable BP_miss "Meets BP Inclusion Criteria"
+ta BP_miss,m
 
 #save,replace
 ```

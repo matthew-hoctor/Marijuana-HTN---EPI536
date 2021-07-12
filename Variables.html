@@ -394,11 +394,12 @@ Unknown #command</code></pre>
 <h2>BP Categories</h2>
 <pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
 
-gen BP_cat=.
-  replace BP_cat=0 if MedSBP&lt;120 &amp; MedDBP&lt;80
+gen BP_cat=0
+#  replace BP_cat=0 if MedSBP&lt;120 &amp; MedDBP&lt;80
   replace BP_cat=1 if MedSBP&gt;=120
   replace BP_cat=2 if MedSBP&gt;=130 | MedDBP&gt;=80
   replace BP_cat=3 if MedSBP&gt;=140 | MedDBP&gt;=90
+  replace BP_cat=. if MedSBP==. | MedDBP==.
   
 ta BP_cat
 
@@ -407,25 +408,24 @@ label values BP_cat BP_cat
 label variable BP_cat &quot;BP Category&quot;
 ta BP_cat,m
 
-#save,replace</code></pre>
-<pre><code>(59,842 missing values generated)
-
-(23,071 real changes made)
-
+save,replace</code></pre>
+<pre><code>Unknown #command
 (35,763 real changes made)
 
 (30,628 real changes made)
 
 (23,612 real changes made)
 
+(17,168 real changes made, 17,168 to missing)
+
      BP_cat |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          0 |     23,071       38.55       38.55
-          1 |      6,143       10.27       48.82
-          2 |      7,016       11.72       60.54
-          3 |     23,612       39.46      100.00
+          0 |     23,071       54.06       54.06
+          1 |      6,143       14.40       68.46
+          2 |      7,016       16.44       84.90
+          3 |      6,444       15.10      100.00
 ------------+-----------------------------------
-      Total |     59,842      100.00
+      Total |     42,674      100.00
 
 
 
@@ -436,9 +436,45 @@ BP Category |      Freq.     Percent        Cum.
      Normal |     23,071       38.55       38.55
    Elevated |      6,143       10.27       48.82
 Stage 1 HTN |      7,016       11.72       60.54
-Stage 2 HTN |     23,612       39.46      100.00
+Stage 2 HTN |      6,444       10.77       71.31
+          . |     17,168       28.69      100.00
 ------------+-----------------------------------
       Total |     59,842      100.00
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
+<div id="generate-missing-bp-variable" class="section level2">
+<h2>Generate Missing BP Variable</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+gen BP_miss=0
+  replace BP_miss=1 if BP_cat==.
+  
+ta BP_miss
+
+label define BP_miss 0 &quot;Not Missing BP&quot; 1 &quot;Missing BP&quot; 2 &quot;Stage 1 HTN&quot; 3 &quot;Stage 2 HTN&quot;
+label values BP_miss BP_miss
+label variable BP_miss &quot;Meets BP Inclusion Criteria&quot;
+ta BP_miss,m
+
+#save,replace</code></pre>
+<pre><code>(17,168 real changes made)
+
+    BP_miss |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |     42,674       71.31       71.31
+          1 |     17,168       28.69      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+      Meets BP |
+     Inclusion |
+      Criteria |      Freq.     Percent        Cum.
+---------------+-----------------------------------
+Not Missing BP |     42,674       71.31       71.31
+    Missing BP |     17,168       28.69      100.00
+---------------+-----------------------------------
+         Total |     59,842      100.00
 
 Unknown #command</code></pre>
 </div>
