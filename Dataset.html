@@ -247,10 +247,12 @@ div.tocify {
 </div>
 
 
-<div id="import-xpts-for-2007-2008" class="section level1">
-<h1>1 Import XPTs for 2007-2008</h1>
-<div id="demographics-demo_xyz.xpt" class="section level2">
-<h2>Demographics, DEMO_XYZ.XPT</h2>
+<div id="import-files" class="section level1">
+<h1>Import Files</h1>
+<div id="import-xpts-for-2007-2008" class="section level2">
+<h2>1 Import XPTs for 2007-2008</h2>
+<div id="demographics-demo_xyz.xpt" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DEMO_E.XPT&quot;
 save &quot;temp/2007-2008/DEMO_E.dta&quot;,replace
@@ -261,7 +263,7 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/DEMO_E.dta
   obs:        10,149                          
- vars:            43                          8 Jul 2021 14:49
+ vars:            43                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -322,9 +324,10 @@ sdmvstra        double  %10.0g                Masked Variance Pseudo-Stratum
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="drug-use-duq_xyz.xpt" class="section level2">
-<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<div id="drug-use-duq_xyz.xpt" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DUQ_E.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
 save &quot;temp/2007-2008/DUQ_E.dta&quot;,replace
 de
 clear</code></pre>
@@ -333,13 +336,12 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/DUQ_E.dta
   obs:         4,625                          
- vars:            37                          8 Jul 2021 14:49
+ vars:             6                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-duaisc          double  %10.0g                Interview status code
 duq200          double  %10.0g                Ever used marijuana or hashish
 duq210          double  %10.0g                Age when first tried marijuana
 duq220q         double  %10.0g                Last time used marijuana or
@@ -348,47 +350,13 @@ duq220u         double  %10.0g                Last time used marijuana or
                                                 hashish/unit
 duq230          double  %10.0g                # days used marijuana or
                                                 hashish/month
-duq240          double  %10.0g                Ever used
-                                                cocaine/heroin/methamphetamine
-duq250          double  %10.0g                Ever use any form of cocaine
-duq260          double  %10.0g                Age first used cocaine
-duq270q         double  %10.0g                Last time you used cocaine, in
-                                                any form
-duq270u         double  %10.0g                Last time you used cocaine/unit
-duq272          double  %10.0g                # of time you used cocaine
-duq280          double  %10.0g                # of days used cocaine/month
-duq290          double  %10.0g                Ever used heroin
-duq300          double  %10.0g                Age first used heroin
-duq310q         double  %10.0g                Last time used heroin
-duq310u         double  %10.0g                Last time used heroin/unit
-duq320          double  %10.0g                # of days used heroin/month
-duq330          double  %10.0g                Ever used methamphetamine
-duq340          double  %10.0g                Age first used methamphetamine
-duq350q         double  %10.0g                Last time used methamphetamine
-duq350u         double  %10.0g                Last time used
-                                                methamphetamine/unit
-duq352          double  %10.0g                # times used methamphetamine
-duq360          double  %10.0g                # days used methamphetamine/month
-duq370          double  %10.0g                Ever use a needle to inject
-                                                illegal drug
-duq380a         double  %10.0g                Drugs injected - Cocaine
-duq380b         double  %10.0g                Drugs injected - Heroin
-duq380c         double  %10.0g                Drugs injected - Methamphetamine
-duq380d         double  %10.0g                Drugs injected - Steroids
-duq380e         double  %10.0g                Drugs injected - Any other drugs
-duq390          double  %10.0g                Age first injected drugs
-duq400q         double  %10.0g                Last time injected drugs
-duq400u         double  %10.0g                Last time injected drugs/unit
-duq410          double  %10.0g                # times injected drugs/lifetime
-duq420          double  %10.0g                How often did you inject drugs
-duq430          double  %10.0g                Ever been in rehabilitation
-                                                program
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="blood-pressure-bpx_xyz.xpt" class="section level2">
-<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<div id="blood-pressure-bpx_xyz.xpt" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/BPX_E.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
 save &quot;temp/2007-2008/BPX_E.dta&quot;,replace
 de
 clear</code></pre>
@@ -397,57 +365,35 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/BPX_E.dta
   obs:         9,762                          
- vars:            27                          8 Jul 2021 14:49
+ vars:             9                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-peascst1        double  %10.0g                Blood Pressure Status
-peasctm1        double  %10.0g                Blood Pressure Time in Seconds
-peascct1        double  %10.0g                Blood Pressure Comment
-bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
-bpq150a         double  %10.0g                Had food in the past 30 minutes?
-bpq150b         double  %10.0g                Had alcohol in the past 30
-                                                minutes?
-bpq150c         double  %10.0g                Had coffee in the past 30
-                                                minutes?
-bpq150d         double  %10.0g                Had cigarettes in the past 30
-                                                minutes?
-bpaarm          double  %10.0g                Arm selected:
-bpacsz          double  %10.0g                Coded cuff size
-bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse *
-                                                2):
-bpxpuls         double  %10.0g                Pulse regular or irregular?
-bpxpty          double  %10.0g                Pulse type:
-bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
-                                                Hg)
 bpxsy1          double  %10.0g                Systolic:  Blood pres (1st rdg)
                                                 mm Hg
 bpxdi1          double  %10.0g                Diastolic:  Blood pres (1st rdg)
                                                 mm Hg
-bpaen1          double  %10.0g                Enhancement used first reading
 bpxsy2          double  %10.0g                Systolic:  Blood pres (2nd rdg)
                                                 mm Hg
 bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
                                                 mm Hg
-bpaen2          double  %10.0g                Enhancement used second reading
 bpxsy3          double  %10.0g                Systolic:  Blood pres (3rd rdg)
                                                 mm Hg
 bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
                                                 mm Hg
-bpaen3          double  %10.0g                Enhancement used third reading
 bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
                                                 Hg
 bpxdi4          double  %10.0g                Diastolic:  Blood pres (4th rdg)
                                                 mm Hg
-bpaen4          double  %10.0g                Enhancement used fourth reading
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="body-measurements-bmx_xyz.xpt" class="section level2">
-<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<div id="body-measurements-bmx_xyz.xpt" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/BMX_E.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
 save &quot;temp/2007-2008/BMX_E.dta&quot;,replace
 de
 clear</code></pre>
@@ -456,41 +402,23 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/BMX_E.dta
   obs:         9,762                          
- vars:            23                          8 Jul 2021 14:49
+ vars:             5                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-bmdstats        double  %10.0g                Body Measures Component Status
-                                                Code
 bmxwt           double  %10.0g                Weight (kg)
-bmiwt           double  %10.0g                Weight Comment
-bmxrecum        double  %10.0g                Recumbent Length (cm)
-bmirecum        double  %10.0g                Recumbent Length Comment
-bmxhead         double  %10.0g                Head Circumference (cm)
-bmihead         double  %10.0g                Head Circumference Comment
 bmxht           double  %10.0g                Standing Height (cm)
-bmiht           double  %10.0g                Standing Height Comment
 bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
-bmxleg          double  %10.0g                Upper Leg Length (cm)
-bmileg          double  %10.0g                Upper Leg Length Comment
-bmxarml         double  %10.0g                Upper Arm Length (cm)
-bmiarml         double  %10.0g                Upper Arm Length Comment
-bmxarmc         double  %10.0g                Arm Circumference (cm)
-bmiarmc         double  %10.0g                Arm Circumference Comment
 bmxwaist        double  %10.0g                Waist Circumference (cm)
-bmiwaist        double  %10.0g                Waist Circumference Comment
-bmxtri          double  %10.0g                Triceps Skinfold (mm)
-bmitri          double  %10.0g                Triceps Skinfold Comment
-bmxsub          double  %10.0g                Subscapular Skinfold (mm)
-bmisub          double  %10.0g                Subscapular Skinfold Comment
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="smoking-smq_xyz.xpt" class="section level2">
-<h2>Smoking, SMQ_XYZ.XPT</h2>
+<div id="smoking-smq_xyz.xpt" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/SMQ_E.XPT&quot;
+keep seqn smd650
 save &quot;temp/2007-2008/SMQ_E.dta&quot;,replace
 de
 clear</code></pre>
@@ -499,73 +427,21 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/SMQ_E.dta
   obs:         7,145                          
- vars:            37                          8 Jul 2021 14:49
+ vars:             2                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-smq020          double  %10.0g                Smoked at least 100 cigarettes in
-                                                life
-smd030          double  %10.0g                Age started smoking cigarettes
-                                                regularly
-smq040          double  %10.0g                Do you now smoke cigarettes
-smq050q         double  %10.0g                How long since quit smoking
-                                                cigarettes
-smq050u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smd055          double  %10.0g                Age last smoked cigarettes
-                                                regularly
-smd057          double  %10.0g                # cigarettes smoked per day when
-                                                quit
-smq077          double  %10.0g                How soon after waking do you
-                                                smoke
-smd641          double  %10.0g                # days smoked cigs during past 30
-                                                days
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
-smd093          double  %10.0g                May I please see the pack of
-                                                cigarettes
-smdupca         str12   %12s                  Cig 12-digit Universal Product
-                                                Code-UPC
-smd100br        str50   %50s                  Cigarette Brand/sub-brand
-smd100fl        double  %10.0g                Filter type
-smd100mn        double  %10.0g                Menthol indicator
-smd100ln        double  %10.0g                Length
-smd100tr        double  %10.0g                FTC Tar Content
-smd100ni        double  %10.0g                FTC Nicotine Content
-smd100co        double  %10.0g                FTC Carbon Monoxide Content
-smq620          double  %10.0g                Ever tried cigarette smoking
-smd630          double  %10.0g                Age first smoked whole cigarette
-smq660          double  %10.0g                Brands of cigarettes smoked/past
-                                                mo
-smq664m         double  %10.0g                Menthol or non-menthol Marlboro
-smq664c         double  %10.0g                Menthol or non-menthol Camels
-smq664w         double  %10.0g                Menthol or non-menthol Winston
-smq664b         double  %10.0g                Menthol or non-menthol
-                                                BensonHedges
-smq664o         double  %10.0g                Menthol or non-menthol other
-                                                brand
-smq666m         double  %10.0g                Regular, light or ultralite
-                                                Marlboro
-smq666c         double  %10.0g                Regular, light or ultralite
-                                                Camels
-smq666k         double  %10.0g                Regular, light or ultralite Kools
-smq666w         double  %10.0g                Regular, light or ultralite
-                                                Winston
-smq666b         double  %10.0g                Regular, light or ultralite
-                                                BensonHedges
-smq666s         double  %10.0g                Regular, light or ultralite Salem
-smq666o         double  %10.0g                Regular, light or ultralite other
-                                                brand
-smq670          double  %10.0g                Tried to quit smoking
-smaquex2        double  %10.0g                Questionnaire Mode Flag
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="alcohol-alq_xyz.xpt" class="section level2">
-<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<div id="alcohol-alq_xyz.xpt" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/ALQ_E.XPT&quot;
+keep seqn alq130
 save &quot;temp/2007-2008/ALQ_E.dta&quot;,replace
 de
 clear</code></pre>
@@ -574,64 +450,77 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/ALQ_E.dta
   obs:         5,707                          
- vars:             9                          8 Jul 2021 14:49
+ vars:             2                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-alq101          double  %10.0g                Had at least 12 alcohol drinks/1
-                                                yr?
-alq110          double  %10.0g                Had at least 12 alcohol
-                                                drinks/lifetime?
-alq120q         double  %10.0g                How often drink alcohol over past
-                                                12 mos
-alq120u         double  %10.0g                # days drink alcohol per wk, mo,
-                                                yr
 alq130          double  %10.0g                Avg # alcoholic drinks/day -past
                                                 12 mos
-alq140q         double  %10.0g                #days have 5 or more drinks/past
-                                                12 mos
-alq140u         double  %10.0g                # days per week, month, year?
-alq150          double  %10.0g                Ever have 5 or more drinks every
-                                                day?
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="merge-files" class="section level2">
-<h2>Merge Files</h2>
-<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_E.dta&quot;, clear
-# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
-# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_E.dta&quot;
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace</code></pre>
-<pre><code>Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command</code></pre>
+<div id="day-1-nutrition-dr1tot_xyz.xpt" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DR1TOT_E.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2007-2008/DR1TOT_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/DR1TOT_E.dta saved
+
+
+Contains data from temp/2007-2008/DR1TOT_E.dta
+  obs:         9,762                          
+ vars:             2                          12 Jul 2021 15:02
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr1tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DR2TOT_E.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2007-2008/DR2TOT_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/DR2TOT_E.dta saved
+
+
+Contains data from temp/2007-2008/DR2TOT_E.dta
+  obs:         9,762                          
+ vars:             2                          12 Jul 2021 15:02
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr2tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 </div>
-<div id="import-xpts-for-2009-2010" class="section level1">
-<h1>2 Import XPTs for 2009-2010</h1>
-<div id="demographics-demo_xyz.xpt-1" class="section level2">
-<h2>Demographics, DEMO_XYZ.XPT</h2>
+<div id="import-xpts-for-2009-2010" class="section level2">
+<h2>2 Import XPTs for 2009-2010</h2>
+<div id="demographics-demo_xyz.xpt-1" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DEMO_F.XPT&quot;
 save &quot;temp/2009-2010/DEMO_F.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2009-2010/DEMO_F.dta not found)
-file temp/2009-2010/DEMO_F.dta saved
+<pre><code>file temp/2009-2010/DEMO_F.dta saved
 
 
 Contains data from temp/2009-2010/DEMO_F.dta
   obs:        10,537                          
- vars:            43                          8 Jul 2021 14:49
+ vars:            43                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -692,19 +581,19 @@ sdmvstra        double  %10.0g                Masked Variance Pseudo-Stratum
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="drug-use-duq_xyz.xpt-1" class="section level2">
-<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<div id="drug-use-duq_xyz.xpt-1" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DUQ_F.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
 save &quot;temp/2009-2010/DUQ_F.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2009-2010/DUQ_F.dta not found)
-file temp/2009-2010/DUQ_F.dta saved
+<pre><code>file temp/2009-2010/DUQ_F.dta saved
 
 
 Contains data from temp/2009-2010/DUQ_F.dta
   obs:         5,302                          
- vars:            42                          8 Jul 2021 14:49
+ vars:             6                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -712,312 +601,183 @@ variable name   type    format     label      variable label
 seqn            double  %10.0g                Respondent sequence number
 duq200          double  %10.0g                Ever used marijuana or hashish
 duq210          double  %10.0g                Age when first tried marijuana
-duq211          double  %10.0g                Used marijuana every month for a
-                                                year?
-duq213          double  %10.0g                Age started regularly using
-                                                marijuana
-duq215q         double  %10.0g                Time since last used marijuana
-                                                regularly
-duq215u         double  %10.0g                Time since used marijuana
-                                                regularly/unit
-duq217          double  %10.0g                How often would you use
-                                                marijuana?
-duq219          double  %10.0g                How many joints or pipes smoke in
-                                                a day?
 duq220q         double  %10.0g                Last time used marijuana or
                                                 hashish
 duq220u         double  %10.0g                Last time used marijuana or
                                                 hashish/unit
 duq230          double  %10.0g                # days used marijuana or
                                                 hashish/month
-duq240          double  %10.0g                Ever used
-                                                cocaine/heroin/methamphetamine
-duq250          double  %10.0g                Ever use any form of cocaine
-duq260          double  %10.0g                Age first used cocaine
-duq270q         double  %10.0g                Last time you used cocaine, in
-                                                any form
-duq270u         double  %10.0g                Last time you used cocaine/unit
-duq272          double  %10.0g                # of time you used cocaine
-duq280          double  %10.0g                # of days used cocaine/month
-duq290          double  %10.0g                Ever used heroin
-duq300          double  %10.0g                Age first used heroin
-duq310q         double  %10.0g                Last time used heroin
-duq310u         double  %10.0g                Last time used heroin/unit
-duq320          double  %10.0g                # of days used heroin/month
-duq330          double  %10.0g                Ever used methamphetamine
-duq340          double  %10.0g                Age first used methamphetamine
-duq350q         double  %10.0g                Last time used methamphetamine
-duq350u         double  %10.0g                Last time used
-                                                methamphetamine/unit
-duq352          double  %10.0g                # times used methamphetamine
-duq360          double  %10.0g                # days used methamphetamine/month
-duq370          double  %10.0g                Ever use a needle to inject
-                                                illegal drug
-duq380a         double  %10.0g                Drugs injected - Cocaine
-duq380b         double  %10.0g                Drugs injected - Heroin
-duq380c         double  %10.0g                Drugs injected - Methamphetamine
-duq380d         double  %10.0g                Drugs injected - Steroids
-duq380e         double  %10.0g                Drugs injected - Any other drugs
-duq390          double  %10.0g                Age first injected drugs
-duq400q         double  %10.0g                Last time injected drugs
-duq400u         double  %10.0g                Last time injected drugs/unit
-duq410          double  %10.0g                # times injected drugs/lifetime
-duq420          double  %10.0g                How often did you inject drugs
-duq430          double  %10.0g                Ever been in rehabilitation
-                                                program
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="blood-pressure-bpx_xyz.xpt-1" class="section level2">
-<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<div id="blood-pressure-bpx_xyz.xpt-1" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/BPX_F.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
 save &quot;temp/2009-2010/BPX_F.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2009-2010/BPX_F.dta not found)
-file temp/2009-2010/BPX_F.dta saved
+<pre><code>file temp/2009-2010/BPX_F.dta saved
 
 
 Contains data from temp/2009-2010/BPX_F.dta
   obs:        10,253                          
- vars:            27                          8 Jul 2021 14:49
+ vars:             9                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-peascst1        double  %10.0g                Blood Pressure Status
-peasctm1        double  %10.0g                Blood Pressure Time in Seconds
-peascct1        double  %10.0g                Blood Pressure Comment
-bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
-bpq150a         double  %10.0g                Had food in the past 30 minutes?
-bpq150b         double  %10.0g                Had alcohol in the past 30
-                                                minutes?
-bpq150c         double  %10.0g                Had coffee in the past 30
-                                                minutes?
-bpq150d         double  %10.0g                Had cigarettes in the past 30
-                                                minutes?
-bpaarm          double  %10.0g                Arm selected:
-bpacsz          double  %10.0g                Coded cuff size
-bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse *
-                                                2):
-bpxpuls         double  %10.0g                Pulse regular or irregular?
-bpxpty          double  %10.0g                Pulse type:
-bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
-                                                Hg)
 bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
                                                 Hg
 bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
                                                 mm Hg
-bpaen1          double  %10.0g                Enhancement used first reading
 bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
                                                 Hg
 bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
                                                 mm Hg
-bpaen2          double  %10.0g                Enhancement used second reading
 bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
                                                 Hg
 bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
                                                 mm Hg
-bpaen3          double  %10.0g                Enhancement used third reading
 bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
                                                 Hg
 bpxdi4          double  %10.0g                Diastolic:  Blood pres (4th rdg)
                                                 mm Hg
-bpaen4          double  %10.0g                Enhancement used fourth reading
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="body-measurements-bmx_xyz.xpt-1" class="section level2">
-<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<div id="body-measurements-bmx_xyz.xpt-1" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/BMX_F.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
 save &quot;temp/2009-2010/BMX_F.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2009-2010/BMX_F.dta not found)
-file temp/2009-2010/BMX_F.dta saved
+<pre><code>file temp/2009-2010/BMX_F.dta saved
 
 
 Contains data from temp/2009-2010/BMX_F.dta
   obs:        10,253                          
- vars:            23                          8 Jul 2021 14:49
+ vars:             5                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-bmdstats        double  %10.0g                Body Measures Component Status
-                                                Code
 bmxwt           double  %10.0g                Weight (kg)
-bmiwt           double  %10.0g                Weight Comment
-bmxrecum        double  %10.0g                Recumbent Length (cm)
-bmirecum        double  %10.0g                Recumbent Length Comment
-bmxhead         double  %10.0g                Head Circumference (cm)
-bmihead         double  %10.0g                Head Circumference Comment
 bmxht           double  %10.0g                Standing Height (cm)
-bmiht           double  %10.0g                Standing Height Comment
 bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
-bmxleg          double  %10.0g                Upper Leg Length (cm)
-bmileg          double  %10.0g                Upper Leg Length Comment
-bmxarml         double  %10.0g                Upper Arm Length (cm)
-bmiarml         double  %10.0g                Upper Arm Length Comment
-bmxarmc         double  %10.0g                Arm Circumference (cm)
-bmiarmc         double  %10.0g                Arm Circumference Comment
 bmxwaist        double  %10.0g                Waist Circumference (cm)
-bmiwaist        double  %10.0g                Waist Circumference Comment
-bmxtri          double  %10.0g                Triceps Skinfold (mm)
-bmitri          double  %10.0g                Triceps Skinfold Comment
-bmxsub          double  %10.0g                Subscapular Skinfold (mm)
-bmisub          double  %10.0g                Subscapular Skinfold Comment
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="smoking-smq_xyz.xpt-1" class="section level2">
-<h2>Smoking, SMQ_XYZ.XPT</h2>
+<div id="smoking-smq_xyz.xpt-1" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/SMQ_F.XPT&quot;
+keep seqn smd650
 save &quot;temp/2009-2010/SMQ_F.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2009-2010/SMQ_F.dta not found)
-file temp/2009-2010/SMQ_F.dta saved
+<pre><code>file temp/2009-2010/SMQ_F.dta saved
 
 
 Contains data from temp/2009-2010/SMQ_F.dta
   obs:         7,528                          
- vars:            37                          8 Jul 2021 14:49
+ vars:             2                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-smq020          double  %10.0g                Smoked at least 100 cigarettes in
-                                                life
-smd030          double  %10.0g                Age started smoking cigarettes
-                                                regularly
-smq040          double  %10.0g                Do you now smoke cigarettes
-smq050q         double  %10.0g                How long since quit smoking
-                                                cigarettes
-smq050u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smd055          double  %10.0g                Age last smoked cigarettes
-                                                regularly
-smd057          double  %10.0g                # cigarettes smoked per day when
-                                                quit
-smq077          double  %10.0g                How soon after waking do you
-                                                smoke
-smd641          double  %10.0g                # days smoked cigs during past 30
-                                                days
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
-smd093          double  %10.0g                May I please see the pack of
-                                                cigarettes
-smdupca         str12   %12s                  Cig 12-digit Universal Product
-                                                Code-UPC
-smd100br        str50   %50s                  Cigarette Brand/sub-brand
-smd100fl        double  %10.0g                Filter type
-smd100mn        double  %10.0g                Menthol indicator
-smd100ln        double  %10.0g                Length
-smd100tr        double  %10.0g                FTC Tar Content
-smd100ni        double  %10.0g                FTC Nicotine Content
-smd100co        double  %10.0g                FTC Carbon Monoxide Content
-smq620          double  %10.0g                Ever tried cigarette smoking
-smd630          double  %10.0g                Age first smoked whole cigarette
-smq660          double  %10.0g                Brands of cigarettes smoked/past
-                                                mo
-smq664m         double  %10.0g                Menthol or non-menthol Marlboro
-smq664c         double  %10.0g                Menthol or non-menthol Camels
-smq664w         double  %10.0g                Menthol or non-menthol Winston
-smq664b         double  %10.0g                Menthol or non-menthol
-                                                BensonHedges
-smq664o         double  %10.0g                Menthol or non-menthol other
-                                                brand
-smq666m         double  %10.0g                Regular, light or ultralite
-                                                Marlboro
-smq666c         double  %10.0g                Regular, light or ultralite
-                                                Camels
-smq666k         double  %10.0g                Regular, light or ultralite Kools
-smq666w         double  %10.0g                Regular, light or ultralite
-                                                Winston
-smq666b         double  %10.0g                Regular, light or ultralite
-                                                BensonHedges
-smq666s         double  %10.0g                Regular, light or ultralite Salem
-smq666o         double  %10.0g                Regular, light or ultralite other
-                                                brand
-smq670          double  %10.0g                Tried to quit smoking
-smaquex2        double  %10.0g                Questionnaire Mode Flag
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="alcohol-alq_xyz.xpt-1" class="section level2">
-<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<div id="alcohol-alq_xyz.xpt-1" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/ALQ_F.XPT&quot;
+keep seqn alq130
 save &quot;temp/2009-2010/ALQ_F.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2009-2010/ALQ_F.dta not found)
-file temp/2009-2010/ALQ_F.dta saved
+<pre><code>file temp/2009-2010/ALQ_F.dta saved
 
 
 Contains data from temp/2009-2010/ALQ_F.dta
   obs:         6,059                          
- vars:             9                          8 Jul 2021 14:49
+ vars:             2                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-alq101          double  %10.0g                Had at least 12 alcohol drinks/1
-                                                yr?
-alq110          double  %10.0g                Had at least 12 alcohol
-                                                drinks/lifetime?
-alq120q         double  %10.0g                How often drink alcohol over past
-                                                12 mos
-alq120u         double  %10.0g                # days drink alcohol per wk, mo,
-                                                yr
 alq130          double  %10.0g                Avg # alcoholic drinks/day -past
                                                 12 mos
-alq140q         double  %10.0g                #days have 5 or more drinks/past
-                                                12 mos
-alq140u         double  %10.0g                # days per week, month, year?
-alq150          double  %10.0g                Ever have 5 or more drinks every
-                                                day?
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="merge-files-1" class="section level2">
-<h2>Merge Files</h2>
-<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_F.dta&quot;, clear
-# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
-# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_F.dta&quot;
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace</code></pre>
-<pre><code>Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command</code></pre>
+<div id="day-1-nutrition-dr1tot_xyz.xpt-1" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DR1TOT_F.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2009-2010/DR1TOT_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2009-2010/DR1TOT_F.dta saved
+
+
+Contains data from temp/2009-2010/DR1TOT_F.dta
+  obs:        10,253                          
+ vars:             2                          12 Jul 2021 15:02
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr1tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt-1" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DR2TOT_F.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2009-2010/DR2TOT_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2009-2010/DR2TOT_F.dta saved
+
+
+Contains data from temp/2009-2010/DR2TOT_F.dta
+  obs:        10,253                          
+ vars:             2                          12 Jul 2021 15:02
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr2tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 </div>
-<div id="import-xpts-for-2011-2012" class="section level1">
-<h1>1 Import XPTs for 2011-2012</h1>
-<div id="demographics-demo_xyz.xpt-2" class="section level2">
-<h2>Demographics, DEMO_XYZ.XPT</h2>
+<div id="import-xpts-for-2011-2012" class="section level2">
+<h2>3 Import XPTs for 2011-2012</h2>
+<div id="demographics-demo_xyz.xpt-2" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DEMO_G.XPT&quot;
 save &quot;temp/2011-2012/DEMO_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2011-2012/DEMO_G.dta not found)
-file temp/2011-2012/DEMO_G.dta saved
+<pre><code>file temp/2011-2012/DEMO_G.dta saved
 
 
 Contains data from temp/2011-2012/DEMO_G.dta
   obs:         9,756                          
- vars:            48                          8 Jul 2021 14:49
+ vars:            48                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1088,19 +848,19 @@ dmdhsedu        double  %10.0g                HH ref person&#39;s spouse&#39;s
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="drug-use-duq_xyz.xpt-2" class="section level2">
-<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<div id="drug-use-duq_xyz.xpt-2" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DUQ_G.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
 save &quot;temp/2011-2012/DUQ_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2011-2012/DUQ_G.dta not found)
-file temp/2011-2012/DUQ_G.dta saved
+<pre><code>file temp/2011-2012/DUQ_G.dta saved
 
 
 Contains data from temp/2011-2012/DUQ_G.dta
   obs:         4,796                          
- vars:            42                          8 Jul 2021 14:50
+ vars:             6                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1108,311 +868,183 @@ variable name   type    format     label      variable label
 seqn            double  %10.0g                Respondent sequence number
 duq200          double  %10.0g                Ever used marijuana or hashish
 duq210          double  %10.0g                Age when first tried marijuana
-duq211          double  %10.0g                Used marijuana every month for a
-                                                year?
-duq213          double  %10.0g                Age started regularly using
-                                                marijuana
-duq215q         double  %10.0g                Time since last used marijuana
-                                                regularly
-duq215u         double  %10.0g                Time since used marijuana
-                                                regularly/unit
-duq217          double  %10.0g                How often would you use
-                                                marijuana?
-duq219          double  %10.0g                How many joints or pipes smoke in
-                                                a day?
 duq220q         double  %10.0g                Last time used marijuana or
                                                 hashish
 duq220u         double  %10.0g                Last time used marijuana or
                                                 hashish/unit
 duq230          double  %10.0g                # days used marijuana or
                                                 hashish/month
-duq240          double  %10.0g                Ever used
-                                                cocaine/heroin/methamphetamine
-duq250          double  %10.0g                Ever use any form of cocaine
-duq260          double  %10.0g                Age first used cocaine
-duq270q         double  %10.0g                Last time you used cocaine, in
-                                                any form
-duq270u         double  %10.0g                Last time you used cocaine/unit
-duq272          double  %10.0g                # of time you used cocaine
-duq280          double  %10.0g                # of days used cocaine/month
-duq290          double  %10.0g                Ever used heroin
-duq300          double  %10.0g                Age first used heroin
-duq310q         double  %10.0g                Last time used heroin
-duq310u         double  %10.0g                Last time used heroin/unit
-duq320          double  %10.0g                # of days used heroin/month
-duq330          double  %10.0g                Ever used methamphetamine
-duq340          double  %10.0g                Age first used methamphetamine
-duq350q         double  %10.0g                Last time used methamphetamine
-duq350u         double  %10.0g                Last time used
-                                                methamphetamine/unit
-duq352          double  %10.0g                # times used methamphetamine
-duq360          double  %10.0g                # days used methamphetamine/month
-duq370          double  %10.0g                Ever use a needle to inject
-                                                illegal drug
-duq380a         double  %10.0g                Drugs injected - Cocaine
-duq380b         double  %10.0g                Drugs injected - Heroin
-duq380c         double  %10.0g                Drugs injected - Methamphetamine
-duq380d         double  %10.0g                Drugs injected - Steroids
-duq380e         double  %10.0g                Drugs injected - Any other drugs
-duq390          double  %10.0g                Age first injected drugs
-duq400q         double  %10.0g                Last time injected drugs
-duq400u         double  %10.0g                Last time injected drugs/unit
-duq410          double  %10.0g                # times injected drugs/lifetime
-duq420          double  %10.0g                How often did you inject drugs
-duq430          double  %10.0g                Ever been in rehabilitation
-                                                program
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="blood-pressure-bpx_xyz.xpt-2" class="section level2">
-<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<div id="blood-pressure-bpx_xyz.xpt-2" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/BPX_G.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
 save &quot;temp/2011-2012/BPX_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2011-2012/BPX_G.dta not found)
-file temp/2011-2012/BPX_G.dta saved
+<pre><code>file temp/2011-2012/BPX_G.dta saved
 
 
 Contains data from temp/2011-2012/BPX_G.dta
   obs:         9,338                          
- vars:            27                          8 Jul 2021 14:50
+ vars:             9                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-peascst1        double  %10.0g                Blood Pressure Status
-peasctm1        double  %10.0g                Blood Pressure Time in Seconds
-peascct1        double  %10.0g                Blood Pressure Comment
-bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
-bpq150a         double  %10.0g                Had food in the past 30 minutes?
-bpq150b         double  %10.0g                Had alcohol in the past 30
-                                                minutes?
-bpq150c         double  %10.0g                Had coffee in the past 30
-                                                minutes?
-bpq150d         double  %10.0g                Had cigarettes in the past 30
-                                                minutes?
-bpaarm          double  %10.0g                Arm selected
-bpacsz          double  %10.0g                Coded cuff size
-bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse * 2)
-bpxpuls         double  %10.0g                Pulse regular or irregular?
-bpxpty          double  %10.0g                Pulse type
-bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
-                                                Hg)
 bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
                                                 Hg
 bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
                                                 mm Hg
-bpaen1          double  %10.0g                Enhancement used first reading
 bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
                                                 Hg
 bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
                                                 mm Hg
-bpaen2          double  %10.0g                Enhancement used second reading
 bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
                                                 Hg
 bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
                                                 mm Hg
-bpaen3          double  %10.0g                Enhancement used third reading
 bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
                                                 Hg
 bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
                                                 mm Hg
-bpaen4          double  %10.0g                Enhancement used fourth reading
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="body-measurements-bmx_xyz.xpt-2" class="section level2">
-<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<div id="body-measurements-bmx_xyz.xpt-2" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/BMX_G.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
 save &quot;temp/2011-2012/BMX_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2011-2012/BMX_G.dta not found)
-file temp/2011-2012/BMX_G.dta saved
+<pre><code>file temp/2011-2012/BMX_G.dta saved
 
 
 Contains data from temp/2011-2012/BMX_G.dta
   obs:         9,338                          
- vars:            26                          8 Jul 2021 14:50
+ vars:             5                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-bmdstats        double  %10.0g                Body Measures Component Status
-                                                Code
 bmxwt           double  %10.0g                Weight (kg)
-bmiwt           double  %10.0g                Weight Comment
-bmxrecum        double  %10.0g                Recumbent Length (cm)
-bmirecum        double  %10.0g                Recumbent Length Comment
-bmxhead         double  %10.0g                Head Circumference (cm)
-bmihead         double  %10.0g                Head Circumference Comment
 bmxht           double  %10.0g                Standing Height (cm)
-bmiht           double  %10.0g                Standing Height Comment
 bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
-bmdbmic         double  %10.0g                BMI Category -
-                                                Children/Adolescents
-bmxleg          double  %10.0g                Upper Leg Length (cm)
-bmileg          double  %10.0g                Upper Leg Length Comment
-bmxarml         double  %10.0g                Upper Arm Length (cm)
-bmiarml         double  %10.0g                Upper Arm Length Comment
-bmxarmc         double  %10.0g                Arm Circumference (cm)
-bmiarmc         double  %10.0g                Arm Circumference Comment
 bmxwaist        double  %10.0g                Waist Circumference (cm)
-bmiwaist        double  %10.0g                Waist Circumference Comment
-bmxsad1         double  %10.0g                Sagittal Abdominal Diameter 1st
-                                                (cm)
-bmxsad2         double  %10.0g                Sagittal Abdominal Diameter 2nd
-                                                (cm)
-bmxsad3         double  %10.0g                Sagittal Abdominal Diameter 3rd
-                                                (cm)
-bmxsad4         double  %10.0g                Sagittal Abdominal Diameter 4th
-                                                (cm)
-bmdavsad        double  %10.0g                Average Sagittal Abdominal
-                                                Diameter (cm)
-bmdsadcm        double  %10.0g                Sagittal Abdominal Diameter
-                                                Comment
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="smoking-smq_xyz.xpt-2" class="section level2">
-<h2>Smoking, SMQ_XYZ.XPT</h2>
+<div id="smoking-smq_xyz.xpt-2" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/SMQ_G.XPT&quot;
+keep seqn smd650
 save &quot;temp/2011-2012/SMQ_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2011-2012/SMQ_G.dta not found)
-file temp/2011-2012/SMQ_G.dta saved
+<pre><code>file temp/2011-2012/SMQ_G.dta saved
 
 
 Contains data from temp/2011-2012/SMQ_G.dta
   obs:         6,790                          
- vars:            30                          8 Jul 2021 14:50
+ vars:             2                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-smq020          double  %10.0g                Smoked at least 100 cigarettes in
-                                                life
-smd030          double  %10.0g                Age started smoking cigarettes
-                                                regularly
-smq040          double  %10.0g                Do you now smoke cigarettes
-smq050q         double  %10.0g                How long since quit smoking
-                                                cigarettes
-smq050u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smd055          double  %10.0g                Age last smoked cigarettes
-                                                regularly
-smd057          double  %10.0g                # cigarettes smoked per day when
-                                                quit
-smq077          double  %10.0g                How soon after waking do you
-                                                smoke
-smd641          double  %10.0g                # days smoked cigs during past 30
-                                                days
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
-smd093          double  %10.0g                May I please see the pack of
-                                                cigarettes
-smdupca         str12   %12s                  Cig 12-digit Universal Product
-                                                Code-UPC
-smd100br        str50   %50s                  Cigarette Brand/sub-brand
-smd100fl        double  %10.0g                Filter type
-smd100mn        double  %10.0g                Menthol indicator
-smd100ln        double  %10.0g                Length
-smd100tr        double  %10.0g                FTC Tar Content
-smd100ni        double  %10.0g                FTC Nicotine Content
-smd100co        double  %10.0g                FTC Carbon Monoxide Content
-smq621          double  %10.0g                Cigarettes smoked in entire life
-smd630          double  %10.0g                Age first smoked whole cigarette
-smq660          double  %10.0g                Brands of cigarettes smoked/past
-                                                mo
-smq664m         double  %10.0g                Menthol or non-menthol Marlboro
-smq664c         double  %10.0g                Menthol or non-menthol Camels
-smq664w         double  %10.0g                Menthol or non-menthol Winston
-smq664b         double  %10.0g                Menthol or non-menthol
-                                                BensonHedges
-smq664o         double  %10.0g                Menthol or non-menthol other
-                                                brand
-smq670          double  %10.0g                Tried to quit smoking
-smaquex2        double  %10.0g                Questionnaire Mode Flag
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="alcohol-alq_xyz.xpt-2" class="section level2">
-<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<div id="alcohol-alq_xyz.xpt-2" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/ALQ_G.XPT&quot;
+keep seqn alq130
 save &quot;temp/2011-2012/ALQ_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2011-2012/ALQ_G.dta not found)
-file temp/2011-2012/ALQ_G.dta saved
+<pre><code>file temp/2011-2012/ALQ_G.dta saved
 
 
 Contains data from temp/2011-2012/ALQ_G.dta
   obs:         5,615                          
- vars:            10                          8 Jul 2021 14:50
+ vars:             2                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-alq101          double  %10.0g                Had at least 12 alcohol drinks/1
-                                                yr?
-alq110          double  %10.0g                Had at least 12 alcohol
-                                                drinks/lifetime?
-alq120q         double  %10.0g                How often drink alcohol over past
-                                                12 mos
-alq120u         double  %10.0g                # days drink alcohol per wk, mo,
-                                                yr
 alq130          double  %10.0g                Avg # alcoholic drinks/day - past
                                                 12 mos
-alq141q         double  %10.0g                # days have 4/5 drinks - past 12
-                                                mos
-alq141u         double  %10.0g                # days per week, month, year?
-alq151          double  %10.0g                Ever have 4/5 or more drinks
-                                                every day?
-alq155          double  %10.0g                How many years did you drink
-                                                every day?
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="merge-files-2" class="section level2">
-<h2>Merge Files</h2>
-<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_G.dta&quot;, clear
-# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
-# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_G.dta&quot;
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace</code></pre>
-<pre><code>Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command</code></pre>
+<div id="day-1-nutrition-dr1tot_xyz.xpt-2" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DR1TOT_G.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2011-2012/DR1TOT_G.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2011-2012/DR1TOT_G.dta saved
+
+
+Contains data from temp/2011-2012/DR1TOT_G.dta
+  obs:         9,338                          
+ vars:             2                          12 Jul 2021 15:02
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr1tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt-2" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DR2TOT_G.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2011-2012/DR2TOT_G.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2011-2012/DR2TOT_G.dta saved
+
+
+Contains data from temp/2011-2012/DR2TOT_G.dta
+  obs:         9,338                          
+ vars:             2                          12 Jul 2021 15:02
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr2tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 </div>
-<div id="import-xpts-for-2013-2014" class="section level1">
-<h1>1 Import XPTs for 2013-2014</h1>
-<div id="demographics-demo_xyz.xpt-3" class="section level2">
-<h2>Demographics, DEMO_XYZ.XPT</h2>
+<div id="import-xpts-for-2013-2014" class="section level2">
+<h2>4 Import XPTs for 2013-2014</h2>
+<div id="demographics-demo_xyz.xpt-3" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DEMO_H.XPT&quot;
 save &quot;temp/2013-2014/DEMO_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2013-2014/DEMO_H.dta not found)
-file temp/2013-2014/DEMO_H.dta saved
+<pre><code>file temp/2013-2014/DEMO_H.dta saved
 
 
 Contains data from temp/2013-2014/DEMO_H.dta
   obs:        10,175                          
- vars:            47                          8 Jul 2021 14:50
+ vars:            47                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1481,19 +1113,19 @@ indfmpir        double  %10.0g                Ratio of family income to poverty
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="drug-use-duq_xyz.xpt-3" class="section level2">
-<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<div id="drug-use-duq_xyz.xpt-3" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DUQ_H.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
 save &quot;temp/2013-2014/DUQ_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2013-2014/DUQ_H.dta not found)
-file temp/2013-2014/DUQ_H.dta saved
+<pre><code>file temp/2013-2014/DUQ_H.dta saved
 
 
 Contains data from temp/2013-2014/DUQ_H.dta
   obs:         5,057                          
- vars:            42                          8 Jul 2021 14:50
+ vars:             6                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1501,306 +1133,183 @@ variable name   type    format     label      variable label
 seqn            double  %10.0g                Respondent sequence number
 duq200          double  %10.0g                Ever used marijuana or hashish
 duq210          double  %10.0g                Age when first tried marijuana
-duq211          double  %10.0g                Used marijuana every month for a
-                                                year?
-duq213          double  %10.0g                Age started regularly using
-                                                marijuana
-duq215q         double  %10.0g                Time since last used marijuana
-                                                regularly
-duq215u         double  %10.0g                Time since used marijuana
-                                                regularly/unit
-duq217          double  %10.0g                How often would you use
-                                                marijuana?
-duq219          double  %10.0g                How many joints or pipes smoke in
-                                                a day?
 duq220q         double  %10.0g                Last time used marijuana or
                                                 hashish
 duq220u         double  %10.0g                Last time used marijuana or
                                                 hashish/unit
 duq230          double  %10.0g                # days used marijuana or
                                                 hashish/month
-duq240          double  %10.0g                Ever used
-                                                cocaine/heroin/methamphetamine
-duq250          double  %10.0g                Ever use any form of cocaine
-duq260          double  %10.0g                Age first used cocaine
-duq270q         double  %10.0g                Last time you used cocaine, in
-                                                any form
-duq270u         double  %10.0g                Last time you used cocaine/unit
-duq272          double  %10.0g                # of time you used cocaine
-duq280          double  %10.0g                # of days used cocaine/month
-duq290          double  %10.0g                Ever used heroin
-duq300          double  %10.0g                Age first used heroin
-duq310q         double  %10.0g                Last time used heroin
-duq310u         double  %10.0g                Last time used heroin/unit
-duq320          double  %10.0g                # of days used heroin/month
-duq330          double  %10.0g                Ever used methamphetamine
-duq340          double  %10.0g                Age first used methamphetamine
-duq350q         double  %10.0g                Last time used methamphetamine
-duq350u         double  %10.0g                Last time used
-                                                methamphetamine/unit
-duq352          double  %10.0g                # times used methamphetamine
-duq360          double  %10.0g                # days used methamphetamine/month
-duq370          double  %10.0g                Ever use a needle to inject
-                                                illegal drug
-duq380a         double  %10.0g                Drugs injected - Cocaine
-duq380b         double  %10.0g                Drugs injected - Heroin
-duq380c         double  %10.0g                Drugs injected - Methamphetamine
-duq380d         double  %10.0g                Drugs injected - Steroids
-duq380e         double  %10.0g                Drugs injected - Any other drugs
-duq390          double  %10.0g                Age first injected drugs
-duq400q         double  %10.0g                Last time injected drugs
-duq400u         double  %10.0g                Last time injected drugs/unit
-duq410          double  %10.0g                # times injected drugs/lifetime
-duq420          double  %10.0g                How often did you inject drugs
-duq430          double  %10.0g                Ever been in rehabilitation
-                                                program
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="blood-pressure-bpx_xyz.xpt-3" class="section level2">
-<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<div id="blood-pressure-bpx_xyz.xpt-3" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2013-2014/BPX_H.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
 save &quot;temp/2013-2014/BPX_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2013-2014/BPX_H.dta not found)
-file temp/2013-2014/BPX_H.dta saved
+<pre><code>file temp/2013-2014/BPX_H.dta saved
 
 
 Contains data from temp/2013-2014/BPX_H.dta
   obs:         9,813                          
- vars:            23                          8 Jul 2021 14:50
+ vars:             9                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-peascst1        double  %10.0g                Blood Pressure Status
-peasctm1        double  %10.0g                Blood Pressure Time in Seconds
-peascct1        double  %10.0g                Blood Pressure Comment
-bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
-bpaarm          double  %10.0g                Arm selected
-bpacsz          double  %10.0g                Coded cuff size
-bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse * 2)
-bpxpuls         double  %10.0g                Pulse regular or irregular?
-bpxpty          double  %10.0g                Pulse type
-bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
-                                                Hg)
 bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
                                                 Hg
 bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
                                                 mm Hg
-bpaen1          double  %10.0g                Enhancement used first reading
 bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
                                                 Hg
 bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
                                                 mm Hg
-bpaen2          double  %10.0g                Enhancement used second reading
 bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
                                                 Hg
 bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
                                                 mm Hg
-bpaen3          double  %10.0g                Enhancement used third reading
 bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
                                                 Hg
 bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
                                                 mm Hg
-bpaen4          double  %10.0g                Enhancement used fourth reading
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="body-measurements-bmx_xyz.xpt-3" class="section level2">
-<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<div id="body-measurements-bmx_xyz.xpt-3" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2013-2014/BMX_H.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
 save &quot;temp/2013-2014/BMX_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2013-2014/BMX_H.dta not found)
-file temp/2013-2014/BMX_H.dta saved
+<pre><code>file temp/2013-2014/BMX_H.dta saved
 
 
 Contains data from temp/2013-2014/BMX_H.dta
   obs:         9,813                          
- vars:            26                          8 Jul 2021 14:50
+ vars:             5                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-bmdstats        double  %10.0g                Body Measures Component Status
-                                                Code
 bmxwt           double  %10.0g                Weight (kg)
-bmiwt           double  %10.0g                Weight Comment
-bmxrecum        double  %10.0g                Recumbent Length (cm)
-bmirecum        double  %10.0g                Recumbent Length Comment
-bmxhead         double  %10.0g                Head Circumference (cm)
-bmihead         double  %10.0g                Head Circumference Comment
 bmxht           double  %10.0g                Standing Height (cm)
-bmiht           double  %10.0g                Standing Height Comment
 bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
-bmdbmic         double  %10.0g                BMI Category - Children/Youth
-bmxleg          double  %10.0g                Upper Leg Length (cm)
-bmileg          double  %10.0g                Upper Leg Length Comment
-bmxarml         double  %10.0g                Upper Arm Length (cm)
-bmiarml         double  %10.0g                Upper Arm Length Comment
-bmxarmc         double  %10.0g                Arm Circumference (cm)
-bmiarmc         double  %10.0g                Arm Circumference Comment
 bmxwaist        double  %10.0g                Waist Circumference (cm)
-bmiwaist        double  %10.0g                Waist Circumference Comment
-bmxsad1         double  %10.0g                Sagittal Abdominal Diameter 1st
-                                                (cm)
-bmxsad2         double  %10.0g                Sagittal Abdominal Diameter 2nd
-                                                (cm)
-bmxsad3         double  %10.0g                Sagittal Abdominal Diameter 3rd
-                                                (cm)
-bmxsad4         double  %10.0g                Sagittal Abdominal Diameter 4th
-                                                (cm)
-bmdavsad        double  %10.0g                Average Sagittal Abdominal
-                                                Diameter (cm)
-bmdsadcm        double  %10.0g                Sagittal Abdominal Diameter
-                                                Comment
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="smoking-smq_xyz.xpt-3" class="section level2">
-<h2>Smoking, SMQ_XYZ.XPT</h2>
+<div id="smoking-smq_xyz.xpt-3" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2013-2014/SMQ_H.XPT&quot;
+keep seqn smd650
 save &quot;temp/2013-2014/SMQ_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2013-2014/SMQ_H.dta not found)
-file temp/2013-2014/SMQ_H.dta saved
+<pre><code>file temp/2013-2014/SMQ_H.dta saved
 
 
 Contains data from temp/2013-2014/SMQ_H.dta
   obs:         7,168                          
- vars:            32                          8 Jul 2021 14:50
+ vars:             2                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-smq020          double  %10.0g                Smoked at least 100 cigarettes in
-                                                life
-smd030          double  %10.0g                Age started smoking cigarettes
-                                                regularly
-smq040          double  %10.0g                Do you now smoke cigarettes
-smq050q         double  %10.0g                How long since quit smoking
-                                                cigarettes
-smq050u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smd055          double  %10.0g                Age last smoked cigarettes
-                                                regularly
-smd057          double  %10.0g                # cigarettes smoked per day when
-                                                quit
-smq078          double  %10.0g                How soon after waking do you
-                                                smoke
-smd641          double  %10.0g                # days smoked cigs during past 30
-                                                days
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
-smd093          double  %10.0g                May I please see the pack of
-                                                cigarettes
-smdupca         str12   %12s                  Cig 12-digit Universal Product
-                                                Code-UPC
-smd100br        str50   %50s                  Cigarette Brand/sub-brand
-smd100fl        double  %10.0g                Cigarette Filter type
-smd100mn        double  %10.0g                Cigarette Menthol indicator
-smd100ln        double  %10.0g                Cigarette Length
-smd100tr        double  %10.0g                FTC Tar Content
-smd100ni        double  %10.0g                FTC Nicotine Content
-smd100co        double  %10.0g                FTC Carbon Monoxide Content
-smq621          double  %10.0g                Cigarettes smoked in entire life
-smd630          double  %10.0g                Age first smoked whole cigarette
-smq661          double  %10.0g                Brand of cigarettes smoked past
-                                                30 days
-smq665a         double  %10.0g                Marlboro variety
-smq665b         double  %10.0g                Camel variety
-smq665c         double  %10.0g                Newport variety
-smq665d         double  %10.0g                Other brand
-smq670          double  %10.0g                Tried to quit smoking
-smq848          double  %10.0g                # times stopped smoking
-                                                cigarettes
-smq852q         double  %10.0g                How long were you able to stop
-                                                smoking
-smq852u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smaquex2        double  %10.0g                Questionnaire Mode Flag
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="alcohol-alq_xyz.xpt-3" class="section level2">
-<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<div id="alcohol-alq_xyz.xpt-3" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2013-2014/ALQ_H.XPT&quot;
+keep seqn alq130
 save &quot;temp/2013-2014/ALQ_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2013-2014/ALQ_H.dta not found)
-file temp/2013-2014/ALQ_H.dta saved
+<pre><code>file temp/2013-2014/ALQ_H.dta saved
 
 
 Contains data from temp/2013-2014/ALQ_H.dta
   obs:         5,924                          
- vars:            10                          8 Jul 2021 14:50
+ vars:             2                          12 Jul 2021 15:02
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-alq101          double  %10.0g                Had at least 12 alcohol drinks/1
-                                                yr?
-alq110          double  %10.0g                Had at least 12 alcohol
-                                                drinks/lifetime?
-alq120q         double  %10.0g                How often drink alcohol over past
-                                                12 mos
-alq120u         double  %10.0g                # days drink alcohol per wk, mo,
-                                                yr
 alq130          double  %10.0g                Avg # alcoholic drinks/day - past
                                                 12 mos
-alq141q         double  %10.0g                # days have 4/5 drinks - past 12
-                                                mos
-alq141u         double  %10.0g                # days per week, month, year?
-alq151          double  %10.0g                Ever have 4/5 or more drinks
-                                                every day?
-alq160          double  %10.0g                # days have 4/5 or more drinks in
-                                                2 hrs
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="merge-files-3" class="section level2">
-<h2>Merge Files</h2>
-<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_H.dta&quot;, clear
-# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
-# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_H.dta&quot;
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace</code></pre>
-<pre><code>Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command</code></pre>
+<div id="day-1-nutrition-dr1tot_xyz.xpt-3" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DR1TOT_H.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2013-2014/DR1TOT_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2013-2014/DR1TOT_H.dta saved
+
+
+Contains data from temp/2013-2014/DR1TOT_H.dta
+  obs:         9,813                          
+ vars:             2                          12 Jul 2021 15:03
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr1tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt-3" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DR2TOT_H.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2013-2014/DR2TOT_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2013-2014/DR2TOT_H.dta saved
+
+
+Contains data from temp/2013-2014/DR2TOT_H.dta
+  obs:         9,813                          
+ vars:             2                          12 Jul 2021 15:03
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr2tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 </div>
-<div id="import-xpts-for-2015-2016" class="section level1">
-<h1>1 Import XPTs for 2015-2016</h1>
-<div id="demographics-demo_xyz.xpt-4" class="section level2">
-<h2>Demographics, DEMO_XYZ.XPT</h2>
+<div id="import-xpts-for-2015-2016" class="section level2">
+<h2>5 Import XPTs for 2015-2016</h2>
+<div id="demographics-demo_xyz.xpt-4" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DEMO_I.XPT&quot;
 save &quot;temp/2015-2016/DEMO_I.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2015-2016/DEMO_I.dta not found)
-file temp/2015-2016/DEMO_I.dta saved
+<pre><code>file temp/2015-2016/DEMO_I.dta saved
 
 
 Contains data from temp/2015-2016/DEMO_I.dta
   obs:         9,971                          
- vars:            47                          8 Jul 2021 14:50
+ vars:            47                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1869,19 +1378,19 @@ indfmpir        double  %10.0g                Ratio of family income to poverty
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="drug-use-duq_xyz.xpt-4" class="section level2">
-<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<div id="drug-use-duq_xyz.xpt-4" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DUQ_I.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
 save &quot;temp/2015-2016/DUQ_I.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2015-2016/DUQ_I.dta not found)
-file temp/2015-2016/DUQ_I.dta saved
+<pre><code>file temp/2015-2016/DUQ_I.dta saved
 
 
 Contains data from temp/2015-2016/DUQ_I.dta
   obs:         4,843                          
- vars:            42                          8 Jul 2021 14:50
+ vars:             6                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1889,318 +1398,183 @@ variable name   type    format     label      variable label
 seqn            double  %10.0g                Respondent sequence number
 duq200          double  %10.0g                Ever used marijuana or hashish
 duq210          double  %10.0g                Age when first tried marijuana
-duq211          double  %10.0g                Used marijuana every month for a
-                                                year?
-duq213          double  %10.0g                Age started regularly using
-                                                marijuana
-duq215q         double  %10.0g                Time since last used marijuana
-                                                regularly
-duq215u         double  %10.0g                Time since used marijuana
-                                                regularly/unit
-duq217          double  %10.0g                How often would you use
-                                                marijuana?
-duq219          double  %10.0g                How many joints or pipes smoke in
-                                                a day?
 duq220q         double  %10.0g                Last time used marijuana or
                                                 hashish
 duq220u         double  %10.0g                Last time used marijuana or
                                                 hashish/unit
 duq230          double  %10.0g                # days used marijuana or
                                                 hashish/month
-duq240          double  %10.0g                Ever used
-                                                cocaine/heroin/methamphetamine
-duq250          double  %10.0g                Ever use any form of cocaine
-duq260          double  %10.0g                Age first used cocaine
-duq270q         double  %10.0g                Last time you used cocaine, in
-                                                any form
-duq270u         double  %10.0g                Last time you used cocaine/unit
-duq272          double  %10.0g                # of time you used cocaine
-duq280          double  %10.0g                # of days used cocaine/month
-duq290          double  %10.0g                Ever used heroin
-duq300          double  %10.0g                Age first used heroin
-duq310q         double  %10.0g                Last time used heroin
-duq310u         double  %10.0g                Last time used heroin/unit
-duq320          double  %10.0g                # of days used heroin/month
-duq330          double  %10.0g                Ever used methamphetamine
-duq340          double  %10.0g                Age first used methamphetamine
-duq350q         double  %10.0g                Last time used methamphetamine
-duq350u         double  %10.0g                Last time used
-                                                methamphetamine/unit
-duq352          double  %10.0g                # times used methamphetamine
-duq360          double  %10.0g                # days used methamphetamine/month
-duq370          double  %10.0g                Ever use a needle to inject
-                                                illegal drug
-duq380a         double  %10.0g                Drugs injected - Cocaine
-duq380b         double  %10.0g                Drugs injected - Heroin
-duq380c         double  %10.0g                Drugs injected - Methamphetamine
-duq380d         double  %10.0g                Drugs injected - Steroids
-duq380e         double  %10.0g                Drugs injected - Any other drugs
-duq390          double  %10.0g                Age first injected drugs
-duq400q         double  %10.0g                Last time injected drugs
-duq400u         double  %10.0g                Last time injected drugs/unit
-duq410          double  %10.0g                # times injected drugs/lifetime
-duq420          double  %10.0g                How often did you inject drugs
-duq430          double  %10.0g                Ever been in rehabilitation
-                                                program
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="blood-pressure-bpx_xyz.xpt-4" class="section level2">
-<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<div id="blood-pressure-bpx_xyz.xpt-4" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/BPX_I.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
 save &quot;temp/2015-2016/BPX_I.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2015-2016/BPX_I.dta not found)
-file temp/2015-2016/BPX_I.dta saved
+<pre><code>file temp/2015-2016/BPX_I.dta saved
 
 
 Contains data from temp/2015-2016/BPX_I.dta
   obs:         9,544                          
- vars:            21                          8 Jul 2021 14:50
+ vars:             9                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-peascct1        double  %10.0g                Blood Pressure Comment
-bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
-bpaarm          double  %10.0g                Arm selected
-bpacsz          double  %10.0g                Coded cuff size
-bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse * 2)
-bpxpuls         double  %10.0g                Pulse regular or irregular?
-bpxpty          double  %10.0g                Pulse type
-bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
-                                                Hg)
 bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
                                                 Hg
 bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
                                                 mm Hg
-bpaen1          double  %10.0g                Enhancement used first reading
 bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
                                                 Hg
 bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
                                                 mm Hg
-bpaen2          double  %10.0g                Enhancement used second reading
 bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
                                                 Hg
 bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
                                                 mm Hg
-bpaen3          double  %10.0g                Enhancement used third reading
 bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
                                                 Hg
 bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
                                                 mm Hg
-bpaen4          double  %10.0g                Enhancement used fourth reading
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="body-measurements-bmx_xyz.xpt-4" class="section level2">
-<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<div id="body-measurements-bmx_xyz.xpt-4" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/BMX_I.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
 save &quot;temp/2015-2016/BMX_I.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2015-2016/BMX_I.dta not found)
-file temp/2015-2016/BMX_I.dta saved
+<pre><code>file temp/2015-2016/BMX_I.dta saved
 
 
 Contains data from temp/2015-2016/BMX_I.dta
   obs:         9,544                          
- vars:            26                          8 Jul 2021 14:50
+ vars:             5                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-bmdstats        double  %10.0g                Body Measures Component Status
-                                                Code
 bmxwt           double  %10.0g                Weight (kg)
-bmiwt           double  %10.0g                Weight Comment
-bmxrecum        double  %10.0g                Recumbent Length (cm)
-bmirecum        double  %10.0g                Recumbent Length Comment
-bmxhead         double  %10.0g                Head Circumference (cm)
-bmihead         double  %10.0g                Head Circumference Comment
 bmxht           double  %10.0g                Standing Height (cm)
-bmiht           double  %10.0g                Standing Height Comment
 bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
-bmdbmic         double  %10.0g                BMI Category - Children/Youth
-bmxleg          double  %10.0g                Upper Leg Length (cm)
-bmileg          double  %10.0g                Upper Leg Length Comment
-bmxarml         double  %10.0g                Upper Arm Length (cm)
-bmiarml         double  %10.0g                Upper Arm Length Comment
-bmxarmc         double  %10.0g                Arm Circumference (cm)
-bmiarmc         double  %10.0g                Arm Circumference Comment
 bmxwaist        double  %10.0g                Waist Circumference (cm)
-bmiwaist        double  %10.0g                Waist Circumference Comment
-bmxsad1         double  %10.0g                Sagittal Abdominal Diameter 1st
-                                                (cm)
-bmxsad2         double  %10.0g                Sagittal Abdominal Diameter 2nd
-                                                (cm)
-bmxsad3         double  %10.0g                Sagittal Abdominal Diameter 3rd
-                                                (cm)
-bmxsad4         double  %10.0g                Sagittal Abdominal Diameter 4th
-                                                (cm)
-bmdavsad        double  %10.0g                Average Sagittal Abdominal
-                                                Diameter (cm)
-bmdsadcm        double  %10.0g                Sagittal Abdominal Diameter
-                                                Comment
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="smoking-smq_xyz.xpt-4" class="section level2">
-<h2>Smoking, SMQ_XYZ.XPT</h2>
+<div id="smoking-smq_xyz.xpt-4" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/SMQ_I.XPT&quot;
+keep seqn smd650
 save &quot;temp/2015-2016/SMQ_I.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2015-2016/SMQ_I.dta not found)
-file temp/2015-2016/SMQ_I.dta saved
+<pre><code>file temp/2015-2016/SMQ_I.dta saved
 
 
 Contains data from temp/2015-2016/SMQ_I.dta
   obs:         7,001                          
- vars:            42                          8 Jul 2021 14:50
+ vars:             2                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-smq020          double  %10.0g                Smoked at least 100 cigarettes in
-                                                life
-smd030          double  %10.0g                Age started smoking cigarettes
-                                                regularly
-smq040          double  %10.0g                Do you now smoke cigarettes?
-smq050q         double  %10.0g                How long since quit smoking
-                                                cigarettes
-smq050u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smd055          double  %10.0g                Age last smoked cigarettes
-                                                regularly
-smd057          double  %10.0g                # cigarettes smoked per day when
-                                                quit
-smq078          double  %10.0g                How soon after waking do you
-                                                smoke
-smd641          double  %10.0g                # days smoked cigs during past 30
-                                                days
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
-smd093          double  %10.0g                May I please see the pack of
-                                                cigarettes
-smdupca         str12   %12s                  Cig 12-digit Universal Product
-                                                Code-UPC
-smd100br        str50   %50s                  Cigarette Brand/sub-brand
-smd100fl        double  %10.0g                Cigarette Filter type
-smd100mn        double  %10.0g                Cigarette Menthol indicator
-smd100ln        double  %10.0g                Cigarette Length
-smd100tr        double  %10.0g                FTC Tar Content
-smd100ni        double  %10.0g                FTC Nicotine Content
-smd100co        double  %10.0g                FTC Carbon Monoxide Content
-smq621          double  %10.0g                Cigarettes smoked in entire life
-smd630          double  %10.0g                Age first smoked whole cigarette
-smq661          double  %10.0g                Brand of cigarettes smoked past
-                                                30 days
-smq665a         double  %10.0g                Marlboro variety
-smq665b         double  %10.0g                Camel variety
-smq665c         double  %10.0g                Newport variety
-smq665d         double  %10.0g                Other brand
-smq670          double  %10.0g                Tried to quit smoking
-smq848          double  %10.0g                # times stopped smoking
-                                                cigarettes
-smq852q         double  %10.0g                How long were you able to stop
-                                                smoking
-smq852u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smq925          double  %10.0g                Ever smoked a cigarette even 1
-                                                time?
-smq930          double  %10.0g                Age smoked first cigarette
-smq935          double  %10.0g                Do you now smoke cigarettes?
-smq080          double  %10.0g                # days smoked cigs during past 30
-                                                days
-smq890          double  %10.0g                Ever smoked a cigar even 1 time?
-smq895          double  %10.0g                How many days smoked a cigar?
-smq900          double  %10.0g                Ever used an e-cigarette?
-smq905          double  %10.0g                How many days used an
-                                                e-cigarette?
-smq910          double  %10.0g                Ever used smokeless tobacco?
-smq915          double  %10.0g                How many days used smokeless
-                                                tobacco?
-smaquex2        double  %10.0g                Questionnaire Mode Flag
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="alcohol-alq_xyz.xpt-4" class="section level2">
-<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<div id="alcohol-alq_xyz.xpt-4" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/ALQ_I.XPT&quot;
+keep seqn alq130
 save &quot;temp/2015-2016/ALQ_I.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2015-2016/ALQ_I.dta not found)
-file temp/2015-2016/ALQ_I.dta saved
+<pre><code>file temp/2015-2016/ALQ_I.dta saved
 
 
 Contains data from temp/2015-2016/ALQ_I.dta
   obs:         5,735                          
- vars:            10                          8 Jul 2021 14:50
+ vars:             2                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-alq101          double  %10.0g                Had at least 12 alcohol drinks/1
-                                                yr?
-alq110          double  %10.0g                Had at least 12 alcohol
-                                                drinks/lifetime?
-alq120q         double  %10.0g                How often drink alcohol over past
-                                                12 mos
-alq120u         double  %10.0g                # days drink alcohol per wk, mo,
-                                                yr
 alq130          double  %10.0g                Avg # alcoholic drinks/day - past
                                                 12 mos
-alq141q         double  %10.0g                # days have 4/5 drinks - past 12
-                                                mos
-alq141u         double  %10.0g                # days per week, month, year?
-alq151          double  %10.0g                Ever have 4/5 or more drinks
-                                                every day?
-alq160          double  %10.0g                # days have 4/5 or more drinks in
-                                                2 hrs
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="merge-files-4" class="section level2">
-<h2>Merge Files</h2>
-<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_I.dta&quot;, clear
-# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
-# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_I.dta&quot;
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace</code></pre>
-<pre><code>Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command</code></pre>
+<div id="day-1-nutrition-dr1tot_xyz.xpt-4" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DR1TOT_I.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2015-2016/DR1TOT_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/DR1TOT_I.dta saved
+
+
+Contains data from temp/2015-2016/DR1TOT_I.dta
+  obs:         9,544                          
+ vars:             2                          12 Jul 2021 15:03
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr1tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt-4" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DR2TOT_I.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2015-2016/DR2TOT_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/DR2TOT_I.dta saved
+
+
+Contains data from temp/2015-2016/DR2TOT_I.dta
+  obs:         9,544                          
+ vars:             2                          12 Jul 2021 15:03
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr2tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 </div>
-<div id="import-xpts-for-2017-2018" class="section level1">
-<h1>1 Import XPTs for 2017-2018</h1>
-<div id="demographics-demo_xyz.xpt-5" class="section level2">
-<h2>Demographics, DEMO_XYZ.XPT</h2>
+<div id="import-xpts-for-2017-2018" class="section level2">
+<h2>6 Import XPTs for 2017-2018</h2>
+<div id="demographics-demo_xyz.xpt-5" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DEMO_J.XPT&quot;
 save &quot;temp/2017-2018/DEMO_J.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2017-2018/DEMO_J.dta not found)
-file temp/2017-2018/DEMO_J.dta saved
+<pre><code>file temp/2017-2018/DEMO_J.dta saved
 
 
 Contains data from temp/2017-2018/DEMO_J.dta
   obs:         9,254                          
- vars:            46                          8 Jul 2021 14:50
+ vars:            46                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -2268,19 +1642,19 @@ indfmpir        double  %10.0g                Ratio of family income to poverty
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="drug-use-duq_xyz.xpt-5" class="section level2">
-<h2>Drug Use, DUQ_XYZ.XPT</h2>
+<div id="drug-use-duq_xyz.xpt-5" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DUQ_J.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
 save &quot;temp/2017-2018/DUQ_J.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2017-2018/DUQ_J.dta not found)
-file temp/2017-2018/DUQ_J.dta saved
+<pre><code>file temp/2017-2018/DUQ_J.dta saved
 
 
 Contains data from temp/2017-2018/DUQ_J.dta
   obs:         4,572                          
- vars:            41                          8 Jul 2021 14:50
+ vars:             6                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -2288,283 +1662,1753 @@ variable name   type    format     label      variable label
 seqn            double  %10.0g                Respondent sequence number
 duq200          double  %10.0g                Ever used marijuana or hashish
 duq210          double  %10.0g                Age when first tried marijuana
-duq211          double  %10.0g                Used marijuana every month for a
-                                                year?
-duq213          double  %10.0g                Age started regularly using
-                                                marijuana
-duq215q         double  %10.0g                Time since last used marijuana
-                                                regularly
-duq215u         double  %10.0g                Time since used marijuana
-                                                regularly/unit
-duq217          double  %10.0g                How often would you use
-                                                marijuana?
-duq219          double  %10.0g                How many joints or pipes smoke in
-                                                a day?
 duq220q         double  %10.0g                Last time used marijuana or
                                                 hashish
 duq220u         double  %10.0g                Last time used marijuana or
                                                 hashish/unit
 duq230          double  %10.0g                # days used marijuana or
                                                 hashish/month
-duq240          double  %10.0g                Ever used
-                                                cocaine/heroin/methamphetamine
-duq250          double  %10.0g                Ever use any form of cocaine
-duq260          double  %10.0g                Age first used cocaine
-duq270q         double  %10.0g                Last time you used cocaine, in
-                                                any form
-duq270u         double  %10.0g                Last time you used cocaine/unit
-duq272          double  %10.0g                # of time you used cocaine
-duq280          double  %10.0g                # of days used cocaine/month
-duq290          double  %10.0g                Ever used heroin
-duq300          double  %10.0g                Age first used heroin
-duq310q         double  %10.0g                Last time used heroin
-duq310u         double  %10.0g                Last time used heroin/unit
-duq320          double  %10.0g                # of days used heroin/month
-duq330          double  %10.0g                Ever used methamphetamine
-duq340          double  %10.0g                Age first used methamphetamine
-duq350q         double  %10.0g                Last time used methamphetamine
-duq350u         double  %10.0g                Last time used
-                                                methamphetamine/unit
-duq352          double  %10.0g                # times used methamphetamine
-duq360          double  %10.0g                # days used methamphetamine/month
-duq370          double  %10.0g                Ever use a needle to inject
-                                                illegal drug
-duq380a         double  %10.0g                Drugs injected - Cocaine
-duq380b         double  %10.0g                Drugs injected - Heroin
-duq380c         double  %10.0g                Drugs injected - Methamphetamine
-dud380f         double  %10.0g                Drugs injected - Steroids or
-                                                other drugs
-duq390          double  %10.0g                Age first injected drugs
-duq400q         double  %10.0g                Last time injected drugs
-duq400u         double  %10.0g                Last time injected drugs/unit
-duq410          double  %10.0g                # times injected drugs/lifetime
-duq420          double  %10.0g                How often did you inject drugs
-duq430          double  %10.0g                Ever been in rehabilitation
-                                                program
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="blood-pressure-bpx_xyz.xpt-5" class="section level2">
-<h2>Blood Pressure, BPX_XYZ.XPT</h2>
+<div id="blood-pressure-bpx_xyz.xpt-5" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/BPX_J.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
 save &quot;temp/2017-2018/BPX_J.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2017-2018/BPX_J.dta not found)
-file temp/2017-2018/BPX_J.dta saved
+<pre><code>file temp/2017-2018/BPX_J.dta saved
 
 
 Contains data from temp/2017-2018/BPX_J.dta
   obs:         8,704                          
- vars:            21                          8 Jul 2021 14:50
+ vars:             9                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-peascct1        double  %10.0g                Blood Pressure Comment
-bpxchr          double  %10.0g                60 sec HR (30 sec HR * 2)
-bpaarm          double  %10.0g                Arm selected
-bpacsz          double  %10.0g                Coded cuff size
-bpxpls          double  %10.0g                60 sec. pulse (30 sec. pulse * 2)
-bpxpuls         double  %10.0g                Pulse regular or irregular?
-bpxpty          double  %10.0g                Pulse type
-bpxml1          double  %10.0g                MIL: maximum inflation levels (mm
-                                                Hg)
 bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
                                                 Hg
 bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
                                                 mm Hg
-bpaen1          double  %10.0g                Enhancement used first reading
 bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
                                                 Hg
 bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
                                                 mm Hg
-bpaen2          double  %10.0g                Enhancement used second reading
 bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
                                                 Hg
 bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
                                                 mm Hg
-bpaen3          double  %10.0g                Enhancement used third reading
 bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
                                                 Hg
 bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
                                                 mm Hg
-bpaen4          double  %10.0g                Enhancement used fourth reading
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="body-measurements-bmx_xyz.xpt-5" class="section level2">
-<h2>Body Measurements, BMX_XYZ.XPT</h2>
+<div id="body-measurements-bmx_xyz.xpt-5" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/BMX_J.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
 save &quot;temp/2017-2018/BMX_J.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2017-2018/BMX_J.dta not found)
-file temp/2017-2018/BMX_J.dta saved
+<pre><code>file temp/2017-2018/BMX_J.dta saved
 
 
 Contains data from temp/2017-2018/BMX_J.dta
   obs:         8,704                          
- vars:            21                          8 Jul 2021 14:50
+ vars:             5                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-bmdstats        double  %10.0g                Body Measures Component Status
-                                                Code
 bmxwt           double  %10.0g                Weight (kg)
-bmiwt           double  %10.0g                Weight Comment
-bmxrecum        double  %10.0g                Recumbent Length (cm)
-bmirecum        double  %10.0g                Recumbent Length Comment
-bmxhead         double  %10.0g                Head Circumference (cm)
-bmihead         double  %10.0g                Head Circumference Comment
 bmxht           double  %10.0g                Standing Height (cm)
-bmiht           double  %10.0g                Standing Height Comment
 bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
-bmxleg          double  %10.0g                Upper Leg Length (cm)
-bmileg          double  %10.0g                Upper Leg Length Comment
-bmxarml         double  %10.0g                Upper Arm Length (cm)
-bmiarml         double  %10.0g                Upper Arm Length Comment
-bmxarmc         double  %10.0g                Arm Circumference (cm)
-bmiarmc         double  %10.0g                Arm Circumference Comment
 bmxwaist        double  %10.0g                Waist Circumference (cm)
-bmiwaist        double  %10.0g                Waist Circumference Comment
-bmxhip          double  %10.0g                Hip Circumference (cm)
-bmihip          double  %10.0g                Hip Circumference Comment
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="smoking-smq_xyz.xpt-5" class="section level2">
-<h2>Smoking, SMQ_XYZ.XPT</h2>
+<div id="smoking-smq_xyz.xpt-5" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/SMQ_J.XPT&quot;
+keep seqn smd650
 save &quot;temp/2017-2018/SMQ_J.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2017-2018/SMQ_J.dta not found)
-file temp/2017-2018/SMQ_J.dta saved
+<pre><code>file temp/2017-2018/SMQ_J.dta saved
 
 
 Contains data from temp/2017-2018/SMQ_J.dta
   obs:         6,724                          
- vars:            37                          8 Jul 2021 14:50
+ vars:             2                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-smq020          double  %10.0g                Smoked at least 100 cigarettes in
-                                                life
-smd030          double  %10.0g                Age started smoking cigarettes
-                                                regularly
-smq040          double  %10.0g                Do you now smoke cigarettes?
-smq050q         double  %10.0g                How long since quit smoking
-                                                cigarettes
-smq050u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smd057          double  %10.0g                # cigarettes smoked per day when
-                                                quit
-smq078          double  %10.0g                How soon after waking do you
-                                                smoke
-smd641          double  %10.0g                # days smoked cigs during past 30
-                                                days
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
-smd093          double  %10.0g                May I please see the pack of
-                                                cigarettes
-smdupca         str12   %12s                  Cig 12-digit Universal Product
-                                                Code-UPC
-smd100br        str50   %50s                  Cigarette Brand/sub-brand
-smd100fl        double  %10.0g                Cigarette Filter type
-smd100mn        double  %10.0g                Cigarette Menthol indicator
-smd100ln        double  %10.0g                Cigarette Length
-smd100tr        double  %10.0g                FTC Tar Content
-smd100ni        double  %10.0g                FTC Nicotine Content
-smd100co        double  %10.0g                FTC Carbon Monoxide Content
-smq621          double  %10.0g                Cigarettes smoked in entire life
-smd630          double  %10.0g                Age first smoked whole cigarette
-smq661          double  %10.0g                Brand of cigarettes smoked past
-                                                30 days
-smq665a         double  %10.0g                Marlboro variety
-smq665b         double  %10.0g                Camel variety
-smq665c         double  %10.0g                Newport variety
-smq665d         double  %10.0g                Other brand
-smq670          double  %10.0g                Tried to quit smoking
-smq848          double  %10.0g                # times stopped smoking
-                                                cigarettes
-smq852q         double  %10.0g                How long were you able to stop
-                                                smoking
-smq852u         double  %10.0g                Unit of measure
-                                                (day/week/month/year)
-smq890          double  %10.0g                Ever smoked a cigar even 1 time?
-smq895          double  %10.0g                How many days smoked a cigar?
-smq900          double  %10.0g                Ever used an e-cigarette?
-smq905          double  %10.0g                How many days used an
-                                                e-cigarette?
-smq910          double  %10.0g                Ever used smokeless tobacco?
-smq915          double  %10.0g                How many days used smokeless
-                                                tobacco?
-smaquex2        double  %10.0g                Questionnaire Mode Flag
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="alcohol-alq_xyz.xpt-5" class="section level2">
-<h2>Alcohol, ALQ_XYZ.XPT</h2>
+<div id="alcohol-alq_xyz.xpt-5" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/ALQ_J.XPT&quot;
+keep seqn alq130
 save &quot;temp/2017-2018/ALQ_J.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>(note: file temp/2017-2018/ALQ_J.dta not found)
-file temp/2017-2018/ALQ_J.dta saved
+<pre><code>file temp/2017-2018/ALQ_J.dta saved
 
 
 Contains data from temp/2017-2018/ALQ_J.dta
   obs:         5,533                          
- vars:            10                          8 Jul 2021 14:50
+ vars:             2                          12 Jul 2021 15:03
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-alq111          double  %10.0g                Ever had a drink of any kind of
-                                                alcohol
-alq121          double  %10.0g                Past 12 mo how often have alcohol
-                                                drink
 alq130          double  %10.0g                Avg # alcohol drinks/day - past
                                                 12 mos
-alq142          double  %10.0g                # days have 4 or 5 drinks/past 12
-                                                mos
-alq270          double  %10.0g                # times 4-5 drinks in 2 hrs/past
-                                                12 mos
-alq280          double  %10.0g                # times 8+ drinks in 1 day/past
-                                                12 mos
-alq290          double  %10.0g                # times 12+ drinks in 1 day/past
-                                                12 mos
-alq151          double  %10.0g                Ever have 4/5 or more drinks
-                                                every day?
-alq170          double  %10.0g                Past 30 days # times 4-5 drinks
-                                                on an oc
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="merge-files-5" class="section level2">
-<h2>Merge Files</h2>
-<pre class="stata"><code># use &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_DEMO_J.dta&quot;, clear
-# save &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\NHANES0708_merged.dta&quot;,replace
-# merge 1:1 seqn using &quot;C:\Users\Matt\Documents\EPI536\EPI536-Assignments\temp_BMX_J.dta&quot;
-# rename _merge Merge_BM
-# tab Merge_BM
-# duplicates report seqn
-# save,replace</code></pre>
-<pre><code>Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command
-Unknown #command</code></pre>
+<div id="day-1-nutrition-dr1tot_xyz.xpt-5" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DR1TOT_J.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2017-2018/DR1TOT_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2017-2018/DR1TOT_J.dta saved
+
+
+Contains data from temp/2017-2018/DR1TOT_J.dta
+  obs:         8,704                          
+ vars:             2                          12 Jul 2021 15:03
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr1tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt-5" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DR2TOT_J.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2017-2018/DR2TOT_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2017-2018/DR2TOT_J.dta saved
+
+
+Contains data from temp/2017-2018/DR2TOT_J.dta
+  obs:         8,704                          
+ vars:             2                          12 Jul 2021 15:03
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr2tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+</div>
+</div>
+<div id="merge-files" class="section level1">
+<h1>Merge Files</h1>
+<div id="section" class="section level2">
+<h2>2007-2008</h2>
+<p>Starting with the demographics file.</p>
+<div id="bmx-merge" class="section level3">
+<h3>BMX merge</h3>
+<pre class="stata"><code>use &quot;temp\2007-2008\DEMO_E.dta&quot;, clear
+save &quot;data\NHANES0708_merged.dta&quot;,replace
+merge 1:1 seqn using &quot;temp\2007-2008\BMX_E.dta&quot;
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>file data\NHANES0708_merged.dta saved
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                           387
+        from master                       387  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,762  (_merge==3)
+    -----------------------------------------
+
+               Merge_BM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        387        3.81        3.81
+            matched (3) |      9,762       96.19      100.00
+------------------------+-----------------------------------
+                  Total |     10,149      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10149             0
+--------------------------------------
+
+file data\NHANES0708_merged.dta saved</code></pre>
+</div>
+<div id="alq-merge" class="section level3">
+<h3>ALQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2007-2008\ALQ_E.dta&quot;
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         4,442
+        from master                     4,442  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             5,707  (_merge==3)
+    -----------------------------------------
+
+               Merge_AL |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      4,442       43.77       43.77
+            matched (3) |      5,707       56.23      100.00
+------------------------+-----------------------------------
+                  Total |     10,149      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10149             0
+--------------------------------------
+
+file data\NHANES0708_merged.dta saved</code></pre>
+</div>
+<div id="bpx-merge" class="section level3">
+<h3>BPX merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2007-2008\BPX_E.dta&quot;
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           387
+        from master                       387  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,762  (_merge==3)
+    -----------------------------------------
+
+               Merge_BP |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        387        3.81        3.81
+            matched (3) |      9,762       96.19      100.00
+------------------------+-----------------------------------
+                  Total |     10,149      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10149             0
+--------------------------------------
+
+file data\NHANES0708_merged.dta saved</code></pre>
+</div>
+<div id="duq-merge" class="section level3">
+<h3>DUQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2007-2008\DUQ_E.dta&quot;
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         5,524
+        from master                     5,524  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             4,625  (_merge==3)
+    -----------------------------------------
+
+               Merge_DU |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      5,524       54.43       54.43
+            matched (3) |      4,625       45.57      100.00
+------------------------+-----------------------------------
+                  Total |     10,149      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10149             0
+--------------------------------------
+
+file data\NHANES0708_merged.dta saved</code></pre>
+</div>
+<div id="smq-merge" class="section level3">
+<h3>SMQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2007-2008\SMQ_E.dta&quot;
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         3,004
+        from master                     3,004  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             7,145  (_merge==3)
+    -----------------------------------------
+
+               Merge_SM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      3,004       29.60       29.60
+            matched (3) |      7,145       70.40      100.00
+------------------------+-----------------------------------
+                  Total |     10,149      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10149             0
+--------------------------------------
+
+file data\NHANES0708_merged.dta saved</code></pre>
+</div>
+<div id="dr1tot-merge" class="section level3">
+<h3>DR1TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2007-2008\DR1TOT_E.dta&quot;
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           387
+        from master                       387  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,762  (_merge==3)
+    -----------------------------------------
+
+               Merge_D1 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        387        3.81        3.81
+            matched (3) |      9,762       96.19      100.00
+------------------------+-----------------------------------
+                  Total |     10,149      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10149             0
+--------------------------------------
+
+file data\NHANES0708_merged.dta saved</code></pre>
+</div>
+<div id="dr2tot-merge" class="section level3">
+<h3>DR2TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2007-2008\DR2TOT_E.dta&quot;
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           387
+        from master                       387  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,762  (_merge==3)
+    -----------------------------------------
+
+               Merge_D2 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        387        3.81        3.81
+            matched (3) |      9,762       96.19      100.00
+------------------------+-----------------------------------
+                  Total |     10,149      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10149             0
+--------------------------------------
+
+file data\NHANES0708_merged.dta saved</code></pre>
+</div>
+</div>
+<div id="section-1" class="section level2">
+<h2>2009-2010</h2>
+<p>Starting with the demographics file.</p>
+<div id="bmx-merge-1" class="section level3">
+<h3>BMX merge</h3>
+<pre class="stata"><code>use &quot;temp\2009-2010\DEMO_F.dta&quot;, clear
+save &quot;data\NHANES0910_merged.dta&quot;,replace
+merge 1:1 seqn using &quot;temp\2009-2010\BMX_F.dta&quot;
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>file data\NHANES0910_merged.dta saved
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                           284
+        from master                       284  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                            10,253  (_merge==3)
+    -----------------------------------------
+
+               Merge_BM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        284        2.70        2.70
+            matched (3) |     10,253       97.30      100.00
+------------------------+-----------------------------------
+                  Total |     10,537      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10537             0
+--------------------------------------
+
+file data\NHANES0910_merged.dta saved</code></pre>
+</div>
+<div id="alq-merge-1" class="section level3">
+<h3>ALQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2009-2010\ALQ_F.dta&quot;
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         4,478
+        from master                     4,478  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             6,059  (_merge==3)
+    -----------------------------------------
+
+               Merge_AL |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      4,478       42.50       42.50
+            matched (3) |      6,059       57.50      100.00
+------------------------+-----------------------------------
+                  Total |     10,537      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10537             0
+--------------------------------------
+
+file data\NHANES0910_merged.dta saved</code></pre>
+</div>
+<div id="bpx-merge-1" class="section level3">
+<h3>BPX merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2009-2010\BPX_F.dta&quot;
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           284
+        from master                       284  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                            10,253  (_merge==3)
+    -----------------------------------------
+
+               Merge_BP |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        284        2.70        2.70
+            matched (3) |     10,253       97.30      100.00
+------------------------+-----------------------------------
+                  Total |     10,537      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10537             0
+--------------------------------------
+
+file data\NHANES0910_merged.dta saved</code></pre>
+</div>
+<div id="duq-merge-1" class="section level3">
+<h3>DUQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2009-2010\DUQ_F.dta&quot;
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         5,235
+        from master                     5,235  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             5,302  (_merge==3)
+    -----------------------------------------
+
+               Merge_DU |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      5,235       49.68       49.68
+            matched (3) |      5,302       50.32      100.00
+------------------------+-----------------------------------
+                  Total |     10,537      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10537             0
+--------------------------------------
+
+file data\NHANES0910_merged.dta saved</code></pre>
+</div>
+<div id="smq-merge-1" class="section level3">
+<h3>SMQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2009-2010\SMQ_F.dta&quot;
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         3,009
+        from master                     3,009  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             7,528  (_merge==3)
+    -----------------------------------------
+
+               Merge_SM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      3,009       28.56       28.56
+            matched (3) |      7,528       71.44      100.00
+------------------------+-----------------------------------
+                  Total |     10,537      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10537             0
+--------------------------------------
+
+file data\NHANES0910_merged.dta saved</code></pre>
+</div>
+<div id="dr1tot-merge-1" class="section level3">
+<h3>DR1TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2009-2010\DR1TOT_F.dta&quot;
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           284
+        from master                       284  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                            10,253  (_merge==3)
+    -----------------------------------------
+
+               Merge_D1 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        284        2.70        2.70
+            matched (3) |     10,253       97.30      100.00
+------------------------+-----------------------------------
+                  Total |     10,537      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10537             0
+--------------------------------------
+
+file data\NHANES0910_merged.dta saved</code></pre>
+</div>
+<div id="dr2tot-merge-1" class="section level3">
+<h3>DR2TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2009-2010\DR2TOT_F.dta&quot;
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           284
+        from master                       284  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                            10,253  (_merge==3)
+    -----------------------------------------
+
+               Merge_D2 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        284        2.70        2.70
+            matched (3) |     10,253       97.30      100.00
+------------------------+-----------------------------------
+                  Total |     10,537      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10537             0
+--------------------------------------
+
+file data\NHANES0910_merged.dta saved</code></pre>
+</div>
+</div>
+<div id="section-2" class="section level2">
+<h2>2011-2012</h2>
+<p>Starting with the demographics file.</p>
+<div id="bmx-merge-2" class="section level3">
+<h3>BMX merge</h3>
+<pre class="stata"><code>use &quot;temp\2011-2012\DEMO_G.dta&quot;, clear
+save &quot;data\NHANES1112_merged.dta&quot;,replace
+merge 1:1 seqn using &quot;temp\2011-2012\BMX_G.dta&quot;
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>file data\NHANES1112_merged.dta saved
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                           418
+        from master                       418  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,338  (_merge==3)
+    -----------------------------------------
+
+               Merge_BM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        418        4.28        4.28
+            matched (3) |      9,338       95.72      100.00
+------------------------+-----------------------------------
+                  Total |      9,756      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9756             0
+--------------------------------------
+
+file data\NHANES1112_merged.dta saved</code></pre>
+</div>
+<div id="alq-merge-2" class="section level3">
+<h3>ALQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2011-2012\ALQ_G.dta&quot;
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         4,141
+        from master                     4,141  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             5,615  (_merge==3)
+    -----------------------------------------
+
+               Merge_AL |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      4,141       42.45       42.45
+            matched (3) |      5,615       57.55      100.00
+------------------------+-----------------------------------
+                  Total |      9,756      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9756             0
+--------------------------------------
+
+file data\NHANES1112_merged.dta saved</code></pre>
+</div>
+<div id="bpx-merge-2" class="section level3">
+<h3>BPX merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2011-2012\BPX_G.dta&quot;
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           418
+        from master                       418  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,338  (_merge==3)
+    -----------------------------------------
+
+               Merge_BP |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        418        4.28        4.28
+            matched (3) |      9,338       95.72      100.00
+------------------------+-----------------------------------
+                  Total |      9,756      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9756             0
+--------------------------------------
+
+file data\NHANES1112_merged.dta saved</code></pre>
+</div>
+<div id="duq-merge-2" class="section level3">
+<h3>DUQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2011-2012\DUQ_G.dta&quot;
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         4,960
+        from master                     4,960  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             4,796  (_merge==3)
+    -----------------------------------------
+
+               Merge_DU |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      4,960       50.84       50.84
+            matched (3) |      4,796       49.16      100.00
+------------------------+-----------------------------------
+                  Total |      9,756      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9756             0
+--------------------------------------
+
+file data\NHANES1112_merged.dta saved</code></pre>
+</div>
+<div id="smq-merge-2" class="section level3">
+<h3>SMQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2011-2012\SMQ_G.dta&quot;
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         2,966
+        from master                     2,966  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             6,790  (_merge==3)
+    -----------------------------------------
+
+               Merge_SM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      2,966       30.40       30.40
+            matched (3) |      6,790       69.60      100.00
+------------------------+-----------------------------------
+                  Total |      9,756      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9756             0
+--------------------------------------
+
+file data\NHANES1112_merged.dta saved</code></pre>
+</div>
+<div id="dr1tot-merge-2" class="section level3">
+<h3>DR1TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2011-2012\DR1TOT_G.dta&quot;
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           418
+        from master                       418  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,338  (_merge==3)
+    -----------------------------------------
+
+               Merge_D1 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        418        4.28        4.28
+            matched (3) |      9,338       95.72      100.00
+------------------------+-----------------------------------
+                  Total |      9,756      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9756             0
+--------------------------------------
+
+file data\NHANES1112_merged.dta saved</code></pre>
+</div>
+<div id="dr2tot-merge-2" class="section level3">
+<h3>DR2TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2011-2012\DR2TOT_G.dta&quot;
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           418
+        from master                       418  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,338  (_merge==3)
+    -----------------------------------------
+
+               Merge_D2 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        418        4.28        4.28
+            matched (3) |      9,338       95.72      100.00
+------------------------+-----------------------------------
+                  Total |      9,756      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9756             0
+--------------------------------------
+
+file data\NHANES1112_merged.dta saved</code></pre>
+</div>
+</div>
+<div id="section-3" class="section level2">
+<h2>2013-2014</h2>
+<p>Starting with the demographics file.</p>
+<div id="bmx-merge-3" class="section level3">
+<h3>BMX merge</h3>
+<pre class="stata"><code>use &quot;temp\2013-2014\DEMO_H.dta&quot;, clear
+save &quot;data\NHANES1314_merged.dta&quot;,replace
+merge 1:1 seqn using &quot;temp\2013-2014\BMX_H.dta&quot;
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>file data\NHANES1314_merged.dta saved
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                           362
+        from master                       362  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,813  (_merge==3)
+    -----------------------------------------
+
+               Merge_BM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        362        3.56        3.56
+            matched (3) |      9,813       96.44      100.00
+------------------------+-----------------------------------
+                  Total |     10,175      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10175             0
+--------------------------------------
+
+file data\NHANES1314_merged.dta saved</code></pre>
+</div>
+<div id="alq-merge-3" class="section level3">
+<h3>ALQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2013-2014\ALQ_H.dta&quot;
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         4,251
+        from master                     4,251  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             5,924  (_merge==3)
+    -----------------------------------------
+
+               Merge_AL |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      4,251       41.78       41.78
+            matched (3) |      5,924       58.22      100.00
+------------------------+-----------------------------------
+                  Total |     10,175      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10175             0
+--------------------------------------
+
+file data\NHANES1314_merged.dta saved</code></pre>
+</div>
+<div id="bpx-merge-3" class="section level3">
+<h3>BPX merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2013-2014\BPX_H.dta&quot;
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           362
+        from master                       362  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,813  (_merge==3)
+    -----------------------------------------
+
+               Merge_BP |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        362        3.56        3.56
+            matched (3) |      9,813       96.44      100.00
+------------------------+-----------------------------------
+                  Total |     10,175      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10175             0
+--------------------------------------
+
+file data\NHANES1314_merged.dta saved</code></pre>
+</div>
+<div id="duq-merge-3" class="section level3">
+<h3>DUQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2013-2014\DUQ_H.dta&quot;
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         5,118
+        from master                     5,118  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             5,057  (_merge==3)
+    -----------------------------------------
+
+               Merge_DU |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      5,118       50.30       50.30
+            matched (3) |      5,057       49.70      100.00
+------------------------+-----------------------------------
+                  Total |     10,175      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10175             0
+--------------------------------------
+
+file data\NHANES1314_merged.dta saved</code></pre>
+</div>
+<div id="smq-merge-3" class="section level3">
+<h3>SMQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2013-2014\SMQ_H.dta&quot;
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         3,007
+        from master                     3,007  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             7,168  (_merge==3)
+    -----------------------------------------
+
+               Merge_SM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      3,007       29.55       29.55
+            matched (3) |      7,168       70.45      100.00
+------------------------+-----------------------------------
+                  Total |     10,175      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10175             0
+--------------------------------------
+
+file data\NHANES1314_merged.dta saved</code></pre>
+</div>
+<div id="dr1tot-merge-3" class="section level3">
+<h3>DR1TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2013-2014\DR1TOT_H.dta&quot;
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           362
+        from master                       362  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,813  (_merge==3)
+    -----------------------------------------
+
+               Merge_D1 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        362        3.56        3.56
+            matched (3) |      9,813       96.44      100.00
+------------------------+-----------------------------------
+                  Total |     10,175      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10175             0
+--------------------------------------
+
+file data\NHANES1314_merged.dta saved</code></pre>
+</div>
+<div id="dr2tot-merge-3" class="section level3">
+<h3>DR2TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2013-2014\DR2TOT_H.dta&quot;
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           362
+        from master                       362  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,813  (_merge==3)
+    -----------------------------------------
+
+               Merge_D2 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        362        3.56        3.56
+            matched (3) |      9,813       96.44      100.00
+------------------------+-----------------------------------
+                  Total |     10,175      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        10175             0
+--------------------------------------
+
+file data\NHANES1314_merged.dta saved</code></pre>
+</div>
+</div>
+<div id="section-4" class="section level2">
+<h2>2015-2016</h2>
+<p>Starting with the demographics file.</p>
+<div id="bmx-merge-4" class="section level3">
+<h3>BMX merge</h3>
+<pre class="stata"><code>use &quot;temp\2015-2016\DEMO_I.dta&quot;, clear
+save &quot;data\NHANES1516_merged.dta&quot;,replace
+merge 1:1 seqn using &quot;temp\2015-2016\BMX_I.dta&quot;
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>file data\NHANES1516_merged.dta saved
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                           427
+        from master                       427  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,544  (_merge==3)
+    -----------------------------------------
+
+               Merge_BM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        427        4.28        4.28
+            matched (3) |      9,544       95.72      100.00
+------------------------+-----------------------------------
+                  Total |      9,971      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9971             0
+--------------------------------------
+
+file data\NHANES1516_merged.dta saved</code></pre>
+</div>
+<div id="alq-merge-4" class="section level3">
+<h3>ALQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2015-2016\ALQ_I.dta&quot;
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         4,236
+        from master                     4,236  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             5,735  (_merge==3)
+    -----------------------------------------
+
+               Merge_AL |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      4,236       42.48       42.48
+            matched (3) |      5,735       57.52      100.00
+------------------------+-----------------------------------
+                  Total |      9,971      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9971             0
+--------------------------------------
+
+file data\NHANES1516_merged.dta saved</code></pre>
+</div>
+<div id="bpx-merge-4" class="section level3">
+<h3>BPX merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2015-2016\BPX_I.dta&quot;
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           427
+        from master                       427  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,544  (_merge==3)
+    -----------------------------------------
+
+               Merge_BP |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        427        4.28        4.28
+            matched (3) |      9,544       95.72      100.00
+------------------------+-----------------------------------
+                  Total |      9,971      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9971             0
+--------------------------------------
+
+file data\NHANES1516_merged.dta saved</code></pre>
+</div>
+<div id="duq-merge-4" class="section level3">
+<h3>DUQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2015-2016\DUQ_I.dta&quot;
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         5,128
+        from master                     5,128  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             4,843  (_merge==3)
+    -----------------------------------------
+
+               Merge_DU |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      5,128       51.43       51.43
+            matched (3) |      4,843       48.57      100.00
+------------------------+-----------------------------------
+                  Total |      9,971      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9971             0
+--------------------------------------
+
+file data\NHANES1516_merged.dta saved</code></pre>
+</div>
+<div id="smq-merge-4" class="section level3">
+<h3>SMQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2015-2016\SMQ_I.dta&quot;
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         2,970
+        from master                     2,970  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             7,001  (_merge==3)
+    -----------------------------------------
+
+               Merge_SM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      2,970       29.79       29.79
+            matched (3) |      7,001       70.21      100.00
+------------------------+-----------------------------------
+                  Total |      9,971      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9971             0
+--------------------------------------
+
+file data\NHANES1516_merged.dta saved</code></pre>
+</div>
+<div id="dr1tot-merge-4" class="section level3">
+<h3>DR1TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2015-2016\DR1TOT_I.dta&quot;
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           427
+        from master                       427  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,544  (_merge==3)
+    -----------------------------------------
+
+               Merge_D1 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        427        4.28        4.28
+            matched (3) |      9,544       95.72      100.00
+------------------------+-----------------------------------
+                  Total |      9,971      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9971             0
+--------------------------------------
+
+file data\NHANES1516_merged.dta saved</code></pre>
+</div>
+<div id="dr2tot-merge-4" class="section level3">
+<h3>DR2TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2015-2016\DR2TOT_I.dta&quot;
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           427
+        from master                       427  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             9,544  (_merge==3)
+    -----------------------------------------
+
+               Merge_D2 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        427        4.28        4.28
+            matched (3) |      9,544       95.72      100.00
+------------------------+-----------------------------------
+                  Total |      9,971      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9971             0
+--------------------------------------
+
+file data\NHANES1516_merged.dta saved</code></pre>
+</div>
+</div>
+<div id="section-5" class="section level2">
+<h2>2017-2018</h2>
+<p>Starting with the demographics file, DEMO_J, and merging with the body measures file, BMX_J</p>
+<div id="bmx-merge-5" class="section level3">
+<h3>BMX merge</h3>
+<pre class="stata"><code>use &quot;temp\2017-2018\DEMO_J.dta&quot;, clear
+save &quot;data\NHANES1718_merged.dta&quot;,replace
+merge 1:1 seqn using &quot;temp\2017-2018\BMX_J.dta&quot;
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>file data\NHANES1718_merged.dta saved
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                           550
+        from master                       550  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             8,704  (_merge==3)
+    -----------------------------------------
+
+               Merge_BM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        550        5.94        5.94
+            matched (3) |      8,704       94.06      100.00
+------------------------+-----------------------------------
+                  Total |      9,254      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9254             0
+--------------------------------------
+
+file data\NHANES1718_merged.dta saved</code></pre>
+</div>
+<div id="alq-merge-5" class="section level3">
+<h3>ALQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2017-2018\ALQ_J.dta&quot;
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         3,721
+        from master                     3,721  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             5,533  (_merge==3)
+    -----------------------------------------
+
+               Merge_AL |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      3,721       40.21       40.21
+            matched (3) |      5,533       59.79      100.00
+------------------------+-----------------------------------
+                  Total |      9,254      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9254             0
+--------------------------------------
+
+file data\NHANES1718_merged.dta saved</code></pre>
+</div>
+<div id="bpx-merge-5" class="section level3">
+<h3>BPX merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2017-2018\BPX_J.dta&quot;
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           550
+        from master                       550  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             8,704  (_merge==3)
+    -----------------------------------------
+
+               Merge_BP |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        550        5.94        5.94
+            matched (3) |      8,704       94.06      100.00
+------------------------+-----------------------------------
+                  Total |      9,254      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9254             0
+--------------------------------------
+
+file data\NHANES1718_merged.dta saved</code></pre>
+</div>
+<div id="duq-merge-5" class="section level3">
+<h3>DUQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2017-2018\DUQ_J.dta&quot;
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         4,682
+        from master                     4,682  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             4,572  (_merge==3)
+    -----------------------------------------
+
+               Merge_DU |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      4,682       50.59       50.59
+            matched (3) |      4,572       49.41      100.00
+------------------------+-----------------------------------
+                  Total |      9,254      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9254             0
+--------------------------------------
+
+file data\NHANES1718_merged.dta saved</code></pre>
+</div>
+<div id="smq-merge-5" class="section level3">
+<h3>SMQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2017-2018\SMQ_J.dta&quot;
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                         2,530
+        from master                     2,530  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             6,724  (_merge==3)
+    -----------------------------------------
+
+               Merge_SM |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |      2,530       27.34       27.34
+            matched (3) |      6,724       72.66      100.00
+------------------------+-----------------------------------
+                  Total |      9,254      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9254             0
+--------------------------------------
+
+file data\NHANES1718_merged.dta saved</code></pre>
+</div>
+<div id="dr1tot-merge-5" class="section level3">
+<h3>DR1TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2017-2018\DR1TOT_J.dta&quot;
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           550
+        from master                       550  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             8,704  (_merge==3)
+    -----------------------------------------
+
+               Merge_D1 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        550        5.94        5.94
+            matched (3) |      8,704       94.06      100.00
+------------------------+-----------------------------------
+                  Total |      9,254      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9254             0
+--------------------------------------
+
+file data\NHANES1718_merged.dta saved</code></pre>
+</div>
+<div id="dr2tot-merge-5" class="section level3">
+<h3>DR2TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2017-2018\DR2TOT_J.dta&quot;
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                           550
+        from master                       550  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             8,704  (_merge==3)
+    -----------------------------------------
+
+               Merge_D2 |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |        550        5.94        5.94
+            matched (3) |      8,704       94.06      100.00
+------------------------+-----------------------------------
+                  Total |      9,254      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |         9254             0
+--------------------------------------
+
+file data\NHANES1718_merged.dta saved</code></pre>
+</div>
+</div>
+</div>
+<div id="appending-datasets" class="section level1">
+<h1>Appending datasets</h1>
+<pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
+save &quot;data\NHANES0718.dta&quot;,replace
+append using &quot;data\NHANES0910_merged.dta&quot;
+append using &quot;data\NHANES1112_merged.dta&quot;
+append using &quot;data\NHANES1314_merged.dta&quot;
+append using &quot;data\NHANES1516_merged.dta&quot;
+append using &quot;data\NHANES1718_merged.dta&quot;
+
+duplicates report seqn
+
+save,replace</code></pre>
+<pre><code>file data\NHANES0718.dta saved
+
+(label _merge already defined)
+
+(label _merge already defined)
+
+(label _merge already defined)
+
+(label _merge already defined)
+
+(label _merge already defined)
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        59842             0
+--------------------------------------
+
+file data\NHANES0718.dta saved</code></pre>
+<pre class="stata"><code>use &quot;data\NHANES0718.dta&quot;, clear
+
+merge 1:1 seqn using &quot;data\HEI2015R_00518.dta&quot;, keep(match master)
+rename _merge Merge_HEI
+tab Merge_HEI
+duplicates report seqn
+
+save, replace</code></pre>
+<pre><code>    Result                           # of obs.
+    -----------------------------------------
+    not matched                        11,224
+        from master                    11,224  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                            48,618  (_merge==3)
+    -----------------------------------------
+
+              Merge_HEI |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |     11,224       18.76       18.76
+            matched (3) |     48,618       81.24      100.00
+------------------------+-----------------------------------
+                  Total |     59,842      100.00
+
+
+Duplicates in terms of seqn
+
+--------------------------------------
+   copies | observations       surplus
+----------+---------------------------
+        1 |        59842             0
+--------------------------------------
+
+file data\NHANES0718.dta saved</code></pre>
 </div>
 
 
