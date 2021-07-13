@@ -16,6 +16,11 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if ((Sys.info()["sysname"] == "Darwin"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata/StataIC"))
 ```
 
 ```{r libraries, include=FALSE}
@@ -47,9 +52,24 @@ library(DiagrammeR)
 # library(htmlTable)
 # library(grid)
 # library(magrittr)
+library(Statamarkdown)
 ```
 
-# Flow Chart
+# Data for Flow Diagram
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+ta AGE_exclude
+ta AGE_exclude BP_miss
+ta BP_miss MJ_miss if AGE_exclude==0
+
+
+ta BP_miss MJ_miss if AGE_exclude==0 & gndr==0
+ta BP_miss MJ_miss if AGE_exclude==0 & gndr==1
+```
+
+# Flow Diagram
 
 ```{r}
 # Define some sample data
