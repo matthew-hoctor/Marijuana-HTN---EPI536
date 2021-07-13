@@ -78,7 +78,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2007-2008/SMQ_E.XPT"
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save "temp/2007-2008/SMQ_E.dta",replace
 de
 clear
@@ -88,7 +88,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2007-2008/ALQ_E.XPT"
-keep seqn alq130
+keep seqn alq101 alq130
 save "temp/2007-2008/ALQ_E.dta",replace
 de
 clear
@@ -161,7 +161,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2009-2010/SMQ_F.XPT"
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save "temp/2009-2010/SMQ_F.dta",replace
 de
 clear
@@ -171,7 +171,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2009-2010/ALQ_F.XPT"
-keep seqn alq130
+keep seqn alq101 alq130
 save "temp/2009-2010/ALQ_F.dta",replace
 de
 clear
@@ -244,7 +244,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2011-2012/SMQ_G.XPT"
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save "temp/2011-2012/SMQ_G.dta",replace
 de
 clear
@@ -254,7 +254,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2011-2012/ALQ_G.XPT"
-keep seqn alq130
+keep seqn alq101 alq130
 save "temp/2011-2012/ALQ_G.dta",replace
 de
 clear
@@ -327,7 +327,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2013-2014/SMQ_H.XPT"
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save "temp/2013-2014/SMQ_H.dta",replace
 de
 clear
@@ -337,7 +337,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2013-2014/ALQ_H.XPT"
-keep seqn alq130
+keep seqn alq101 alq130
 save "temp/2013-2014/ALQ_H.dta",replace
 de
 clear
@@ -410,7 +410,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2015-2016/SMQ_I.XPT"
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save "temp/2015-2016/SMQ_I.dta",replace
 de
 clear
@@ -420,7 +420,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2015-2016/ALQ_I.XPT"
-keep seqn alq130
+keep seqn alq101 alq130
 save "temp/2015-2016/ALQ_I.dta",replace
 de
 clear
@@ -493,7 +493,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2017-2018/SMQ_J.XPT"
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save "temp/2017-2018/SMQ_J.dta",replace
 de
 clear
@@ -503,7 +503,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2017-2018/ALQ_J.XPT"
-keep seqn alq130
+keep seqn alq101 alq130
 save "temp/2017-2018/ALQ_J.dta",replace
 de
 clear

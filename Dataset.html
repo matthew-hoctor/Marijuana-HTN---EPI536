@@ -263,7 +263,7 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/DEMO_E.dta
   obs:        10,149                          
- vars:            43                          13 Jul 2021 07:39
+ vars:            43                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -336,7 +336,7 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/DUQ_E.dta
   obs:         4,625                          
- vars:             6                          13 Jul 2021 07:39
+ vars:             6                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -365,7 +365,7 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/BPX_E.dta
   obs:         9,762                          
- vars:             9                          13 Jul 2021 07:39
+ vars:             9                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -402,7 +402,7 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/BMX_E.dta
   obs:         9,762                          
- vars:             5                          13 Jul 2021 07:39
+ vars:             5                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -418,20 +418,31 @@ Sorted by: </code></pre>
 <div id="smoking-smq_xyz.xpt" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/SMQ_E.XPT&quot;
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save &quot;temp/2007-2008/SMQ_E.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>variable seqnsmq040 not found
-r(111);
+<pre><code>file temp/2007-2008/SMQ_E.dta saved
 
-end of do-file
-r(111);</code></pre>
+
+Contains data from temp/2007-2008/SMQ_E.dta
+  obs:         7,145                          
+ vars:             3                          13 Jul 2021 07:58
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq040          double  %10.0g                Do you now smoke cigarettes
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 <div id="alcohol-alq_xyz.xpt" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/ALQ_E.XPT&quot;
-keep seqn alq130
+keep seqn alq101 alq130
 save &quot;temp/2007-2008/ALQ_E.dta&quot;,replace
 de
 clear</code></pre>
@@ -440,12 +451,14 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/ALQ_E.dta
   obs:         5,707                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             3                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
 alq130          double  %10.0g                Avg # alcoholic drinks/day -past
                                                 12 mos
 -------------------------------------------------------------------------------
@@ -463,7 +476,7 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/DR1TOT_E.dta
   obs:         9,762                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             2                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -485,7 +498,7 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/DR2TOT_E.dta
   obs:         9,762                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             2                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -510,7 +523,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/DEMO_F.dta
   obs:        10,537                          
- vars:            43                          13 Jul 2021 07:39
+ vars:            43                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -583,7 +596,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/DUQ_F.dta
   obs:         5,302                          
- vars:             6                          13 Jul 2021 07:39
+ vars:             6                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -612,7 +625,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/BPX_F.dta
   obs:        10,253                          
- vars:             9                          13 Jul 2021 07:39
+ vars:             9                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -649,7 +662,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/BMX_F.dta
   obs:        10,253                          
- vars:             5                          13 Jul 2021 07:39
+ vars:             5                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -665,20 +678,31 @@ Sorted by: </code></pre>
 <div id="smoking-smq_xyz.xpt-1" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/SMQ_F.XPT&quot;
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save &quot;temp/2009-2010/SMQ_F.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>variable seqnsmq040 not found
-r(111);
+<pre><code>file temp/2009-2010/SMQ_F.dta saved
 
-end of do-file
-r(111);</code></pre>
+
+Contains data from temp/2009-2010/SMQ_F.dta
+  obs:         7,528                          
+ vars:             3                          13 Jul 2021 07:58
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq040          double  %10.0g                Do you now smoke cigarettes
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 <div id="alcohol-alq_xyz.xpt-1" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/ALQ_F.XPT&quot;
-keep seqn alq130
+keep seqn alq101 alq130
 save &quot;temp/2009-2010/ALQ_F.dta&quot;,replace
 de
 clear</code></pre>
@@ -687,12 +711,14 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/ALQ_F.dta
   obs:         6,059                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             3                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
 alq130          double  %10.0g                Avg # alcoholic drinks/day -past
                                                 12 mos
 -------------------------------------------------------------------------------
@@ -710,7 +736,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/DR1TOT_F.dta
   obs:        10,253                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             2                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -732,7 +758,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/DR2TOT_F.dta
   obs:        10,253                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             2                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -757,7 +783,7 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/DEMO_G.dta
   obs:         9,756                          
- vars:            48                          13 Jul 2021 07:39
+ vars:            48                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -840,7 +866,7 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/DUQ_G.dta
   obs:         4,796                          
- vars:             6                          13 Jul 2021 07:39
+ vars:             6                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -869,7 +895,7 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/BPX_G.dta
   obs:         9,338                          
- vars:             9                          13 Jul 2021 07:39
+ vars:             9                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -906,7 +932,7 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/BMX_G.dta
   obs:         9,338                          
- vars:             5                          13 Jul 2021 07:39
+ vars:             5                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -922,20 +948,31 @@ Sorted by: </code></pre>
 <div id="smoking-smq_xyz.xpt-2" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/SMQ_G.XPT&quot;
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save &quot;temp/2011-2012/SMQ_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>variable seqnsmq040 not found
-r(111);
+<pre><code>file temp/2011-2012/SMQ_G.dta saved
 
-end of do-file
-r(111);</code></pre>
+
+Contains data from temp/2011-2012/SMQ_G.dta
+  obs:         6,790                          
+ vars:             3                          13 Jul 2021 07:58
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq040          double  %10.0g                Do you now smoke cigarettes
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 <div id="alcohol-alq_xyz.xpt-2" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/ALQ_G.XPT&quot;
-keep seqn alq130
+keep seqn alq101 alq130
 save &quot;temp/2011-2012/ALQ_G.dta&quot;,replace
 de
 clear</code></pre>
@@ -944,12 +981,14 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/ALQ_G.dta
   obs:         5,615                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             3                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
 alq130          double  %10.0g                Avg # alcoholic drinks/day - past
                                                 12 mos
 -------------------------------------------------------------------------------
@@ -967,7 +1006,7 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/DR1TOT_G.dta
   obs:         9,338                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             2                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -989,7 +1028,7 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/DR2TOT_G.dta
   obs:         9,338                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             2                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1014,7 +1053,7 @@ clear</code></pre>
 
 Contains data from temp/2013-2014/DEMO_H.dta
   obs:        10,175                          
- vars:            47                          13 Jul 2021 07:39
+ vars:            47                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1095,7 +1134,7 @@ clear</code></pre>
 
 Contains data from temp/2013-2014/DUQ_H.dta
   obs:         5,057                          
- vars:             6                          13 Jul 2021 07:39
+ vars:             6                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1124,7 +1163,7 @@ clear</code></pre>
 
 Contains data from temp/2013-2014/BPX_H.dta
   obs:         9,813                          
- vars:             9                          13 Jul 2021 07:39
+ vars:             9                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1161,7 +1200,7 @@ clear</code></pre>
 
 Contains data from temp/2013-2014/BMX_H.dta
   obs:         9,813                          
- vars:             5                          13 Jul 2021 07:39
+ vars:             5                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1177,20 +1216,31 @@ Sorted by: </code></pre>
 <div id="smoking-smq_xyz.xpt-3" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2013-2014/SMQ_H.XPT&quot;
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save &quot;temp/2013-2014/SMQ_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>variable seqnsmq040 not found
-r(111);
+<pre><code>file temp/2013-2014/SMQ_H.dta saved
 
-end of do-file
-r(111);</code></pre>
+
+Contains data from temp/2013-2014/SMQ_H.dta
+  obs:         7,168                          
+ vars:             3                          13 Jul 2021 07:58
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq040          double  %10.0g                Do you now smoke cigarettes
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 <div id="alcohol-alq_xyz.xpt-3" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2013-2014/ALQ_H.XPT&quot;
-keep seqn alq130
+keep seqn alq101 alq130
 save &quot;temp/2013-2014/ALQ_H.dta&quot;,replace
 de
 clear</code></pre>
@@ -1199,12 +1249,14 @@ clear</code></pre>
 
 Contains data from temp/2013-2014/ALQ_H.dta
   obs:         5,924                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             3                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
 alq130          double  %10.0g                Avg # alcoholic drinks/day - past
                                                 12 mos
 -------------------------------------------------------------------------------
@@ -1222,7 +1274,7 @@ clear</code></pre>
 
 Contains data from temp/2013-2014/DR1TOT_H.dta
   obs:         9,813                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             2                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1244,7 +1296,7 @@ clear</code></pre>
 
 Contains data from temp/2013-2014/DR2TOT_H.dta
   obs:         9,813                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             2                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1269,7 +1321,7 @@ clear</code></pre>
 
 Contains data from temp/2015-2016/DEMO_I.dta
   obs:         9,971                          
- vars:            47                          13 Jul 2021 07:39
+ vars:            47                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1350,7 +1402,7 @@ clear</code></pre>
 
 Contains data from temp/2015-2016/DUQ_I.dta
   obs:         4,843                          
- vars:             6                          13 Jul 2021 07:39
+ vars:             6                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1379,7 +1431,7 @@ clear</code></pre>
 
 Contains data from temp/2015-2016/BPX_I.dta
   obs:         9,544                          
- vars:             9                          13 Jul 2021 07:39
+ vars:             9                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1416,7 +1468,7 @@ clear</code></pre>
 
 Contains data from temp/2015-2016/BMX_I.dta
   obs:         9,544                          
- vars:             5                          13 Jul 2021 07:39
+ vars:             5                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1432,20 +1484,31 @@ Sorted by: </code></pre>
 <div id="smoking-smq_xyz.xpt-4" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/SMQ_I.XPT&quot;
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save &quot;temp/2015-2016/SMQ_I.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>variable seqnsmq040 not found
-r(111);
+<pre><code>file temp/2015-2016/SMQ_I.dta saved
 
-end of do-file
-r(111);</code></pre>
+
+Contains data from temp/2015-2016/SMQ_I.dta
+  obs:         7,001                          
+ vars:             3                          13 Jul 2021 07:58
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq040          double  %10.0g                Do you now smoke cigarettes?
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
 </div>
 <div id="alcohol-alq_xyz.xpt-4" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/ALQ_I.XPT&quot;
-keep seqn alq130
+keep seqn alq101 alq130
 save &quot;temp/2015-2016/ALQ_I.dta&quot;,replace
 de
 clear</code></pre>
@@ -1454,12 +1517,14 @@ clear</code></pre>
 
 Contains data from temp/2015-2016/ALQ_I.dta
   obs:         5,735                          
- vars:             2                          13 Jul 2021 07:39
+ vars:             3                          13 Jul 2021 07:58
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
 alq130          double  %10.0g                Avg # alcoholic drinks/day - past
                                                 12 mos
 -------------------------------------------------------------------------------
@@ -1477,7 +1542,7 @@ clear</code></pre>
 
 Contains data from temp/2015-2016/DR1TOT_I.dta
   obs:         9,544                          
- vars:             2                          13 Jul 2021 07:40
+ vars:             2                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1499,7 +1564,7 @@ clear</code></pre>
 
 Contains data from temp/2015-2016/DR2TOT_I.dta
   obs:         9,544                          
- vars:             2                          13 Jul 2021 07:40
+ vars:             2                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1524,7 +1589,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/DEMO_J.dta
   obs:         9,254                          
- vars:            46                          13 Jul 2021 07:40
+ vars:            46                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1604,7 +1669,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/DUQ_J.dta
   obs:         4,572                          
- vars:             6                          13 Jul 2021 07:40
+ vars:             6                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1633,7 +1698,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/BPX_J.dta
   obs:         8,704                          
- vars:             9                          13 Jul 2021 07:40
+ vars:             9                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1670,7 +1735,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/BMX_J.dta
   obs:         8,704                          
- vars:             5                          13 Jul 2021 07:40
+ vars:             5                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1686,38 +1751,39 @@ Sorted by: </code></pre>
 <div id="smoking-smq_xyz.xpt-5" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/SMQ_J.XPT&quot;
-keep seqnsmq040 smd650
+keep seqn smq040 smd650
 save &quot;temp/2017-2018/SMQ_J.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>variable seqnsmq040 not found
-r(111);
-
-end of do-file
-r(111);</code></pre>
-</div>
-<div id="alcohol-alq_xyz.xpt-5" class="section level3">
-<h3>Alcohol, ALQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/ALQ_J.XPT&quot;
-keep seqn alq130
-save &quot;temp/2017-2018/ALQ_J.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2017-2018/ALQ_J.dta saved
+<pre><code>file temp/2017-2018/SMQ_J.dta saved
 
 
-Contains data from temp/2017-2018/ALQ_J.dta
-  obs:         5,533                          
- vars:             2                          13 Jul 2021 07:40
+Contains data from temp/2017-2018/SMQ_J.dta
+  obs:         6,724                          
+ vars:             3                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-alq130          double  %10.0g                Avg # alcohol drinks/day - past
-                                                12 mos
+smq040          double  %10.0g                Do you now smoke cigarettes?
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt-5" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2017-2018/ALQ_J.XPT&quot;
+keep seqn alq101 alq130
+save &quot;temp/2017-2018/ALQ_J.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>variable alq101 not found
+r(111);
+
+end of do-file
+r(111);</code></pre>
 </div>
 <div id="day-1-nutrition-dr1tot_xyz.xpt-5" class="section level3">
 <h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
@@ -1731,7 +1797,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/DR1TOT_J.dta
   obs:         8,704                          
- vars:             2                          13 Jul 2021 07:40
+ vars:             2                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1753,7 +1819,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/DR2TOT_J.dta
   obs:         8,704                          
- vars:             2                          13 Jul 2021 07:40
+ vars:             2                          13 Jul 2021 07:59
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
