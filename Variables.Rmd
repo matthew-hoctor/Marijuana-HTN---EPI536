@@ -182,7 +182,7 @@ ta MJ_freq,m
 
 ta MJ_freq duq200,m
 
-#save,replace
+save,replace
 ```
 
 ## Generate Missing MJ Variable
@@ -202,6 +202,45 @@ ta MJ_miss BP_miss,m
 
 save,replace
 ```
+
+# Age Inclusion Criteria, 20-69 Years
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+recode ridageyr min/19=1 20/69=0 70/85=1 86/max=., gen(AGE_exclude)
+
+label define AGE_exclude 0 "Age 20-69" 1 "Age Excluded"
+label values AGE_exclude AGE_exclude
+label variable AGE_exclude "Meets Age Inclusion Criteria"
+
+ta AGE_exclude,m
+ta AGE_exclude BP_miss,m
+ta AGE_exclude MJ_miss,m
+
+save,replace
+```
+
+# Overall Inclusion, Age, BP, MJ
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+gen include=0
+  replace include=1 if BP_miss==0 & MJ_miss==0 & AGE_exclude==0
+
+label define include 0 "Excluded" 1 "Included"
+label values include include
+label variable include "Meets Overall Inclusion Criteria"
+
+ta include,m
+ta include BP_miss,m
+ta include MJ_miss,m
+ta include AGE_exclude,m
+
+save,replace
+```
+
 
 
 

@@ -655,7 +655,7 @@ ta MJ_freq,m
 
 ta MJ_freq duq200,m
 
-#save,replace</code></pre>
+save,replace</code></pre>
 <pre><code>(3186 differences between duq230 and MJ_freq)
 
 Unknown #command
@@ -691,7 +691,7 @@ In the Past |
 -----------+-------------------------------------------------------+----------
      Total |    10,974      9,664         29         21     39,154 |    59,842 
 
-Unknown #command</code></pre>
+file data\NHANES0718_new.dta saved</code></pre>
 </div>
 <div id="generate-missing-mj-variable" class="section level2">
 <h2>Generate Missing MJ Variable</h2>
@@ -730,6 +730,119 @@ Not Missing MJ |    19,811        827 |    20,638
 
 file data\NHANES0718_new.dta saved</code></pre>
 </div>
+</div>
+<div id="age-inclusion-criteria-20-69-years" class="section level1">
+<h1>Age Inclusion Criteria, 20-69 Years</h1>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+recode ridageyr min/19=1 20/69=0 70/85=1 86/max=., gen(AGE_exclude)
+
+label define AGE_exclude 0 &quot;Age 20-69&quot; 1 &quot;Age Excluded&quot;
+label values AGE_exclude AGE_exclude
+label variable AGE_exclude &quot;Meets Age Inclusion Criteria&quot;
+
+ta AGE_exclude,m
+ta AGE_exclude BP_miss,m
+ta AGE_exclude MJ_miss,m
+
+save,replace</code></pre>
+<pre><code>(58196 differences between ridageyr and AGE_exclude)
+
+
+
+
+
+   Meets Age |
+   Inclusion |
+    Criteria |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+   Age 20-69 |     28,721       47.99       47.99
+Age Excluded |     31,121       52.01      100.00
+-------------+-----------------------------------
+       Total |     59,842      100.00
+
+
+   Meets Age |  Meets BP Inclusion
+   Inclusion |       Criteria
+    Criteria | Not Missi  Missing B |     Total
+-------------+----------------------+----------
+   Age 20-69 |    26,046      2,675 |    28,721 
+Age Excluded |    16,628     14,493 |    31,121 
+-------------+----------------------+----------
+       Total |    42,674     17,168 |    59,842 
+
+
+   Meets Age |  Meets MJ Inclusion
+   Inclusion |       Criteria
+    Criteria | Not Missi  Missing M |     Total
+-------------+----------------------+----------
+   Age 20-69 |    19,286      9,435 |    28,721 
+Age Excluded |     1,352     29,769 |    31,121 
+-------------+----------------------+----------
+       Total |    20,638     39,204 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
+<div id="overall-inclusion-age-bp-mj" class="section level1">
+<h1>Overall Inclusion, Age, BP, MJ</h1>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+gen include=0
+  replace include=1 if BP_miss==0 &amp; MJ_miss==0 &amp; AGE_exclude==0
+
+label define include 0 &quot;Excluded&quot; 1 &quot;Included&quot;
+label values include include
+label variable include &quot;Meets Overall Inclusion Criteria&quot;
+
+ta include,m
+ta include BP_miss,m
+ta include MJ_miss,m
+ta include AGE_exclude,m
+
+save,replace</code></pre>
+<pre><code>(18,510 real changes made)
+
+      Meets |
+    Overall |
+  Inclusion |
+   Criteria |      Freq.     Percent        Cum.
+------------+-----------------------------------
+   Excluded |     41,332       69.07       69.07
+   Included |     18,510       30.93      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+     Meets |
+   Overall |  Meets BP Inclusion
+ Inclusion |       Criteria
+  Criteria | Not Missi  Missing B |     Total
+-----------+----------------------+----------
+  Excluded |    24,164     17,168 |    41,332 
+  Included |    18,510          0 |    18,510 
+-----------+----------------------+----------
+     Total |    42,674     17,168 |    59,842 
+
+     Meets |
+   Overall |  Meets MJ Inclusion
+ Inclusion |       Criteria
+  Criteria | Not Missi  Missing M |     Total
+-----------+----------------------+----------
+  Excluded |     2,128     39,204 |    41,332 
+  Included |    18,510          0 |    18,510 
+-----------+----------------------+----------
+     Total |    20,638     39,204 |    59,842 
+
+     Meets |
+   Overall |  Meets Age Inclusion
+ Inclusion |       Criteria
+  Criteria | Age 20-69  Age Exclu |     Total
+-----------+----------------------+----------
+  Excluded |    10,211     31,121 |    41,332 
+  Included |    18,510          0 |    18,510 
+-----------+----------------------+----------
+     Total |    28,721     31,121 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
 </div>
 
 
