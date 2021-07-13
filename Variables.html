@@ -729,8 +729,10 @@ Not Missing MJ |    19,811        827 |    20,638
 file data\NHANES0718_new.dta saved</code></pre>
 </div>
 </div>
-<div id="age-inclusion-criteria-20-69-years" class="section level1">
-<h1>Age Inclusion Criteria, 20-69 Years</h1>
+<div id="inclusion-criteria" class="section level1">
+<h1>Inclusion criteria</h1>
+<div id="age-inclusion-criteria-20-69-years" class="section level2">
+<h2>Age Inclusion Criteria, 20-69 Years</h2>
 <pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
 
 recode ridageyr min/19=1 20/69=0 70/85=1 86/max=., gen(AGE_exclude)
@@ -781,8 +783,8 @@ Age Excluded |     1,352     29,769 |    31,121
 
 file data\NHANES0718_new.dta saved</code></pre>
 </div>
-<div id="overall-inclusion-age-bp-mj" class="section level1">
-<h1>Overall Inclusion, Age, BP, MJ</h1>
+<div id="overall-inclusion-age-bp-mj" class="section level2">
+<h2>Overall Inclusion, Age, BP, MJ</h2>
 <pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
 
 gen include=0
@@ -841,6 +843,7 @@ save,replace</code></pre>
      Total |    28,721     31,121 |    59,842 
 
 file data\NHANES0718_new.dta saved</code></pre>
+</div>
 </div>
 <div id="covariate-coding" class="section level1">
 <h1>Covariate Coding</h1>
@@ -958,6 +961,46 @@ Moderate, 11-20 cig/d |     1,451        703 |     2,154
                     . |    12,418     31,594 |    44,012 
 ----------------------+----------------------+----------
                 Total |    20,638     39,204 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
+<div id="gender" class="section level2">
+<h2>Gender</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+recode riagendr 2=0 1=1, gen(gndr)
+
+label define gndr 0 &quot;Female&quot; 1 &quot;Male&quot;
+label values gndr gndr
+label variable gndr &quot;Alcohol Use Category&quot;
+
+ta gndr,m
+ta gndr riagendr,m
+
+save,replace</code></pre>
+<pre><code>(30213 differences between riagendr and gndr)
+
+
+
+
+
+Alcohol Use |
+   Category |      Freq.     Percent        Cum.
+------------+-----------------------------------
+     Female |     30,213       50.49       50.49
+       Male |     29,629       49.51      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+
+   Alcohol |
+       Use |        Gender
+  Category |         1          2 |     Total
+-----------+----------------------+----------
+    Female |         0     30,213 |    30,213 
+      Male |    29,629          0 |    29,629 
+-----------+----------------------+----------
+     Total |    29,629     30,213 |    59,842 
 
 file data\NHANES0718_new.dta saved</code></pre>
 </div>

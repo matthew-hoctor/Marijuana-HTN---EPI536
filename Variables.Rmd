@@ -202,7 +202,9 @@ ta MJ_miss BP_miss,m
 save,replace
 ```
 
-# Age Inclusion Criteria, 20-69 Years
+# Inclusion criteria
+
+## Age Inclusion Criteria, 20-69 Years
 
 ```{stata}
 use "data\NHANES0718_new.dta", clear
@@ -220,7 +222,7 @@ ta AGE_exclude MJ_miss,m
 save,replace
 ```
 
-# Overall Inclusion, Age, BP, MJ
+## Overall Inclusion, Age, BP, MJ
 
 ```{stata}
 use "data\NHANES0718_new.dta", clear
@@ -275,6 +277,23 @@ label variable SMK_cat "Smoking Category"
 ta SMK_cat,m
 ta SMK_cat BP_miss,m
 ta SMK_cat MJ_miss,m
+
+save,replace
+```
+
+## Gender
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+recode riagendr 2=0 1=1, gen(gndr)
+
+label define gndr 0 "Female" 1 "Male"
+label values gndr gndr
+label variable gndr "Alcohol Use Category"
+
+ta gndr,m
+ta gndr riagendr,m
 
 save,replace
 ```
