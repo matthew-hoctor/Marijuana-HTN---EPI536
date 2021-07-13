@@ -251,8 +251,65 @@ div.tocify {
 </div>
 
 
-<div id="flow-chart" class="section level1">
-<h1>Flow Chart</h1>
+<div id="data-for-flow-diagram" class="section level1">
+<h1>Data for Flow Diagram</h1>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+ta AGE_exclude
+ta AGE_exclude BP_miss
+ta BP_miss MJ_miss if AGE_exclude==0
+
+
+ta BP_miss MJ_miss if AGE_exclude==0 &amp; gndr==0
+ta BP_miss MJ_miss if AGE_exclude==0 &amp; gndr==1</code></pre>
+<pre><code>   Meets Age |
+   Inclusion |
+    Criteria |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+   Age 20-69 |     28,721       47.99       47.99
+Age Excluded |     31,121       52.01      100.00
+-------------+-----------------------------------
+       Total |     59,842      100.00
+
+
+   Meets Age |  Meets BP Inclusion
+   Inclusion |       Criteria
+    Criteria | Not Missi  Missing B |     Total
+-------------+----------------------+----------
+   Age 20-69 |    26,046      2,675 |    28,721 
+Age Excluded |    16,628     14,493 |    31,121 
+-------------+----------------------+----------
+       Total |    42,674     17,168 |    59,842 
+
+      Meets BP |  Meets MJ Inclusion
+     Inclusion |       Criteria
+      Criteria | Not Missi  Missing M |     Total
+---------------+----------------------+----------
+Not Missing BP |    18,510      7,536 |    26,046 
+    Missing BP |       776      1,899 |     2,675 
+---------------+----------------------+----------
+         Total |    19,286      9,435 |    28,721 
+
+      Meets BP |  Meets MJ Inclusion
+     Inclusion |       Criteria
+      Criteria | Not Missi  Missing M |     Total
+---------------+----------------------+----------
+Not Missing BP |     9,353      3,972 |    13,325 
+    Missing BP |       467        999 |     1,466 
+---------------+----------------------+----------
+         Total |     9,820      4,971 |    14,791 
+
+      Meets BP |  Meets MJ Inclusion
+     Inclusion |       Criteria
+      Criteria | Not Missi  Missing M |     Total
+---------------+----------------------+----------
+Not Missing BP |     9,157      3,564 |    12,721 
+    Missing BP |       309        900 |     1,209 
+---------------+----------------------+----------
+         Total |     9,466      4,464 |    13,930 </code></pre>
+</div>
+<div id="flow-diagram" class="section level1">
+<h1>Flow Diagram</h1>
 <pre class="r"><code># Define some sample data
 data &lt;- list(a=59842 , b=28721, c=26046, d=18510, e=9353, f=9157)
 
@@ -282,8 +339,8 @@ d -&gt; f
 [5]: paste0(&#39;Women (n = &#39;, data$e, &#39;)&#39;)
 [6]: paste0(&#39;Men (n = &#39;, data$f, &#39;)&#39;)
 &quot;)</code></pre>
-<div id="htmlwidget-db1f59d4d9819a0afa1a" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-db1f59d4d9819a0afa1a">{"x":{"diagram":"\ndigraph graph2 {\n\ngraph [layout = dot]\n\n# node definitions with substituted label text\nnode [shape = rectangle, width = 4, fillcolor = Biege]\na [label = \"NHANES 2007-2018 (n = 59842)\"]\nb [label = \"Adults age 20-69 (n = 28721)\"]\nc [label = \"Adults age 20-69 with BP data (n = 26046)\"]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\na -> b -> c -> d -> e\nd -> f\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c1d9c61e126acb796ae5" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c1d9c61e126acb796ae5">{"x":{"diagram":"\ndigraph graph2 {\n\ngraph [layout = dot]\n\n# node definitions with substituted label text\nnode [shape = rectangle, width = 4, fillcolor = Biege]\na [label = \"NHANES 2007-2018 (n = 59842)\"]\nb [label = \"Adults age 20-69 (n = 28721)\"]\nc [label = \"Adults age 20-69 with BP data (n = 26046)\"]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\na -> b -> c -> d -> e\nd -> f\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 
