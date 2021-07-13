@@ -1,0 +1,89 @@
+---
+title: "Flow Diagram"
+author: "Matthew Hoctor, Bryon Langford"
+date: "7/4/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE}
+#library(dplyr)
+#library(readxl)
+#library(tidyverse)
+#library(ggplot2)
+#library(CarletonStats)
+#library(pwr)
+#library(BSDA)
+#library(exact2x2)
+#library(car)
+#library(dvmisc)
+#library(emmeans)
+#library(gridExtra)
+#library(DescTools)
+#library(epitools)
+#library(pROC)
+#library(rje)
+#library(lmtest)
+#library(gtsummary)
+#library(mfp)
+#library(linearspline)
+#library(dagitty)
+library(DiagrammeR)
+#library(metagear)
+# library(Gmisc, quietly = FALSE)
+# library(glue)
+# library(htmlTable)
+# library(grid)
+# library(magrittr)
+```
+
+# Flow Chart
+
+```{r}
+# Define some sample data
+data <- list(a=59842 , b=28721, c=26046, d=18510, e=9353, f=9157)
+
+DiagrammeR::grViz("
+digraph graph2 {
+
+graph [layout = dot]
+
+# node definitions with substituted label text
+node [shape = rectangle, width = 4, fillcolor = Biege]
+a [label = '@@1']
+b [label = '@@2']
+c [label = '@@3']
+d [label = '@@4']
+e [label = '@@5']
+f [label = '@@6']
+
+a -> b -> c -> d -> e
+d -> f
+
+}
+
+[1]: paste0('NHANES 2007-2018 (n = ', data$a, ')')
+[2]: paste0('Adults age 20-69 (n = ', data$b, ')')
+[3]: paste0('Adults age 20-69 with BP data (n = ', data$c, ')')
+[4]: paste0('Adults age 20-69 with BP data & cannabis use data (n = ', data$d, ')')
+[5]: paste0('Women (n = ', data$e, ')')
+[6]: paste0('Men (n = ', data$f, ')')
+")
+```
+
+
+
+
+
