@@ -61,3 +61,15 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Drug Use Codebook 2015-2016, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DUQ_I.htm)
    * [Drug Use Codebook 2017-2018, 18-69 years](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DUQ_J.htm)
  
+## To Do
+
+ * Inclusion/ Exclusion
+   * Age 20-69
+   * create a variable for inclusion
+ * Recode variables
+   * Smoking
+   * drinking
+   * implaudible HEI values
+ * Table 1
+ * Flow diagram
+ * Narrative
