@@ -78,7 +78,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2007-2008/SMQ_E.XPT"
-keep seqn smd650
+keep seqnsmq040 smd650
 save "temp/2007-2008/SMQ_E.dta",replace
 de
 clear
@@ -161,7 +161,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2009-2010/SMQ_F.XPT"
-keep seqn smd650
+keep seqnsmq040 smd650
 save "temp/2009-2010/SMQ_F.dta",replace
 de
 clear
@@ -244,7 +244,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2011-2012/SMQ_G.XPT"
-keep seqn smd650
+keep seqnsmq040 smd650
 save "temp/2011-2012/SMQ_G.dta",replace
 de
 clear
@@ -327,7 +327,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2013-2014/SMQ_H.XPT"
-keep seqn smd650
+keep seqnsmq040 smd650
 save "temp/2013-2014/SMQ_H.dta",replace
 de
 clear
@@ -410,7 +410,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2015-2016/SMQ_I.XPT"
-keep seqn smd650
+keep seqnsmq040 smd650
 save "temp/2015-2016/SMQ_I.dta",replace
 de
 clear
@@ -493,7 +493,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2017-2018/SMQ_J.XPT"
-keep seqn smd650
+keep seqnsmq040 smd650
 save "temp/2017-2018/SMQ_J.dta",replace
 de
 clear
