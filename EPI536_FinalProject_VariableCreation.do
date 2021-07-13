@@ -18,121 +18,49 @@ ta ridreth1 race_eth,m
 *Education variable
 ta dmdeduc2
 
-*Current Tobacco Use (not sure how to calculate)
-su smd650
-recode smd650
+*Tobacco Use Categories
 
+**Current Tobacco Use
+ta smq020
+ta smq040
+ta smd650
+	
+recode smq020 1=1 2=0 7=. 9=., gen(SMK_cat)
+	replace SMK_cat=2 if smd650 < 777
+	
+label define SMK_cat 0 "Never Use" 1 " Past Use" 2 "Current Use"
+label values SMK_cat SMK_cat
+label variable SMK_cat "Tobacco Use Category"
+ta SMK_cat
 
+ta SMK_cat smq020, m
 
+**Tobacco Frequency Categories
+recode smd650 min/10=0 11/20=1 21/95=2 96/max=., gen(SMK_freq)
 
-
-
-
+label define SMK_freq 0 "1-10 cigs" 1 "11-20 cigs" 2 "21+ cigs"
+label values SMK_freq SMK_freq
+label variable SMK_freq "Tobacco Use Frequency In the Past 30 days"
+ta SMK_freq
 
 *Body Mass Index
 su bmxbmi
 
-gen bmic = .
-replace bmic = 1 if bmxbmi <25
-replace bmic = 2 if bmxbmi >=25 & bmxbmi < 30
-replace bmic = 3 if bmxbmi >=30 & bmxbmi <.
+gen BMI_cat = .
+replace BMI_cat = 1 if bmxbmi <25
+replace BMI_cat = 2 if bmxbmi >=25 & bmxbmi < 30
+replace BMI_cat = 3 if bmxbmi >=30 & bmxbmi <.
 
-label define bmic 1 "Normal Weight" 2 "Overweight" 3 "Obese"
-label values bmic bmic
+label define BMI_cat 1 "Normal Weight" 2 "Overweight" 3 "Obese"
+label values BMI_cat BMI_cat
 
-ta bmic
+ta BMI_cat
 
-*Marijuana Use
-ta duq200,m
+*Alcohol Intake
+ta alq101
+ta alq110
+ta alq111
+ta alq120q
+ta alq121
+ta alq130
 
-gen marijuana_use = .
-
-**Never users, N=9,664
-replace marijuana_use =3 if duq200==2
-
-**Past Users, N=7,684
-replace marijuana_use =2 if duq200==1 & duq220u==1 & duq220q >=30 & duq220q <.
-replace marijuana_use =2 if duq200==1 & duq220u==2 & duq220q >=4 & duq220q <.
-replace marijuana_use =2 if duq200==1 & duq220u==3 & duq220q >=1 & duq220q <.
-replace marijuana_use =2 if duq200==1 & duq220u==4 & duq220q >=1 & duq220q <.
-
-ta marijuana_use duq200, m
-
-**Current Users, N=3,186
-replace marijuana_use =1 if duq200==1 & duq230 >=1 & duq230 <.
-
-*Frequency of Marijuana Use
-gen marijuana_use_freq =.
-
-**Light, N=1,660
-replace marijuana_use_freq =1 if duq200==1 & duq230 <10
-
-**Moderate, N=553
-replace marijuana_use_freq =2 if duq200==1 & duq230 >=10 & duq230 <=20
-
-**Heavy, N=973
-replace marijuana_use_freq =3 if duq200==1 & duq230 >20 & duq230 <.
-
-ta marijuana_use_freq
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-drop marijuana_use
-
-
-
-
-
-********************************
-***School meal coding
-***Video clip will demo school lunch code
-
-***School breakfast
-*applies same logic as school lunch
-ta dbq421,m
-*no missing codes
-gen school_bkfst=dbq421
-ta school_bkfst,m
-
-*not attend k-12 (dbq360==2; n=472)
-ta dbq360,m
-replace school_bkfst=4 if dbq360==2
-ta school_bkfst dbq360, m
-*no breakfast served (n=408)
-ta dbq400, m
-replace school_bkfst=4 if dbq400==2
-ta school_bkfst dbq400, m
-*school breakfast frequency=0 (n=911)
-ta dbd411, m
-replace school_bkfst=4 if dbd411==0
-ta school_bkfst dbd411, m
-
-*check variable
-ta school_bkfst,m
-*n=1,791 in category 4; matches 472+408+911
-ta dbq421 school_bkfst,m
-
-*binary school breakfast variable
-recode school_bkfst 1=1 2=1 3=0 4=0,gen(school_bkfst01)
-ta school_bkfst school_bkfst01,m
-
-
-
-
-drop bmic
-label drop bmic
