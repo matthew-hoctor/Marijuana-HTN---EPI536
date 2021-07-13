@@ -20,6 +20,8 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [P1 - Research Hypothesis](https://docs.google.com/document/d/1esZGLAKbPTJrz6zvrJ-1xNRxyqSH3nybW6i7Mtf3SCg/edit)
  * [P2 - Analysis Plan](https://docs.google.com/document/d/1nWiKf8g7Vi5TEQGirxIsV6bc-sPBX1ftXxgPAh7D3qI/edit)
  * [P3 - Analytic Sample Derivation](https://docs.google.com/document/d/1PQ5jV66IcMB9udq3kbU3LO_Ym2BZ7SkBW_SZbJ63FsA/edit)
+ * [P4 - Table 2, Results](https://docs.google.com/document/d/1XvN0sFR522inA53X5tmEBP_nRz4AOFdj2_a_IyzGRaU/edit)
+ * [P5 - Methods & Results](https://docs.google.com/document/d/16OJY0nDNyzt9xiXgtjRqehHEaimaXrWXULOc-nBdi30/edit)
 
 ## Getting Started
 
