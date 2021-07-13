@@ -14,6 +14,8 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 ** Main exposure (Marijuana Use)
 ta BP_cat if include==1
 
+
+
 *Covariates
 
 ** Sex
@@ -52,3 +54,20 @@ svy, subpop(if include==1): mean indfmpir, over(BP_cat)
 
 ** Healthy Eating Index (Mean)
 svy, subpop(if include==1): mean hei2015_total_score, over(BP_cat)
+
+
+* Prevalence of outcome (BP)
+svy, subpop(if include==1): ta BP_cat, ci col percent
+
+** By gender
+svy, subpop(if include==1): ta BP_cat riagendr, ci col percent
+svy, subpop(if include==1): ta BP_cat riagendr, ci row percent
+
+
+
+
+
+
+
+
+
