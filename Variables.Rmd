@@ -173,7 +173,6 @@ save,replace
 use "data\NHANES0718_new.dta", clear
 
 recode duq230 min/10=0 11/20=1 21/30=2 31/max=., gen(MJ_freq)
-#  replace MJ_cat=2 if duq230<77
 
 label define MJ_freq 0 "1-10 days" 1 "11-20 days" 2 "21-30 days"
 label values MJ_freq MJ_freq
@@ -241,8 +240,83 @@ ta include AGE_exclude,m
 save,replace
 ```
 
+# Covariate Coding
 
+## Race/Ethnicity
 
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+ta ridreth1
+recode ridreth1 1=3 2=4 3=1 4=2 5=4, gen(race_eth)
+
+label define race_eth 1 "White-NH" 2 "Black_NH" 3 "Mex Am" 4 "Oth"
+label values race_eth race_eth
+label variable include "Recoded Race & Ethnicity"
+ta race_eth
+
+ta ridreth1 race_eth,m
+
+save,replace
+```
+
+## Smoking
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+recode smd650 min/10=1 11/20=2 21/95=3 96/max=., gen(SMK_cat)
+  replace SMK_cat=0 if smq040==3
+
+label define SMK_cat 0 "Never" 1 "Light, 1-10 cif/day" 2 "Moderate, 11-20 cig/day" 3 "Heavy, 21+ cig/day"
+label values SMK_cat SMK_cat
+label variable SMK_cat "Smoking Category"
+
+ta SMK_cat,m
+ta SMK_cat BP_miss,m
+ta SMK_cat MJ_miss,m
+
+save,replace
+```
+
+## Alcohol
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+recode alq130 min/2=0 3/4=1 5/95=2 99/max=., gen(AL_cat)
+  replace AL_cat=0 if alq101==2
+  replace AL_cat=1 if alq130==2 & riagendr==2
+  replace AL_cat=2 if alq130==4 & riagendr==2
+
+label define AL_cat 0 "None-Light" 1 "Moderate" 2 "Heavy"
+label values AL_cat AL_cat
+label variable AL_cat "Alcohol Use Category"
+
+ta AL_cat,m
+ta AL_cat BP_miss,m
+ta AL_cat MJ_miss,m
+
+save,replace
+```
+
+## Healthy Eating Index
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+replace hei2015_total_score=. if dr1tkcal<500
+replace hei2015_total_score=. if dr1tkcal>5000
+replace hei2015_total_score=. if dr2tkcal<500
+replace hei2015_total_score=. if dr2tkcal>5000
+
+label variable hei2015_total_score "Healthy Eating Index Total"
+
+su hei2015_total_score
+su hei2015_total_score if include==1
+
+save,replace
+```
 
 
 

@@ -646,7 +646,6 @@ file data\NHANES0718_new.dta saved</code></pre>
 <pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
 
 recode duq230 min/10=0 11/20=1 21/30=2 31/max=., gen(MJ_freq)
-#  replace MJ_cat=2 if duq230&lt;77
 
 label define MJ_freq 0 &quot;1-10 days&quot; 1 &quot;11-20 days&quot; 2 &quot;21-30 days&quot;
 label values MJ_freq MJ_freq
@@ -658,7 +657,6 @@ ta MJ_freq duq200,m
 save,replace</code></pre>
 <pre><code>(3186 differences between duq230 and MJ_freq)
 
-Unknown #command
 
 
 
@@ -843,6 +841,225 @@ save,replace</code></pre>
      Total |    28,721     31,121 |    59,842 
 
 file data\NHANES0718_new.dta saved</code></pre>
+</div>
+<div id="covariate-coding" class="section level1">
+<h1>Covariate Coding</h1>
+<div id="raceethnicity" class="section level2">
+<h2>Race/Ethnicity</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+ta ridreth1
+recode ridreth1 1=3 2=4 3=1 4=2 5=4, gen(race_eth)
+
+label define race_eth 1 &quot;White-NH&quot; 2 &quot;Black_NH&quot; 3 &quot;Mex Am&quot; 4 &quot;Oth&quot;
+label values race_eth race_eth
+label variable include &quot;Recoded Race &amp; Ethnicity&quot;
+ta race_eth
+
+ta ridreth1 race_eth,m
+
+save,replace</code></pre>
+<pre><code>Race/Ethnic |
+      ity - |
+     Recode |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |     10,914       18.24       18.24
+          2 |      6,498       10.86       29.10
+          3 |     21,398       35.76       64.85
+          4 |     13,362       22.33       87.18
+          5 |      7,670       12.82      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+(59842 differences between ridreth1 and race_eth)
+
+
+
+
+
+  RECODE of |
+   ridreth1 |
+(Race/Ethni |
+     city - |
+    Recode) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+   White-NH |     21,398       35.76       35.76
+   Black_NH |     13,362       22.33       58.09
+     Mex Am |     10,914       18.24       76.32
+        Oth |     14,168       23.68      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+
+Race/Ethni |    RECODE of ridreth1 (Race/Ethnicity -
+    city - |                   Recode)
+    Recode |  White-NH   Black_NH     Mex Am        Oth |     Total
+-----------+--------------------------------------------+----------
+         1 |         0          0     10,914          0 |    10,914 
+         2 |         0          0          0      6,498 |     6,498 
+         3 |    21,398          0          0          0 |    21,398 
+         4 |         0     13,362          0          0 |    13,362 
+         5 |         0          0          0      7,670 |     7,670 
+-----------+--------------------------------------------+----------
+     Total |    21,398     13,362     10,914     14,168 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
+<div id="smoking" class="section level2">
+<h2>Smoking</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+recode smd650 min/10=1 11/20=2 21/95=3 96/max=., gen(SMK_cat)
+  replace SMK_cat=0 if smq040==3
+
+label define SMK_cat 0 &quot;Never&quot; 1 &quot;Light, 1-10 cif/day&quot; 2 &quot;Moderate, 11-20 cig/day&quot; 3 &quot;Heavy, 21+ cig/day&quot;
+label values SMK_cat SMK_cat
+label variable SMK_cat &quot;Smoking Category&quot;
+
+ta SMK_cat,m
+ta SMK_cat BP_miss,m
+ta SMK_cat MJ_miss,m
+
+save,replace</code></pre>
+<pre><code>(6856 differences between smd650 and SMK_cat)
+
+(8,268 real changes made)
+
+       Smoking Category |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+                  Never |      8,268       13.82       13.82
+    Light, 1-10 cif/day |      4,838        8.08       21.90
+Moderate, 11-20 cig/day |      2,154        3.60       25.50
+     Heavy, 21+ cig/day |        570        0.95       26.45
+                      . |     44,012       73.55      100.00
+------------------------+-----------------------------------
+                  Total |     59,842      100.00
+
+                      |  Meets BP Inclusion
+                      |       Criteria
+     Smoking Category | Not Missi  Missing B |     Total
+----------------------+----------------------+----------
+                Never |     7,487        781 |     8,268 
+  Light, 1-10 cif/day |     4,373        465 |     4,838 
+Moderate, 11-20 cig/d |     1,967        187 |     2,154 
+   Heavy, 21+ cig/day |       524         46 |       570 
+                    . |    28,323     15,689 |    44,012 
+----------------------+----------------------+----------
+                Total |    42,674     17,168 |    59,842 
+
+                      |  Meets MJ Inclusion
+                      |       Criteria
+     Smoking Category | Not Missi  Missing M |     Total
+----------------------+----------------------+----------
+                Never |     3,307      4,961 |     8,268 
+  Light, 1-10 cif/day |     3,080      1,758 |     4,838 
+Moderate, 11-20 cig/d |     1,451        703 |     2,154 
+   Heavy, 21+ cig/day |       382        188 |       570 
+                    . |    12,418     31,594 |    44,012 
+----------------------+----------------------+----------
+                Total |    20,638     39,204 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
+<div id="alcohol" class="section level2">
+<h2>Alcohol</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+recode alq130 min/2=0 3/4=1 5/95=2 99/max=., gen(AL_cat)
+  replace AL_cat=0 if alq101==2
+  replace AL_cat=1 if alq130==2 &amp; riagendr==2
+  replace AL_cat=2 if alq130==4 &amp; riagendr==2
+
+label define AL_cat 0 &quot;None-Light&quot; 1 &quot;Moderate&quot; 2 &quot;Heavy&quot;
+label values AL_cat AL_cat
+label variable AL_cat &quot;Alcohol Use Category&quot;
+
+ta AL_cat,m
+ta AL_cat BP_miss,m
+ta AL_cat MJ_miss,m
+
+save,replace</code></pre>
+<pre><code>(20793 differences between alq130 and AL_cat)
+
+(6,127 real changes made)
+
+(2,894 real changes made)
+
+(541 real changes made)
+
+
+
+
+
+Alcohol Use |
+   Category |      Freq.     Percent        Cum.
+------------+-----------------------------------
+ None-Light |     16,224       27.11       27.11
+   Moderate |      6,758       11.29       38.40
+      Heavy |      3,709        6.20       44.60
+          . |     33,151       55.40      100.00
+------------+-----------------------------------
+      Total |     59,842      100.00
+
+
+   Alcohol |  Meets BP Inclusion
+       Use |       Criteria
+  Category | Not Missi  Missing B |     Total
+-----------+----------------------+----------
+None-Light |    15,474        750 |    16,224 
+  Moderate |     6,490        268 |     6,758 
+     Heavy |     3,573        136 |     3,709 
+         . |    17,137     16,014 |    33,151 
+-----------+----------------------+----------
+     Total |    42,674     17,168 |    59,842 
+
+
+   Alcohol |  Meets MJ Inclusion
+       Use |       Criteria
+  Category | Not Missi  Missing M |     Total
+-----------+----------------------+----------
+None-Light |     9,538      6,686 |    16,224 
+  Moderate |     5,410      1,348 |     6,758 
+     Heavy |     3,296        413 |     3,709 
+         . |     2,394     30,757 |    33,151 
+-----------+----------------------+----------
+     Total |    20,638     39,204 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
+<div id="healthy-eating-index" class="section level2">
+<h2>Healthy Eating Index</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+
+replace hei2015_total_score=. if dr1tkcal&lt;500
+replace hei2015_total_score=. if dr1tkcal&gt;5000
+replace hei2015_total_score=. if dr2tkcal&lt;500
+replace hei2015_total_score=. if dr2tkcal&gt;5000
+
+label variable hei2015_total_score &quot;Healthy Eating Index Total&quot;
+
+su hei2015_total_score
+su hei2015_total_score if include==1
+
+save,replace</code></pre>
+<pre><code>(402 real changes made, 402 to missing)
+
+(553 real changes made, 553 to missing)
+
+(605 real changes made, 605 to missing)
+
+(6,757 real changes made, 6,757 to missing)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+hei2015_to~e |     40,301    53.01033    13.00621   15.21765   99.54978
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+hei2015_to~e |     14,900    52.81367    13.22752   15.79113   98.74886
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
 </div>
 
 
