@@ -25,10 +25,10 @@ svy, subpop(if include==1): ta race_eth MJ_cat, col percent
 ta race_eth MJ_cat if include==1
 
 ** Education Level
-recode dmdeduc2 1=1 2=2 3=3 4=4 5=5 7=. 9=., gen(EDUC_cat)
-label define EDUC_cat 1 "Less than 9th Grade" 2 "Less than High School" 3 "High School/GED" 4 "Some College" 5 "College Graduate"
-label values EDUC_cat EDUC_cat
-label variable include "Recode Education Level"
+*recode dmdeduc2 1=1 2=2 3=3 4=4 5=5 7=. 9=., gen(EDUC_cat)
+*label define EDUC_cat 1 "Less than 9th Grade" 2 "Less than High School" 3 "High School/GED" 4 "Some College" 5 "College Graduate"
+*label values EDUC_cat EDUC_cat
+*label variable include "Recode Education Level"
 
 svy, subpop(if include==1): ta EDUC_cat MJ_cat, col percent
 ta EDUC_cat MJ_cat if include==1
