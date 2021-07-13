@@ -337,7 +337,19 @@ su hei2015_total_score if include==1
 save,replace
 ```
 
+# Data for Flow Diagram
 
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+ta AGE_exclude
+ta AGE_exclude BP_miss
+ta BP_miss MJ_miss if AGE_exclude==0
+
+
+ta BP_miss MJ_miss if AGE_exclude==0 & gndr==0
+ta BP_miss MJ_miss if AGE_exclude==0 & gndr==1
+```
 
 
 
