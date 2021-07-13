@@ -204,6 +204,24 @@ save,replace
 
 # Inclusion criteria
 
+## MEC Examined
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+gen MEC_response=1 
+  replace MEC_response=0 if wtmec2yr==0
+
+label define MEC_response 0 "Did not respond" 1 "Responded"
+label values MEC_response MEC_response
+label variable MEC_response "MEC Response"
+
+ta MEC_response,m
+ta MEC_response BP_miss,m
+ta MEC_response MJ_miss,m
+
+save,replace
+```
+
 ## Age Inclusion Criteria, 20-69 Years
 
 ```{stata}

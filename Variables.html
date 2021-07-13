@@ -731,6 +731,54 @@ file data\NHANES0718_new.dta saved</code></pre>
 </div>
 <div id="inclusion-criteria" class="section level1">
 <h1>Inclusion criteria</h1>
+<div id="mec-examined" class="section level2">
+<h2>MEC Examined</h2>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+gen MEC_response=1 
+  replace MEC_response=0 if wtmec2yr==0
+
+label define MEC_response 0 &quot;Did not respond&quot; 1 &quot;Responded&quot;
+label values MEC_response MEC_response
+label variable MEC_response &quot;MEC Response&quot;
+
+ta MEC_response,m
+ta MEC_response BP_miss,m
+ta MEC_response MJ_miss,m
+
+save,replace</code></pre>
+<pre><code>(2,428 real changes made)
+
+
+
+
+
+   MEC Response |      Freq.     Percent        Cum.
+----------------+-----------------------------------
+Did not respond |      2,428        4.06        4.06
+      Responded |     57,414       95.94      100.00
+----------------+-----------------------------------
+          Total |     59,842      100.00
+
+                |  Meets BP Inclusion
+                |       Criteria
+   MEC Response | Not Missi  Missing B |     Total
+----------------+----------------------+----------
+Did not respond |         0      2,428 |     2,428 
+      Responded |    42,674     14,740 |    57,414 
+----------------+----------------------+----------
+          Total |    42,674     17,168 |    59,842 
+
+                |  Meets MJ Inclusion
+                |       Criteria
+   MEC Response | Not Missi  Missing M |     Total
+----------------+----------------------+----------
+Did not respond |         0      2,428 |     2,428 
+      Responded |    20,638     36,776 |    57,414 
+----------------+----------------------+----------
+          Total |    20,638     39,204 |    59,842 
+
+file data\NHANES0718_new.dta saved</code></pre>
+</div>
 <div id="age-inclusion-criteria-20-69-years" class="section level2">
 <h2>Age Inclusion Criteria, 20-69 Years</h2>
 <pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
