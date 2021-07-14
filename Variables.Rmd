@@ -394,6 +394,10 @@ ta PIR_miss include,m
 gen HEI_miss=0
   replace HEI_miss=1 if hei2015_total_score==.
 ta HEI_miss include,m
+
+# For Flow Diagram
+ta BP_miss if AGE_exclude==0 #n=2,675
+ta MJ_miss if AGE_exclude==0 & BP_miss==0 #n=7,536
 ```
 
 
