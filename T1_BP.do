@@ -9,12 +9,17 @@
 gen wtmec12yr = (1/6) * wtmec2yr
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-* Table 1 Elements (calculate frequencies, proportions, means, standard errors when appropriate)
-
-** Main exposure (Marijuana Use)
+* Main Outcome (BP)
 ta BP_cat if include==1
 
+** Prevalence of outcome (BP)
+svy, subpop(if include==1): ta BP_cat, ci col percent
 
+** By gender
+svy, subpop(if include==1): ta BP_cat riagendr, ci col percent
+svy, subpop(if include==1): ta BP_cat riagendr, ci row percent
+
+* Table 1 Elements (calculate frequencies, proportions, means, standard errors when appropriate)
 
 *Covariates
 
@@ -36,12 +41,12 @@ svy, subpop(if include==1): ta EDUC_cat BP_cat, col percent
 ta EDUC_cat BP_cat if include==1
 
 ** Smoking
-svy, subpop(if include==1): ta SMK_cat BP_cat, col percent
+svy, subpop(if include==1): ta SMK_cat MJ_cat, col percent
 ta SMK_cat BP_cat if include==1
 
 ** Alcohol
-svy, subpop(if include==1): ta AL_cat BP_cat, col percent
-ta AL_cat BP_cat if include==1
+svy, subpop(if include==1): ta AL_cat MJ_cat, col percent
+ta AL_cat MJ_cat if include==1
 
 ** Age (Mean)
 svy, subpop(if include==1): mean ridageyr, over(BP_cat)
@@ -55,13 +60,6 @@ svy, subpop(if include==1): mean indfmpir, over(BP_cat)
 ** Healthy Eating Index (Mean)
 svy, subpop(if include==1): mean hei2015_total_score, over(BP_cat)
 
-
-* Prevalence of outcome (BP)
-svy, subpop(if include==1): ta BP_cat, ci col percent
-
-** By gender
-svy, subpop(if include==1): ta BP_cat riagendr, ci col percent
-svy, subpop(if include==1): ta BP_cat riagendr, ci row percent
 
 
 

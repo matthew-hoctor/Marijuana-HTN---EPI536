@@ -9,6 +9,13 @@
 gen wtmec12yr = (1/6) * wtmec2yr
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
+* Prevalence of outcome (BP)
+svy, subpop(if include==1): ta BP_cat, ci col percent
+
+** By gender
+svy, subpop(if include==1): ta BP_cat riagendr, ci col percent
+svy, subpop(if include==1): ta BP_cat riagendr, ci row percent
+
 * Table 1 Elements (calculate frequencies, proportions, means, standard errors when appropriate)
 
 ** Main exposure (Marijuana Use)
@@ -52,3 +59,10 @@ svy, subpop(if include==1): mean indfmpir, over(MJ_cat)
 
 ** Healthy Eating Index (Mean)
 svy, subpop(if include==1): mean hei2015_total_score, over(MJ_cat)
+
+
+
+
+
+
+
