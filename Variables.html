@@ -1020,7 +1020,7 @@ recode riagendr 2=0 1=1, gen(gndr)
 
 label define gndr 0 &quot;Female&quot; 1 &quot;Male&quot;
 label values gndr gndr
-label variable gndr &quot;Alcohol Use Category&quot;
+label variable gndr &quot;Gender&quot;
 
 ta gndr,m
 ta gndr riagendr,m
@@ -1028,22 +1028,15 @@ ta gndr riagendr,m
 save,replace</code></pre>
 <pre><code>(30213 differences between riagendr and gndr)
 
-
-
-
-
-Alcohol Use |
-   Category |      Freq.     Percent        Cum.
+     Gender |      Freq.     Percent        Cum.
 ------------+-----------------------------------
      Female |     30,213       50.49       50.49
        Male |     29,629       49.51      100.00
 ------------+-----------------------------------
       Total |     59,842      100.00
 
-
-   Alcohol |
-       Use |        Gender
-  Category |         1          2 |     Total
+           |        Gender
+    Gender |         1          2 |     Total
 -----------+----------------------+----------
     Female |         0     30,213 |    30,213 
       Male |    29,629          0 |    29,629 
@@ -1205,6 +1198,122 @@ Adults 20+ |         . |     Total
 
 file data\NHANES0718_new.dta saved</code></pre>
 </div>
+</div>
+<div id="cross-tabulation-of-missing-variables-for-t1" class="section level1">
+<h1>Cross tabulation of missing variables for T1</h1>
+<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+ta EDUC_cat include,m
+ta gndr include,m
+ta SMK_cat include,m
+ta AL_cat include,m
+
+gen AGE_miss =0
+  replace AGE_miss=1 if ridageyr==.
+ta AGE_miss include,m
+
+gen BMI_miss=0
+  replace BMI_miss=1 if bmxbmi==.
+ta BMI_miss include,m
+
+gen PIR_miss=0
+  replace PIR_miss=1 if indfmpir==.
+ta PIR_miss include,m
+
+gen HEI_miss=0
+  replace HEI_miss=1 if hei2015_total_score==.
+ta HEI_miss include,m</code></pre>
+<pre><code>   RECODE of dmdeduc2 |   Recode Education
+   (Education Level - |         Level
+          Adults 20+) |  Excluded   Included |     Total
+----------------------+----------------------+----------
+  Less than 9th Grade |     2,510      1,244 |     3,754 
+Less than High School |     2,392      2,550 |     4,942 
+      High School/GED |     3,752      4,169 |     7,921 
+         Some College |     4,205      5,939 |    10,144 
+     College Graduate |     3,356      4,601 |     7,957 
+                    . |    25,117          7 |    25,124 
+----------------------+----------------------+----------
+                Total |    41,332     18,510 |    59,842 
+
+           |   Recode Education
+           |         Level
+    Gender |  Excluded   Included |     Total
+-----------+----------------------+----------
+    Female |    20,860      9,353 |    30,213 
+      Male |    20,472      9,157 |    29,629 
+-----------+----------------------+----------
+     Total |    41,332     18,510 |    59,842 
+
+                      |   Recode Education
+                      |         Level
+     Smoking Category |  Excluded   Included |     Total
+----------------------+----------------------+----------
+                Never |     5,088      3,180 |     8,268 
+  Light, 1-10 cif/day |     2,067      2,771 |     4,838 
+Moderate, 11-20 cig/d |       793      1,361 |     2,154 
+   Heavy, 21+ cig/day |       201        369 |       570 
+                    . |    33,183     10,829 |    44,012 
+----------------------+----------------------+----------
+                Total |    41,332     18,510 |    59,842 
+
+
+   Alcohol |   Recode Education
+       Use |         Level
+  Category |  Excluded   Included |     Total
+-----------+----------------------+----------
+None-Light |     7,640      8,584 |    16,224 
+  Moderate |     1,772      4,986 |     6,758 
+     Heavy |       685      3,024 |     3,709 
+         . |    31,235      1,916 |    33,151 
+-----------+----------------------+----------
+     Total |    41,332     18,510 |    59,842 
+
+
+(0 real changes made)
+
+           |   Recode Education
+           |         Level
+  AGE_miss |  Excluded   Included |     Total
+-----------+----------------------+----------
+         0 |    41,332     18,510 |    59,842 
+-----------+----------------------+----------
+     Total |    41,332     18,510 |    59,842 
+
+
+(7,151 real changes made)
+
+           |   Recode Education
+           |         Level
+  BMI_miss |  Excluded   Included |     Total
+-----------+----------------------+----------
+         0 |    34,262     18,429 |    52,691 
+         1 |     7,070         81 |     7,151 
+-----------+----------------------+----------
+     Total |    41,332     18,510 |    59,842 
+
+
+(5,798 real changes made)
+
+           |   Recode Education
+           |         Level
+  PIR_miss |  Excluded   Included |     Total
+-----------+----------------------+----------
+         0 |    37,024     17,020 |    54,044 
+         1 |     4,308      1,490 |     5,798 
+-----------+----------------------+----------
+     Total |    41,332     18,510 |    59,842 
+
+
+(19,541 real changes made)
+
+           |   Recode Education
+           |         Level
+  HEI_miss |  Excluded   Included |     Total
+-----------+----------------------+----------
+         0 |    25,401     14,900 |    40,301 
+         1 |    15,931      3,610 |    19,541 
+-----------+----------------------+----------
+     Total |    41,332     18,510 |    59,842 </code></pre>
 </div>
 
 

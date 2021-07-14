@@ -308,7 +308,7 @@ recode riagendr 2=0 1=1, gen(gndr)
 
 label define gndr 0 "Female" 1 "Male"
 label values gndr gndr
-label variable gndr "Alcohol Use Category"
+label variable gndr "Gender"
 
 ta gndr,m
 ta gndr riagendr,m
@@ -369,4 +369,32 @@ ta dmdeduc2 EDUC_cat,m
 
 save,replace
 ```
+
+# Cross tabulation of missing variables for T1
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+ta EDUC_cat include,m
+ta gndr include,m
+ta SMK_cat include,m
+ta AL_cat include,m
+
+gen AGE_miss =0
+  replace AGE_miss=1 if ridageyr==.
+ta AGE_miss include,m
+
+gen BMI_miss=0
+  replace BMI_miss=1 if bmxbmi==.
+ta BMI_miss include,m
+
+gen PIR_miss=0
+  replace PIR_miss=1 if indfmpir==.
+ta PIR_miss include,m
+
+gen HEI_miss=0
+  replace HEI_miss=1 if hei2015_total_score==.
+ta HEI_miss include,m
+```
+
+
 
