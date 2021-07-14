@@ -255,6 +255,13 @@ div.tocify {
 <h1>Data for Flow Diagram</h1>
 <pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
 
+ta MEC_response
+ta BP_miss MEC_response
+
+ta MJ_miss BP_miss if MEC_response==1
+
+ta AGE_exclude if BP_miss==0 &amp; MJ_miss==0
+
 ta AGE_exclude
 ta AGE_exclude BP_miss
 ta BP_miss MJ_miss if AGE_exclude==0
@@ -262,7 +269,43 @@ ta BP_miss MJ_miss if AGE_exclude==0
 
 ta BP_miss MJ_miss if AGE_exclude==0 &amp; gndr==0
 ta BP_miss MJ_miss if AGE_exclude==0 &amp; gndr==1</code></pre>
-<pre><code>   Meets Age |
+<pre><code>   MEC Response |      Freq.     Percent        Cum.
+----------------+-----------------------------------
+Did not respond |      2,428        4.06        4.06
+      Responded |     57,414       95.94      100.00
+----------------+-----------------------------------
+          Total |     59,842      100.00
+
+      Meets BP |
+     Inclusion |     MEC Response
+      Criteria | Did not r  Responded |     Total
+---------------+----------------------+----------
+Not Missing BP |         0     42,674 |    42,674 
+    Missing BP |     2,428     14,740 |    17,168 
+---------------+----------------------+----------
+         Total |     2,428     57,414 |    59,842 
+
+      Meets MJ |  Meets BP Inclusion
+     Inclusion |       Criteria
+      Criteria | Not Missi  Missing B |     Total
+---------------+----------------------+----------
+Not Missing MJ |    19,811        827 |    20,638 
+    Missing MJ |    22,863     13,913 |    36,776 
+---------------+----------------------+----------
+         Total |    42,674     14,740 |    57,414 
+
+
+   Meets Age |
+   Inclusion |
+    Criteria |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+   Age 20-69 |     18,510       93.43       93.43
+Age Excluded |      1,301        6.57      100.00
+-------------+-----------------------------------
+       Total |     19,811      100.00
+
+
+   Meets Age |
    Inclusion |
     Criteria |      Freq.     Percent        Cum.
 -------------+-----------------------------------
@@ -308,8 +351,87 @@ Not Missing BP |     9,157      3,564 |    12,721
 ---------------+----------------------+----------
          Total |     9,466      4,464 |    13,930 </code></pre>
 </div>
-<div id="flow-diagram" class="section level1">
-<h1>Flow Diagram</h1>
+<div id="new-flow-diagram" class="section level1">
+<h1>New Flow Diagram</h1>
+<pre class="r"><code># Define some sample data
+data &lt;- list(a=59842 , b=42674, c=19811, d=18510, e=9353, f=9157)
+
+DiagrammeR::grViz(&quot;
+digraph rmarkdown{
+
+# Box
+node [shape = box]
+
+A;
+
+A[label = 
+    &lt;
+    Missing blood pressure data:&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    &amp;#8226; No mobile examination center exam&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    (n = 2428)&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    &amp;#8226; Insufficient BP data for AHA/ACC&lt;br ALIGN = &#39;LEFT&#39;/&gt;
+    classification (n = 14740)&lt;br ALIGN = &#39;LEFT&#39;/&gt;
+    &gt;
+]
+
+B;
+
+B[label = 
+    &lt;
+    Missing cannabis use data&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    (n = 22863)&lt;br ALIGN = &#39;LEFT&#39;/&gt;
+    &gt;
+]
+
+C;
+
+C[label = 
+    &lt;
+    Outside of age range 20-69 years&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    (n = 1301)&lt;br ALIGN = &#39;LEFT&#39;/&gt;
+    &gt;
+]
+
+a [label = &#39;@@1&#39;]
+a1 [shape = point width = 0.01]
+b [label = &#39;@@2&#39;]
+b1 [shape = point width = 0.01]
+c [label = &#39;@@3&#39;]
+c1 [shape = point width = 0.01]
+d [label = &#39;@@4&#39;]
+e [label = &#39;@@5&#39;]
+f [label = &#39;@@6&#39;]
+
+
+a -&gt; a1 [arrowhead = none]
+a1 -&gt; A
+a1 -&gt; b 
+b -&gt; b1 [arrowhead = none]
+b1 -&gt; B
+b1 -&gt; c
+c -&gt; c1 [arrowhead = none]
+c1 -&gt; C
+c1 -&gt; d -&gt; e
+d -&gt; f
+
+{rank=same; a1 A}
+{rank=same; b1 B}
+{rank=same; c1 C}
+
+}
+
+[1]: paste0(&#39;NHANES 2007-2018 (n = &#39;, data$a, &#39;)&#39;)
+[2]: paste0(&#39;Sufficient BP data (n = &#39;, data$b, &#39;)&#39;)
+[3]: paste0(&#39;Sufficient exposure and outcome data (n = &#39;, data$c, &#39;)&#39;)
+[4]: paste0(&#39;Adults age 20-69 with BP data &amp; cannabis use data (n = &#39;, data$d, &#39;)&#39;)
+[5]: paste0(&#39;Women (n = &#39;, data$e, &#39;)&#39;)
+[6]: paste0(&#39;Men (n = &#39;, data$f, &#39;)&#39;)
+&quot;)</code></pre>
+<div id="htmlwidget-166b1f87b80a39472c6b" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-166b1f87b80a39472c6b">{"x":{"diagram":"\ndigraph rmarkdown{\n\n# Box\nnode [shape = box]\n\nA;\n\nA[label = \n    <\n    Missing blood pressure data:<br ALIGN = \"LEFT\"/> \n    &#8226; No mobile examination center exam<br ALIGN = \"LEFT\"/> \n    (n = 2428)<br ALIGN = \"LEFT\"/> \n    &#8226; Insufficient BP data for AHA/ACC<br ALIGN = \"LEFT\"/>\n    classification (n = 14740)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nB;\n\nB[label = \n    <\n    Missing cannabis use data<br ALIGN = \"LEFT\"/> \n    (n = 22863)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nC;\n\nC[label = \n    <\n    Outside of age range 20-69 years<br ALIGN = \"LEFT\"/> \n    (n = 1301)<br ALIGN = \"LEFT\"/>\n    >\n]\n\na [label = \"NHANES 2007-2018 (n = 59842)\"]\na1 [shape = point width = 0.01]\nb [label = \"Sufficient BP data (n = 42674)\"]\nb1 [shape = point width = 0.01]\nc [label = \"Sufficient exposure and outcome data (n = 19811)\"]\nc1 [shape = point width = 0.01]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\n\na -> a1 [arrowhead = none]\na1 -> A\na1 -> b \nb -> b1 [arrowhead = none]\nb1 -> B\nb1 -> c\nc -> c1 [arrowhead = none]\nc1 -> C\nc1 -> d -> e\nd -> f\n\n{rank=same; a1 A}\n{rank=same; b1 B}\n{rank=same; c1 C}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="old-flow-diagram" class="section level1">
+<h1>Old Flow Diagram</h1>
 <pre class="r"><code># Define some sample data
 data &lt;- list(a=59842 , b=28721, c=26046, d=18510, e=9353, f=9157)
 
@@ -321,14 +443,20 @@ graph [layout = dot]
 # node definitions with substituted label text
 node [shape = rectangle, width = 4, fillcolor = Biege]
 a [label = &#39;@@1&#39;]
+a1 [shape = point width = 0.01]
+a2 [label = &#39;Missing BP data\nNo mobile examination center exam\nInsufficient BP data for AHA/ACC clasification&#39; align = right]
 b [label = &#39;@@2&#39;]
 c [label = &#39;@@3&#39;]
 d [label = &#39;@@4&#39;]
 e [label = &#39;@@5&#39;]
 f [label = &#39;@@6&#39;]
 
-a -&gt; b -&gt; c -&gt; d -&gt; e
+a -&gt; a1 [arrowhead = none]
+a1 -&gt; b -&gt; c -&gt; d -&gt; e
+a1 -&gt; a2
 d -&gt; f
+
+{rank=same; a1 a2}
 
 }
 
@@ -339,8 +467,8 @@ d -&gt; f
 [5]: paste0(&#39;Women (n = &#39;, data$e, &#39;)&#39;)
 [6]: paste0(&#39;Men (n = &#39;, data$f, &#39;)&#39;)
 &quot;)</code></pre>
-<div id="htmlwidget-c1d9c61e126acb796ae5" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c1d9c61e126acb796ae5">{"x":{"diagram":"\ndigraph graph2 {\n\ngraph [layout = dot]\n\n# node definitions with substituted label text\nnode [shape = rectangle, width = 4, fillcolor = Biege]\na [label = \"NHANES 2007-2018 (n = 59842)\"]\nb [label = \"Adults age 20-69 (n = 28721)\"]\nc [label = \"Adults age 20-69 with BP data (n = 26046)\"]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\na -> b -> c -> d -> e\nd -> f\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-71b1d5148f1d27c29488" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-71b1d5148f1d27c29488">{"x":{"diagram":"\ndigraph graph2 {\n\ngraph [layout = dot]\n\n# node definitions with substituted label text\nnode [shape = rectangle, width = 4, fillcolor = Biege]\na [label = \"NHANES 2007-2018 (n = 59842)\"]\na1 [shape = point width = 0.01]\na2 [label = \"Missing BP data\nNo mobile examination center exam\nInsufficient BP data for AHA/ACC clasification\" align = right]\nb [label = \"Adults age 20-69 (n = 28721)\"]\nc [label = \"Adults age 20-69 with BP data (n = 26046)\"]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\na -> a1 [arrowhead = none]\na1 -> b -> c -> d -> e\na1 -> a2\nd -> f\n\n{rank=same; a1 a2}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 
