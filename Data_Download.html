@@ -247,8 +247,57 @@ div.tocify {
 </div>
 
 
-<div id="starting-with-2007-2008" class="section level1">
-<h1>Starting with 2007-2008</h1>
+<div id="section" class="section level1">
+<h1>2005-2006</h1>
+<p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
+<pre class="r"><code>if(!file.exists(&quot;data/2005-2006/DEMO_D.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DEMO_D.XPT&quot;, 
+                destfile = &quot;data/2005-2006/DEMO_D.XPT&quot;,
+                mode = &quot;wb&quot;)
+}
+if(!file.exists(&quot;data/2005-2006/DUQ_D.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DUQ_D.XPT&quot;, 
+                destfile = &quot;data/2005-2006/DUQ_D.XPT&quot;,
+                mode = &quot;wb&quot;)
+}
+if(!file.exists(&quot;data/2005-2006/BPX_D.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/BPX_D.XPT&quot;, 
+                destfile = &quot;data/2005-2006/BPX_D.XPT&quot;,
+                mode = &quot;wb&quot;)
+}
+# if(!file.exists(&quot;data/2005-2006/DR1IFF_D.XPT&quot;)){
+#   download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DR1IFF_D.XPT&quot;, 
+#                 destfile = &quot;data/2005-2006/DR1IFF_D.XPT&quot;,
+#                 mode = &quot;wb&quot;)
+# }
+if(!file.exists(&quot;data/2005-2006/BMX_D.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/BMX_D.XPT&quot;, 
+                destfile = &quot;data/2005-2006/BMX_D.XPT&quot;,
+                mode = &quot;wb&quot;)
+}
+if(!file.exists(&quot;data/2005-2006/SMQ_D.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/SMQ_D.XPT&quot;, 
+                destfile = &quot;data/2005-2006/SMQ_D.XPT&quot;,
+                mode = &quot;wb&quot;)
+}
+if(!file.exists(&quot;data/2005-2006/ALQ_D.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/ALQ_D.XPT&quot;, 
+                destfile = &quot;data/2005-2006/ALQ_D.XPT&quot;,
+                mode = &quot;wb&quot;)
+}
+if(!file.exists(&quot;data/2005-2006/DR1TOT_D.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DR1TOT_D.XPT&quot;, 
+                destfile = &quot;data/2005-2006/DR1TOT_D.XPT&quot;,
+                mode = &quot;wb&quot;)
+}
+if(!file.exists(&quot;data/2005-2006/DR2TOT_D.XPT&quot;)){
+  download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DR2TOT_D.XPT&quot;, 
+                destfile = &quot;data/2005-2006/DR2TOT_D.XPT&quot;,
+                mode = &quot;wb&quot;)
+}</code></pre>
+</div>
+<div id="section-1" class="section level1">
+<h1>2007-2008</h1>
 <p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
 <pre class="r"><code>if(!file.exists(&quot;data/2007-2008/DEMO_E.XPT&quot;)){
   download.file(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DEMO_E.XPT&quot;, 
@@ -296,7 +345,7 @@ if(!file.exists(&quot;data/2007-2008/DR2TOT_E.XPT&quot;)){
                 mode = &quot;wb&quot;)
 }</code></pre>
 </div>
-<div id="section" class="section level1">
+<div id="section-2" class="section level1">
 <h1>2009-2010</h1>
 <p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
 <pre class="r"><code>if(!file.exists(&quot;data/2009-2010/DEMO_F.XPT&quot;)){
@@ -345,7 +394,7 @@ if(!file.exists(&quot;data/2009-2010/DR2TOT_F.XPT&quot;)){
                 mode = &quot;wb&quot;)
 }</code></pre>
 </div>
-<div id="section-1" class="section level1">
+<div id="section-3" class="section level1">
 <h1>2011-2012</h1>
 <p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
 <pre class="r"><code>if(!file.exists(&quot;data/2011-2012/DEMO_G.XPT&quot;)){
@@ -394,7 +443,7 @@ if(!file.exists(&quot;data/2011-2012/DR2TOT_G.XPT&quot;)){
                 mode = &quot;wb&quot;)
 }</code></pre>
 </div>
-<div id="section-2" class="section level1">
+<div id="section-4" class="section level1">
 <h1>2013-2014</h1>
 <p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
 <pre class="r"><code>if(!file.exists(&quot;data/2013-2014/DEMO_H.XPT&quot;)){
@@ -443,7 +492,7 @@ if(!file.exists(&quot;data/2013-2014/DR2TOT_H.XPT&quot;)){
                 mode = &quot;wb&quot;)
 }</code></pre>
 </div>
-<div id="section-3" class="section level1">
+<div id="section-5" class="section level1">
 <h1>2015-2016</h1>
 <p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
 <pre class="r"><code>if(!file.exists(&quot;data/2015-2016/DEMO_I.XPT&quot;)){
@@ -492,7 +541,7 @@ if(!file.exists(&quot;data/2015-2016/DR2TOT_I.XPT&quot;)){
                 mode = &quot;wb&quot;)
 }</code></pre>
 </div>
-<div id="section-4" class="section level1">
+<div id="section-6" class="section level1">
 <h1>2017-2018</h1>
 <p>Please note that FPED &amp; DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.</p>
 <pre class="r"><code>if(!file.exists(&quot;data/2017-2018/DEMO_J.XPT&quot;)){

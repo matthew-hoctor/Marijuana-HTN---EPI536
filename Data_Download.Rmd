@@ -28,6 +28,58 @@ knitr::opts_chunk$set(engine.path = list(
 #library(Statamarkdown)
 ```
 
+# 2005-2006
+
+Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
+
+```{r 2005-2006 downloads}
+if(!file.exists("data/2005-2006/DEMO_D.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DEMO_D.XPT", 
+                destfile = "data/2005-2006/DEMO_D.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2005-2006/DUQ_D.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DUQ_D.XPT", 
+                destfile = "data/2005-2006/DUQ_D.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2005-2006/BPX_D.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/BPX_D.XPT", 
+                destfile = "data/2005-2006/BPX_D.XPT",
+                mode = "wb")
+}
+# if(!file.exists("data/2005-2006/DR1IFF_D.XPT")){
+#   download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DR1IFF_D.XPT", 
+#                 destfile = "data/2005-2006/DR1IFF_D.XPT",
+#                 mode = "wb")
+# }
+if(!file.exists("data/2005-2006/BMX_D.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/BMX_D.XPT", 
+                destfile = "data/2005-2006/BMX_D.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2005-2006/SMQ_D.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/SMQ_D.XPT", 
+                destfile = "data/2005-2006/SMQ_D.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2005-2006/ALQ_D.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/ALQ_D.XPT", 
+                destfile = "data/2005-2006/ALQ_D.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2005-2006/DR1TOT_D.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DR1TOT_D.XPT", 
+                destfile = "data/2005-2006/DR1TOT_D.XPT",
+                mode = "wb")
+}
+if(!file.exists("data/2005-2006/DR2TOT_D.XPT")){
+  download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DR2TOT_D.XPT", 
+                destfile = "data/2005-2006/DR2TOT_D.XPT",
+                mode = "wb")
+}
+```
+
 # 2007-2008
 
 Please note that FPED & DR1IFF data sets have been compiled into HEI-2015 by Abigail Newby-Kew, and will not be downloaded.
