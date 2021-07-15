@@ -285,16 +285,17 @@ save,replace
 ```{stata}
 use "data\NHANES0718_new.dta", clear
 
-recode smd650 min/10=1 11/20=2 21/95=3 96/max=., gen(SMK_cat)
-  replace SMK_cat=0 if smq040==3
+recode smd650 min/10=2 11/20=3 21/95=4 96/max=., gen(SMK_cat)
+  replace SMK_cat=1 if smq040==3
+  replace SMK_cat=0 if smq020==2
 
-label define SMK_cat 0 "Never" 1 "Light, 1-10 cif/day" 2 "Moderate, 11-20 cig/day" 3 "Heavy, 21+ cig/day"
+label define SMK_cat 0 "Never" 1 "Past Smoker" 2 "Light, 1-10 cif/day" 3 "Moderate, 11-20 cig/day" 4 "Heavy, 21+ cig/day"
 label values SMK_cat SMK_cat
 label variable SMK_cat "Smoking Category"
 
 ta SMK_cat,m
-ta SMK_cat BP_miss,m
-ta SMK_cat MJ_miss,m
+# ta SMK_cat BP_miss,m
+# ta SMK_cat MJ_miss,m
 
 save,replace
 ```
@@ -311,7 +312,7 @@ label values gndr gndr
 label variable gndr "Gender"
 
 ta gndr,m
-ta gndr riagendr,m
+# ta gndr riagendr,m
 
 save,replace
 ```
@@ -331,8 +332,8 @@ label values AL_cat AL_cat
 label variable AL_cat "Alcohol Use Category"
 
 ta AL_cat,m
-ta AL_cat BP_miss,m
-ta AL_cat MJ_miss,m
+# ta AL_cat BP_miss,m
+# ta AL_cat MJ_miss,m
 
 save,replace
 ```
@@ -370,7 +371,7 @@ ta dmdeduc2 EDUC_cat,m
 save,replace
 ```
 
-# Cross tabulation of missing variables for T1
+# Cross tabulation of missing variables for T1, assuming missing smokers are kept
 
 ```{stata}
 use "data\NHANES0718_new.dta", clear
@@ -394,10 +395,40 @@ ta PIR_miss include,m
 gen HEI_miss=0
   replace HEI_miss=1 if hei2015_total_score==.
 ta HEI_miss include,m
+```
 
-# For Flow Diagram
-ta BP_miss if AGE_exclude==0 #n=2,675
-ta MJ_miss if AGE_exclude==0 & BP_miss==0 #n=7,536
+# Cross tabulation of missing variables for T1, assuming missing smokers are excluded
+
+```{stata}
+use "data\NHANES0718_new.dta", clear
+
+#Missing Smoking Variable:
+gen SMK_miss=0
+  replace SMK_miss=1 if SMK_cat==.
+  
+gen include2=0
+  replace include2=1 if include==1 & SMK_miss==0
+
+ta EDUC_cat include2,m
+ta gndr include2,m
+ta SMK_cat include2,m
+ta AL_cat include2,m
+
+gen AGE_miss =0
+  replace AGE_miss=1 if ridageyr==.
+ta AGE_miss include2,m
+
+gen BMI_miss=0
+  replace BMI_miss=1 if bmxbmi==.
+ta BMI_miss include2,m
+
+gen PIR_miss=0
+  replace PIR_miss=1 if indfmpir==.
+ta PIR_miss include2,m
+
+gen HEI_miss=0
+  replace HEI_miss=1 if hei2015_total_score==.
+ta HEI_miss include2,m
 ```
 
 
