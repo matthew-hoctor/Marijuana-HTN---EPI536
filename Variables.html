@@ -251,7 +251,7 @@ div.tocify {
 <h1>BP categories</h1>
 <div id="median-sbp" class="section level2">
 <h2>Median SBP</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518.dta&quot;, clear
 
 egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
 egen MaxSBP = rowmax(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
@@ -260,17 +260,17 @@ egen MedSBP = rowmedian(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
   replace  MedSBP=. if NmissSBP&gt;2
   replace  MedSBP=. if NmissSBP==2 &amp; MedSBP!=MaxSBP
 
-save &quot;data\NHANES0718_new.dta&quot;,replace</code></pre>
-<pre><code>(16,008 missing values generated)
+save &quot;data\NHANES0518_new.dta&quot;,replace</code></pre>
+<pre><code>(18,997 missing values generated)
 
-(16,008 missing values generated)
+(18,997 missing values generated)
 
-(680 real changes made, 680 to missing)
+(1,291 real changes made, 1,291 to missing)
 
-(429 real changes made, 429 to missing)
+(993 real changes made, 993 to missing)
 
-file data\NHANES0718_new.dta saved</code></pre>
-<pre class="stata"><code>use &quot;data\NHANES0718.dta&quot;, clear
+file data\NHANES0518_new.dta saved</code></pre>
+<pre class="stata"><code>use &quot;data\NHANES0518.dta&quot;, clear
 
 gen miss_SBP1=missing(bpxsy1)
 gen miss_SBP2=missing(bpxsy2)
@@ -284,38 +284,38 @@ egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
 
 ta  NmissSBP miss_SBP1
 
-#save &quot;data\NHANES0718_new.dta&quot;,replace</code></pre>
+#save &quot;data\NHANES0518_new.dta&quot;,replace</code></pre>
 <pre><code>           |       miss_SBP2
  miss_SBP1 |         0          1 |     Total
 -----------+----------------------+----------
-         0 |    41,011      1,040 |    42,051 
-         1 |     1,631     16,160 |    17,791 
+         0 |    46,725      1,994 |    48,719 
+         1 |     2,182     19,289 |    21,471 
 -----------+----------------------+----------
-     Total |    42,642     17,200 |    59,842 
+     Total |    48,907     21,283 |    70,190 
 
            |       miss_SBP4
  miss_SBP3 |         0          1 |     Total
 -----------+----------------------+----------
-         0 |     1,932     40,554 |    42,486 
-         1 |       543     16,813 |    17,356 
+         0 |     2,592     45,985 |    48,577 
+         1 |     1,062     20,551 |    21,613 
 -----------+----------------------+----------
-     Total |     2,475     57,367 |    59,842 
+     Total |     3,654     66,536 |    70,190 
 
            |       miss_SBP1
   NmissSBP |         0          1 |     Total
 -----------+----------------------+----------
-         1 |    41,249      1,417 |    42,666 
-         2 |       257        231 |       488 
-         3 |       545        135 |       680 
-         4 |         0     16,008 |    16,008 
+         1 |    47,061      1,701 |    48,762 
+         2 |       674        466 |     1,140 
+         3 |       984        307 |     1,291 
+         4 |         0     18,997 |    18,997 
 -----------+----------------------+----------
-     Total |    42,051     17,791 |    59,842 
+     Total |    48,719     21,471 |    70,190 
 
 Unknown #command</code></pre>
 </div>
 <div id="median-dbp" class="section level2">
 <h2>Median DBP</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 egen NmissDBP = rowmiss(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
 egen MaxDBP = rowmax(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
@@ -324,17 +324,17 @@ egen MedDBP = rowmedian(bpxdi1 bpxdi2 bpxdi3 bpxdi4)
   replace  MedDBP=. if NmissDBP&gt;2
   replace  MedDBP=. if NmissDBP==2 &amp; MedDBP!=MaxDBP
 
-save &quot;data\NHANES0718_new.dta&quot;,replace</code></pre>
-<pre><code>(16,008 missing values generated)
+save &quot;data\NHANES0518_new.dta&quot;,replace</code></pre>
+<pre><code>(18,997 missing values generated)
 
-(16,008 missing values generated)
+(18,997 missing values generated)
 
-(680 real changes made, 680 to missing)
+(1,291 real changes made, 1,291 to missing)
 
-(410 real changes made, 410 to missing)
+(979 real changes made, 979 to missing)
 
-file data\NHANES0718_new.dta saved</code></pre>
-<pre class="stata"><code>use &quot;data\NHANES0718.dta&quot;, clear
+file data\NHANES0518_new.dta saved</code></pre>
+<pre class="stata"><code>use &quot;data\NHANES0518.dta&quot;, clear
 
 gen miss_DBP1=missing(bpxdi1)
 gen miss_DBP2=missing(bpxdi2)
@@ -351,48 +351,48 @@ ta  NmissDBP miss_DBP1
 egen NmissSBP = rowmiss(bpxsy1 bpxsy2 bpxsy3 bpxsy4)
 ta NmissSBP NmissDBP
 
-#save &quot;data\NHANES0718_new.dta&quot;,replace</code></pre>
+#save &quot;data\NHANES0518_new.dta&quot;,replace</code></pre>
 <pre><code>           |       miss_DBP2
  miss_DBP1 |         0          1 |     Total
 -----------+----------------------+----------
-         0 |    41,011      1,040 |    42,051 
-         1 |     1,631     16,160 |    17,791 
+         0 |    46,725      1,994 |    48,719 
+         1 |     2,182     19,289 |    21,471 
 -----------+----------------------+----------
-     Total |    42,642     17,200 |    59,842 
+     Total |    48,907     21,283 |    70,190 
 
            |       miss_DBP4
  miss_DBP3 |         0          1 |     Total
 -----------+----------------------+----------
-         0 |     1,932     40,554 |    42,486 
-         1 |       543     16,813 |    17,356 
+         0 |     2,592     45,985 |    48,577 
+         1 |     1,062     20,551 |    21,613 
 -----------+----------------------+----------
-     Total |     2,475     57,367 |    59,842 
+     Total |     3,654     66,536 |    70,190 
 
            |       miss_DBP1
   NmissDBP |         0          1 |     Total
 -----------+----------------------+----------
-         1 |    41,249      1,417 |    42,666 
-         2 |       257        231 |       488 
-         3 |       545        135 |       680 
-         4 |         0     16,008 |    16,008 
+         1 |    47,061      1,701 |    48,762 
+         2 |       674        466 |     1,140 
+         3 |       984        307 |     1,291 
+         4 |         0     18,997 |    18,997 
 -----------+----------------------+----------
-     Total |    42,051     17,791 |    59,842 
+     Total |    48,719     21,471 |    70,190 
 
            |                  NmissDBP
   NmissSBP |         1          2          3          4 |     Total
 -----------+--------------------------------------------+----------
-         1 |    42,666          0          0          0 |    42,666 
-         2 |         0        488          0          0 |       488 
-         3 |         0          0        680          0 |       680 
-         4 |         0          0          0     16,008 |    16,008 
+         1 |    48,762          0          0          0 |    48,762 
+         2 |         0      1,140          0          0 |     1,140 
+         3 |         0          0      1,291          0 |     1,291 
+         4 |         0          0          0     18,997 |    18,997 
 -----------+--------------------------------------------+----------
-     Total |    42,666        488        680     16,008 |    59,842 
+     Total |    48,762      1,140      1,291     18,997 |    70,190 
 
 Unknown #command</code></pre>
 </div>
 <div id="bp-categories-1" class="section level2">
 <h2>BP Categories</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 gen BP_cat=0
 #  replace BP_cat=0 if MedSBP&lt;120 &amp; MedDBP&lt;80
@@ -410,22 +410,22 @@ ta BP_cat,m
 
 save,replace</code></pre>
 <pre><code>Unknown #command
-(35,763 real changes made)
+(42,361 real changes made)
 
-(30,628 real changes made)
+(36,514 real changes made)
 
-(23,612 real changes made)
+(28,604 real changes made)
 
-(17,168 real changes made, 17,168 to missing)
+(21,407 real changes made, 21,407 to missing)
 
      BP_cat |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          0 |     23,071       54.06       54.06
-          1 |      6,143       14.40       68.46
-          2 |      7,016       16.44       84.90
-          3 |      6,444       15.10      100.00
+          0 |     26,634       54.60       54.60
+          1 |      7,042       14.44       69.03
+          2 |      7,910       16.21       85.25
+          3 |      7,197       14.75      100.00
 ------------+-----------------------------------
-      Total |     42,674      100.00
+      Total |     48,783      100.00
 
 
 
@@ -433,19 +433,19 @@ save,replace</code></pre>
 
 BP Category |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-     Normal |     23,071       38.55       38.55
-   Elevated |      6,143       10.27       48.82
-Stage 1 HTN |      7,016       11.72       60.54
-Stage 2 HTN |      6,444       10.77       71.31
-          . |     17,168       28.69      100.00
+     Normal |     26,634       37.95       37.95
+   Elevated |      7,042       10.03       47.98
+Stage 1 HTN |      7,910       11.27       59.25
+Stage 2 HTN |      7,197       10.25       69.50
+          . |     21,407       30.50      100.00
 ------------+-----------------------------------
-      Total |     59,842      100.00
+      Total |     70,190      100.00
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="generate-missing-bp-variable" class="section level2">
 <h2>Generate Missing BP Variable</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 gen BP_miss=0
   replace BP_miss=1 if BP_cat==.
@@ -457,25 +457,25 @@ label variable BP_miss &quot;Meets BP Inclusion Criteria&quot;
 ta BP_miss,m
 
 save,replace</code></pre>
-<pre><code>(17,168 real changes made)
+<pre><code>(21,407 real changes made)
 
       Meets BP |
      Inclusion |
       Criteria |      Freq.     Percent        Cum.
 ---------------+-----------------------------------
-Not Missing BP |     42,674       71.31       71.31
-    Missing BP |     17,168       28.69      100.00
+Not Missing BP |     48,783       69.50       69.50
+    Missing BP |     21,407       30.50      100.00
 ---------------+-----------------------------------
-         Total |     59,842      100.00
+         Total |     70,190      100.00
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 </div>
 <div id="cannabis-use-categories" class="section level1">
 <h1>Cannabis Use Categories</h1>
 <div id="mj-use-categories" class="section level2">
 <h2>MJ Use Categories</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 ta duq200
 ta duq220q
@@ -484,12 +484,12 @@ ta duq220u</code></pre>
   marijuana |
  or hashish |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          1 |     10,974       53.05       53.05
-          2 |      9,664       46.71       99.76
-          7 |         29        0.14       99.90
-          9 |         21        0.10      100.00
+          1 |     12,593       53.31       53.31
+          2 |     10,967       46.43       99.75
+          7 |         34        0.14       99.89
+          9 |         26        0.11      100.00
 ------------+-----------------------------------
-      Total |     20,688      100.00
+      Total |     23,620      100.00
 
 
   Last time |
@@ -497,75 +497,77 @@ ta duq220u</code></pre>
   marijuana |
  or hashish |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          0 |        167        1.52        1.52
-          1 |      2,112       19.26       20.78
-          2 |      1,200       10.94       31.73
-          3 |        834        7.61       39.33
-          4 |        454        4.14       43.47
-          5 |        554        5.05       48.52
-          6 |        457        4.17       52.69
-          7 |        307        2.80       55.49
-          8 |        287        2.62       58.11
-          9 |        235        2.14       60.25
-         10 |        417        3.80       64.05
-         11 |        138        1.26       65.31
-         12 |        205        1.87       67.18
-         13 |        131        1.19       68.37
-         14 |        110        1.00       69.38
-         15 |        329        3.00       72.38
-         16 |         98        0.89       73.27
-         17 |         91        0.83       74.10
-         18 |        142        1.29       75.40
-         19 |         68        0.62       76.02
-         20 |        459        4.19       80.20
-         21 |         66        0.60       80.80
-         22 |        109        0.99       81.80
-         23 |         77        0.70       82.50
-         24 |         87        0.79       83.29
-         25 |        320        2.92       86.21
-         26 |         73        0.67       86.88
-         27 |         89        0.81       87.69
-         28 |         86        0.78       88.47
-         29 |         58        0.53       89.00
-         30 |        401        3.66       92.66
-         31 |         59        0.54       93.20
-         32 |         90        0.82       94.02
-         33 |         71        0.65       94.67
-         34 |         45        0.41       95.08
-         35 |        157        1.43       96.51
-         36 |         57        0.52       97.03
-         37 |         33        0.30       97.33
-         38 |         49        0.45       97.77
-         39 |         29        0.26       98.04
-         40 |         64        0.58       98.62
-         41 |         10        0.09       98.71
-         42 |          6        0.05       98.77
-         43 |          6        0.05       98.82
-         44 |          3        0.03       98.85
-         45 |          5        0.05       98.90
-         46 |          1        0.01       98.91
-         47 |          1        0.01       98.91
-         48 |          2        0.02       98.93
-         50 |          1        0.01       98.94
-         55 |          2        0.02       98.96
-         56 |          1        0.01       98.97
-         60 |          4        0.04       99.01
-         71 |          1        0.01       99.02
-         84 |          1        0.01       99.02
-         88 |          1        0.01       99.03
-         90 |          3        0.03       99.06
-        112 |          1        0.01       99.07
-        143 |          1        0.01       99.08
-        228 |          1        0.01       99.09
-        258 |          1        0.01       99.10
-        291 |          1        0.01       99.11
-        321 |          2        0.02       99.12
-        365 |          1        0.01       99.13
-        369 |          1        0.01       99.14
-       7777 |         45        0.41       99.55
-       9999 |         49        0.45      100.00
+          0 |        180        1.43        1.43
+          1 |      2,322       18.45       19.88
+          2 |      1,376       10.93       30.81
+          3 |        926        7.36       38.17
+          4 |        540        4.29       42.46
+          5 |        631        5.01       47.48
+          6 |        532        4.23       51.70
+          7 |        359        2.85       54.56
+          8 |        343        2.73       57.28
+          9 |        272        2.16       59.44
+         10 |        494        3.93       63.37
+         11 |        158        1.26       64.62
+         12 |        232        1.84       66.47
+         13 |        151        1.20       67.67
+         14 |        124        0.99       68.65
+         15 |        403        3.20       71.86
+         16 |        113        0.90       72.75
+         17 |        111        0.88       73.64
+         18 |        159        1.26       74.90
+         19 |         81        0.64       75.54
+         20 |        557        4.43       79.97
+         21 |         75        0.60       80.56
+         22 |        131        1.04       81.61
+         23 |        100        0.79       82.40
+         24 |         99        0.79       83.19
+         25 |        380        3.02       86.21
+         26 |         86        0.68       86.89
+         27 |         99        0.79       87.68
+         28 |        101        0.80       88.48
+         29 |         73        0.58       89.06
+         30 |        453        3.60       92.66
+         31 |         61        0.48       93.14
+         32 |        106        0.84       93.98
+         33 |         79        0.63       94.61
+         34 |         53        0.42       95.03
+         35 |        178        1.41       96.45
+         36 |         58        0.46       96.91
+         37 |         36        0.29       97.20
+         38 |         50        0.40       97.59
+         39 |         30        0.24       97.83
+         40 |         67        0.53       98.36
+         41 |         10        0.08       98.44
+         42 |          6        0.05       98.49
+         43 |          6        0.05       98.54
+         44 |          3        0.02       98.56
+         45 |          5        0.04       98.60
+         46 |          1        0.01       98.61
+         47 |          1        0.01       98.62
+         48 |          2        0.02       98.63
+         50 |          1        0.01       98.64
+         55 |          2        0.02       98.66
+         56 |          1        0.01       98.67
+         60 |          5        0.04       98.70
+         68 |          1        0.01       98.71
+         71 |          1        0.01       98.72
+         84 |          1        0.01       98.73
+         88 |          1        0.01       98.74
+         90 |          3        0.02       98.76
+        112 |          1        0.01       98.77
+        120 |          1        0.01       98.78
+        143 |          1        0.01       98.78
+        228 |          1        0.01       98.79
+        258 |          1        0.01       98.80
+        291 |          1        0.01       98.81
+        321 |          2        0.02       98.82
+        365 |          1        0.01       98.83
+        369 |          1        0.01       98.84
+       7777 |         66        0.52       99.36
+       9999 |         80        0.64      100.00
 ------------+-----------------------------------
-      Total |     10,966      100.00
+      Total |     12,585      100.00
 
 
   Last time |
@@ -575,15 +577,15 @@ ta duq220u</code></pre>
 hashish/uni |
           t |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          1 |      2,446       22.35       22.35
-          2 |        641        5.86       28.21
-          3 |      1,344       12.28       40.49
-          4 |      6,442       58.87       99.36
-          7 |         32        0.29       99.65
-          9 |         38        0.35      100.00
+          1 |      2,695       21.45       21.45
+          2 |        710        5.65       27.11
+          3 |      1,534       12.21       39.32
+          4 |      7,501       59.71       99.03
+          7 |         53        0.42       99.45
+          9 |         69        0.55      100.00
 ------------+-----------------------------------
-      Total |     10,943      100.00</code></pre>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+      Total |     12,562      100.00</code></pre>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 recode duq200 2=0 1=1 7=. 9=., gen(MJ_cat)
   replace MJ_cat=2 if duq230&lt;77
@@ -596,9 +598,9 @@ ta MJ_cat,m
 ta MJ_cat duq200,m
 
 save,replace</code></pre>
-<pre><code>(9714 differences between duq200 and MJ_cat)
+<pre><code>(11027 differences between duq200 and MJ_cat)
 
-(3,176 real changes made)
+(3,501 real changes made)
 
 
 
@@ -608,42 +610,42 @@ save,replace</code></pre>
         Use |
    Category |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-  Never Use |      9,664       16.15       16.15
-   Past Use |      7,798       13.03       29.18
-Current Use |      3,176        5.31       34.49
-          . |     39,204       65.51      100.00
+  Never Use |     10,967       15.62       15.62
+   Past Use |      9,092       12.95       28.58
+Current Use |      3,501        4.99       33.57
+          . |     46,630       66.43      100.00
 ------------+-----------------------------------
-      Total |     59,842      100.00
+      Total |     70,190      100.00
 
 
    Cannabis |
         Use |       Ever used marijuana or hashish
    Category |         1          2          7          9 |     Total
 ------------+--------------------------------------------+----------
-  Never Use |         0      9,664          0          0 |     9,664 
-   Past Use |     7,798          0          0          0 |     7,798 
-Current Use |     3,176          0          0          0 |     3,176 
-          . |         0          0         29         21 |    39,204 
+  Never Use |         0     10,967          0          0 |    10,967 
+   Past Use |     9,092          0          0          0 |     9,092 
+Current Use |     3,501          0          0          0 |     3,501 
+          . |         0          0         34         26 |    46,630 
 ------------+--------------------------------------------+----------
-      Total |    10,974      9,664         29         21 |    59,842 
+      Total |    12,593     10,967         34         26 |    70,190 
 
             | Ever used
    Cannabis | marijuana
         Use | or hashish
    Category |         . |     Total
 ------------+-----------+----------
-  Never Use |         0 |     9,664 
-   Past Use |         0 |     7,798 
-Current Use |         0 |     3,176 
-          . |    39,154 |    39,204 
+  Never Use |         0 |    10,967 
+   Past Use |         0 |     9,092 
+Current Use |         0 |     3,501 
+          . |    46,570 |    46,630 
 ------------+-----------+----------
-      Total |    39,154 |    59,842 
+      Total |    46,570 |    70,190 
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="mj-frequency-categories" class="section level2">
 <h2>MJ Frequency Categories</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 recode duq230 min/10=0 11/20=1 21/30=2 31/max=., gen(MJ_freq)
 
@@ -655,7 +657,7 @@ ta MJ_freq,m
 ta MJ_freq duq200,m
 
 save,replace</code></pre>
-<pre><code>(3186 differences between duq230 and MJ_freq)
+<pre><code>(3514 differences between duq230 and MJ_freq)
 
 
 
@@ -667,12 +669,12 @@ save,replace</code></pre>
 In the Past |
     30 Days |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-  1-10 days |      1,788        2.99        2.99
- 11-20 days |        425        0.71        3.70
- 21-30 days |        963        1.61        5.31
-          . |     56,666       94.69      100.00
+  1-10 days |      1,993        2.84        2.84
+ 11-20 days |        472        0.67        3.51
+ 21-30 days |      1,036        1.48        4.99
+          . |     66,689       95.01      100.00
 ------------+-----------------------------------
-      Total |     59,842      100.00
+      Total |     70,190      100.00
 
 
   Cannabis |
@@ -682,18 +684,18 @@ In the Past |
    Past 30 |             Ever used marijuana or hashish
       Days |         1          2          7          9          . |     Total
 -----------+-------------------------------------------------------+----------
- 1-10 days |     1,788          0          0          0          0 |     1,788 
-11-20 days |       425          0          0          0          0 |       425 
-21-30 days |       963          0          0          0          0 |       963 
-         . |     7,798      9,664         29         21     39,154 |    56,666 
+ 1-10 days |     1,993          0          0          0          0 |     1,993 
+11-20 days |       472          0          0          0          0 |       472 
+21-30 days |     1,036          0          0          0          0 |     1,036 
+         . |     9,092     10,967         34         26     46,570 |    66,689 
 -----------+-------------------------------------------------------+----------
-     Total |    10,974      9,664         29         21     39,154 |    59,842 
+     Total |    12,593     10,967         34         26     46,570 |    70,190 
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="generate-missing-mj-variable" class="section level2">
 <h2>Generate Missing MJ Variable</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 gen MJ_miss=0
   replace MJ_miss=1 if MJ_cat==.
@@ -706,34 +708,34 @@ ta MJ_miss,m
 ta MJ_miss BP_miss,m
 
 save,replace</code></pre>
-<pre><code>(39,204 real changes made)
+<pre><code>(46,630 real changes made)
 
       Meets MJ |
      Inclusion |
       Criteria |      Freq.     Percent        Cum.
 ---------------+-----------------------------------
-Not Missing MJ |     20,638       34.49       34.49
-    Missing MJ |     39,204       65.51      100.00
+Not Missing MJ |     23,560       33.57       33.57
+    Missing MJ |     46,630       66.43      100.00
 ---------------+-----------------------------------
-         Total |     59,842      100.00
+         Total |     70,190      100.00
 
       Meets MJ |  Meets BP Inclusion
      Inclusion |       Criteria
       Criteria | Not Missi  Missing B |     Total
 ---------------+----------------------+----------
-Not Missing MJ |    19,811        827 |    20,638 
-    Missing MJ |    22,863     16,341 |    39,204 
+Not Missing MJ |    22,321      1,239 |    23,560 
+    Missing MJ |    26,462     20,168 |    46,630 
 ---------------+----------------------+----------
-         Total |    42,674     17,168 |    59,842 
+         Total |    48,783     21,407 |    70,190 
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 </div>
 <div id="inclusion-criteria" class="section level1">
 <h1>Inclusion criteria</h1>
 <div id="mec-examined" class="section level2">
 <h2>MEC Examined</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 gen MEC_response=1 
   replace MEC_response=0 if wtmec2yr==0
 
@@ -746,7 +748,7 @@ ta MEC_response BP_miss,m
 ta MEC_response MJ_miss,m
 
 save,replace</code></pre>
-<pre><code>(2,428 real changes made)
+<pre><code>(2,826 real changes made)
 
 
 
@@ -754,38 +756,38 @@ save,replace</code></pre>
 
    MEC Response |      Freq.     Percent        Cum.
 ----------------+-----------------------------------
-Did not respond |      2,428        4.06        4.06
-      Responded |     57,414       95.94      100.00
+Did not respond |      2,826        4.03        4.03
+      Responded |     67,364       95.97      100.00
 ----------------+-----------------------------------
-          Total |     59,842      100.00
+          Total |     70,190      100.00
 
                 |  Meets BP Inclusion
                 |       Criteria
    MEC Response | Not Missi  Missing B |     Total
 ----------------+----------------------+----------
-Did not respond |         0      2,428 |     2,428 
-      Responded |    42,674     14,740 |    57,414 
+Did not respond |         0      2,826 |     2,826 
+      Responded |    48,783     18,581 |    67,364 
 ----------------+----------------------+----------
-          Total |    42,674     17,168 |    59,842 
+          Total |    48,783     21,407 |    70,190 
 
                 |  Meets MJ Inclusion
                 |       Criteria
    MEC Response | Not Missi  Missing M |     Total
 ----------------+----------------------+----------
-Did not respond |         0      2,428 |     2,428 
-      Responded |    20,638     36,776 |    57,414 
+Did not respond |         0      2,826 |     2,826 
+      Responded |    23,560     43,804 |    67,364 
 ----------------+----------------------+----------
-          Total |    20,638     39,204 |    59,842 
+          Total |    23,560     46,630 |    70,190 
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
-<div id="age-inclusion-criteria-20-69-years" class="section level2">
-<h2>Age Inclusion Criteria, 20-69 Years</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<div id="age-inclusion-criteria-20-59-years" class="section level2">
+<h2>Age Inclusion Criteria, 20-59 Years</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
-recode ridageyr min/19=1 20/69=0 70/85=1 86/max=., gen(AGE_exclude)
+recode ridageyr min/19=1 20/59=0 60/85=1 86/max=., gen(AGE_exclude)
 
-label define AGE_exclude 0 &quot;Age 20-69&quot; 1 &quot;Age Excluded&quot;
+label define AGE_exclude 0 &quot;Age 20-59&quot; 1 &quot;Age Excluded&quot;
 label values AGE_exclude AGE_exclude
 label variable AGE_exclude &quot;Meets Age Inclusion Criteria&quot;
 
@@ -794,7 +796,7 @@ ta AGE_exclude BP_miss,m
 ta AGE_exclude MJ_miss,m
 
 save,replace</code></pre>
-<pre><code>(58196 differences between ridageyr and AGE_exclude)
+<pre><code>(68185 differences between ridageyr and AGE_exclude)
 
 
 
@@ -804,36 +806,36 @@ save,replace</code></pre>
    Inclusion |
     Criteria |      Freq.     Percent        Cum.
 -------------+-----------------------------------
-   Age 20-69 |     28,721       47.99       47.99
-Age Excluded |     31,121       52.01      100.00
+   Age 20-59 |     26,269       37.43       37.43
+Age Excluded |     43,921       62.57      100.00
 -------------+-----------------------------------
-       Total |     59,842      100.00
+       Total |     70,190      100.00
 
 
    Meets Age |  Meets BP Inclusion
    Inclusion |       Criteria
     Criteria | Not Missi  Missing B |     Total
 -------------+----------------------+----------
-   Age 20-69 |    26,046      2,675 |    28,721 
-Age Excluded |    16,628     14,493 |    31,121 
+   Age 20-59 |    23,411      2,858 |    26,269 
+Age Excluded |    25,372     18,549 |    43,921 
 -------------+----------------------+----------
-       Total |    42,674     17,168 |    59,842 
+       Total |    48,783     21,407 |    70,190 
 
 
    Meets Age |  Meets MJ Inclusion
    Inclusion |       Criteria
     Criteria | Not Missi  Missing M |     Total
 -------------+----------------------+----------
-   Age 20-69 |    19,286      9,435 |    28,721 
-Age Excluded |     1,352     29,769 |    31,121 
+   Age 20-59 |    22,208      4,061 |    26,269 
+Age Excluded |     1,352     42,569 |    43,921 
 -------------+----------------------+----------
-       Total |    20,638     39,204 |    59,842 
+       Total |    23,560     46,630 |    70,190 
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="overall-inclusion-age-bp-mj" class="section level2">
 <h2>Overall Inclusion, Age, BP, MJ</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 gen include=0
   replace include=1 if BP_miss==0 &amp; MJ_miss==0 &amp; AGE_exclude==0
@@ -848,81 +850,70 @@ ta include MJ_miss,m
 ta include AGE_exclude,m
 
 save,replace</code></pre>
-<pre><code>(18,510 real changes made)
+<pre><code>(21,020 real changes made)
 
       Meets |
     Overall |
   Inclusion |
    Criteria |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-   Excluded |     41,332       69.07       69.07
-   Included |     18,510       30.93      100.00
+   Excluded |     49,170       70.05       70.05
+   Included |     21,020       29.95      100.00
 ------------+-----------------------------------
-      Total |     59,842      100.00
+      Total |     70,190      100.00
 
      Meets |
    Overall |  Meets BP Inclusion
  Inclusion |       Criteria
   Criteria | Not Missi  Missing B |     Total
 -----------+----------------------+----------
-  Excluded |    24,164     17,168 |    41,332 
-  Included |    18,510          0 |    18,510 
+  Excluded |    27,763     21,407 |    49,170 
+  Included |    21,020          0 |    21,020 
 -----------+----------------------+----------
-     Total |    42,674     17,168 |    59,842 
+     Total |    48,783     21,407 |    70,190 
 
      Meets |
    Overall |  Meets MJ Inclusion
  Inclusion |       Criteria
   Criteria | Not Missi  Missing M |     Total
 -----------+----------------------+----------
-  Excluded |     2,128     39,204 |    41,332 
-  Included |    18,510          0 |    18,510 
+  Excluded |     2,540     46,630 |    49,170 
+  Included |    21,020          0 |    21,020 
 -----------+----------------------+----------
-     Total |    20,638     39,204 |    59,842 
+     Total |    23,560     46,630 |    70,190 
 
      Meets |
    Overall |  Meets Age Inclusion
  Inclusion |       Criteria
-  Criteria | Age 20-69  Age Exclu |     Total
+  Criteria | Age 20-59  Age Exclu |     Total
 -----------+----------------------+----------
-  Excluded |    10,211     31,121 |    41,332 
-  Included |    18,510          0 |    18,510 
+  Excluded |     5,249     43,921 |    49,170 
+  Included |    21,020          0 |    21,020 
 -----------+----------------------+----------
-     Total |    28,721     31,121 |    59,842 
+     Total |    26,269     43,921 |    70,190 
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 </div>
 <div id="covariate-coding" class="section level1">
 <h1>Covariate Coding</h1>
 <div id="raceethnicity" class="section level2">
 <h2>Race/Ethnicity</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
-ta ridreth1
+#ta ridreth1
 recode ridreth1 1=3 2=4 3=1 4=2 5=4, gen(race_eth)
 
 label define race_eth 1 &quot;White-NH&quot; 2 &quot;Black_NH&quot; 3 &quot;Mex Am&quot; 4 &quot;Oth&quot;
 label values race_eth race_eth
 label variable include &quot;Recoded Race &amp; Ethnicity&quot;
-ta race_eth
 
+ta race_eth
 ta ridreth1 race_eth,m
 
 save,replace</code></pre>
-<pre><code>Race/Ethnic |
-      ity - |
-     Recode |      Freq.     Percent        Cum.
-------------+-----------------------------------
-          1 |     10,914       18.24       18.24
-          2 |      6,498       10.86       29.10
-          3 |     21,398       35.76       64.85
-          4 |     13,362       22.33       87.18
-          5 |      7,670       12.82      100.00
-------------+-----------------------------------
-      Total |     59,842      100.00
-
-(59842 differences between ridreth1 and race_eth)
+<pre><code>Unknown #command
+(70190 differences between ridreth1 and race_eth)
 
 
 
@@ -934,87 +925,71 @@ save,replace</code></pre>
      city - |
     Recode) |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-   White-NH |     21,398       35.76       35.76
-   Black_NH |     13,362       22.33       58.09
-     Mex Am |     10,914       18.24       76.32
-        Oth |     14,168       23.68      100.00
+   White-NH |     25,326       36.08       36.08
+   Black_NH |     16,072       22.90       58.98
+     Mex Am |     13,761       19.61       78.59
+        Oth |     15,031       21.41      100.00
 ------------+-----------------------------------
-      Total |     59,842      100.00
+      Total |     70,190      100.00
 
 
 Race/Ethni |    RECODE of ridreth1 (Race/Ethnicity -
     city - |                   Recode)
     Recode |  White-NH   Black_NH     Mex Am        Oth |     Total
 -----------+--------------------------------------------+----------
-         1 |         0          0     10,914          0 |    10,914 
-         2 |         0          0          0      6,498 |     6,498 
-         3 |    21,398          0          0          0 |    21,398 
-         4 |         0     13,362          0          0 |    13,362 
-         5 |         0          0          0      7,670 |     7,670 
+         1 |         0          0     13,761          0 |    13,761 
+         2 |         0          0          0      6,847 |     6,847 
+         3 |    25,326          0          0          0 |    25,326 
+         4 |         0     16,072          0          0 |    16,072 
+         5 |         0          0          0      8,184 |     8,184 
 -----------+--------------------------------------------+----------
-     Total |    21,398     13,362     10,914     14,168 |    59,842 
+     Total |    25,326     16,072     13,761     15,031 |    70,190 
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="smoking" class="section level2">
 <h2>Smoking</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
-recode smd650 min/10=1 11/20=2 21/95=3 96/max=., gen(SMK_cat)
-  replace SMK_cat=0 if smq040==3
+recode smd650 min/10=2 11/20=3 21/95=4 96/max=., gen(SMK_cat)
+  replace SMK_cat=1 if smq040==3
+  replace SMK_cat=0 if smq020==2
 
-label define SMK_cat 0 &quot;Never&quot; 1 &quot;Light, 1-10 cif/day&quot; 2 &quot;Moderate, 11-20 cig/day&quot; 3 &quot;Heavy, 21+ cig/day&quot;
+label define SMK_cat 0 &quot;Never&quot; 1 &quot;Past Smoker&quot; 2 &quot;Light, 1-10 cif/day&quot; 3 &quot;Moderate, 11-20 cig/day&quot; 4 &quot;Heavy, 21+ cig/day&quot;
 label values SMK_cat SMK_cat
 label variable SMK_cat &quot;Smoking Category&quot;
 
 ta SMK_cat,m
-ta SMK_cat BP_miss,m
-ta SMK_cat MJ_miss,m
+# ta SMK_cat smd650,m
+# ta SMK_cat BP_miss,m
+# ta SMK_cat MJ_miss,m
 
 save,replace</code></pre>
-<pre><code>(6856 differences between smd650 and SMK_cat)
+<pre><code>(8343 differences between smd650 and SMK_cat)
 
-(8,268 real changes made)
+(9,527 real changes made)
+
+(22,876 real changes made)
 
        Smoking Category |      Freq.     Percent        Cum.
 ------------------------+-----------------------------------
-                  Never |      8,268       13.82       13.82
-    Light, 1-10 cif/day |      4,838        8.08       21.90
-Moderate, 11-20 cig/day |      2,154        3.60       25.50
-     Heavy, 21+ cig/day |        570        0.95       26.45
-                      . |     44,012       73.55      100.00
+                  Never |     22,876       32.59       32.59
+            Past Smoker |      9,527       13.57       46.16
+    Light, 1-10 cif/day |      5,689        8.11       54.27
+Moderate, 11-20 cig/day |      2,540        3.62       57.89
+     Heavy, 21+ cig/day |        718        1.02       58.91
+                      . |     28,840       41.09      100.00
 ------------------------+-----------------------------------
-                  Total |     59,842      100.00
+                  Total |     70,190      100.00
 
-                      |  Meets BP Inclusion
-                      |       Criteria
-     Smoking Category | Not Missi  Missing B |     Total
-----------------------+----------------------+----------
-                Never |     7,487        781 |     8,268 
-  Light, 1-10 cif/day |     4,373        465 |     4,838 
-Moderate, 11-20 cig/d |     1,967        187 |     2,154 
-   Heavy, 21+ cig/day |       524         46 |       570 
-                    . |    28,323     15,689 |    44,012 
-----------------------+----------------------+----------
-                Total |    42,674     17,168 |    59,842 
-
-                      |  Meets MJ Inclusion
-                      |       Criteria
-     Smoking Category | Not Missi  Missing M |     Total
-----------------------+----------------------+----------
-                Never |     3,307      4,961 |     8,268 
-  Light, 1-10 cif/day |     3,080      1,758 |     4,838 
-Moderate, 11-20 cig/d |     1,451        703 |     2,154 
-   Heavy, 21+ cig/day |       382        188 |       570 
-                    . |    12,418     31,594 |    44,012 
-----------------------+----------------------+----------
-                Total |    20,638     39,204 |    59,842 
-
-file data\NHANES0718_new.dta saved</code></pre>
+Unknown #command
+Unknown #command
+Unknown #command
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="gender" class="section level2">
 <h2>Gender</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 recode riagendr 2=0 1=1, gen(gndr)
 
@@ -1023,31 +998,24 @@ label values gndr gndr
 label variable gndr &quot;Gender&quot;
 
 ta gndr,m
-ta gndr riagendr,m
+# ta gndr riagendr,m
 
 save,replace</code></pre>
-<pre><code>(30213 differences between riagendr and gndr)
+<pre><code>(35481 differences between riagendr and gndr)
 
      Gender |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-     Female |     30,213       50.49       50.49
-       Male |     29,629       49.51      100.00
+     Female |     35,481       50.55       50.55
+       Male |     34,709       49.45      100.00
 ------------+-----------------------------------
-      Total |     59,842      100.00
+      Total |     70,190      100.00
 
-           |        Gender
-    Gender |         1          2 |     Total
------------+----------------------+----------
-    Female |         0     30,213 |    30,213 
-      Male |    29,629          0 |    29,629 
------------+----------------------+----------
-     Total |    29,629     30,213 |    59,842 
-
-file data\NHANES0718_new.dta saved</code></pre>
+Unknown #command
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="alcohol" class="section level2">
 <h2>Alcohol</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 recode alq130 min/2=0 3/4=1 5/95=2 99/max=., gen(AL_cat)
   replace AL_cat=0 if alq101==2
@@ -1059,17 +1027,17 @@ label values AL_cat AL_cat
 label variable AL_cat &quot;Alcohol Use Category&quot;
 
 ta AL_cat,m
-ta AL_cat BP_miss,m
-ta AL_cat MJ_miss,m
+# ta AL_cat BP_miss,m
+# ta AL_cat MJ_miss,m
 
 save,replace</code></pre>
-<pre><code>(20793 differences between alq130 and AL_cat)
+<pre><code>(23615 differences between alq130 and AL_cat)
 
-(6,127 real changes made)
+(7,209 real changes made)
 
-(2,894 real changes made)
+(3,288 real changes made)
 
-(541 real changes made)
+(632 real changes made)
 
 
 
@@ -1078,42 +1046,20 @@ save,replace</code></pre>
 Alcohol Use |
    Category |      Freq.     Percent        Cum.
 ------------+-----------------------------------
- None-Light |     16,224       27.11       27.11
-   Moderate |      6,758       11.29       38.40
-      Heavy |      3,709        6.20       44.60
-          . |     33,151       55.40      100.00
+ None-Light |     18,640       26.56       26.56
+   Moderate |      7,686       10.95       37.51
+      Heavy |      4,232        6.03       43.54
+          . |     39,632       56.46      100.00
 ------------+-----------------------------------
-      Total |     59,842      100.00
+      Total |     70,190      100.00
 
-
-   Alcohol |  Meets BP Inclusion
-       Use |       Criteria
-  Category | Not Missi  Missing B |     Total
------------+----------------------+----------
-None-Light |    15,474        750 |    16,224 
-  Moderate |     6,490        268 |     6,758 
-     Heavy |     3,573        136 |     3,709 
-         . |    17,137     16,014 |    33,151 
------------+----------------------+----------
-     Total |    42,674     17,168 |    59,842 
-
-
-   Alcohol |  Meets MJ Inclusion
-       Use |       Criteria
-  Category | Not Missi  Missing M |     Total
------------+----------------------+----------
-None-Light |     9,538      6,686 |    16,224 
-  Moderate |     5,410      1,348 |     6,758 
-     Heavy |     3,296        413 |     3,709 
-         . |     2,394     30,757 |    33,151 
------------+----------------------+----------
-     Total |    20,638     39,204 |    59,842 
-
-file data\NHANES0718_new.dta saved</code></pre>
+Unknown #command
+Unknown #command
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="healthy-eating-index" class="section level2">
 <h2>Healthy Eating Index</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 replace hei2015_total_score=. if dr1tkcal&lt;500
 replace hei2015_total_score=. if dr1tkcal&gt;5000
@@ -1126,27 +1072,27 @@ su hei2015_total_score
 su hei2015_total_score if include==1
 
 save,replace</code></pre>
-<pre><code>(402 real changes made, 402 to missing)
+<pre><code>(467 real changes made, 467 to missing)
 
-(553 real changes made, 553 to missing)
+(688 real changes made, 688 to missing)
 
-(605 real changes made, 605 to missing)
+(684 real changes made, 684 to missing)
 
-(6,757 real changes made, 6,757 to missing)
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-hei2015_to~e |     40,301    53.01033    13.00621   15.21765   99.54978
+(7,605 real changes made, 7,605 to missing)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-hei2015_to~e |     14,900    52.81367    13.22752   15.79113   98.74886
+hei2015_to~e |     47,723    52.69514    12.90443   15.21765   99.54978
 
-file data\NHANES0718_new.dta saved</code></pre>
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+hei2015_to~e |     17,002    52.63895    13.13418   15.79113   98.74886
+
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 <div id="education-category" class="section level2">
 <h2>Education Category</h2>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 recode dmdeduc2 1=1 2=2 3=3 4=4 5=5 7=. 9=., gen(EDUC_cat)
 label define EDUC_cat 1 &quot;Less than 9th Grade&quot; 2 &quot;Less than High School&quot; 3 &quot;High School/GED&quot; 4 &quot;Some College&quot; 5 &quot;College Graduate&quot;
@@ -1156,7 +1102,7 @@ label variable include &quot;Recode Education Level&quot;
 ta dmdeduc2 EDUC_cat,m
 
 save,replace</code></pre>
-<pre><code>(52 differences between dmdeduc2 and EDUC_cat)
+<pre><code>(61 differences between dmdeduc2 and EDUC_cat)
 
 
 
@@ -1166,16 +1112,16 @@ save,replace</code></pre>
    Level - |   RECODE of dmdeduc2 (Education Level - Adults 20+)
 Adults 20+ | Less than  Less than  High Scho  Some Coll  College G |     Total
 -----------+-------------------------------------------------------+----------
-         1 |     3,754          0          0          0          0 |     3,754 
-         2 |         0      4,942          0          0          0 |     4,942 
-         3 |         0          0      7,921          0          0 |     7,921 
-         4 |         0          0          0     10,144          0 |    10,144 
-         5 |         0          0          0          0      7,957 |     7,957 
-         7 |         0          0          0          0          0 |        13 
-         9 |         0          0          0          0          0 |        39 
-         . |         0          0          0          0          0 |    25,072 
+         1 |     4,382          0          0          0          0 |     4,382 
+         2 |         0      5,708          0          0          0 |     5,708 
+         3 |         0          0      9,102          0          0 |     9,102 
+         4 |         0          0          0     11,561          0 |    11,561 
+         5 |         0          0          0          0      8,935 |     8,935 
+         7 |         0          0          0          0          0 |        19 
+         9 |         0          0          0          0          0 |        42 
+         . |         0          0          0          0          0 |    30,441 
 -----------+-------------------------------------------------------+----------
-     Total |     3,754      4,942      7,921     10,144      7,957 |    59,842 
+     Total |     4,382      5,708      9,102     11,561      8,935 |    70,190 
 
            | RECODE of
            |  dmdeduc2
@@ -1185,23 +1131,23 @@ Adults 20+ | Less than  Less than  High Scho  Some Coll  College G |     Total
    Level - |    20+)
 Adults 20+ |         . |     Total
 -----------+-----------+----------
-         1 |         0 |     3,754 
-         2 |         0 |     4,942 
-         3 |         0 |     7,921 
-         4 |         0 |    10,144 
-         5 |         0 |     7,957 
-         7 |        13 |        13 
-         9 |        39 |        39 
-         . |    25,072 |    25,072 
+         1 |         0 |     4,382 
+         2 |         0 |     5,708 
+         3 |         0 |     9,102 
+         4 |         0 |    11,561 
+         5 |         0 |     8,935 
+         7 |        19 |        19 
+         9 |        42 |        42 
+         . |    30,441 |    30,441 
 -----------+-----------+----------
-     Total |    25,124 |    59,842 
+     Total |    30,502 |    70,190 
 
-file data\NHANES0718_new.dta saved</code></pre>
+file data\NHANES0518_new.dta saved</code></pre>
 </div>
 </div>
 <div id="cross-tabulation-of-missing-variables-for-t1" class="section level1">
 <h1>Cross tabulation of missing variables for T1</h1>
-<pre class="stata"><code>use &quot;data\NHANES0718_new.dta&quot;, clear
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 ta EDUC_cat include,m
 ta gndr include,m
 ta SMK_cat include,m
@@ -1226,47 +1172,48 @@ ta HEI_miss include,m</code></pre>
    (Education Level - |         Level
           Adults 20+) |  Excluded   Included |     Total
 ----------------------+----------------------+----------
-  Less than 9th Grade |     2,510      1,244 |     3,754 
-Less than High School |     2,392      2,550 |     4,942 
-      High School/GED |     3,752      4,169 |     7,921 
-         Some College |     4,205      5,939 |    10,144 
-     College Graduate |     3,356      4,601 |     7,957 
-                    . |    25,117          7 |    25,124 
+  Less than 9th Grade |     2,940      1,442 |     4,382 
+Less than High School |     2,798      2,910 |     5,708 
+      High School/GED |     4,364      4,738 |     9,102 
+         Some College |     4,807      6,754 |    11,561 
+     College Graduate |     3,767      5,168 |     8,935 
+                    . |    30,494          8 |    30,502 
 ----------------------+----------------------+----------
-                Total |    41,332     18,510 |    59,842 
+                Total |    49,170     21,020 |    70,190 
 
            |   Recode Education
            |         Level
     Gender |  Excluded   Included |     Total
 -----------+----------------------+----------
-    Female |    20,860      9,353 |    30,213 
-      Male |    20,472      9,157 |    29,629 
+    Female |    24,802     10,679 |    35,481 
+      Male |    24,368     10,341 |    34,709 
 -----------+----------------------+----------
-     Total |    41,332     18,510 |    59,842 
+     Total |    49,170     21,020 |    70,190 
 
                       |   Recode Education
                       |         Level
      Smoking Category |  Excluded   Included |     Total
 ----------------------+----------------------+----------
-                Never |     5,088      3,180 |     8,268 
-  Light, 1-10 cif/day |     2,067      2,771 |     4,838 
-Moderate, 11-20 cig/d |       793      1,361 |     2,154 
-   Heavy, 21+ cig/day |       201        369 |       570 
-                    . |    33,183     10,829 |    44,012 
+                Never |    10,717     12,159 |    22,876 
+          Past Smoker |     5,862      3,665 |     9,527 
+  Light, 1-10 cif/day |     2,568      3,121 |     5,689 
+Moderate, 11-20 cig/d |       974      1,566 |     2,540 
+   Heavy, 21+ cig/day |       260        458 |       718 
+                    . |    28,789         51 |    28,840 
 ----------------------+----------------------+----------
-                Total |    41,332     18,510 |    59,842 
+                Total |    49,170     21,020 |    70,190 
 
 
    Alcohol |   Recode Education
        Use |         Level
   Category |  Excluded   Included |     Total
 -----------+----------------------+----------
-None-Light |     7,640      8,584 |    16,224 
-  Moderate |     1,772      4,986 |     6,758 
-     Heavy |       685      3,024 |     3,709 
-         . |    31,235      1,916 |    33,151 
+None-Light |     8,812      9,828 |    18,640 
+  Moderate |     2,028      5,658 |     7,686 
+     Heavy |       805      3,427 |     4,232 
+         . |    37,525      2,107 |    39,632 
 -----------+----------------------+----------
-     Total |    41,332     18,510 |    59,842 
+     Total |    49,170     21,020 |    70,190 
 
 
 (0 real changes made)
@@ -1275,45 +1222,156 @@ None-Light |     7,640      8,584 |    16,224
            |         Level
   AGE_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
-         0 |    41,332     18,510 |    59,842 
+         0 |    49,170     21,020 |    70,190 
 -----------+----------------------+----------
-     Total |    41,332     18,510 |    59,842 
+     Total |    49,170     21,020 |    70,190 
 
 
-(7,151 real changes made)
+(8,550 real changes made)
 
            |   Recode Education
            |         Level
   BMI_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
-         0 |    34,262     18,429 |    52,691 
-         1 |     7,070         81 |     7,151 
+         0 |    40,709     20,931 |    61,640 
+         1 |     8,461         89 |     8,550 
 -----------+----------------------+----------
-     Total |    41,332     18,510 |    59,842 
+     Total |    49,170     21,020 |    70,190 
 
 
-(5,798 real changes made)
+(6,332 real changes made)
 
            |   Recode Education
            |         Level
   PIR_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
-         0 |    37,024     17,020 |    54,044 
-         1 |     4,308      1,490 |     5,798 
+         0 |    44,412     19,446 |    63,858 
+         1 |     4,758      1,574 |     6,332 
 -----------+----------------------+----------
-     Total |    41,332     18,510 |    59,842 
+     Total |    49,170     21,020 |    70,190 
 
 
-(19,541 real changes made)
+(22,467 real changes made)
 
            |   Recode Education
            |         Level
   HEI_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
-         0 |    25,401     14,900 |    40,301 
-         1 |    15,931      3,610 |    19,541 
+         0 |    30,721     17,002 |    47,723 
+         1 |    18,449      4,018 |    22,467 
 -----------+----------------------+----------
-     Total |    41,332     18,510 |    59,842 </code></pre>
+     Total |    49,170     21,020 |    70,190 </code></pre>
+</div>
+<div id="cross-tabulation-of-missing-variables-for-t1-by-mj_cat" class="section level1">
+<h1>Cross tabulation of missing variables for T1, by MJ_cat</h1>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+ta EDUC_cat MJ_cat,m
+ta gndr MJ_cat,m
+ta SMK_cat MJ_cat,m
+ta AL_cat MJ_cat,m
+
+gen AGE_miss =0
+  replace AGE_miss=1 if ridageyr==.
+ta AGE_miss MJ_cat,m
+
+gen BMI_miss=0
+  replace BMI_miss=1 if bmxbmi==.
+ta BMI_miss MJ_cat,m
+
+gen PIR_miss=0
+  replace PIR_miss=1 if indfmpir==.
+ta PIR_miss MJ_cat,m
+
+gen HEI_miss=0
+  replace HEI_miss=1 if hei2015_total_score==.
+ta HEI_miss MJ_cat,m</code></pre>
+<pre><code>   RECODE of dmdeduc2 |
+   (Education Level - |            Cannabis Use Category
+          Adults 20+) | Never Use   Past Use  Current U          . |     Total
+----------------------+--------------------------------------------+----------
+  Less than 9th Grade |     1,200        251         82      2,849 |     4,382 
+Less than High School |     1,387      1,110        594      2,617 |     5,708 
+      High School/GED |     2,135      2,006        875      4,086 |     9,102 
+         Some College |     2,813      3,128      1,180      4,440 |    11,561 
+     College Graduate |     2,757      2,252        429      3,497 |     8,935 
+                    . |       675        345        341     29,141 |    30,502 
+----------------------+--------------------------------------------+----------
+                Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+           |            Cannabis Use Category
+    Gender | Never Use   Past Use  Current U          . |     Total
+-----------+--------------------------------------------+----------
+    Female |     6,331      4,382      1,334     23,434 |    35,481 
+      Male |     4,636      4,710      2,167     23,196 |    34,709 
+-----------+--------------------------------------------+----------
+     Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+                      |            Cannabis Use Category
+     Smoking Category | Never Use   Past Use  Current U          . |     Total
+----------------------+--------------------------------------------+----------
+                Never |     8,490      4,025      1,084      9,277 |    22,876 
+          Past Smoker |     1,046      2,268        542      5,671 |     9,527 
+  Light, 1-10 cif/day |       801      1,585      1,103      2,200 |     5,689 
+Moderate, 11-20 cig/d |       260        863        558        859 |     2,540 
+   Heavy, 21+ cig/day |        93        250        143        232 |       718 
+                    . |       277        101         71     28,391 |    28,840 
+----------------------+--------------------------------------------+----------
+                Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+
+   Alcohol |
+       Use |            Cannabis Use Category
+  Category | Never Use   Past Use  Current U          . |     Total
+-----------+--------------------------------------------+----------
+None-Light |     6,532      3,486        989      7,633 |    18,640 
+  Moderate |     2,057      2,870      1,239      1,520 |     7,686 
+     Heavy |     1,055      1,691      1,023        463 |     4,232 
+         . |     1,323      1,045        250     37,014 |    39,632 
+-----------+--------------------------------------------+----------
+     Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+
+(0 real changes made)
+
+           |            Cannabis Use Category
+  AGE_miss | Never Use   Past Use  Current U          . |     Total
+-----------+--------------------------------------------+----------
+         0 |    10,967      9,092      3,501     46,630 |    70,190 
+-----------+--------------------------------------------+----------
+     Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+
+(8,550 real changes made)
+
+           |            Cannabis Use Category
+  BMI_miss | Never Use   Past Use  Current U          . |     Total
+-----------+--------------------------------------------+----------
+         0 |    10,889      9,036      3,472     38,243 |    61,640 
+         1 |        78         56         29      8,387 |     8,550 
+-----------+--------------------------------------------+----------
+     Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+
+(6,332 real changes made)
+
+           |            Cannabis Use Category
+  PIR_miss | Never Use   Past Use  Current U          . |     Total
+-----------+--------------------------------------------+----------
+         0 |     9,885      8,570      3,267     42,136 |    63,858 
+         1 |     1,082        522        234      4,494 |     6,332 
+-----------+--------------------------------------------+----------
+     Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+
+(22,467 real changes made)
+
+           |            Cannabis Use Category
+  HEI_miss | Never Use   Past Use  Current U          . |     Total
+-----------+--------------------------------------------+----------
+         0 |     8,903      7,422      2,605     28,793 |    47,723 
+         1 |     2,064      1,670        896     17,837 |    22,467 
+-----------+--------------------------------------------+----------
+     Total |    10,967      9,092      3,501     46,630 |    70,190 </code></pre>
 </div>
 
 
