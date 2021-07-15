@@ -58,7 +58,7 @@ library(Statamarkdown)
 # Data for Flow Diagram
 
 ```{stata}
-use "data\NHANES0718_new.dta", clear
+use "data\NHANES0518_new.dta", clear
 
 ta MEC_response
 ta BP_miss MEC_response
