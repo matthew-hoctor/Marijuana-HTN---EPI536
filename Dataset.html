@@ -249,9 +249,124 @@ div.tocify {
 
 <div id="import-files" class="section level1">
 <h1>Import Files</h1>
+<div id="import-xpts-for-2005-2006" class="section level2">
+<h2>0 Import XPTs for 2005-2006</h2>
+<div id="demographics-demo_xyz.xpt" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
+<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
+<pre class="stata"><code>import sasxport5 &quot;data/2005-2006/DEMO_D.XPT&quot;
+save &quot;temp/2005-2006/DEMO_D.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2005-2006/DEMO_D.dta not found)
+file temp/2005-2006/DEMO_D.dta could not be opened
+r(603);
+
+end of do-file
+r(603);</code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2005-2006/DUQ_D.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
+save &quot;temp/2005-2006/DUQ_D.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2005-2006/DUQ_D.dta not found)
+file temp/2005-2006/DUQ_D.dta could not be opened
+r(603);
+
+end of do-file
+r(603);</code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2005-2006/BPX_D.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
+save &quot;temp/2005-2006/BPX_D.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2005-2006/BPX_D.dta not found)
+file temp/2005-2006/BPX_D.dta could not be opened
+r(603);
+
+end of do-file
+r(603);</code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2005-2006/BMX_D.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
+save &quot;temp/2005-2006/BMX_D.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2005-2006/BMX_D.dta not found)
+file temp/2005-2006/BMX_D.dta could not be opened
+r(603);
+
+end of do-file
+r(603);</code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2005-2006/SMQ_D.XPT&quot;
+keep seqn smq020 smq040 smd650
+save &quot;temp/2005-2006/SMQ_D.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2005-2006/SMQ_D.dta not found)
+file temp/2005-2006/SMQ_D.dta could not be opened
+r(603);
+
+end of do-file
+r(603);</code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2005-2006/ALQ_D.XPT&quot;
+keep seqn alq101 alq130
+save &quot;temp/2005-2006/ALQ_D.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2005-2006/ALQ_D.dta not found)
+file temp/2005-2006/ALQ_D.dta could not be opened
+r(603);
+
+end of do-file
+r(603);</code></pre>
+</div>
+<div id="day-1-nutrition-dr1tot_xyz.xpt" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2005-2006/DR1TOT_D.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2005-2006/DR1TOT_D.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2005-2006/DR1TOT_D.dta not found)
+file temp/2005-2006/DR1TOT_D.dta could not be opened
+r(603);
+
+end of do-file
+r(603);</code></pre>
+</div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2005-2006/DR2TOT_D.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2005-2006/DR2TOT_D.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>(note: file temp/2005-2006/DR2TOT_D.dta not found)
+file temp/2005-2006/DR2TOT_D.dta could not be opened
+r(603);
+
+end of do-file
+r(603);</code></pre>
+</div>
+</div>
 <div id="import-xpts-for-2007-2008" class="section level2">
 <h2>1 Import XPTs for 2007-2008</h2>
-<div id="demographics-demo_xyz.xpt" class="section level3">
+<div id="demographics-demo_xyz.xpt-1" class="section level3">
 <h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DEMO_E.XPT&quot;
@@ -263,267 +378,7 @@ clear</code></pre>
 
 Contains data from temp/2007-2008/DEMO_E.dta
   obs:        10,149                          
- vars:            43                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-sddsrvyr        double  %10.0g                Data Release Number
-ridstatr        double  %10.0g                Interview/Examination Status
-ridexmon        double  %10.0g                Six month time period
-riagendr        double  %10.0g                Gender
-ridageyr        double  %10.0g                Age at Screening Adjudicated -
-                                                Recode
-ridagemn        double  %10.0g                Age in Months at Screening -
-                                                Recode
-ridageex        double  %10.0g                Age in Months at Exam - Recode
-ridreth1        double  %10.0g                Race/Ethnicity - Recode
-dmqmilit        double  %10.0g                Served in the US Armed Forces
-dmdborn2        double  %10.0g                Country of Birth - Recode
-dmdcitzn        double  %10.0g                Citizenship Status
-dmdyrsus        double  %10.0g                Length of time in US
-dmdeduc3        double  %10.0g                Education Level - Children/Youth
-                                                6-19
-dmdeduc2        double  %10.0g                Education Level - Adults 20+
-dmdschol        double  %10.0g                Now attending school?
-dmdmartl        double  %10.0g                Marital Status
-dmdhhsiz        double  %10.0g                Total number of people in the
-                                                Household
-dmdfmsiz        double  %10.0g                Total number of people in the
-                                                Family
-indhhin2        double  %10.0g                Annual Household Income
-indfmin2        double  %10.0g                Annual Family Income
-indfmpir        double  %10.0g                Ratio of family income to poverty
-ridexprg        double  %10.0g                Pregnancy Status at Exam - Recode
-dmdhrgnd        double  %10.0g                HH Ref Person Gender
-dmdhrage        double  %10.0g                HH Ref Person Age
-dmdhrbr2        double  %10.0g                HH Ref Person Country of Birth
-dmdhredu        double  %10.0g                HH Ref Person Education Level
-dmdhrmar        double  %10.0g                HH Ref Person Marital Status
-dmdhsedu        double  %10.0g                HH Ref Person&#39;s Spouse Education
-                                                Level
-sialang         double  %10.0g                Language of SP Interview
-siaproxy        double  %10.0g                Proxy used in SP Interview?
-siaintrp        double  %10.0g                Interpreter used in SP Interview?
-fialang         double  %10.0g                Language of Family Interview
-fiaproxy        double  %10.0g                Proxy used in Family Interview?
-fiaintrp        double  %10.0g                Interpreter used in Family
-                                                Interview?
-mialang         double  %10.0g                Language of MEC Interview
-miaproxy        double  %10.0g                Proxy used in MEC Interview?
-miaintrp        double  %10.0g                Interpreter used in MEC
-                                                Interview?
-aialang         double  %10.0g                Language of ACASI Interview
-wtint2yr        double  %10.0g                Full Sample 2 Year Interview
-                                                Weight
-wtmec2yr        double  %10.0g                Full Sample 2 Year MEC Exam
-                                                Weight
-sdmvpsu         double  %10.0g                Masked Variance Pseudo-PSU
-sdmvstra        double  %10.0g                Masked Variance Pseudo-Stratum
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="drug-use-duq_xyz.xpt" class="section level3">
-<h3>Drug Use, DUQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DUQ_E.XPT&quot;
-keep seqn duq200 duq220q duq220u duq230 duq210
-save &quot;temp/2007-2008/DUQ_E.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2007-2008/DUQ_E.dta saved
-
-
-Contains data from temp/2007-2008/DUQ_E.dta
-  obs:         4,625                          
- vars:             6                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-duq200          double  %10.0g                Ever used marijuana or hashish
-duq210          double  %10.0g                Age when first tried marijuana
-duq220q         double  %10.0g                Last time used marijuana or
-                                                hashish
-duq220u         double  %10.0g                Last time used marijuana or
-                                                hashish/unit
-duq230          double  %10.0g                # days used marijuana or
-                                                hashish/month
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="blood-pressure-bpx_xyz.xpt" class="section level3">
-<h3>Blood Pressure, BPX_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/BPX_E.XPT&quot;
-keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
-save &quot;temp/2007-2008/BPX_E.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2007-2008/BPX_E.dta saved
-
-
-Contains data from temp/2007-2008/BPX_E.dta
-  obs:         9,762                          
- vars:             9                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-bpxsy1          double  %10.0g                Systolic:  Blood pres (1st rdg)
-                                                mm Hg
-bpxdi1          double  %10.0g                Diastolic:  Blood pres (1st rdg)
-                                                mm Hg
-bpxsy2          double  %10.0g                Systolic:  Blood pres (2nd rdg)
-                                                mm Hg
-bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
-                                                mm Hg
-bpxsy3          double  %10.0g                Systolic:  Blood pres (3rd rdg)
-                                                mm Hg
-bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
-                                                mm Hg
-bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
-                                                Hg
-bpxdi4          double  %10.0g                Diastolic:  Blood pres (4th rdg)
-                                                mm Hg
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="body-measurements-bmx_xyz.xpt" class="section level3">
-<h3>Body Measurements, BMX_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/BMX_E.XPT&quot;
-keep seqn bmxwt bmxbmi bmxht bmxwaist
-save &quot;temp/2007-2008/BMX_E.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2007-2008/BMX_E.dta saved
-
-
-Contains data from temp/2007-2008/BMX_E.dta
-  obs:         9,762                          
- vars:             5                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-bmxwt           double  %10.0g                Weight (kg)
-bmxht           double  %10.0g                Standing Height (cm)
-bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
-bmxwaist        double  %10.0g                Waist Circumference (cm)
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="smoking-smq_xyz.xpt" class="section level3">
-<h3>Smoking, SMQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/SMQ_E.XPT&quot;
-keep seqn smq040 smd650
-save &quot;temp/2007-2008/SMQ_E.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2007-2008/SMQ_E.dta saved
-
-
-Contains data from temp/2007-2008/SMQ_E.dta
-  obs:         7,145                          
- vars:             3                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-smq040          double  %10.0g                Do you now smoke cigarettes
-smd650          double  %10.0g                Avg # cigarettes/day during past
-                                                30 days
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="alcohol-alq_xyz.xpt" class="section level3">
-<h3>Alcohol, ALQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/ALQ_E.XPT&quot;
-keep seqn alq101 alq130
-save &quot;temp/2007-2008/ALQ_E.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2007-2008/ALQ_E.dta saved
-
-
-Contains data from temp/2007-2008/ALQ_E.dta
-  obs:         5,707                          
- vars:             3                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-alq101          double  %10.0g                Had at least 12 alcohol drinks/1
-                                                yr?
-alq130          double  %10.0g                Avg # alcoholic drinks/day -past
-                                                12 mos
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="day-1-nutrition-dr1tot_xyz.xpt" class="section level3">
-<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DR1TOT_E.XPT&quot;
-keep seqn dr1tkcal
-save &quot;temp/2007-2008/DR1TOT_E.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2007-2008/DR1TOT_E.dta saved
-
-
-Contains data from temp/2007-2008/DR1TOT_E.dta
-  obs:         9,762                          
- vars:             2                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-dr1tkcal        double  %10.0g                Energy (kcal)
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="day-2-nutrition-dr2tot_xyz.xpt" class="section level3">
-<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DR2TOT_E.XPT&quot;
-keep seqn dr2tkcal
-save &quot;temp/2007-2008/DR2TOT_E.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2007-2008/DR2TOT_E.dta saved
-
-
-Contains data from temp/2007-2008/DR2TOT_E.dta
-  obs:         9,762                          
- vars:             2                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-dr2tkcal        double  %10.0g                Energy (kcal)
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-</div>
-<div id="import-xpts-for-2009-2010" class="section level2">
-<h2>2 Import XPTs for 2009-2010</h2>
-<div id="demographics-demo_xyz.xpt-1" class="section level3">
-<h3>Demographics, DEMO_XYZ.XPT</h3>
-<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
-<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DEMO_F.XPT&quot;
-save &quot;temp/2009-2010/DEMO_F.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2009-2010/DEMO_F.dta saved
-
-
-Contains data from temp/2009-2010/DEMO_F.dta
-  obs:        10,537                          
- vars:            43                          13 Jul 2021 07:58
+ vars:            43                          14 Jul 2021 17:21
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -586,17 +441,17 @@ Sorted by: </code></pre>
 </div>
 <div id="drug-use-duq_xyz.xpt-1" class="section level3">
 <h3>Drug Use, DUQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DUQ_F.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DUQ_E.XPT&quot;
 keep seqn duq200 duq220q duq220u duq230 duq210
-save &quot;temp/2009-2010/DUQ_F.dta&quot;,replace
+save &quot;temp/2007-2008/DUQ_E.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2009-2010/DUQ_F.dta saved
+<pre><code>file temp/2007-2008/DUQ_E.dta saved
 
 
-Contains data from temp/2009-2010/DUQ_F.dta
-  obs:         5,302                          
- vars:             6                          13 Jul 2021 07:58
+Contains data from temp/2007-2008/DUQ_E.dta
+  obs:         4,625                          
+ vars:             6                          14 Jul 2021 17:21
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -615,6 +470,268 @@ Sorted by: </code></pre>
 </div>
 <div id="blood-pressure-bpx_xyz.xpt-1" class="section level3">
 <h3>Blood Pressure, BPX_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/BPX_E.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
+save &quot;temp/2007-2008/BPX_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/BPX_E.dta saved
+
+
+Contains data from temp/2007-2008/BPX_E.dta
+  obs:         9,762                          
+ vars:             9                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bpxsy1          double  %10.0g                Systolic:  Blood pres (1st rdg)
+                                                mm Hg
+bpxdi1          double  %10.0g                Diastolic:  Blood pres (1st rdg)
+                                                mm Hg
+bpxsy2          double  %10.0g                Systolic:  Blood pres (2nd rdg)
+                                                mm Hg
+bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
+                                                mm Hg
+bpxsy3          double  %10.0g                Systolic:  Blood pres (3rd rdg)
+                                                mm Hg
+bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
+                                                mm Hg
+bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
+                                                Hg
+bpxdi4          double  %10.0g                Diastolic:  Blood pres (4th rdg)
+                                                mm Hg
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt-1" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/BMX_E.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
+save &quot;temp/2007-2008/BMX_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/BMX_E.dta saved
+
+
+Contains data from temp/2007-2008/BMX_E.dta
+  obs:         9,762                          
+ vars:             5                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bmxwt           double  %10.0g                Weight (kg)
+bmxht           double  %10.0g                Standing Height (cm)
+bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
+bmxwaist        double  %10.0g                Waist Circumference (cm)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt-1" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/SMQ_E.XPT&quot;
+keep seqn smq020 smq040 smd650
+save &quot;temp/2007-2008/SMQ_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/SMQ_E.dta saved
+
+
+Contains data from temp/2007-2008/SMQ_E.dta
+  obs:         7,145                          
+ vars:             4                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smq040          double  %10.0g                Do you now smoke cigarettes
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt-1" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/ALQ_E.XPT&quot;
+keep seqn alq101 alq130
+save &quot;temp/2007-2008/ALQ_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/ALQ_E.dta saved
+
+
+Contains data from temp/2007-2008/ALQ_E.dta
+  obs:         5,707                          
+ vars:             3                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
+alq130          double  %10.0g                Avg # alcoholic drinks/day -past
+                                                12 mos
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-1-nutrition-dr1tot_xyz.xpt-1" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DR1TOT_E.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2007-2008/DR1TOT_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/DR1TOT_E.dta saved
+
+
+Contains data from temp/2007-2008/DR1TOT_E.dta
+  obs:         9,762                          
+ vars:             2                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr1tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt-1" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2007-2008/DR2TOT_E.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2007-2008/DR2TOT_E.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2007-2008/DR2TOT_E.dta saved
+
+
+Contains data from temp/2007-2008/DR2TOT_E.dta
+  obs:         9,762                          
+ vars:             2                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr2tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+</div>
+<div id="import-xpts-for-2009-2010" class="section level2">
+<h2>2 Import XPTs for 2009-2010</h2>
+<div id="demographics-demo_xyz.xpt-2" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
+<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DEMO_F.XPT&quot;
+save &quot;temp/2009-2010/DEMO_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2009-2010/DEMO_F.dta saved
+
+
+Contains data from temp/2009-2010/DEMO_F.dta
+  obs:        10,537                          
+ vars:            43                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+sddsrvyr        double  %10.0g                Data Release Number
+ridstatr        double  %10.0g                Interview/Examination Status
+ridexmon        double  %10.0g                Six month time period
+riagendr        double  %10.0g                Gender
+ridageyr        double  %10.0g                Age at Screening Adjudicated -
+                                                Recode
+ridagemn        double  %10.0g                Age in Months at Screening -
+                                                Recode
+ridageex        double  %10.0g                Age in Months at Exam - Recode
+ridreth1        double  %10.0g                Race/Ethnicity - Recode
+dmqmilit        double  %10.0g                Served in the US Armed Forces
+dmdborn2        double  %10.0g                Country of Birth - Recode
+dmdcitzn        double  %10.0g                Citizenship Status
+dmdyrsus        double  %10.0g                Length of time in US
+dmdeduc3        double  %10.0g                Education Level - Children/Youth
+                                                6-19
+dmdeduc2        double  %10.0g                Education Level - Adults 20+
+dmdschol        double  %10.0g                Now attending school?
+dmdmartl        double  %10.0g                Marital Status
+dmdhhsiz        double  %10.0g                Total number of people in the
+                                                Household
+dmdfmsiz        double  %10.0g                Total number of people in the
+                                                Family
+indhhin2        double  %10.0g                Annual Household Income
+indfmin2        double  %10.0g                Annual Family Income
+indfmpir        double  %10.0g                Ratio of family income to poverty
+ridexprg        double  %10.0g                Pregnancy Status at Exam - Recode
+dmdhrgnd        double  %10.0g                HH Ref Person Gender
+dmdhrage        double  %10.0g                HH Ref Person Age
+dmdhrbr2        double  %10.0g                HH Ref Person Country of Birth
+dmdhredu        double  %10.0g                HH Ref Person Education Level
+dmdhrmar        double  %10.0g                HH Ref Person Marital Status
+dmdhsedu        double  %10.0g                HH Ref Person&#39;s Spouse Education
+                                                Level
+sialang         double  %10.0g                Language of SP Interview
+siaproxy        double  %10.0g                Proxy used in SP Interview?
+siaintrp        double  %10.0g                Interpreter used in SP Interview?
+fialang         double  %10.0g                Language of Family Interview
+fiaproxy        double  %10.0g                Proxy used in Family Interview?
+fiaintrp        double  %10.0g                Interpreter used in Family
+                                                Interview?
+mialang         double  %10.0g                Language of MEC Interview
+miaproxy        double  %10.0g                Proxy used in MEC Interview?
+miaintrp        double  %10.0g                Interpreter used in MEC
+                                                Interview?
+aialang         double  %10.0g                Language of ACASI Interview
+wtint2yr        double  %10.0g                Full Sample 2 Year Interview
+                                                Weight
+wtmec2yr        double  %10.0g                Full Sample 2 Year MEC Exam
+                                                Weight
+sdmvpsu         double  %10.0g                Masked Variance Pseudo-PSU
+sdmvstra        double  %10.0g                Masked Variance Pseudo-Stratum
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt-2" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DUQ_F.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
+save &quot;temp/2009-2010/DUQ_F.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2009-2010/DUQ_F.dta saved
+
+
+Contains data from temp/2009-2010/DUQ_F.dta
+  obs:         5,302                          
+ vars:             6                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+duq200          double  %10.0g                Ever used marijuana or hashish
+duq210          double  %10.0g                Age when first tried marijuana
+duq220q         double  %10.0g                Last time used marijuana or
+                                                hashish
+duq220u         double  %10.0g                Last time used marijuana or
+                                                hashish/unit
+duq230          double  %10.0g                # days used marijuana or
+                                                hashish/month
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt-2" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/BPX_F.XPT&quot;
 keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
 save &quot;temp/2009-2010/BPX_F.dta&quot;,replace
@@ -625,7 +742,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/BPX_F.dta
   obs:        10,253                          
- vars:             9                          13 Jul 2021 07:58
+ vars:             9                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -650,7 +767,7 @@ bpxdi4          double  %10.0g                Diastolic:  Blood pres (4th rdg)
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="body-measurements-bmx_xyz.xpt-1" class="section level3">
+<div id="body-measurements-bmx_xyz.xpt-2" class="section level3">
 <h3>Body Measurements, BMX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/BMX_F.XPT&quot;
 keep seqn bmxwt bmxbmi bmxht bmxwaist
@@ -662,7 +779,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/BMX_F.dta
   obs:        10,253                          
- vars:             5                          13 Jul 2021 07:58
+ vars:             5                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -675,10 +792,10 @@ bmxwaist        double  %10.0g                Waist Circumference (cm)
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="smoking-smq_xyz.xpt-1" class="section level3">
+<div id="smoking-smq_xyz.xpt-2" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/SMQ_F.XPT&quot;
-keep seqn smq040 smd650
+keep seqn smq020 smq040 smd650
 save &quot;temp/2009-2010/SMQ_F.dta&quot;,replace
 de
 clear</code></pre>
@@ -687,19 +804,21 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/SMQ_F.dta
   obs:         7,528                          
- vars:             3                          13 Jul 2021 07:58
+ vars:             4                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
 smq040          double  %10.0g                Do you now smoke cigarettes
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="alcohol-alq_xyz.xpt-1" class="section level3">
+<div id="alcohol-alq_xyz.xpt-2" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/ALQ_F.XPT&quot;
 keep seqn alq101 alq130
@@ -711,7 +830,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/ALQ_F.dta
   obs:         6,059                          
- vars:             3                          13 Jul 2021 07:58
+ vars:             3                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -724,7 +843,7 @@ alq130          double  %10.0g                Avg # alcoholic drinks/day -past
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="day-1-nutrition-dr1tot_xyz.xpt-1" class="section level3">
+<div id="day-1-nutrition-dr1tot_xyz.xpt-2" class="section level3">
 <h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DR1TOT_F.XPT&quot;
 keep seqn dr1tkcal
@@ -736,7 +855,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/DR1TOT_F.dta
   obs:        10,253                          
- vars:             2                          13 Jul 2021 07:58
+ vars:             2                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -746,7 +865,7 @@ dr1tkcal        double  %10.0g                Energy (kcal)
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="day-2-nutrition-dr2tot_xyz.xpt-1" class="section level3">
+<div id="day-2-nutrition-dr2tot_xyz.xpt-2" class="section level3">
 <h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2009-2010/DR2TOT_F.XPT&quot;
 keep seqn dr2tkcal
@@ -758,7 +877,7 @@ clear</code></pre>
 
 Contains data from temp/2009-2010/DR2TOT_F.dta
   obs:        10,253                          
- vars:             2                          13 Jul 2021 07:58
+ vars:             2                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -771,7 +890,7 @@ Sorted by: </code></pre>
 </div>
 <div id="import-xpts-for-2011-2012" class="section level2">
 <h2>3 Import XPTs for 2011-2012</h2>
-<div id="demographics-demo_xyz.xpt-2" class="section level3">
+<div id="demographics-demo_xyz.xpt-3" class="section level3">
 <h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DEMO_G.XPT&quot;
@@ -783,7 +902,7 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/DEMO_G.dta
   obs:         9,756                          
- vars:            48                          13 Jul 2021 07:58
+ vars:            48                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -854,7 +973,7 @@ dmdhsedu        double  %10.0g                HH ref person&#39;s spouse&#39;s
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="drug-use-duq_xyz.xpt-2" class="section level3">
+<div id="drug-use-duq_xyz.xpt-3" class="section level3">
 <h3>Drug Use, DUQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DUQ_G.XPT&quot;
 keep seqn duq200 duq220q duq220u duq230 duq210
@@ -866,275 +985,7 @@ clear</code></pre>
 
 Contains data from temp/2011-2012/DUQ_G.dta
   obs:         4,796                          
- vars:             6                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-duq200          double  %10.0g                Ever used marijuana or hashish
-duq210          double  %10.0g                Age when first tried marijuana
-duq220q         double  %10.0g                Last time used marijuana or
-                                                hashish
-duq220u         double  %10.0g                Last time used marijuana or
-                                                hashish/unit
-duq230          double  %10.0g                # days used marijuana or
-                                                hashish/month
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="blood-pressure-bpx_xyz.xpt-2" class="section level3">
-<h3>Blood Pressure, BPX_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/BPX_G.XPT&quot;
-keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
-save &quot;temp/2011-2012/BPX_G.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2011-2012/BPX_G.dta saved
-
-
-Contains data from temp/2011-2012/BPX_G.dta
-  obs:         9,338                          
- vars:             9                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
-                                                Hg
-bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
-                                                mm Hg
-bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
-                                                Hg
-bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
-                                                mm Hg
-bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
-                                                Hg
-bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
-                                                mm Hg
-bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
-                                                Hg
-bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
-                                                mm Hg
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="body-measurements-bmx_xyz.xpt-2" class="section level3">
-<h3>Body Measurements, BMX_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/BMX_G.XPT&quot;
-keep seqn bmxwt bmxbmi bmxht bmxwaist
-save &quot;temp/2011-2012/BMX_G.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2011-2012/BMX_G.dta saved
-
-
-Contains data from temp/2011-2012/BMX_G.dta
-  obs:         9,338                          
- vars:             5                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-bmxwt           double  %10.0g                Weight (kg)
-bmxht           double  %10.0g                Standing Height (cm)
-bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
-bmxwaist        double  %10.0g                Waist Circumference (cm)
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="smoking-smq_xyz.xpt-2" class="section level3">
-<h3>Smoking, SMQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/SMQ_G.XPT&quot;
-keep seqn smq040 smd650
-save &quot;temp/2011-2012/SMQ_G.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2011-2012/SMQ_G.dta saved
-
-
-Contains data from temp/2011-2012/SMQ_G.dta
-  obs:         6,790                          
- vars:             3                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-smq040          double  %10.0g                Do you now smoke cigarettes
-smd650          double  %10.0g                Avg # cigarettes/day during past
-                                                30 days
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="alcohol-alq_xyz.xpt-2" class="section level3">
-<h3>Alcohol, ALQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/ALQ_G.XPT&quot;
-keep seqn alq101 alq130
-save &quot;temp/2011-2012/ALQ_G.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2011-2012/ALQ_G.dta saved
-
-
-Contains data from temp/2011-2012/ALQ_G.dta
-  obs:         5,615                          
- vars:             3                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-alq101          double  %10.0g                Had at least 12 alcohol drinks/1
-                                                yr?
-alq130          double  %10.0g                Avg # alcoholic drinks/day - past
-                                                12 mos
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="day-1-nutrition-dr1tot_xyz.xpt-2" class="section level3">
-<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DR1TOT_G.XPT&quot;
-keep seqn dr1tkcal
-save &quot;temp/2011-2012/DR1TOT_G.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2011-2012/DR1TOT_G.dta saved
-
-
-Contains data from temp/2011-2012/DR1TOT_G.dta
-  obs:         9,338                          
- vars:             2                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-dr1tkcal        double  %10.0g                Energy (kcal)
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="day-2-nutrition-dr2tot_xyz.xpt-2" class="section level3">
-<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DR2TOT_G.XPT&quot;
-keep seqn dr2tkcal
-save &quot;temp/2011-2012/DR2TOT_G.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2011-2012/DR2TOT_G.dta saved
-
-
-Contains data from temp/2011-2012/DR2TOT_G.dta
-  obs:         9,338                          
- vars:             2                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-dr2tkcal        double  %10.0g                Energy (kcal)
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-</div>
-<div id="import-xpts-for-2013-2014" class="section level2">
-<h2>4 Import XPTs for 2013-2014</h2>
-<div id="demographics-demo_xyz.xpt-3" class="section level3">
-<h3>Demographics, DEMO_XYZ.XPT</h3>
-<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
-<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DEMO_H.XPT&quot;
-save &quot;temp/2013-2014/DEMO_H.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2013-2014/DEMO_H.dta saved
-
-
-Contains data from temp/2013-2014/DEMO_H.dta
-  obs:        10,175                          
- vars:            47                          13 Jul 2021 07:58
--------------------------------------------------------------------------------
-              storage   display    value
-variable name   type    format     label      variable label
--------------------------------------------------------------------------------
-seqn            double  %10.0g                Respondent sequence number
-sddsrvyr        double  %10.0g                Data release cycle
-ridstatr        double  %10.0g                Interview/Examination status
-riagendr        double  %10.0g                Gender
-ridageyr        double  %10.0g                Age in years at screening
-ridagemn        double  %10.0g                Age in months at screening - 0 to
-                                                24 mos
-ridreth1        double  %10.0g                Race/Hispanic origin
-ridreth3        double  %10.0g                Race/Hispanic origin w/ NH Asian
-ridexmon        double  %10.0g                Six month time period
-ridexagm        double  %10.0g                Age in months at exam - 0 to 19
-                                                years
-dmqmiliz        double  %10.0g                Served active duty in US Armed
-                                                Forces
-dmqadfc         double  %10.0g                Served in a foreign country
-dmdborn4        double  %10.0g                Country of birth
-dmdcitzn        double  %10.0g                Citizenship status
-dmdyrsus        double  %10.0g                Length of time in US
-dmdeduc3        double  %10.0g                Education level - Children/Youth
-                                                6-19
-dmdeduc2        double  %10.0g                Education level - Adults 20+
-dmdmartl        double  %10.0g                Marital status
-ridexprg        double  %10.0g                Pregnancy status at exam
-sialang         double  %10.0g                Language of SP Interview
-siaproxy        double  %10.0g                Proxy used in SP Interview?
-siaintrp        double  %10.0g                Interpreter used in SP Interview?
-fialang         double  %10.0g                Language of Family Interview
-fiaproxy        double  %10.0g                Proxy used in Family Interview?
-fiaintrp        double  %10.0g                Interpreter used in Family
-                                                Interview?
-mialang         double  %10.0g                Language of MEC Interview
-miaproxy        double  %10.0g                Proxy used in MEC Interview?
-miaintrp        double  %10.0g                Interpreter used in MEC
-                                                Interview?
-aialanga        double  %10.0g                Language of ACASI Interview
-dmdhhsiz        double  %10.0g                Total number of people in the
-                                                Household
-dmdfmsiz        double  %10.0g                Total number of people in the
-                                                Family
-dmdhhsza        double  %10.0g                # of children 5 years or younger
-                                                in HH
-dmdhhszb        double  %10.0g                # of children 6-17 years old in
-                                                HH
-dmdhhsze        double  %10.0g                # of adults 60 years or older in
-                                                HH
-dmdhrgnd        double  %10.0g                HH ref person&#39;s gender
-dmdhrage        double  %10.0g                HH ref person&#39;s age in years
-dmdhrbr4        double  %10.0g                HH ref person&#39;s country of birth
-dmdhredu        double  %10.0g                HH ref person&#39;s education level
-dmdhrmar        double  %10.0g                HH ref person&#39;s marital status
-dmdhsedu        double  %10.0g                HH ref person&#39;s spouse&#39;s
-                                                education level
-wtint2yr        double  %10.0g                Full sample 2 year interview
-                                                weight
-wtmec2yr        double  %10.0g                Full sample 2 year MEC exam
-                                                weight
-sdmvpsu         double  %10.0g                Masked variance pseudo-PSU
-sdmvstra        double  %10.0g                Masked variance pseudo-stratum
-indhhin2        double  %10.0g                Annual household income
-indfmin2        double  %10.0g                Annual family income
-indfmpir        double  %10.0g                Ratio of family income to poverty
--------------------------------------------------------------------------------
-Sorted by: </code></pre>
-</div>
-<div id="drug-use-duq_xyz.xpt-3" class="section level3">
-<h3>Drug Use, DUQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DUQ_H.XPT&quot;
-keep seqn duq200 duq220q duq220u duq230 duq210
-save &quot;temp/2013-2014/DUQ_H.dta&quot;,replace
-de
-clear</code></pre>
-<pre><code>file temp/2013-2014/DUQ_H.dta saved
-
-
-Contains data from temp/2013-2014/DUQ_H.dta
-  obs:         5,057                          
- vars:             6                          13 Jul 2021 07:58
+ vars:             6                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1153,17 +1004,17 @@ Sorted by: </code></pre>
 </div>
 <div id="blood-pressure-bpx_xyz.xpt-3" class="section level3">
 <h3>Blood Pressure, BPX_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/BPX_H.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/BPX_G.XPT&quot;
 keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
-save &quot;temp/2013-2014/BPX_H.dta&quot;,replace
+save &quot;temp/2011-2012/BPX_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2013-2014/BPX_H.dta saved
+<pre><code>file temp/2011-2012/BPX_G.dta saved
 
 
-Contains data from temp/2013-2014/BPX_H.dta
-  obs:         9,813                          
- vars:             9                          13 Jul 2021 07:58
+Contains data from temp/2011-2012/BPX_G.dta
+  obs:         9,338                          
+ vars:             9                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1190,17 +1041,17 @@ Sorted by: </code></pre>
 </div>
 <div id="body-measurements-bmx_xyz.xpt-3" class="section level3">
 <h3>Body Measurements, BMX_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/BMX_H.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/BMX_G.XPT&quot;
 keep seqn bmxwt bmxbmi bmxht bmxwaist
-save &quot;temp/2013-2014/BMX_H.dta&quot;,replace
+save &quot;temp/2011-2012/BMX_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2013-2014/BMX_H.dta saved
+<pre><code>file temp/2011-2012/BMX_G.dta saved
 
 
-Contains data from temp/2013-2014/BMX_H.dta
-  obs:         9,813                          
- vars:             5                          13 Jul 2021 07:58
+Contains data from temp/2011-2012/BMX_G.dta
+  obs:         9,338                          
+ vars:             5                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1215,22 +1066,24 @@ Sorted by: </code></pre>
 </div>
 <div id="smoking-smq_xyz.xpt-3" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/SMQ_H.XPT&quot;
-keep seqn smq040 smd650
-save &quot;temp/2013-2014/SMQ_H.dta&quot;,replace
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/SMQ_G.XPT&quot;
+keep seqn smq020 smq040 smd650
+save &quot;temp/2011-2012/SMQ_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2013-2014/SMQ_H.dta saved
+<pre><code>file temp/2011-2012/SMQ_G.dta saved
 
 
-Contains data from temp/2013-2014/SMQ_H.dta
-  obs:         7,168                          
- vars:             3                          13 Jul 2021 07:58
+Contains data from temp/2011-2012/SMQ_G.dta
+  obs:         6,790                          
+ vars:             4                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
 smq040          double  %10.0g                Do you now smoke cigarettes
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
@@ -1239,17 +1092,17 @@ Sorted by: </code></pre>
 </div>
 <div id="alcohol-alq_xyz.xpt-3" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/ALQ_H.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/ALQ_G.XPT&quot;
 keep seqn alq101 alq130
-save &quot;temp/2013-2014/ALQ_H.dta&quot;,replace
+save &quot;temp/2011-2012/ALQ_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2013-2014/ALQ_H.dta saved
+<pre><code>file temp/2011-2012/ALQ_G.dta saved
 
 
-Contains data from temp/2013-2014/ALQ_H.dta
-  obs:         5,924                          
- vars:             3                          13 Jul 2021 07:58
+Contains data from temp/2011-2012/ALQ_G.dta
+  obs:         5,615                          
+ vars:             3                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1264,17 +1117,17 @@ Sorted by: </code></pre>
 </div>
 <div id="day-1-nutrition-dr1tot_xyz.xpt-3" class="section level3">
 <h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DR1TOT_H.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DR1TOT_G.XPT&quot;
 keep seqn dr1tkcal
-save &quot;temp/2013-2014/DR1TOT_H.dta&quot;,replace
+save &quot;temp/2011-2012/DR1TOT_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2013-2014/DR1TOT_H.dta saved
+<pre><code>file temp/2011-2012/DR1TOT_G.dta saved
 
 
-Contains data from temp/2013-2014/DR1TOT_H.dta
-  obs:         9,813                          
- vars:             2                          13 Jul 2021 07:58
+Contains data from temp/2011-2012/DR1TOT_G.dta
+  obs:         9,338                          
+ vars:             2                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1286,17 +1139,17 @@ Sorted by: </code></pre>
 </div>
 <div id="day-2-nutrition-dr2tot_xyz.xpt-3" class="section level3">
 <h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DR2TOT_H.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2011-2012/DR2TOT_G.XPT&quot;
 keep seqn dr2tkcal
-save &quot;temp/2013-2014/DR2TOT_H.dta&quot;,replace
+save &quot;temp/2011-2012/DR2TOT_G.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2013-2014/DR2TOT_H.dta saved
+<pre><code>file temp/2011-2012/DR2TOT_G.dta saved
 
 
-Contains data from temp/2013-2014/DR2TOT_H.dta
-  obs:         9,813                          
- vars:             2                          13 Jul 2021 07:58
+Contains data from temp/2011-2012/DR2TOT_G.dta
+  obs:         9,338                          
+ vars:             2                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1307,21 +1160,21 @@ dr2tkcal        double  %10.0g                Energy (kcal)
 Sorted by: </code></pre>
 </div>
 </div>
-<div id="import-xpts-for-2015-2016" class="section level2">
-<h2>5 Import XPTs for 2015-2016</h2>
+<div id="import-xpts-for-2013-2014" class="section level2">
+<h2>4 Import XPTs for 2013-2014</h2>
 <div id="demographics-demo_xyz.xpt-4" class="section level3">
 <h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
-<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DEMO_I.XPT&quot;
-save &quot;temp/2015-2016/DEMO_I.dta&quot;,replace
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DEMO_H.XPT&quot;
+save &quot;temp/2013-2014/DEMO_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2015-2016/DEMO_I.dta saved
+<pre><code>file temp/2013-2014/DEMO_H.dta saved
 
 
-Contains data from temp/2015-2016/DEMO_I.dta
-  obs:         9,971                          
- vars:            47                          13 Jul 2021 07:58
+Contains data from temp/2013-2014/DEMO_H.dta
+  obs:        10,175                          
+ vars:            47                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1392,17 +1245,17 @@ Sorted by: </code></pre>
 </div>
 <div id="drug-use-duq_xyz.xpt-4" class="section level3">
 <h3>Drug Use, DUQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DUQ_I.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DUQ_H.XPT&quot;
 keep seqn duq200 duq220q duq220u duq230 duq210
-save &quot;temp/2015-2016/DUQ_I.dta&quot;,replace
+save &quot;temp/2013-2014/DUQ_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2015-2016/DUQ_I.dta saved
+<pre><code>file temp/2013-2014/DUQ_H.dta saved
 
 
-Contains data from temp/2015-2016/DUQ_I.dta
-  obs:         4,843                          
- vars:             6                          13 Jul 2021 07:58
+Contains data from temp/2013-2014/DUQ_H.dta
+  obs:         5,057                          
+ vars:             6                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1421,17 +1274,17 @@ Sorted by: </code></pre>
 </div>
 <div id="blood-pressure-bpx_xyz.xpt-4" class="section level3">
 <h3>Blood Pressure, BPX_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/BPX_I.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/BPX_H.XPT&quot;
 keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
-save &quot;temp/2015-2016/BPX_I.dta&quot;,replace
+save &quot;temp/2013-2014/BPX_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2015-2016/BPX_I.dta saved
+<pre><code>file temp/2013-2014/BPX_H.dta saved
 
 
-Contains data from temp/2015-2016/BPX_I.dta
-  obs:         9,544                          
- vars:             9                          13 Jul 2021 07:58
+Contains data from temp/2013-2014/BPX_H.dta
+  obs:         9,813                          
+ vars:             9                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1458,17 +1311,17 @@ Sorted by: </code></pre>
 </div>
 <div id="body-measurements-bmx_xyz.xpt-4" class="section level3">
 <h3>Body Measurements, BMX_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/BMX_I.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/BMX_H.XPT&quot;
 keep seqn bmxwt bmxbmi bmxht bmxwaist
-save &quot;temp/2015-2016/BMX_I.dta&quot;,replace
+save &quot;temp/2013-2014/BMX_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2015-2016/BMX_I.dta saved
+<pre><code>file temp/2013-2014/BMX_H.dta saved
 
 
-Contains data from temp/2015-2016/BMX_I.dta
-  obs:         9,544                          
- vars:             5                          13 Jul 2021 07:58
+Contains data from temp/2013-2014/BMX_H.dta
+  obs:         9,813                          
+ vars:             5                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1483,23 +1336,25 @@ Sorted by: </code></pre>
 </div>
 <div id="smoking-smq_xyz.xpt-4" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/SMQ_I.XPT&quot;
-keep seqn smq040 smd650
-save &quot;temp/2015-2016/SMQ_I.dta&quot;,replace
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/SMQ_H.XPT&quot;
+keep seqn smq020 smq040 smd650
+save &quot;temp/2013-2014/SMQ_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2015-2016/SMQ_I.dta saved
+<pre><code>file temp/2013-2014/SMQ_H.dta saved
 
 
-Contains data from temp/2015-2016/SMQ_I.dta
-  obs:         7,001                          
- vars:             3                          13 Jul 2021 07:58
+Contains data from temp/2013-2014/SMQ_H.dta
+  obs:         7,168                          
+ vars:             4                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
-smq040          double  %10.0g                Do you now smoke cigarettes?
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smq040          double  %10.0g                Do you now smoke cigarettes
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
 -------------------------------------------------------------------------------
@@ -1507,17 +1362,17 @@ Sorted by: </code></pre>
 </div>
 <div id="alcohol-alq_xyz.xpt-4" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/ALQ_I.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/ALQ_H.XPT&quot;
 keep seqn alq101 alq130
-save &quot;temp/2015-2016/ALQ_I.dta&quot;,replace
+save &quot;temp/2013-2014/ALQ_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2015-2016/ALQ_I.dta saved
+<pre><code>file temp/2013-2014/ALQ_H.dta saved
 
 
-Contains data from temp/2015-2016/ALQ_I.dta
-  obs:         5,735                          
- vars:             3                          13 Jul 2021 07:58
+Contains data from temp/2013-2014/ALQ_H.dta
+  obs:         5,924                          
+ vars:             3                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1532,17 +1387,17 @@ Sorted by: </code></pre>
 </div>
 <div id="day-1-nutrition-dr1tot_xyz.xpt-4" class="section level3">
 <h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
-<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DR1TOT_I.XPT&quot;
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DR1TOT_H.XPT&quot;
 keep seqn dr1tkcal
-save &quot;temp/2015-2016/DR1TOT_I.dta&quot;,replace
+save &quot;temp/2013-2014/DR1TOT_H.dta&quot;,replace
 de
 clear</code></pre>
-<pre><code>file temp/2015-2016/DR1TOT_I.dta saved
+<pre><code>file temp/2013-2014/DR1TOT_H.dta saved
 
 
-Contains data from temp/2015-2016/DR1TOT_I.dta
-  obs:         9,544                          
- vars:             2                          13 Jul 2021 07:59
+Contains data from temp/2013-2014/DR1TOT_H.dta
+  obs:         9,813                          
+ vars:             2                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1554,6 +1409,276 @@ Sorted by: </code></pre>
 </div>
 <div id="day-2-nutrition-dr2tot_xyz.xpt-4" class="section level3">
 <h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2013-2014/DR2TOT_H.XPT&quot;
+keep seqn dr2tkcal
+save &quot;temp/2013-2014/DR2TOT_H.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2013-2014/DR2TOT_H.dta saved
+
+
+Contains data from temp/2013-2014/DR2TOT_H.dta
+  obs:         9,813                          
+ vars:             2                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr2tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+</div>
+<div id="import-xpts-for-2015-2016" class="section level2">
+<h2>5 Import XPTs for 2015-2016</h2>
+<div id="demographics-demo_xyz.xpt-5" class="section level3">
+<h3>Demographics, DEMO_XYZ.XPT</h3>
+<p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DEMO_I.XPT&quot;
+save &quot;temp/2015-2016/DEMO_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/DEMO_I.dta saved
+
+
+Contains data from temp/2015-2016/DEMO_I.dta
+  obs:         9,971                          
+ vars:            47                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+sddsrvyr        double  %10.0g                Data release cycle
+ridstatr        double  %10.0g                Interview/Examination status
+riagendr        double  %10.0g                Gender
+ridageyr        double  %10.0g                Age in years at screening
+ridagemn        double  %10.0g                Age in months at screening - 0 to
+                                                24 mos
+ridreth1        double  %10.0g                Race/Hispanic origin
+ridreth3        double  %10.0g                Race/Hispanic origin w/ NH Asian
+ridexmon        double  %10.0g                Six month time period
+ridexagm        double  %10.0g                Age in months at exam - 0 to 19
+                                                years
+dmqmiliz        double  %10.0g                Served active duty in US Armed
+                                                Forces
+dmqadfc         double  %10.0g                Served in a foreign country
+dmdborn4        double  %10.0g                Country of birth
+dmdcitzn        double  %10.0g                Citizenship status
+dmdyrsus        double  %10.0g                Length of time in US
+dmdeduc3        double  %10.0g                Education level - Children/Youth
+                                                6-19
+dmdeduc2        double  %10.0g                Education level - Adults 20+
+dmdmartl        double  %10.0g                Marital status
+ridexprg        double  %10.0g                Pregnancy status at exam
+sialang         double  %10.0g                Language of SP Interview
+siaproxy        double  %10.0g                Proxy used in SP Interview?
+siaintrp        double  %10.0g                Interpreter used in SP Interview?
+fialang         double  %10.0g                Language of Family Interview
+fiaproxy        double  %10.0g                Proxy used in Family Interview?
+fiaintrp        double  %10.0g                Interpreter used in Family
+                                                Interview?
+mialang         double  %10.0g                Language of MEC Interview
+miaproxy        double  %10.0g                Proxy used in MEC Interview?
+miaintrp        double  %10.0g                Interpreter used in MEC
+                                                Interview?
+aialanga        double  %10.0g                Language of ACASI Interview
+dmdhhsiz        double  %10.0g                Total number of people in the
+                                                Household
+dmdfmsiz        double  %10.0g                Total number of people in the
+                                                Family
+dmdhhsza        double  %10.0g                # of children 5 years or younger
+                                                in HH
+dmdhhszb        double  %10.0g                # of children 6-17 years old in
+                                                HH
+dmdhhsze        double  %10.0g                # of adults 60 years or older in
+                                                HH
+dmdhrgnd        double  %10.0g                HH ref person&#39;s gender
+dmdhrage        double  %10.0g                HH ref person&#39;s age in years
+dmdhrbr4        double  %10.0g                HH ref person&#39;s country of birth
+dmdhredu        double  %10.0g                HH ref person&#39;s education level
+dmdhrmar        double  %10.0g                HH ref person&#39;s marital status
+dmdhsedu        double  %10.0g                HH ref person&#39;s spouse&#39;s
+                                                education level
+wtint2yr        double  %10.0g                Full sample 2 year interview
+                                                weight
+wtmec2yr        double  %10.0g                Full sample 2 year MEC exam
+                                                weight
+sdmvpsu         double  %10.0g                Masked variance pseudo-PSU
+sdmvstra        double  %10.0g                Masked variance pseudo-stratum
+indhhin2        double  %10.0g                Annual household income
+indfmin2        double  %10.0g                Annual family income
+indfmpir        double  %10.0g                Ratio of family income to poverty
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="drug-use-duq_xyz.xpt-5" class="section level3">
+<h3>Drug Use, DUQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DUQ_I.XPT&quot;
+keep seqn duq200 duq220q duq220u duq230 duq210
+save &quot;temp/2015-2016/DUQ_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/DUQ_I.dta saved
+
+
+Contains data from temp/2015-2016/DUQ_I.dta
+  obs:         4,843                          
+ vars:             6                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+duq200          double  %10.0g                Ever used marijuana or hashish
+duq210          double  %10.0g                Age when first tried marijuana
+duq220q         double  %10.0g                Last time used marijuana or
+                                                hashish
+duq220u         double  %10.0g                Last time used marijuana or
+                                                hashish/unit
+duq230          double  %10.0g                # days used marijuana or
+                                                hashish/month
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="blood-pressure-bpx_xyz.xpt-5" class="section level3">
+<h3>Blood Pressure, BPX_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/BPX_I.XPT&quot;
+keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
+save &quot;temp/2015-2016/BPX_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/BPX_I.dta saved
+
+
+Contains data from temp/2015-2016/BPX_I.dta
+  obs:         9,544                          
+ vars:             9                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bpxsy1          double  %10.0g                Systolic: Blood pres (1st rdg) mm
+                                                Hg
+bpxdi1          double  %10.0g                Diastolic: Blood pres (1st rdg)
+                                                mm Hg
+bpxsy2          double  %10.0g                Systolic: Blood pres (2nd rdg) mm
+                                                Hg
+bpxdi2          double  %10.0g                Diastolic: Blood pres (2nd rdg)
+                                                mm Hg
+bpxsy3          double  %10.0g                Systolic: Blood pres (3rd rdg) mm
+                                                Hg
+bpxdi3          double  %10.0g                Diastolic: Blood pres (3rd rdg)
+                                                mm Hg
+bpxsy4          double  %10.0g                Systolic: Blood pres (4th rdg) mm
+                                                Hg
+bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
+                                                mm Hg
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="body-measurements-bmx_xyz.xpt-5" class="section level3">
+<h3>Body Measurements, BMX_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/BMX_I.XPT&quot;
+keep seqn bmxwt bmxbmi bmxht bmxwaist
+save &quot;temp/2015-2016/BMX_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/BMX_I.dta saved
+
+
+Contains data from temp/2015-2016/BMX_I.dta
+  obs:         9,544                          
+ vars:             5                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+bmxwt           double  %10.0g                Weight (kg)
+bmxht           double  %10.0g                Standing Height (cm)
+bmxbmi          double  %10.0g                Body Mass Index (kg/m**2)
+bmxwaist        double  %10.0g                Waist Circumference (cm)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="smoking-smq_xyz.xpt-5" class="section level3">
+<h3>Smoking, SMQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/SMQ_I.XPT&quot;
+keep seqn smq020 smq040 smd650
+save &quot;temp/2015-2016/SMQ_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/SMQ_I.dta saved
+
+
+Contains data from temp/2015-2016/SMQ_I.dta
+  obs:         7,001                          
+ vars:             4                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
+smq040          double  %10.0g                Do you now smoke cigarettes?
+smd650          double  %10.0g                Avg # cigarettes/day during past
+                                                30 days
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="alcohol-alq_xyz.xpt-5" class="section level3">
+<h3>Alcohol, ALQ_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/ALQ_I.XPT&quot;
+keep seqn alq101 alq130
+save &quot;temp/2015-2016/ALQ_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/ALQ_I.dta saved
+
+
+Contains data from temp/2015-2016/ALQ_I.dta
+  obs:         5,735                          
+ vars:             3                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+alq101          double  %10.0g                Had at least 12 alcohol drinks/1
+                                                yr?
+alq130          double  %10.0g                Avg # alcoholic drinks/day - past
+                                                12 mos
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-1-nutrition-dr1tot_xyz.xpt-5" class="section level3">
+<h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
+<pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DR1TOT_I.XPT&quot;
+keep seqn dr1tkcal
+save &quot;temp/2015-2016/DR1TOT_I.dta&quot;,replace
+de
+clear</code></pre>
+<pre><code>file temp/2015-2016/DR1TOT_I.dta saved
+
+
+Contains data from temp/2015-2016/DR1TOT_I.dta
+  obs:         9,544                          
+ vars:             2                          14 Jul 2021 17:22
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+seqn            double  %10.0g                Respondent sequence number
+dr1tkcal        double  %10.0g                Energy (kcal)
+-------------------------------------------------------------------------------
+Sorted by: </code></pre>
+</div>
+<div id="day-2-nutrition-dr2tot_xyz.xpt-5" class="section level3">
+<h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2015-2016/DR2TOT_I.XPT&quot;
 keep seqn dr2tkcal
 save &quot;temp/2015-2016/DR2TOT_I.dta&quot;,replace
@@ -1564,7 +1689,7 @@ clear</code></pre>
 
 Contains data from temp/2015-2016/DR2TOT_I.dta
   obs:         9,544                          
- vars:             2                          13 Jul 2021 07:59
+ vars:             2                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1577,7 +1702,7 @@ Sorted by: </code></pre>
 </div>
 <div id="import-xpts-for-2017-2018" class="section level2">
 <h2>6 Import XPTs for 2017-2018</h2>
-<div id="demographics-demo_xyz.xpt-5" class="section level3">
+<div id="demographics-demo_xyz.xpt-6" class="section level3">
 <h3>Demographics, DEMO_XYZ.XPT</h3>
 <p>The following STATA chunk imports and describes the sociodemographic NHANES dataset:</p>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DEMO_J.XPT&quot;
@@ -1589,7 +1714,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/DEMO_J.dta
   obs:         9,254                          
- vars:            46                          13 Jul 2021 07:59
+ vars:            46                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1657,7 +1782,7 @@ indfmpir        double  %10.0g                Ratio of family income to poverty
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="drug-use-duq_xyz.xpt-5" class="section level3">
+<div id="drug-use-duq_xyz.xpt-6" class="section level3">
 <h3>Drug Use, DUQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DUQ_J.XPT&quot;
 keep seqn duq200 duq220q duq220u duq230 duq210
@@ -1669,7 +1794,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/DUQ_J.dta
   obs:         4,572                          
- vars:             6                          13 Jul 2021 07:59
+ vars:             6                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1686,7 +1811,7 @@ duq230          double  %10.0g                # days used marijuana or
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="blood-pressure-bpx_xyz.xpt-5" class="section level3">
+<div id="blood-pressure-bpx_xyz.xpt-6" class="section level3">
 <h3>Blood Pressure, BPX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/BPX_J.XPT&quot;
 keep seqn bpxsy1 bpxsy2 bpxsy3 bpxsy4 bpxdi1 bpxdi2 bpxdi3 bpxdi4
@@ -1698,7 +1823,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/BPX_J.dta
   obs:         8,704                          
- vars:             9                          13 Jul 2021 07:59
+ vars:             9                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1723,7 +1848,7 @@ bpxdi4          double  %10.0g                Diastolic: Blood pres (4th rdg)
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="body-measurements-bmx_xyz.xpt-5" class="section level3">
+<div id="body-measurements-bmx_xyz.xpt-6" class="section level3">
 <h3>Body Measurements, BMX_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/BMX_J.XPT&quot;
 keep seqn bmxwt bmxbmi bmxht bmxwaist
@@ -1735,7 +1860,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/BMX_J.dta
   obs:         8,704                          
- vars:             5                          13 Jul 2021 07:59
+ vars:             5                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1748,10 +1873,10 @@ bmxwaist        double  %10.0g                Waist Circumference (cm)
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="smoking-smq_xyz.xpt-5" class="section level3">
+<div id="smoking-smq_xyz.xpt-6" class="section level3">
 <h3>Smoking, SMQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/SMQ_J.XPT&quot;
-keep seqn smq040 smd650
+keep seqn smq020 smq040 smd650
 save &quot;temp/2017-2018/SMQ_J.dta&quot;,replace
 de
 clear</code></pre>
@@ -1760,19 +1885,21 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/SMQ_J.dta
   obs:         6,724                          
- vars:             3                          13 Jul 2021 07:59
+ vars:             4                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
 -------------------------------------------------------------------------------
 seqn            double  %10.0g                Respondent sequence number
+smq020          double  %10.0g                Smoked at least 100 cigarettes in
+                                                life
 smq040          double  %10.0g                Do you now smoke cigarettes?
 smd650          double  %10.0g                Avg # cigarettes/day during past
                                                 30 days
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="alcohol-alq_xyz.xpt-5" class="section level3">
+<div id="alcohol-alq_xyz.xpt-6" class="section level3">
 <h3>Alcohol, ALQ_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/ALQ_J.XPT&quot;
 keep seqn alq101 alq130
@@ -1785,7 +1912,7 @@ r(111);
 end of do-file
 r(111);</code></pre>
 </div>
-<div id="day-1-nutrition-dr1tot_xyz.xpt-5" class="section level3">
+<div id="day-1-nutrition-dr1tot_xyz.xpt-6" class="section level3">
 <h3>Day 1 Nutrition, DR1TOT_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DR1TOT_J.XPT&quot;
 keep seqn dr1tkcal
@@ -1797,7 +1924,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/DR1TOT_J.dta
   obs:         8,704                          
- vars:             2                          13 Jul 2021 07:59
+ vars:             2                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1807,7 +1934,7 @@ dr1tkcal        double  %10.0g                Energy (kcal)
 -------------------------------------------------------------------------------
 Sorted by: </code></pre>
 </div>
-<div id="day-2-nutrition-dr2tot_xyz.xpt-5" class="section level3">
+<div id="day-2-nutrition-dr2tot_xyz.xpt-6" class="section level3">
 <h3>Day 2 Nutrition, DR2TOT_XYZ.XPT</h3>
 <pre class="stata"><code>import sasxport5 &quot;data/2017-2018/DR2TOT_J.XPT&quot;
 keep seqn dr2tkcal
@@ -1819,7 +1946,7 @@ clear</code></pre>
 
 Contains data from temp/2017-2018/DR2TOT_J.dta
   obs:         8,704                          
- vars:             2                          13 Jul 2021 07:59
+ vars:             2                          14 Jul 2021 17:22
 -------------------------------------------------------------------------------
               storage   display    value
 variable name   type    format     label      variable label
@@ -1834,9 +1961,105 @@ Sorted by: </code></pre>
 <div id="merge-files" class="section level1">
 <h1>Merge Files</h1>
 <div id="section" class="section level2">
-<h2>2007-2008</h2>
+<h2>2005-2006</h2>
 <p>Starting with the demographics file.</p>
 <div id="bmx-merge" class="section level3">
+<h3>BMX merge</h3>
+<pre class="stata"><code>use &quot;temp\2005-2006\DEMO_D.dta&quot;, clear
+save &quot;data\NHANES0506_merged.dta&quot;,replace
+merge 1:1 seqn using &quot;temp\2005-2006\BMX_D.dta&quot;
+rename _merge Merge_BM
+tab Merge_BM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>r(601);
+
+end of do-file
+r(601);</code></pre>
+</div>
+<div id="alq-merge" class="section level3">
+<h3>ALQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0506_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2005-2006\ALQ_D.dta&quot;
+rename _merge Merge_AL
+tab Merge_AL
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>r(601);
+
+end of do-file
+r(601);</code></pre>
+</div>
+<div id="bpx-merge" class="section level3">
+<h3>BPX merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0506_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2005-2006\BPX_D.dta&quot;
+rename _merge Merge_BP
+tab Merge_BP
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>r(601);
+
+end of do-file
+r(601);</code></pre>
+</div>
+<div id="duq-merge" class="section level3">
+<h3>DUQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0506_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2005-2006\DUQ_D.dta&quot;
+rename _merge Merge_DU
+tab Merge_DU
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>r(601);
+
+end of do-file
+r(601);</code></pre>
+</div>
+<div id="smq-merge" class="section level3">
+<h3>SMQ merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0506_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2005-2006\SMQ_D.dta&quot;
+rename _merge Merge_SM
+tab Merge_SM
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>r(601);
+
+end of do-file
+r(601);</code></pre>
+</div>
+<div id="dr1tot-merge" class="section level3">
+<h3>DR1TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0506_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2005-2006\DR1TOT_D.dta&quot;
+rename _merge Merge_D1
+tab Merge_D1
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>r(601);
+
+end of do-file
+r(601);</code></pre>
+</div>
+<div id="dr2tot-merge" class="section level3">
+<h3>DR2TOT merge</h3>
+<pre class="stata"><code>use &quot;data\NHANES0506_merged.dta&quot;, clear
+merge 1:1 seqn using &quot;temp\2005-2006\DR2TOT_D.dta&quot;
+rename _merge Merge_D2
+tab Merge_D2
+duplicates report seqn
+save,replace</code></pre>
+<pre><code>r(601);
+
+end of do-file
+r(601);</code></pre>
+</div>
+</div>
+<div id="section-1" class="section level2">
+<h2>2007-2008</h2>
+<p>Starting with the demographics file.</p>
+<div id="bmx-merge-1" class="section level3">
 <h3>BMX merge</h3>
 <pre class="stata"><code>use &quot;temp\2007-2008\DEMO_E.dta&quot;, clear
 save &quot;data\NHANES0708_merged.dta&quot;,replace
@@ -1874,7 +2097,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0708_merged.dta saved</code></pre>
 </div>
-<div id="alq-merge" class="section level3">
+<div id="alq-merge-1" class="section level3">
 <h3>ALQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2007-2008\ALQ_E.dta&quot;
@@ -1909,7 +2132,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0708_merged.dta saved</code></pre>
 </div>
-<div id="bpx-merge" class="section level3">
+<div id="bpx-merge-1" class="section level3">
 <h3>BPX merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2007-2008\BPX_E.dta&quot;
@@ -1944,7 +2167,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0708_merged.dta saved</code></pre>
 </div>
-<div id="duq-merge" class="section level3">
+<div id="duq-merge-1" class="section level3">
 <h3>DUQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2007-2008\DUQ_E.dta&quot;
@@ -1979,7 +2202,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0708_merged.dta saved</code></pre>
 </div>
-<div id="smq-merge" class="section level3">
+<div id="smq-merge-1" class="section level3">
 <h3>SMQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2007-2008\SMQ_E.dta&quot;
@@ -2014,7 +2237,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0708_merged.dta saved</code></pre>
 </div>
-<div id="dr1tot-merge" class="section level3">
+<div id="dr1tot-merge-1" class="section level3">
 <h3>DR1TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2007-2008\DR1TOT_E.dta&quot;
@@ -2049,7 +2272,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0708_merged.dta saved</code></pre>
 </div>
-<div id="dr2tot-merge" class="section level3">
+<div id="dr2tot-merge-1" class="section level3">
 <h3>DR2TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2007-2008\DR2TOT_E.dta&quot;
@@ -2085,10 +2308,10 @@ Duplicates in terms of seqn
 file data\NHANES0708_merged.dta saved</code></pre>
 </div>
 </div>
-<div id="section-1" class="section level2">
+<div id="section-2" class="section level2">
 <h2>2009-2010</h2>
 <p>Starting with the demographics file.</p>
-<div id="bmx-merge-1" class="section level3">
+<div id="bmx-merge-2" class="section level3">
 <h3>BMX merge</h3>
 <pre class="stata"><code>use &quot;temp\2009-2010\DEMO_F.dta&quot;, clear
 save &quot;data\NHANES0910_merged.dta&quot;,replace
@@ -2126,7 +2349,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0910_merged.dta saved</code></pre>
 </div>
-<div id="alq-merge-1" class="section level3">
+<div id="alq-merge-2" class="section level3">
 <h3>ALQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2009-2010\ALQ_F.dta&quot;
@@ -2161,7 +2384,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0910_merged.dta saved</code></pre>
 </div>
-<div id="bpx-merge-1" class="section level3">
+<div id="bpx-merge-2" class="section level3">
 <h3>BPX merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2009-2010\BPX_F.dta&quot;
@@ -2196,7 +2419,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0910_merged.dta saved</code></pre>
 </div>
-<div id="duq-merge-1" class="section level3">
+<div id="duq-merge-2" class="section level3">
 <h3>DUQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2009-2010\DUQ_F.dta&quot;
@@ -2231,7 +2454,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0910_merged.dta saved</code></pre>
 </div>
-<div id="smq-merge-1" class="section level3">
+<div id="smq-merge-2" class="section level3">
 <h3>SMQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2009-2010\SMQ_F.dta&quot;
@@ -2266,7 +2489,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0910_merged.dta saved</code></pre>
 </div>
-<div id="dr1tot-merge-1" class="section level3">
+<div id="dr1tot-merge-2" class="section level3">
 <h3>DR1TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2009-2010\DR1TOT_F.dta&quot;
@@ -2301,7 +2524,7 @@ Duplicates in terms of seqn
 
 file data\NHANES0910_merged.dta saved</code></pre>
 </div>
-<div id="dr2tot-merge-1" class="section level3">
+<div id="dr2tot-merge-2" class="section level3">
 <h3>DR2TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES0910_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2009-2010\DR2TOT_F.dta&quot;
@@ -2337,10 +2560,10 @@ Duplicates in terms of seqn
 file data\NHANES0910_merged.dta saved</code></pre>
 </div>
 </div>
-<div id="section-2" class="section level2">
+<div id="section-3" class="section level2">
 <h2>2011-2012</h2>
 <p>Starting with the demographics file.</p>
-<div id="bmx-merge-2" class="section level3">
+<div id="bmx-merge-3" class="section level3">
 <h3>BMX merge</h3>
 <pre class="stata"><code>use &quot;temp\2011-2012\DEMO_G.dta&quot;, clear
 save &quot;data\NHANES1112_merged.dta&quot;,replace
@@ -2378,7 +2601,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1112_merged.dta saved</code></pre>
 </div>
-<div id="alq-merge-2" class="section level3">
+<div id="alq-merge-3" class="section level3">
 <h3>ALQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2011-2012\ALQ_G.dta&quot;
@@ -2413,7 +2636,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1112_merged.dta saved</code></pre>
 </div>
-<div id="bpx-merge-2" class="section level3">
+<div id="bpx-merge-3" class="section level3">
 <h3>BPX merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2011-2012\BPX_G.dta&quot;
@@ -2448,7 +2671,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1112_merged.dta saved</code></pre>
 </div>
-<div id="duq-merge-2" class="section level3">
+<div id="duq-merge-3" class="section level3">
 <h3>DUQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2011-2012\DUQ_G.dta&quot;
@@ -2483,7 +2706,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1112_merged.dta saved</code></pre>
 </div>
-<div id="smq-merge-2" class="section level3">
+<div id="smq-merge-3" class="section level3">
 <h3>SMQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2011-2012\SMQ_G.dta&quot;
@@ -2518,7 +2741,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1112_merged.dta saved</code></pre>
 </div>
-<div id="dr1tot-merge-2" class="section level3">
+<div id="dr1tot-merge-3" class="section level3">
 <h3>DR1TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2011-2012\DR1TOT_G.dta&quot;
@@ -2553,7 +2776,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1112_merged.dta saved</code></pre>
 </div>
-<div id="dr2tot-merge-2" class="section level3">
+<div id="dr2tot-merge-3" class="section level3">
 <h3>DR2TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1112_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2011-2012\DR2TOT_G.dta&quot;
@@ -2589,10 +2812,10 @@ Duplicates in terms of seqn
 file data\NHANES1112_merged.dta saved</code></pre>
 </div>
 </div>
-<div id="section-3" class="section level2">
+<div id="section-4" class="section level2">
 <h2>2013-2014</h2>
 <p>Starting with the demographics file.</p>
-<div id="bmx-merge-3" class="section level3">
+<div id="bmx-merge-4" class="section level3">
 <h3>BMX merge</h3>
 <pre class="stata"><code>use &quot;temp\2013-2014\DEMO_H.dta&quot;, clear
 save &quot;data\NHANES1314_merged.dta&quot;,replace
@@ -2630,7 +2853,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1314_merged.dta saved</code></pre>
 </div>
-<div id="alq-merge-3" class="section level3">
+<div id="alq-merge-4" class="section level3">
 <h3>ALQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2013-2014\ALQ_H.dta&quot;
@@ -2665,7 +2888,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1314_merged.dta saved</code></pre>
 </div>
-<div id="bpx-merge-3" class="section level3">
+<div id="bpx-merge-4" class="section level3">
 <h3>BPX merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2013-2014\BPX_H.dta&quot;
@@ -2700,7 +2923,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1314_merged.dta saved</code></pre>
 </div>
-<div id="duq-merge-3" class="section level3">
+<div id="duq-merge-4" class="section level3">
 <h3>DUQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2013-2014\DUQ_H.dta&quot;
@@ -2735,7 +2958,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1314_merged.dta saved</code></pre>
 </div>
-<div id="smq-merge-3" class="section level3">
+<div id="smq-merge-4" class="section level3">
 <h3>SMQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2013-2014\SMQ_H.dta&quot;
@@ -2770,7 +2993,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1314_merged.dta saved</code></pre>
 </div>
-<div id="dr1tot-merge-3" class="section level3">
+<div id="dr1tot-merge-4" class="section level3">
 <h3>DR1TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2013-2014\DR1TOT_H.dta&quot;
@@ -2805,7 +3028,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1314_merged.dta saved</code></pre>
 </div>
-<div id="dr2tot-merge-3" class="section level3">
+<div id="dr2tot-merge-4" class="section level3">
 <h3>DR2TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1314_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2013-2014\DR2TOT_H.dta&quot;
@@ -2841,10 +3064,10 @@ Duplicates in terms of seqn
 file data\NHANES1314_merged.dta saved</code></pre>
 </div>
 </div>
-<div id="section-4" class="section level2">
+<div id="section-5" class="section level2">
 <h2>2015-2016</h2>
 <p>Starting with the demographics file.</p>
-<div id="bmx-merge-4" class="section level3">
+<div id="bmx-merge-5" class="section level3">
 <h3>BMX merge</h3>
 <pre class="stata"><code>use &quot;temp\2015-2016\DEMO_I.dta&quot;, clear
 save &quot;data\NHANES1516_merged.dta&quot;,replace
@@ -2882,7 +3105,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1516_merged.dta saved</code></pre>
 </div>
-<div id="alq-merge-4" class="section level3">
+<div id="alq-merge-5" class="section level3">
 <h3>ALQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2015-2016\ALQ_I.dta&quot;
@@ -2917,7 +3140,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1516_merged.dta saved</code></pre>
 </div>
-<div id="bpx-merge-4" class="section level3">
+<div id="bpx-merge-5" class="section level3">
 <h3>BPX merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2015-2016\BPX_I.dta&quot;
@@ -2952,7 +3175,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1516_merged.dta saved</code></pre>
 </div>
-<div id="duq-merge-4" class="section level3">
+<div id="duq-merge-5" class="section level3">
 <h3>DUQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2015-2016\DUQ_I.dta&quot;
@@ -2987,7 +3210,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1516_merged.dta saved</code></pre>
 </div>
-<div id="smq-merge-4" class="section level3">
+<div id="smq-merge-5" class="section level3">
 <h3>SMQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2015-2016\SMQ_I.dta&quot;
@@ -3022,7 +3245,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1516_merged.dta saved</code></pre>
 </div>
-<div id="dr1tot-merge-4" class="section level3">
+<div id="dr1tot-merge-5" class="section level3">
 <h3>DR1TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2015-2016\DR1TOT_I.dta&quot;
@@ -3057,7 +3280,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1516_merged.dta saved</code></pre>
 </div>
-<div id="dr2tot-merge-4" class="section level3">
+<div id="dr2tot-merge-5" class="section level3">
 <h3>DR2TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1516_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2015-2016\DR2TOT_I.dta&quot;
@@ -3093,10 +3316,10 @@ Duplicates in terms of seqn
 file data\NHANES1516_merged.dta saved</code></pre>
 </div>
 </div>
-<div id="section-5" class="section level2">
+<div id="section-6" class="section level2">
 <h2>2017-2018</h2>
 <p>Starting with the demographics file, DEMO_J, and merging with the body measures file, BMX_J</p>
-<div id="bmx-merge-5" class="section level3">
+<div id="bmx-merge-6" class="section level3">
 <h3>BMX merge</h3>
 <pre class="stata"><code>use &quot;temp\2017-2018\DEMO_J.dta&quot;, clear
 save &quot;data\NHANES1718_merged.dta&quot;,replace
@@ -3134,7 +3357,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1718_merged.dta saved</code></pre>
 </div>
-<div id="alq-merge-5" class="section level3">
+<div id="alq-merge-6" class="section level3">
 <h3>ALQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2017-2018\ALQ_J.dta&quot;
@@ -3169,7 +3392,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1718_merged.dta saved</code></pre>
 </div>
-<div id="bpx-merge-5" class="section level3">
+<div id="bpx-merge-6" class="section level3">
 <h3>BPX merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2017-2018\BPX_J.dta&quot;
@@ -3204,7 +3427,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1718_merged.dta saved</code></pre>
 </div>
-<div id="duq-merge-5" class="section level3">
+<div id="duq-merge-6" class="section level3">
 <h3>DUQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2017-2018\DUQ_J.dta&quot;
@@ -3239,7 +3462,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1718_merged.dta saved</code></pre>
 </div>
-<div id="smq-merge-5" class="section level3">
+<div id="smq-merge-6" class="section level3">
 <h3>SMQ merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2017-2018\SMQ_J.dta&quot;
@@ -3274,7 +3497,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1718_merged.dta saved</code></pre>
 </div>
-<div id="dr1tot-merge-5" class="section level3">
+<div id="dr1tot-merge-6" class="section level3">
 <h3>DR1TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2017-2018\DR1TOT_J.dta&quot;
@@ -3309,7 +3532,7 @@ Duplicates in terms of seqn
 
 file data\NHANES1718_merged.dta saved</code></pre>
 </div>
-<div id="dr2tot-merge-5" class="section level3">
+<div id="dr2tot-merge-6" class="section level3">
 <h3>DR2TOT merge</h3>
 <pre class="stata"><code>use &quot;data\NHANES1718_merged.dta&quot;, clear
 merge 1:1 seqn using &quot;temp\2017-2018\DR2TOT_J.dta&quot;
@@ -3348,8 +3571,9 @@ file data\NHANES1718_merged.dta saved</code></pre>
 </div>
 <div id="appending-datasets" class="section level1">
 <h1>Appending datasets</h1>
-<pre class="stata"><code>use &quot;data\NHANES0708_merged.dta&quot;, clear
-save &quot;data\NHANES0718.dta&quot;,replace
+<pre class="stata"><code>use &quot;data\NHANES0506_merged.dta&quot;, clear
+save &quot;data\NHANES0518.dta&quot;,replace
+append using &quot;data\NHANES0708_merged.dta&quot;
 append using &quot;data\NHANES0910_merged.dta&quot;
 append using &quot;data\NHANES1112_merged.dta&quot;
 append using &quot;data\NHANES1314_merged.dta&quot;
@@ -3359,29 +3583,11 @@ append using &quot;data\NHANES1718_merged.dta&quot;
 duplicates report seqn
 
 save,replace</code></pre>
-<pre><code>file data\NHANES0718.dta saved
+<pre><code>r(601);
 
-(label _merge already defined)
-
-(label _merge already defined)
-
-(label _merge already defined)
-
-(label _merge already defined)
-
-(label _merge already defined)
-
-
-Duplicates in terms of seqn
-
---------------------------------------
-   copies | observations       surplus
-----------+---------------------------
-        1 |        59842             0
---------------------------------------
-
-file data\NHANES0718.dta saved</code></pre>
-<pre class="stata"><code>use &quot;data\NHANES0718.dta&quot;, clear
+end of do-file
+r(601);</code></pre>
+<pre class="stata"><code>use &quot;data\NHANES0518.dta&quot;, clear
 
 merge 1:1 seqn using &quot;data\HEI2015R_00518.dta&quot;, keep(match master)
 rename _merge Merge_HEI
@@ -3389,32 +3595,10 @@ tab Merge_HEI
 duplicates report seqn
 
 save, replace</code></pre>
-<pre><code>    Result                           # of obs.
-    -----------------------------------------
-    not matched                        11,224
-        from master                    11,224  (_merge==1)
-        from using                          0  (_merge==2)
+<pre><code>r(601);
 
-    matched                            48,618  (_merge==3)
-    -----------------------------------------
-
-              Merge_HEI |      Freq.     Percent        Cum.
-------------------------+-----------------------------------
-        master only (1) |     11,224       18.76       18.76
-            matched (3) |     48,618       81.24      100.00
-------------------------+-----------------------------------
-                  Total |     59,842      100.00
-
-
-Duplicates in terms of seqn
-
---------------------------------------
-   copies | observations       surplus
-----------+---------------------------
-        1 |        59842             0
---------------------------------------
-
-file data\NHANES0718.dta saved</code></pre>
+end of do-file
+r(601);</code></pre>
 </div>
 
 
