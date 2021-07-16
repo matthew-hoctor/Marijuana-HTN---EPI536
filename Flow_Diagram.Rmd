@@ -74,10 +74,90 @@ ta BP_miss MJ_miss if AGE_exclude==0
 
 ta BP_miss MJ_miss if AGE_exclude==0 & gndr==0
 ta BP_miss MJ_miss if AGE_exclude==0 & gndr==1
+
+ta gndr if include==1
 ```
 
-
 # New Flow Diagram
+
+```{r}
+# Define some sample data
+data <- list(a=70190 , b=48783, c=22321, d=21020, e=10679, f=10341)
+
+DiagrammeR::grViz("
+digraph rmarkdown{
+
+# Box
+node [shape = box]
+
+A;
+
+A[label = 
+    <
+    Missing blood pressure data:<br ALIGN = 'LEFT'/> 
+    &#8226; No mobile examination center exam<br ALIGN = 'LEFT'/> 
+    (n = 2826)<br ALIGN = 'LEFT'/> 
+    &#8226; Insufficient BP data for AHA/ACC<br ALIGN = 'LEFT'/>
+    classification (n = 18581)<br ALIGN = 'LEFT'/>
+    >
+]
+
+B;
+
+B[label = 
+    <
+    Missing cannabis use data<br ALIGN = 'LEFT'/> 
+    (n = 26462)<br ALIGN = 'LEFT'/>
+    >
+]
+
+C;
+
+C[label = 
+    <
+    Outside of age range 20-59 years<br ALIGN = 'LEFT'/> 
+    (n = 1301)<br ALIGN = 'LEFT'/>
+    >
+]
+
+a [label = '@@1']
+a1 [shape = point width = 0.01]
+b [label = '@@2']
+b1 [shape = point width = 0.01]
+c [label = '@@3']
+c1 [shape = point width = 0.01]
+d [label = '@@4']
+e [label = '@@5']
+f [label = '@@6']
+
+
+a -> a1 [arrowhead = none]
+a1 -> A
+a1 -> b 
+b -> b1 [arrowhead = none]
+b1 -> B
+b1 -> c
+c -> c1 [arrowhead = none]
+c1 -> C
+c1 -> d -> e
+d -> f
+
+{rank=same; a1 A}
+{rank=same; b1 B}
+{rank=same; c1 C}
+
+}
+
+[1]: paste0('NHANES 2007-2018 (n = ', data$a, ')')
+[2]: paste0('Sufficient BP data (n = ', data$b, ')')
+[3]: paste0('Sufficient exposure and outcome data (n = ', data$c, ')')
+[4]: paste0('Adults age 20-59 with BP data & cannabis use data (n = ', data$d, ')')
+[5]: paste0('Women (n = ', data$e, ')')
+[6]: paste0('Men (n = ', data$f, ')')
+")
+```
+
+# Old 2007-2018 Flow Diagram
 
 ```{r}
 # Define some sample data
