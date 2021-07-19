@@ -6,13 +6,15 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [Zotero Library](https://www.zotero.org/groups/4332547/cannabis_use__hypertension_-_epi_536)
  * [DAGs](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/DAG.html)
    * [DAG on Daggity.net](http://dagitty.net/dags.html?id=DHjoMb#)
- * [HEI-2015 .dta data file download](https://github.com/matthew-hoctor/Marijuana-HTN---EPI536/blob/main/data/HEI2015R_00518.dta)
  * [Variables Table](https://docs.google.com/spreadsheets/d/1i8GbTjo4PRI1TzPGiHzXwNliISFwh2TPdQciPLfy830/edit#gid=0)
  * [Discussion & Ideas](https://docs.google.com/document/d/1t_8FqfcYVIMI_mKpDdhFYoWq-HbAZvgTPWsuXJigQXM/edit)
- * [Data Cleaning Plan](https://docs.google.com/document/d/13fL2GJl13hHvVIi2gTaqwxHL0G8jI0FdORji8mqZoAQ/edit)
- * [Data Download Script](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Data_Download.html)
- * [Dataset generation](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Dataset.html)
- * [Variables creation](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Variables.html)
+ * Dataset
+   * [HEI-2015 .dta data file download](https://github.com/matthew-hoctor/Marijuana-HTN---EPI536/blob/main/data/HEI2015R_00518.dta)
+   * [Data Cleaning Plan](https://docs.google.com/document/d/13fL2GJl13hHvVIi2gTaqwxHL0G8jI0FdORji8mqZoAQ/edit)
+   * [Data Download Script](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Data_Download.html)
+   * [Dataset generation](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Dataset.html)
+   * [Variables creation](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Variables.html)
+   * [Finished Dataset (zip)](https://github.com/matthew-hoctor/Marijuana-HTN---EPI536/blob/main/data/NHANES0518_new.zip)
  * [Flow diagram](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Flow_Diagram.html)
  
 ## Project Submissions
@@ -28,7 +30,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [STATA in RStudio](https://bookdown.org/yihui/rmarkdown-cookbook/eng-stata.html)
  * [STATA and RMarkdown](https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown.html)
  * [RStudio Git Integration Setup](https://happygitwithr.com/rstudio-git-github.html)
- * [Flowchart STATA Package](https://github.com/IsaacDodd/flowchart)
+ * [STROBE/CONSORT Flowcharts in R with DiagrammeR](https://dannyjnwong.github.io/STROBE-CONSORT-Diagrams-in-R/)
 
 ## NHANES Data & Documentation
 
