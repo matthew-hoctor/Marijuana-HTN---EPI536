@@ -77,10 +77,11 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
 ## To Do
 
  * Add variables
-   * Survey year
-   * BMI cat
    * Single MJ exposure variable
-   * survey weight
    * Recode HEI
-   * .zip code
+   * .zip
  * P4
+   * E7 Univariate analysis
+   * E8 Cross tabulation of covariates to assess colinearity
+   * E9 Re-parameterize continuous variables
+   * E10 Model building
