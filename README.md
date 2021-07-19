@@ -78,7 +78,9 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
 
  * Add variables
    * Survey year
+   * BMI cat
    * Single MJ exposure variable
    * survey weight
+   * Recode HEI
    * .zip code
  * P4
