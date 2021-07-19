@@ -24,6 +24,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [P3 - Analytic Sample Derivation](https://docs.google.com/document/d/1PQ5jV66IcMB9udq3kbU3LO_Ym2BZ7SkBW_SZbJ63FsA/edit)
  * [P4 - Table 2, Results](https://docs.google.com/document/d/1XvN0sFR522inA53X5tmEBP_nRz4AOFdj2_a_IyzGRaU/edit)
  * [P5 - Methods & Results](https://docs.google.com/document/d/16OJY0nDNyzt9xiXgtjRqehHEaimaXrWXULOc-nBdi30/edit)
+ * [P6 - Discussion](https://docs.google.com/document/d/1t_8FqfcYVIMI_mKpDdhFYoWq-HbAZvgTPWsuXJigQXM/edit)
 
 ## Getting Started
 
@@ -72,3 +73,12 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [2013-2014](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/SMQ_H.htm)
    * [2015-2016](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/SMQ_I.htm)
    * [2017-2018](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SMQ_J.htm)
+
+## To Do
+
+ * Add variables
+   * Survey year
+   * Single MJ exposure variable
+   * survey weight
+   * .zip code
+ * P4
