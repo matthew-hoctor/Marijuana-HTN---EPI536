@@ -6,7 +6,7 @@
 
 
 * Survey Weight Calculation
-gen wtmec12yr = (1/7) * wtmec2yr
+*gen wtmec12yr = (1/7) * wtmec2yr
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
 * Prevalence of outcome (BP)
@@ -70,24 +70,24 @@ ta AGE_miss MJ_cat if include==1,m
 svy, subpop(if include==1): mean bmxbmi, over(MJ_cat)
 
 *** Missing BMI by Marijuana Use Category
-gen BMI_miss=0
-	replace BMI_miss=1 if bmxbmi==.
+*gen BMI_miss=0
+*	replace BMI_miss=1 if bmxbmi==.
 ta BMI_miss MJ_cat if include==1,m
 
 ** Family Income Poverty Ratio (Mean)
 svy, subpop(if include==1): mean indfmpir, over(MJ_cat)
 
 *** Missing Family Income Poverty Ratio by Marijuana Use Category
-gen PIR_miss=0
-	replace PIR_miss=1 if indfmpir==.
+*gen PIR_miss=0
+*	replace PIR_miss=1 if indfmpir==.
 ta PIR_miss MJ_cat if include==1,m
 
 ** Healthy Eating Index (Mean)
 svy, subpop(if include==1): mean hei2015_total_score, over(MJ_cat)
 
 *** Missing Healthy Eating Index by Marijuana Use Category
-gen HEI_miss=0
-	replace HEI_miss=1 if hei2015_total_score==.
+*gen HEI_miss=0
+*	replace HEI_miss=1 if hei2015_total_score==.
 ta HEI_miss MJ_cat if include==1,m
 
 

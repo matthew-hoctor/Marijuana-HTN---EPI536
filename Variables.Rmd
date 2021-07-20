@@ -184,6 +184,26 @@ ta MJ_freq duq200,m
 save,replace
 ```
 
+## Generate Single MJ Exposure Variable
+
+```{stata unitary MJ variable}
+use "data\NHANES0518_new.dta", clear
+
+gen MJ=MJ_cat
+  replace MJ=3 if MJ_freq==1
+  replace MJ=4 if MJ_freq==2
+
+label define MJ 0 "Never Use" 1 "Past Use" 2 "1-10 times in past 30 days" 3 "11-20 times in past 30 days" 4 "21-30 times in past 30 days"
+label values MJ MJ
+label variable MJ "Cannabis Use"
+
+ta MJ_cat MJ_freq,m
+ta MJ,m
+ta MJ_freq MJ,m
+
+save,replace
+```
+
 ## Generate Missing MJ Variable
 
 ```{stata}
@@ -344,15 +364,23 @@ save,replace
 ```{stata}
 use "data\NHANES0518_new.dta", clear
 
-replace hei2015_total_score=. if dr1tkcal<500
-replace hei2015_total_score=. if dr1tkcal>5000
-replace hei2015_total_score=. if dr2tkcal<500
-replace hei2015_total_score=. if dr2tkcal>5000
+gen hei2015=hei2015_total_score
+  replace hei2015=. if dr1tkcal==. & dr2tkcal==.
+  replace hei2015=. if dr1tkcal<500 & dr1tkcal!=.
+  replace hei2015=. if dr1tkcal>5000 & dr1tkcal!=.
+  replace hei2015=. if dr2tkcal<500 & dr2tkcal!=.
+  replace hei2015=. if dr2tkcal>5000 & dr2tkcal!=.
 
-label variable hei2015_total_score "Healthy Eating Index Total"
+# replace hei2015_total_score=. if dr1tkcal<500
+# replace hei2015_total_score=. if dr1tkcal>5000
+# replace hei2015_total_score=. if dr2tkcal<500
+# replace hei2015_total_score=. if dr2tkcal>5000
 
-su hei2015_total_score
-su hei2015_total_score if include==1
+label variable hei2015 "Healthy Eating Index"
+
+gen HEI_miss=0
+  replace HEI_miss=1 if hei2015==.
+ta include HEI_miss
 
 save,replace
 ```
@@ -369,6 +397,28 @@ label variable include "Recode Education Level"
 
 ta dmdeduc2 EDUC_cat,m
 
+save,replace
+```
+
+## Survey Year
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+
+label define sddsrvyr 4 "2005-2006" 5 "2007-2008" 6 "2009-2010" 7 "2011-2012" 8 "2013-2014" 9 "2015-2016" 10 "2017-2018"
+label values sddsrvyr sddsrvyr
+label variable include "Survey Year"
+
+ta sddsrvyr,m
+
+save,replace
+```
+
+## MEC weight
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+gen wtmec12yr = (1/7) * wtmec2yr
 save,replace
 ```
 
@@ -394,7 +444,7 @@ gen PIR_miss=0
 ta PIR_miss include,m
 
 gen HEI_miss=0
-  replace HEI_miss=1 if hei2015_total_score==.
+  replace HEI_miss=1 if hei2015==.
 ta HEI_miss include,m
 ```
 
@@ -422,4 +472,10 @@ ta PIR_miss MJ_cat,m
 gen HEI_miss=0
   replace HEI_miss=1 if hei2015_total_score==.
 ta HEI_miss MJ_cat,m
+```
+
+# Create .zip file for github upload
+
+```{r}
+zip("data/NHANES0518_new.zip","data/NHANES0518_new.dta")
 ```
