@@ -148,7 +148,7 @@ d -> f
 
 }
 
-[1]: paste0('NHANES 2007-2018 (n = ', data$a, ')')
+[1]: paste0('NHANES 2005-2018 (n = ', data$a, ')')
 [2]: paste0('Sufficient BP data (n = ', data$b, ')')
 [3]: paste0('Sufficient exposure and outcome data (n = ', data$c, ')')
 [4]: paste0('Adults age 20-59 with BP data & cannabis use data (n = ', data$d, ')')
