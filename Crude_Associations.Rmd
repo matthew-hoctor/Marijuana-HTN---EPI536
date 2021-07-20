@@ -1,0 +1,40 @@
+---
+title: "Crude Associations"
+author: "Bryon Langford, Matthew Hoctor"
+date: "7/20/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if ((Sys.info()["sysname"] == "Darwin"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata/StataIC"))
+```
+
+```{r libraries, include=FALSE}
+library(Statamarkdown)
+```
+
+# Associations between exposure and covariates
+
+# Crude coefficients and ORs
+
+## Coefficients
+
+## ORs
+
+# Correlations among potential confounders
