@@ -5,9 +5,9 @@
 ***************************************************************
 
 
-* Survey Weight Calculation
-*gen wtmec12yr = (1/7) * wtmec2yr
-svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+* Survey Weight Calculation (2005-2018)
+*gen wtmec14yr = (1/7) * wtmec2yr
+svyset sdmvpsu [pw=wtmec14yr], strata(sdmvstra)
 
 * Prevalence of outcome (BP)
 svy, subpop(if include==1): ta BP_cat, ci col percent
