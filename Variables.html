@@ -693,6 +693,87 @@ In the Past |
 
 file data\NHANES0518_new.dta saved</code></pre>
 </div>
+<div id="generate-single-mj-exposure-variable" class="section level2">
+<h2>Generate Single MJ Exposure Variable</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+
+gen MJ=MJ_cat
+  replace MJ=3 if MJ_freq==1
+  replace MJ=4 if MJ_freq==2
+
+label define MJ 0 &quot;Never Use&quot; 1 &quot;Past Use&quot; 2 &quot;1-10 times in past 30 days&quot; 3 &quot;11-20 times in past 30 days&quot; 4 &quot;21-30 times in past 30 days&quot;
+label values MJ MJ
+label variable MJ &quot;Cannabis Use&quot;
+
+ta MJ_cat MJ_freq,m
+ta MJ,m
+ta MJ_freq MJ,m
+
+save,replace</code></pre>
+<pre><code>(46,630 missing values generated)
+
+(472 real changes made)
+
+(1,036 real changes made)
+
+
+
+
+
+   Cannabis |
+        Use | Cannabis Use Frequency In the Past 30 Days
+   Category | 1-10 days  11-20 day  21-30 day          . |     Total
+------------+--------------------------------------------+----------
+  Never Use |         0          0          0     10,967 |    10,967 
+   Past Use |         0          0          0      9,092 |     9,092 
+Current Use |     1,993        472      1,036          0 |     3,501 
+          . |         0          0          0     46,630 |    46,630 
+------------+--------------------------------------------+----------
+      Total |     1,993        472      1,036     66,689 |    70,190 
+
+               Cannabis Use |      Freq.     Percent        Cum.
+----------------------------+-----------------------------------
+                  Never Use |     10,967       15.62       15.62
+                   Past Use |      9,092       12.95       28.58
+ 1-10 times in past 30 days |      1,993        2.84       31.42
+11-20 times in past 30 days |        472        0.67       32.09
+21-30 times in past 30 days |      1,036        1.48       33.57
+                          . |     46,630       66.43      100.00
+----------------------------+-----------------------------------
+                      Total |     70,190      100.00
+
+
+  Cannabis |
+       Use |
+ Frequency |
+    In the |
+   Past 30 |                      Cannabis Use
+      Days | Never Use   Past Use  1-10 time  11-20 tim  21-30 tim |     Total
+-----------+-------------------------------------------------------+----------
+ 1-10 days |         0          0      1,993          0          0 |     1,993 
+11-20 days |         0          0          0        472          0 |       472 
+21-30 days |         0          0          0          0      1,036 |     1,036 
+         . |    10,967      9,092          0          0          0 |    66,689 
+-----------+-------------------------------------------------------+----------
+     Total |    10,967      9,092      1,993        472      1,036 |    70,190 
+
+
+  Cannabis |
+       Use |
+ Frequency |
+    In the |  Cannabis
+   Past 30 |    Use
+      Days |         . |     Total
+-----------+-----------+----------
+ 1-10 days |         0 |     1,993 
+11-20 days |         0 |       472 
+21-30 days |         0 |     1,036 
+         . |    46,630 |    66,689 
+-----------+-----------+----------
+     Total |    46,630 |    70,190 
+
+file data\NHANES0518_new.dta saved</code></pre>
+</div>
 <div id="generate-missing-mj-variable" class="section level2">
 <h2>Generate Missing MJ Variable</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
@@ -1061,32 +1142,54 @@ file data\NHANES0518_new.dta saved</code></pre>
 <h2>Healthy Eating Index</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
-replace hei2015_total_score=. if dr1tkcal&lt;500
-replace hei2015_total_score=. if dr1tkcal&gt;5000
-replace hei2015_total_score=. if dr2tkcal&lt;500
-replace hei2015_total_score=. if dr2tkcal&gt;5000
+gen hei2015=hei2015_total_score
+  replace hei2015=. if dr1tkcal==. &amp; dr2tkcal==.
+  replace hei2015=. if dr1tkcal&lt;500 &amp; dr1tkcal!=.
+  replace hei2015=. if dr1tkcal&gt;5000 &amp; dr1tkcal!=.
+  replace hei2015=. if dr2tkcal&lt;500 &amp; dr2tkcal!=.
+  replace hei2015=. if dr2tkcal&gt;5000 &amp; dr2tkcal!=.
 
-label variable hei2015_total_score &quot;Healthy Eating Index Total&quot;
+# replace hei2015_total_score=. if dr1tkcal&lt;500
+# replace hei2015_total_score=. if dr1tkcal&gt;5000
+# replace hei2015_total_score=. if dr2tkcal&lt;500
+# replace hei2015_total_score=. if dr2tkcal&gt;5000
 
-su hei2015_total_score
-su hei2015_total_score if include==1
+label variable hei2015 &quot;Healthy Eating Index&quot;
+
+gen HEI_miss=0
+  replace HEI_miss=1 if hei2015==.
+ta include HEI_miss
 
 save,replace</code></pre>
-<pre><code>(467 real changes made, 467 to missing)
+<pre><code>(13,023 missing values generated)
 
-(688 real changes made, 688 to missing)
+(0 real changes made)
+
+(467 real changes made, 467 to missing)
+
+(681 real changes made, 681 to missing)
 
 (684 real changes made, 684 to missing)
 
-(7,605 real changes made, 7,605 to missing)
+(258 real changes made, 258 to missing)
 
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-hei2015_to~e |     47,723    52.69514    12.90443   15.21765   99.54978
+Unknown #command
+Unknown #command
+Unknown #command
+Unknown #command
 
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-hei2015_to~e |     17,002    52.63895    13.13418   15.79113   98.74886
+
+(15,113 real changes made)
+
+
+   Recoded |
+    Race &amp; |       HEI_miss
+ Ethnicity |         0          1 |     Total
+-----------+----------------------+----------
+  Excluded |    35,606     13,564 |    49,170 
+  Included |    19,471      1,549 |    21,020 
+-----------+----------------------+----------
+     Total |    55,077     15,113 |    70,190 
 
 file data\NHANES0518_new.dta saved</code></pre>
 </div>
@@ -1144,6 +1247,40 @@ Adults 20+ |         . |     Total
 
 file data\NHANES0518_new.dta saved</code></pre>
 </div>
+<div id="survey-year" class="section level2">
+<h2>Survey Year</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+
+label define sddsrvyr 4 &quot;2005-2006&quot; 5 &quot;2007-2008&quot; 6 &quot;2009-2010&quot; 7 &quot;2011-2012&quot; 8 &quot;2013-2014&quot; 9 &quot;2015-2016&quot; 10 &quot;2017-2018&quot;
+label values sddsrvyr sddsrvyr
+label variable include &quot;Survey Year&quot;
+
+ta sddsrvyr,m
+
+save,replace</code></pre>
+<pre><code>       Data |
+    Release |
+     Number |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  2005-2006 |     10,348       14.74       14.74
+  2007-2008 |     10,149       14.46       29.20
+  2009-2010 |     10,537       15.01       44.21
+  2011-2012 |      9,756       13.90       58.11
+  2013-2014 |     10,175       14.50       72.61
+  2015-2016 |      9,971       14.21       86.82
+  2017-2018 |      9,254       13.18      100.00
+------------+-----------------------------------
+      Total |     70,190      100.00
+
+file data\NHANES0518_new.dta saved</code></pre>
+</div>
+<div id="mec-weight" class="section level2">
+<h2>MEC weight</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+gen wtmec12yr = (1/7) * wtmec2yr
+save,replace</code></pre>
+<pre><code>file data\NHANES0518_new.dta saved</code></pre>
+</div>
 </div>
 <div id="cross-tabulation-of-missing-variables-for-t1" class="section level1">
 <h1>Cross tabulation of missing variables for T1</h1>
@@ -1166,10 +1303,10 @@ gen PIR_miss=0
 ta PIR_miss include,m
 
 gen HEI_miss=0
-  replace HEI_miss=1 if hei2015_total_score==.
+  replace HEI_miss=1 if hei2015==.
 ta HEI_miss include,m</code></pre>
-<pre><code>   RECODE of dmdeduc2 |   Recode Education
-   (Education Level - |         Level
+<pre><code>   RECODE of dmdeduc2 |
+   (Education Level - |      Survey Year
           Adults 20+) |  Excluded   Included |     Total
 ----------------------+----------------------+----------
   Less than 9th Grade |     2,940      1,442 |     4,382 
@@ -1181,8 +1318,7 @@ Less than High School |     2,798      2,910 |     5,708
 ----------------------+----------------------+----------
                 Total |    49,170     21,020 |    70,190 
 
-           |   Recode Education
-           |         Level
+           |      Survey Year
     Gender |  Excluded   Included |     Total
 -----------+----------------------+----------
     Female |    24,802     10,679 |    35,481 
@@ -1190,8 +1326,7 @@ Less than High School |     2,798      2,910 |     5,708
 -----------+----------------------+----------
      Total |    49,170     21,020 |    70,190 
 
-                      |   Recode Education
-                      |         Level
+                      |      Survey Year
      Smoking Category |  Excluded   Included |     Total
 ----------------------+----------------------+----------
                 Never |    10,717     12,159 |    22,876 
@@ -1204,8 +1339,8 @@ Moderate, 11-20 cig/d |       974      1,566 |     2,540
                 Total |    49,170     21,020 |    70,190 
 
 
-   Alcohol |   Recode Education
-       Use |         Level
+   Alcohol |
+       Use |      Survey Year
   Category |  Excluded   Included |     Total
 -----------+----------------------+----------
 None-Light |     8,812      9,828 |    18,640 
@@ -1218,8 +1353,7 @@ None-Light |     8,812      9,828 |    18,640
 
 (0 real changes made)
 
-           |   Recode Education
-           |         Level
+           |      Survey Year
   AGE_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
          0 |    49,170     21,020 |    70,190 
@@ -1229,8 +1363,7 @@ None-Light |     8,812      9,828 |    18,640
 
 (8,550 real changes made)
 
-           |   Recode Education
-           |         Level
+           |      Survey Year
   BMI_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
          0 |    40,709     20,931 |    61,640 
@@ -1241,8 +1374,7 @@ None-Light |     8,812      9,828 |    18,640
 
 (6,332 real changes made)
 
-           |   Recode Education
-           |         Level
+           |      Survey Year
   PIR_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
          0 |    44,412     19,446 |    63,858 
@@ -1250,17 +1382,11 @@ None-Light |     8,812      9,828 |    18,640
 -----------+----------------------+----------
      Total |    49,170     21,020 |    70,190 
 
+variable HEI_miss already defined
+r(110);
 
-(22,467 real changes made)
-
-           |   Recode Education
-           |         Level
-  HEI_miss |  Excluded   Included |     Total
------------+----------------------+----------
-         0 |    30,721     17,002 |    47,723 
-         1 |    18,449      4,018 |    22,467 
------------+----------------------+----------
-     Total |    49,170     21,020 |    70,190 </code></pre>
+end of do-file
+r(110);</code></pre>
 </div>
 <div id="cross-tabulation-of-missing-variables-for-t1-by-mj_cat" class="section level1">
 <h1>Cross tabulation of missing variables for T1, by MJ_cat</h1>
@@ -1362,16 +1488,15 @@ None-Light |     6,532      3,486        989      7,633 |    18,640
 -----------+--------------------------------------------+----------
      Total |    10,967      9,092      3,501     46,630 |    70,190 
 
+variable HEI_miss already defined
+r(110);
 
-(22,467 real changes made)
-
-           |            Cannabis Use Category
-  HEI_miss | Never Use   Past Use  Current U          . |     Total
------------+--------------------------------------------+----------
-         0 |     8,903      7,422      2,605     28,793 |    47,723 
-         1 |     2,064      1,670        896     17,837 |    22,467 
------------+--------------------------------------------+----------
-     Total |    10,967      9,092      3,501     46,630 |    70,190 </code></pre>
+end of do-file
+r(110);</code></pre>
+</div>
+<div id="create-.zip-file-for-github-upload" class="section level1">
+<h1>Create .zip file for github upload</h1>
+<pre class="r"><code>zip(&quot;data/NHANES0518_new.zip&quot;,&quot;data/NHANES0518_new.dta&quot;)</code></pre>
 </div>
 
 
