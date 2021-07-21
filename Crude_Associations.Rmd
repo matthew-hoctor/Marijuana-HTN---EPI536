@@ -254,10 +254,17 @@ test _b[c.hei2015@0bn.BP_cat] = _b[c.hei2015@1.BP_cat] = _b[c.hei2015@2.BP_cat] 
 use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-xi: svy,subpop(if include==1): logit i.BP_cat i.MJ
+xi: svy,subpop(if include==1): logit BP_cat i.MJ
 ```
 
 ## ORs
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ,or
+```
 
 # Correlations among potential confounders
 

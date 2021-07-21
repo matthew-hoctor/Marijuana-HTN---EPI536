@@ -1155,7 +1155,7 @@ Adjusted Wald test
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-xi: svy,subpop(if include==1): logit i.BP_cat i.MJ</code></pre>
+xi: svy,subpop(if include==1): logit BP_cat i.MJ</code></pre>
 <pre><code>      pweight: wtmec12yr
           VCE: linearized
   Single unit: missing
@@ -1163,40 +1163,67 @@ xi: svy,subpop(if include==1): logit i.BP_cat i.MJ</code></pre>
          SU 1: sdmvpsu
         FPC 1: &lt;zero&gt;
 
-i.BP_cat          _IBP_cat_0-3        (naturally coded; _IBP_cat_0 omitted)
 i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
 (running logit on estimation sample)
 
-note: _IBP_cat_2 != 0 predicts failure perfectly
-      _IBP_cat_2 dropped and 4275 obs not used
-note: _IBP_cat_3 != 0 predicts failure perfectly
-      _IBP_cat_3 dropped and 2520 obs not used
-
 Survey: Logistic regression
 
-Number of strata   =       105                Number of obs     =       63,395
-Number of PSUs     =       214                Population size   =  261,558,727
-                                              Subpop. no. obs   =       14,225
-                                              Subpop. size      = 96,538,134.4
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
                                               Design df         =          109
-                                              F(   4,    106)   =         3.09
-                                              Prob &gt; F          =       0.0188
+                                              F(   4,    106)   =         0.67
+                                              Prob &gt; F          =       0.6114
 
 ------------------------------------------------------------------------------
              |             Linearized
-  _IBP_cat_1 |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-  _IBP_cat_2 |          0  (omitted)
-  _IBP_cat_3 |          0  (omitted)
-      _IMJ_1 |   .0481194   .0534872     0.90   0.370    -.0578906    .1541293
-      _IMJ_2 |   .0682562   .0919977     0.74   0.460    -.1140802    .2505926
-      _IMJ_3 |   .4435599    .173135     2.56   0.012     .1004118    .7867079
-      _IMJ_4 |   .3388827    .119547     2.83   0.005     .1019445     .575821
-       _cons |  -1.214671   .0391364   -31.04   0.000    -1.292238   -1.137104
+      _IMJ_1 |   .0468233   .0394893     1.19   0.238    -.0314431    .1250897
+      _IMJ_2 |   .0131961   .0643588     0.21   0.838     -.114361    .1407532
+      _IMJ_3 |   .1228651   .1372747     0.90   0.373    -.1492089    .3949392
+      _IMJ_4 |   .0911235   .0857926     1.06   0.291    -.0789146    .2611616
+       _cons |  -.1064847   .0321865    -3.31   0.001    -.1702773   -.0426921
 ------------------------------------------------------------------------------</code></pre>
 </div>
 <div id="ors" class="section level2">
 <h2>ORs</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ,or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+                                              F(   4,    106)   =         0.67
+                                              Prob &gt; F          =       0.6114
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |   1.047937   .0413823     1.19   0.238     .9690461     1.13325
+      _IMJ_2 |   1.013284   .0652137     0.21   0.838     .8919359     1.15114
+      _IMJ_3 |   1.130732   .1552209     0.90   0.373     .8613892    1.484294
+      _IMJ_4 |   1.095404   .0939776     1.06   0.291     .9241188    1.298438
+       _cons |   .8989888   .0289353    -3.31   0.001     .8434309    .9582063
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
 </div>
 </div>
 <div id="correlations-among-potential-confounders" class="section level1">
