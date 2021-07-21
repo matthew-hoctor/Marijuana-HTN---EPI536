@@ -987,7 +987,7 @@ recode ridreth1 1=3 2=4 3=1 4=2 5=4, gen(race_eth)
 
 label define race_eth 1 &quot;White-NH&quot; 2 &quot;Black_NH&quot; 3 &quot;Mex Am&quot; 4 &quot;Oth&quot;
 label values race_eth race_eth
-label variable include &quot;Recoded Race &amp; Ethnicity&quot;
+label variable race_eth &quot;Recoded Race &amp; Ethnicity&quot;
 
 ta race_eth
 ta ridreth1 race_eth,m
@@ -996,15 +996,9 @@ save,replace</code></pre>
 <pre><code>Unknown #command
 (70190 differences between ridreth1 and race_eth)
 
-
-
-
-
-  RECODE of |
-   ridreth1 |
-(Race/Ethni |
-     city - |
-    Recode) |      Freq.     Percent        Cum.
+    Recoded |
+     Race &amp; |
+  Ethnicity |      Freq.     Percent        Cum.
 ------------+-----------------------------------
    White-NH |     25,326       36.08       36.08
    Black_NH |     16,072       22.90       58.98
@@ -1014,8 +1008,8 @@ save,replace</code></pre>
       Total |     70,190      100.00
 
 
-Race/Ethni |    RECODE of ridreth1 (Race/Ethnicity -
-    city - |                   Recode)
+Race/Ethni |
+    city - |          Recoded Race &amp; Ethnicity
     Recode |  White-NH   Black_NH     Mex Am        Oth |     Total
 -----------+--------------------------------------------+----------
          1 |         0          0     13,761          0 |    13,761 
@@ -1181,10 +1175,10 @@ Unknown #command
 
 (15,113 real changes made)
 
-
-   Recoded |
-    Race &amp; |       HEI_miss
- Ethnicity |         0          1 |     Total
+     Meets |
+   Overall |
+ Inclusion |       HEI_miss
+  Criteria |         0          1 |     Total
 -----------+----------------------+----------
   Excluded |    35,606     13,564 |    49,170 
   Included |    19,471      1,549 |    21,020 
@@ -1200,7 +1194,7 @@ file data\NHANES0518_new.dta saved</code></pre>
 recode dmdeduc2 1=1 2=2 3=3 4=4 5=5 7=. 9=., gen(EDUC_cat)
 label define EDUC_cat 1 &quot;Less than 9th Grade&quot; 2 &quot;Less than High School&quot; 3 &quot;High School/GED&quot; 4 &quot;Some College&quot; 5 &quot;College Graduate&quot;
 label values EDUC_cat EDUC_cat
-label variable include &quot;Recode Education Level&quot;
+label variable EDUC_cat &quot;Recode Education Level&quot;
 
 ta dmdeduc2 EDUC_cat,m
 
@@ -1212,7 +1206,7 @@ save,replace</code></pre>
 
 
  Education |
-   Level - |   RECODE of dmdeduc2 (Education Level - Adults 20+)
+   Level - |                 Recode Education Level
 Adults 20+ | Less than  Less than  High Scho  Some Coll  College G |     Total
 -----------+-------------------------------------------------------+----------
          1 |     4,382          0          0          0          0 |     4,382 
@@ -1226,12 +1220,9 @@ Adults 20+ | Less than  Less than  High Scho  Some Coll  College G |     Total
 -----------+-------------------------------------------------------+----------
      Total |     4,382      5,708      9,102     11,561      8,935 |    70,190 
 
-           | RECODE of
-           |  dmdeduc2
-           | (Education
-           |  Level -
- Education |   Adults
-   Level - |    20+)
+           |   Recode
+ Education | Education
+   Level - |   Level
 Adults 20+ |         . |     Total
 -----------+-----------+----------
          1 |         0 |     4,382 
@@ -1253,14 +1244,12 @@ file data\NHANES0518_new.dta saved</code></pre>
 
 label define sddsrvyr 4 &quot;2005-2006&quot; 5 &quot;2007-2008&quot; 6 &quot;2009-2010&quot; 7 &quot;2011-2012&quot; 8 &quot;2013-2014&quot; 9 &quot;2015-2016&quot; 10 &quot;2017-2018&quot;
 label values sddsrvyr sddsrvyr
-label variable include &quot;Survey Year&quot;
+label variable sddsrvyr &quot;Survey Year&quot;
 
 ta sddsrvyr,m
 
 save,replace</code></pre>
-<pre><code>       Data |
-    Release |
-     Number |      Freq.     Percent        Cum.
+<pre><code>Survey Year |      Freq.     Percent        Cum.
 ------------+-----------------------------------
   2005-2006 |     10,348       14.74       14.74
   2007-2008 |     10,149       14.46       29.20
@@ -1290,7 +1279,8 @@ ta BMI_miss include,m
 save,replace</code></pre>
 <pre><code>(8,550 real changes made)
 
-           |      Survey Year
+           |     Meets Overall
+           |  Inclusion Criteria
   BMI_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
          0 |    40,709     20,931 |    61,640 
@@ -1302,7 +1292,8 @@ save,replace</code></pre>
 
 (47 real changes made)
 
-           |      Survey Year
+           |     Meets Overall
+           |  Inclusion Criteria
   BMI_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
          0 |    40,683     20,910 |    61,593 
@@ -1343,9 +1334,9 @@ ta PIR_miss include,m
 gen HEI_miss=0
   replace HEI_miss=1 if hei2015==.
 ta HEI_miss include,m</code></pre>
-<pre><code>   RECODE of dmdeduc2 |
-   (Education Level - |      Survey Year
-          Adults 20+) |  Excluded   Included |     Total
+<pre><code>                      |     Meets Overall
+     Recode Education |  Inclusion Criteria
+                Level |  Excluded   Included |     Total
 ----------------------+----------------------+----------
   Less than 9th Grade |     2,940      1,442 |     4,382 
 Less than High School |     2,798      2,910 |     5,708 
@@ -1356,7 +1347,8 @@ Less than High School |     2,798      2,910 |     5,708
 ----------------------+----------------------+----------
                 Total |    49,170     21,020 |    70,190 
 
-           |      Survey Year
+           |     Meets Overall
+           |  Inclusion Criteria
     Gender |  Excluded   Included |     Total
 -----------+----------------------+----------
     Female |    24,802     10,679 |    35,481 
@@ -1364,7 +1356,8 @@ Less than High School |     2,798      2,910 |     5,708
 -----------+----------------------+----------
      Total |    49,170     21,020 |    70,190 
 
-                      |      Survey Year
+                      |     Meets Overall
+                      |  Inclusion Criteria
      Smoking Category |  Excluded   Included |     Total
 ----------------------+----------------------+----------
                 Never |    10,717     12,159 |    22,876 
@@ -1377,8 +1370,8 @@ Moderate, 11-20 cig/d |       974      1,566 |     2,540
                 Total |    49,170     21,020 |    70,190 
 
 
-   Alcohol |
-       Use |      Survey Year
+   Alcohol |     Meets Overall
+       Use |  Inclusion Criteria
   Category |  Excluded   Included |     Total
 -----------+----------------------+----------
 None-Light |     8,812      9,828 |    18,640 
@@ -1391,7 +1384,8 @@ None-Light |     8,812      9,828 |    18,640
 
 (0 real changes made)
 
-           |      Survey Year
+           |     Meets Overall
+           |  Inclusion Criteria
   AGE_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
          0 |    49,170     21,020 |    70,190 
@@ -1401,7 +1395,8 @@ None-Light |     8,812      9,828 |    18,640
 Unknown #command
 Unknown #command
 
-           |      Survey Year
+           |     Meets Overall
+           |  Inclusion Criteria
   BMI_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
          0 |    40,683     20,910 |    61,593 
@@ -1412,7 +1407,8 @@ Unknown #command
 
 (6,332 real changes made)
 
-           |      Survey Year
+           |     Meets Overall
+           |  Inclusion Criteria
   PIR_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
          0 |    44,412     19,446 |    63,858 
@@ -1449,9 +1445,8 @@ ta PIR_miss MJ_cat,m
 gen HEI_miss=0
   replace HEI_miss=1 if hei2015_total_score==.
 ta HEI_miss MJ_cat,m</code></pre>
-<pre><code>   RECODE of dmdeduc2 |
-   (Education Level - |            Cannabis Use Category
-          Adults 20+) | Never Use   Past Use  Current U          . |     Total
+<pre><code>     Recode Education |            Cannabis Use Category
+                Level | Never Use   Past Use  Current U          . |     Total
 ----------------------+--------------------------------------------+----------
   Less than 9th Grade |     1,200        251         82      2,849 |     4,382 
 Less than High School |     1,387      1,110        594      2,617 |     5,708 

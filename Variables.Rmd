@@ -292,7 +292,7 @@ recode ridreth1 1=3 2=4 3=1 4=2 5=4, gen(race_eth)
 
 label define race_eth 1 "White-NH" 2 "Black_NH" 3 "Mex Am" 4 "Oth"
 label values race_eth race_eth
-label variable include "Recoded Race & Ethnicity"
+label variable race_eth "Recoded Race & Ethnicity"
 
 ta race_eth
 ta ridreth1 race_eth,m
@@ -393,7 +393,7 @@ use "data\NHANES0518_new.dta", clear
 recode dmdeduc2 1=1 2=2 3=3 4=4 5=5 7=. 9=., gen(EDUC_cat)
 label define EDUC_cat 1 "Less than 9th Grade" 2 "Less than High School" 3 "High School/GED" 4 "Some College" 5 "College Graduate"
 label values EDUC_cat EDUC_cat
-label variable include "Recode Education Level"
+label variable EDUC_cat "Recode Education Level"
 
 ta dmdeduc2 EDUC_cat,m
 
@@ -407,7 +407,7 @@ use "data\NHANES0518_new.dta", clear
 
 label define sddsrvyr 4 "2005-2006" 5 "2007-2008" 6 "2009-2010" 7 "2011-2012" 8 "2013-2014" 9 "2015-2016" 10 "2017-2018"
 label values sddsrvyr sddsrvyr
-label variable include "Survey Year"
+label variable sddsrvyr "Survey Year"
 
 ta sddsrvyr,m
 
