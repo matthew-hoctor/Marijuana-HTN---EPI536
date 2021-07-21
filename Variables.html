@@ -1274,6 +1274,44 @@ save,replace</code></pre>
 
 file data\NHANES0518_new.dta saved</code></pre>
 </div>
+<div id="bmi-implausible-values" class="section level2">
+<h2>BMI implausible values</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+
+gen BMI_miss=0
+  replace BMI_miss=1 if bmxbmi==.
+ta BMI_miss include,m
+
+replace bmxbmi=. if bmxbmi&gt;65
+
+replace BMI_miss=1 if bmxbmi==.
+ta BMI_miss include,m
+
+save,replace</code></pre>
+<pre><code>(8,550 real changes made)
+
+           |      Survey Year
+  BMI_miss |  Excluded   Included |     Total
+-----------+----------------------+----------
+         0 |    40,709     20,931 |    61,640 
+         1 |     8,461         89 |     8,550 
+-----------+----------------------+----------
+     Total |    49,170     21,020 |    70,190 
+
+(47 real changes made, 47 to missing)
+
+(47 real changes made)
+
+           |      Survey Year
+  BMI_miss |  Excluded   Included |     Total
+-----------+----------------------+----------
+         0 |    40,683     20,910 |    61,593 
+         1 |     8,487        110 |     8,597 
+-----------+----------------------+----------
+     Total |    49,170     21,020 |    70,190 
+
+file data\NHANES0518_new.dta saved</code></pre>
+</div>
 <div id="mec-weight" class="section level2">
 <h2>MEC weight</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
@@ -1294,8 +1332,8 @@ gen AGE_miss =0
   replace AGE_miss=1 if ridageyr==.
 ta AGE_miss include,m
 
-gen BMI_miss=0
-  replace BMI_miss=1 if bmxbmi==.
+# gen BMI_miss=0
+#   replace BMI_miss=1 if bmxbmi==.
 ta BMI_miss include,m
 
 gen PIR_miss=0
@@ -1360,14 +1398,14 @@ None-Light |     8,812      9,828 |    18,640
 -----------+----------------------+----------
      Total |    49,170     21,020 |    70,190 
 
-
-(8,550 real changes made)
+Unknown #command
+Unknown #command
 
            |      Survey Year
   BMI_miss |  Excluded   Included |     Total
 -----------+----------------------+----------
-         0 |    40,709     20,931 |    61,640 
-         1 |     8,461         89 |     8,550 
+         0 |    40,683     20,910 |    61,593 
+         1 |     8,487        110 |     8,597 
 -----------+----------------------+----------
      Total |    49,170     21,020 |    70,190 
 
@@ -1466,29 +1504,7 @@ None-Light |     6,532      3,486        989      7,633 |    18,640
 -----------+--------------------------------------------+----------
      Total |    10,967      9,092      3,501     46,630 |    70,190 
 
-
-(8,550 real changes made)
-
-           |            Cannabis Use Category
-  BMI_miss | Never Use   Past Use  Current U          . |     Total
------------+--------------------------------------------+----------
-         0 |    10,889      9,036      3,472     38,243 |    61,640 
-         1 |        78         56         29      8,387 |     8,550 
------------+--------------------------------------------+----------
-     Total |    10,967      9,092      3,501     46,630 |    70,190 
-
-
-(6,332 real changes made)
-
-           |            Cannabis Use Category
-  PIR_miss | Never Use   Past Use  Current U          . |     Total
------------+--------------------------------------------+----------
-         0 |     9,885      8,570      3,267     42,136 |    63,858 
-         1 |     1,082        522        234      4,494 |     6,332 
------------+--------------------------------------------+----------
-     Total |    10,967      9,092      3,501     46,630 |    70,190 
-
-variable HEI_miss already defined
+variable BMI_miss already defined
 r(110);
 
 end of do-file

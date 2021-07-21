@@ -414,6 +414,24 @@ ta sddsrvyr,m
 save,replace
 ```
 
+## BMI implausible values
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+
+gen BMI_miss=0
+  replace BMI_miss=1 if bmxbmi==.
+ta BMI_miss include,m
+
+replace bmxbmi=. if bmxbmi>65
+
+replace BMI_miss=1 if bmxbmi==.
+ta BMI_miss include,m
+
+save,replace
+```
+
+
 ## MEC weight
 
 ```{stata}
@@ -435,8 +453,8 @@ gen AGE_miss =0
   replace AGE_miss=1 if ridageyr==.
 ta AGE_miss include,m
 
-gen BMI_miss=0
-  replace BMI_miss=1 if bmxbmi==.
+# gen BMI_miss=0
+#   replace BMI_miss=1 if bmxbmi==.
 ta BMI_miss include,m
 
 gen PIR_miss=0
