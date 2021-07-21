@@ -249,12 +249,506 @@ div.tocify {
 
 <div id="final-model" class="section level1">
 <h1>Final Model</h1>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       67,991
+Number of PSUs     =       214                Population size   =  292,944,878
+                                              Subpop. no. obs   =       18,821
+                                              Subpop. size      =  127,924,286
+                                              Design df         =          109
+                                              F(   9,    101)   =       171.42
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |   .9195897   .0431616    -1.79   0.077     .8379031     1.00924
+      _IMJ_2 |   1.125541   .0807243     1.65   0.102     .9763994    1.297464
+      _IMJ_3 |   1.256641    .187487     1.53   0.129     .9349512    1.689016
+      _IMJ_4 |   1.136796   .1206675     1.21   0.230     .9211185    1.402973
+        gndr |   2.678669   .1097468    24.05   0.000     2.469751    2.905259
+  _IAL_cat_1 |   1.178936   .0645598     3.01   0.003     1.057679    1.314093
+  _IAL_cat_2 |   1.404028   .0972246     4.90   0.000      1.22397    1.610573
+      bmxbmi |   1.076922   .0039402    20.25   0.000     1.069141     1.08476
+    ridageyr |   1.048122   .0022665    21.73   0.000     1.043639    1.052623
+       _cons |   .0092223   .0013177   -32.80   0.000     .0069479    .0122412
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
 </div>
 <div id="stratified-analysis" class="section level1">
 <h1>Stratified Analysis</h1>
+<div id="men" class="section level2">
+<h2>Men</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 &amp; gndr==1): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+note: gndr omitted because of collinearity
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       69,030
+Number of PSUs     =       214                Population size   =  299,205,783
+                                              Subpop. no. obs   =        9,181
+                                              Subpop. size      = 63,854,681.3
+                                              Design df         =          109
+                                              F(   8,    102)   =        46.02
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |    1.03377     .06878     0.50   0.619     .9060561    1.179486
+      _IMJ_2 |   1.263003   .1145963     2.57   0.011     1.055128    1.511833
+      _IMJ_3 |   1.445419   .2437275     2.18   0.031      1.03479    2.018995
+      _IMJ_4 |   1.247216   .1815545     1.52   0.132     .9346373    1.664333
+        gndr |          1  (omitted)
+  _IAL_cat_1 |    1.20197   .0786707     2.81   0.006     1.055737    1.368458
+  _IAL_cat_2 |   1.397182   .1183305     3.95   0.000     1.181281    1.652542
+      bmxbmi |   1.086816   .0059293    15.26   0.000     1.075128    1.098632
+    ridageyr |   1.028045   .0027995    10.16   0.000     1.022511    1.033608
+       _cons |   .0369985   .0072712   -16.78   0.000     .0250624    .0546192
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+<div id="women" class="section level2">
+<h2>Women</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 &amp; gndr==0): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+note: gndr omitted because of collinearity
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       69,151
+Number of PSUs     =       214                Population size   =  300,284,148
+                                              Subpop. no. obs   =        9,640
+                                              Subpop. size      = 64,069,604.7
+                                              Design df         =          109
+                                              F(   8,    102)   =        86.72
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |   .8397025    .057369    -2.56   0.012     .7333614    .9614637
+      _IMJ_2 |    1.02052   .1209216     0.17   0.864     .8069195    1.290663
+      _IMJ_3 |   .8498809   .2407074    -0.57   0.567     .4848084    1.489862
+      _IMJ_4 |   .9591782   .1709363    -0.23   0.816     .6737561    1.365513
+        gndr |          1  (omitted)
+  _IAL_cat_1 |   1.160256   .0894539     1.93   0.056     .9958428    1.351814
+  _IAL_cat_2 |   1.401877   .1502714     3.15   0.002     1.133555    1.733712
+      bmxbmi |   1.074915   .0044394    17.49   0.000     1.066152     1.08375
+    ridageyr |   1.071599   .0034429    21.52   0.000     1.064797    1.078444
+       _cons |   .0041514   .0008711   -26.14   0.000     .0027388    .0062924
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
 </div>
 <div id="interaction-analysis" class="section level1">
 <h1>Interaction Analysis</h1>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr i.AL_cat bmxbmi ridageyr, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+i.MJ*gndr         _IMJXgndr_#         (coded as above)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+note: gndr omitted because of collinearity
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       67,991
+Number of PSUs     =       214                Population size   =  292,944,878
+                                              Subpop. no. obs   =       18,821
+                                              Subpop. size      =  127,924,286
+                                              Design df         =          109
+                                              F(  13,     97)   =       113.80
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |   .8408813    .055042    -2.65   0.009       .73857    .9573653
+      _IMJ_2 |    .900777   .0927807    -1.01   0.313     .7344439     1.10478
+      _IMJ_3 |   .7677384   .2118636    -0.96   0.340      .444304    1.326619
+      _IMJ_4 |   .8710944   .1504346    -0.80   0.426     .6186083    1.226633
+        gndr |   2.314181   .1481713    13.10   0.000      2.03838    2.627299
+ _IMJXgndr_1 |   1.207781   .1173943     1.94   0.055     .9961488    1.464376
+ _IMJXgndr_2 |   1.483855   .1925096     3.04   0.003     1.147414    1.918946
+ _IMJXgndr_3 |   2.089399    .626913     2.46   0.016     1.152804    3.786928
+ _IMJXgndr_4 |   1.547986   .3697322     1.83   0.070     .9642232    2.485173
+        gndr |          1  (omitted)
+  _IAL_cat_1 |   1.187764   .0650172     3.14   0.002     1.065647    1.323876
+  _IAL_cat_2 |   1.409399   .0979624     4.94   0.000      1.22802    1.617567
+      bmxbmi |   1.077271   .0039565    20.27   0.000     1.069457    1.085141
+    ridageyr |   1.048078   .0022851    21.54   0.000     1.043559    1.052617
+       _cons |    .009751   .0014435   -31.28   0.000     .0072716     .013076
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+<div id="previous-use-lincom" class="section level2">
+<h2>previous use lincom</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr i.AL_cat bmxbmi ridageyr, or
+
+# long form
+lincom (1*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 1*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4) - (1*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
+
+# reduced form
+lincom gndr + _IMJXgndr_1</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+i.MJ*gndr         _IMJXgndr_#         (coded as above)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+note: gndr omitted because of collinearity
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       67,991
+Number of PSUs     =       214                Population size   =  292,944,878
+                                              Subpop. no. obs   =       18,821
+                                              Subpop. size      =  127,924,286
+                                              Design df         =          109
+                                              F(  13,     97)   =       113.80
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |   .8408813    .055042    -2.65   0.009       .73857    .9573653
+      _IMJ_2 |    .900777   .0927807    -1.01   0.313     .7344439     1.10478
+      _IMJ_3 |   .7677384   .2118636    -0.96   0.340      .444304    1.326619
+      _IMJ_4 |   .8710944   .1504346    -0.80   0.426     .6186083    1.226633
+        gndr |   2.314181   .1481713    13.10   0.000      2.03838    2.627299
+ _IMJXgndr_1 |   1.207781   .1173943     1.94   0.055     .9961488    1.464376
+ _IMJXgndr_2 |   1.483855   .1925096     3.04   0.003     1.147414    1.918946
+ _IMJXgndr_3 |   2.089399    .626913     2.46   0.016     1.152804    3.786928
+ _IMJXgndr_4 |   1.547986   .3697322     1.83   0.070     .9642232    2.485173
+        gndr |          1  (omitted)
+  _IAL_cat_1 |   1.187764   .0650172     3.14   0.002     1.065647    1.323876
+  _IAL_cat_2 |   1.409399   .0979624     4.94   0.000      1.22802    1.617567
+      bmxbmi |   1.077271   .0039565    20.27   0.000     1.069457    1.085141
+    ridageyr |   1.048078   .0022851    21.54   0.000     1.043559    1.052617
+       _cons |    .009751   .0014435   -31.28   0.000     .0072716     .013076
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.
+
+Unknown #command
+
+ ( 1)  [BP_cat]gndr + [BP_cat]_IMJXgndr_1 = 0
+
+------------------------------------------------------------------------------
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.027841   .0659409    15.59   0.000     .8971484    1.158534
+------------------------------------------------------------------------------
+
+Unknown #command
+
+ ( 1)  [BP_cat]gndr + [BP_cat]_IMJXgndr_1 = 0
+
+------------------------------------------------------------------------------
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.027841   .0659409    15.59   0.000     .8971484    1.158534
+------------------------------------------------------------------------------</code></pre>
+</div>
+<div id="light-use-lincom" class="section level2">
+<h2>light use lincom</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr i.AL_cat bmxbmi ridageyr, or
+
+# long form
+lincom (0*_IMJ_1 + 1*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 1*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4) - (0*_IMJ_1 + 1*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
+
+# reduced form
+lincom gndr + _IMJXgndr_2</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+i.MJ*gndr         _IMJXgndr_#         (coded as above)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+note: gndr omitted because of collinearity
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       67,991
+Number of PSUs     =       214                Population size   =  292,944,878
+                                              Subpop. no. obs   =       18,821
+                                              Subpop. size      =  127,924,286
+                                              Design df         =          109
+                                              F(  13,     97)   =       113.80
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |   .8408813    .055042    -2.65   0.009       .73857    .9573653
+      _IMJ_2 |    .900777   .0927807    -1.01   0.313     .7344439     1.10478
+      _IMJ_3 |   .7677384   .2118636    -0.96   0.340      .444304    1.326619
+      _IMJ_4 |   .8710944   .1504346    -0.80   0.426     .6186083    1.226633
+        gndr |   2.314181   .1481713    13.10   0.000      2.03838    2.627299
+ _IMJXgndr_1 |   1.207781   .1173943     1.94   0.055     .9961488    1.464376
+ _IMJXgndr_2 |   1.483855   .1925096     3.04   0.003     1.147414    1.918946
+ _IMJXgndr_3 |   2.089399    .626913     2.46   0.016     1.152804    3.786928
+ _IMJXgndr_4 |   1.547986   .3697322     1.83   0.070     .9642232    2.485173
+        gndr |          1  (omitted)
+  _IAL_cat_1 |   1.187764   .0650172     3.14   0.002     1.065647    1.323876
+  _IAL_cat_2 |   1.409399   .0979624     4.94   0.000      1.22802    1.617567
+      bmxbmi |   1.077271   .0039565    20.27   0.000     1.069457    1.085141
+    ridageyr |   1.048078   .0022851    21.54   0.000     1.043559    1.052617
+       _cons |    .009751   .0014435   -31.28   0.000     .0072716     .013076
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.
+
+Unknown #command
+
+ ( 1)  [BP_cat]gndr + [BP_cat]_IMJXgndr_2 = 0
+
+------------------------------------------------------------------------------
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.233699   .1234798     9.99   0.000     .9889662    1.478432
+------------------------------------------------------------------------------
+
+Unknown #command
+
+ ( 1)  [BP_cat]gndr + [BP_cat]_IMJXgndr_2 = 0
+
+------------------------------------------------------------------------------
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.233699   .1234798     9.99   0.000     .9889662    1.478432
+------------------------------------------------------------------------------</code></pre>
+</div>
+<div id="moderate-use-lincom" class="section level2">
+<h2>moderate use lincom</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr i.AL_cat bmxbmi ridageyr, or
+
+# long form
+lincom (0*_IMJ_1 + 0*_IMJ_2 + 1*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 1*_IMJXgndr_3 + 0*_IMJXgndr_4) - (0*_IMJ_1 + 0*_IMJ_2 + 1*_IMJ_3 + 0*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
+
+# reduced form
+lincom gndr + _IMJXgndr_3</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+i.MJ*gndr         _IMJXgndr_#         (coded as above)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+note: gndr omitted because of collinearity
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       67,991
+Number of PSUs     =       214                Population size   =  292,944,878
+                                              Subpop. no. obs   =       18,821
+                                              Subpop. size      =  127,924,286
+                                              Design df         =          109
+                                              F(  13,     97)   =       113.80
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |   .8408813    .055042    -2.65   0.009       .73857    .9573653
+      _IMJ_2 |    .900777   .0927807    -1.01   0.313     .7344439     1.10478
+      _IMJ_3 |   .7677384   .2118636    -0.96   0.340      .444304    1.326619
+      _IMJ_4 |   .8710944   .1504346    -0.80   0.426     .6186083    1.226633
+        gndr |   2.314181   .1481713    13.10   0.000      2.03838    2.627299
+ _IMJXgndr_1 |   1.207781   .1173943     1.94   0.055     .9961488    1.464376
+ _IMJXgndr_2 |   1.483855   .1925096     3.04   0.003     1.147414    1.918946
+ _IMJXgndr_3 |   2.089399    .626913     2.46   0.016     1.152804    3.786928
+ _IMJXgndr_4 |   1.547986   .3697322     1.83   0.070     .9642232    2.485173
+        gndr |          1  (omitted)
+  _IAL_cat_1 |   1.187764   .0650172     3.14   0.002     1.065647    1.323876
+  _IAL_cat_2 |   1.409399   .0979624     4.94   0.000      1.22802    1.617567
+      bmxbmi |   1.077271   .0039565    20.27   0.000     1.069457    1.085141
+    ridageyr |   1.048078   .0022851    21.54   0.000     1.043559    1.052617
+       _cons |    .009751   .0014435   -31.28   0.000     .0072716     .013076
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.
+
+Unknown #command
+
+ ( 1)  [BP_cat]gndr + [BP_cat]_IMJXgndr_3 = 0
+
+------------------------------------------------------------------------------
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.575932   .3023817     5.21   0.000     .9766215    2.175243
+------------------------------------------------------------------------------
+
+Unknown #command
+
+ ( 1)  [BP_cat]gndr + [BP_cat]_IMJXgndr_3 = 0
+
+------------------------------------------------------------------------------
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.575932   .3023817     5.21   0.000     .9766215    2.175243
+------------------------------------------------------------------------------</code></pre>
+</div>
+<div id="heavy-use-lincom" class="section level2">
+<h2>heavy use lincom</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr i.AL_cat bmxbmi ridageyr, or
+
+# long form
+lincom (0*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 1*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 1*_IMJXgndr_4) - (0*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 1*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
+
+# reduced form
+lincom gndr + _IMJXgndr_4</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ              _IMJ_0-4            (naturally coded; _IMJ_0 omitted)
+i.MJ*gndr         _IMJXgndr_#         (coded as above)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+note: gndr omitted because of collinearity
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       67,991
+Number of PSUs     =       214                Population size   =  292,944,878
+                                              Subpop. no. obs   =       18,821
+                                              Subpop. size      =  127,924,286
+                                              Design df         =          109
+                                              F(  13,     97)   =       113.80
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_cat | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      _IMJ_1 |   .8408813    .055042    -2.65   0.009       .73857    .9573653
+      _IMJ_2 |    .900777   .0927807    -1.01   0.313     .7344439     1.10478
+      _IMJ_3 |   .7677384   .2118636    -0.96   0.340      .444304    1.326619
+      _IMJ_4 |   .8710944   .1504346    -0.80   0.426     .6186083    1.226633
+        gndr |   2.314181   .1481713    13.10   0.000      2.03838    2.627299
+ _IMJXgndr_1 |   1.207781   .1173943     1.94   0.055     .9961488    1.464376
+ _IMJXgndr_2 |   1.483855   .1925096     3.04   0.003     1.147414    1.918946
+ _IMJXgndr_3 |   2.089399    .626913     2.46   0.016     1.152804    3.786928
+ _IMJXgndr_4 |   1.547986   .3697322     1.83   0.070     .9642232    2.485173
+        gndr |          1  (omitted)
+  _IAL_cat_1 |   1.187764   .0650172     3.14   0.002     1.065647    1.323876
+  _IAL_cat_2 |   1.409399   .0979624     4.94   0.000      1.22802    1.617567
+      bmxbmi |   1.077271   .0039565    20.27   0.000     1.069457    1.085141
+    ridageyr |   1.048078   .0022851    21.54   0.000     1.043559    1.052617
+       _cons |    .009751   .0014435   -31.28   0.000     .0072716     .013076
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.
+
+Unknown #command
+
+ ( 1)  [BP_cat]gndr + [BP_cat]_IMJXgndr_4 = 0
+
+------------------------------------------------------------------------------
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.276011    .222936     5.72   0.000      .834159    1.717863
+------------------------------------------------------------------------------
+
+Unknown #command
+
+ ( 1)  [BP_cat]gndr + [BP_cat]_IMJXgndr_4 = 0
+
+------------------------------------------------------------------------------
+      BP_cat |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         (1) |   1.276011    .222936     5.72   0.000      .834159    1.717863
+------------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 
 
