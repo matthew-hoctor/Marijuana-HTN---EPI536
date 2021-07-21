@@ -369,7 +369,8 @@ Ethnicity | Never Us  Past Use  1-10 tim  11-20 ti  21-30 ti     Total
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-svy, subpop(if include==1): ta sddsrvyr MJ,col percent</code></pre>
+svy, subpop(if include==1): ta sddsrvyr MJ,col percent
+svy, subpop(if include==1): ta sddsrvyr MJ,row percent</code></pre>
 <pre><code>      pweight: wtmec12yr
           VCE: linearized
   Single unit: missing
@@ -400,6 +401,34 @@ Year      | Never Us  Past Use  1-10 tim  11-20 ti  21-30 ti     Total
     Total |      100       100       100       100       100       100
 ----------------------------------------------------------------------
   Key:  column percentage
+
+  Pearson:
+    Uncorrected   chi2(24)        =  607.7589
+    Design-based  F(14.66, 1598.15)=    2.8815    P = 0.0002
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+
+----------------------------------------------------------------------
+Survey    |                        Cannabis Use                       
+Year      | Never Us  Past Use  1-10 tim  11-20 ti  21-30 ti     Total
+----------+-----------------------------------------------------------
+ 2005-200 |    38.52     49.26     7.332     1.682     3.205       100
+ 2007-200 |    39.27     49.39     7.197     1.439     2.699       100
+ 2009-201 |    42.33     44.82     7.165     1.819     3.872       100
+ 2011-201 |    39.58     46.77     8.296     1.724     3.632       100
+ 2013-201 |    40.27     45.39     7.505     2.142     4.702       100
+ 2015-201 |    41.98     41.39     9.366     1.757     5.509       100
+ 2017-201 |    38.13     42.73     9.479     2.422      7.24       100
+          | 
+    Total |    40.03     45.56     8.082     1.865     4.466       100
+----------------------------------------------------------------------
+  Key:  row percentage
 
   Pearson:
     Uncorrected   chi2(24)        =  607.7589
