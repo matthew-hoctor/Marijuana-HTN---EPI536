@@ -38,6 +38,8 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or
 ```
 
+# Gender
+
 # Stratified Analysis
 
 ## Men
@@ -127,19 +129,6 @@ lincom (0*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 1*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 0*_
 lincom gndr + _IMJXgndr_4
 ```
 
+# Age
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+To be calculated later
