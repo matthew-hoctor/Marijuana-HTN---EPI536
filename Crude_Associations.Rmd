@@ -584,16 +584,110 @@ test _b[c.ridageyr@1bn.SMK_cat] = _b[c.ridageyr@2.SMK_cat] = _b[c.ridageyr@3.SMK
 
 ## Alcohol
 
+### Survey Year
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta AL_cat sddsrvyr,row percent
+```
+
+### BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(AL_cat)coeflegend
+
+test _b[c.bmxbmi@0bn.AL_cat] = _b[c.bmxbmi@1bn.AL_cat] = _b[c.bmxbmi@2.AL_cat]
+```
+
+### HEI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(AL_cat)coeflegend
+
+test _b[c.hei2015@0bn.AL_cat] = _b[c.hei2015@1bn.AL_cat] = _b[c.hei2015@2.AL_cat]
+```
+
+### Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(AL_cat)coeflegend
+
+test _b[c.indfmpir@0bn.AL_cat] = _b[c.indfmpir@1bn.AL_cat] = _b[c.indfmpir@2.AL_cat]
+```
+
+### Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(AL_cat)coeflegend
+
+test _b[c.ridageyr@0bn.AL_cat] = _b[c.ridageyr@1bn.AL_cat] = _b[c.ridageyr@2.AL_cat]
+```
+
 ## Survey Year
 
-## Income
+### BMI
 
-## Age
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-## BMI
+svy, subpop(if include==1): mean bmxbmi,over(sddsrvyr)coeflegend
 
-## Healthy Eating Index
+test _b[c.bmxbmi@4bn.sddsrvyr] = _b[c.bmxbmi@5.sddsrvyr] = _b[c.bmxbmi@6.sddsrvyr] = _b[c.bmxbmi@7.sddsrvyr] = _b[c.bmxbmi@8.sddsrvyr] = _b[c.bmxbmi@9.sddsrvyr] = _b[c.bmxbmi@10.sddsrvyr]
+```
 
+### HEI
 
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
+svy, subpop(if include==1): mean hei2015,over(sddsrvyr)coeflegend
 
+test _b[c.hei2015@4bn.sddsrvyr] = _b[c.hei2015@5.sddsrvyr] = _b[c.hei2015@6.sddsrvyr] = _b[c.hei2015@7.sddsrvyr] = _b[c.hei2015@8.sddsrvyr] = _b[c.hei2015@9.sddsrvyr] = _b[c.hei2015@10.sddsrvyr]
+```
+
+### Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(sddsrvyr)coeflegend
+
+test _b[c.indfmpir@4bn.sddsrvyr] = _b[c.indfmpir@5.sddsrvyr] = _b[c.indfmpir@6.sddsrvyr] = _b[c.indfmpir@7.sddsrvyr] = _b[c.indfmpir@8.sddsrvyr] = _b[c.indfmpir@9.sddsrvyr] = _b[c.indfmpir@10.sddsrvyr]
+```
+
+### Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(sddsrvyr)coeflegend
+
+test _b[c.ridageyr@4bn.sddsrvyr] = _b[c.ridageyr@5.sddsrvyr] = _b[c.ridageyr@6.sddsrvyr] = _b[c.ridageyr@7.sddsrvyr] = _b[c.ridageyr@8.sddsrvyr] = _b[c.ridageyr@9.sddsrvyr] = _b[c.ridageyr@10.sddsrvyr]
+```
+
+## continuous varaibles
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+pwcorr indfmpir bmxbmi hei2015 ridageyr if include==1 [w=wtmec12yr]
+```
