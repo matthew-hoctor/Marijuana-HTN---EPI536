@@ -32,13 +32,63 @@ library(Statamarkdown)
 
 # Model 1: Crude
 
+## Women
+
+### Elevated BP
+
 ```{stata}
 use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr, or
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==1)): logit BP_cat i.MJ, or
 ```
 
+### Stage 1 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==2)): logit BP_cat i.MJ, or
+```
+
+### Stage 2 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==3)): logit BP_cat i.MJ, or
+```
+
+## Men
+
+### Elevated BP
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==1)): logit BP_cat i.MJ, or
+```
+
+### Stage 1 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==2)): logit BP_cat i.MJ, or
+```
+
+### Stage 2 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==3)): logit BP_cat i.MJ, or
+```
 
 # Model 2: adjusting for confounders
 
@@ -49,6 +99,63 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr ridageyr, or
 ```
 
+## Women
+
+### Elevated BP
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==1)): logit BP_cat i.MJ gndr ridageyr, or
+```
+
+### Stage 1 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==2)): logit BP_cat i.MJ gndr ridageyr, or
+```
+
+### Stage 2 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==3)): logit BP_cat i.MJ gndr ridageyr, or
+```
+
+## Men
+
+### Elevated BP
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==1)): logit BP_cat i.MJ gndr ridageyr, or
+```
+
+### Stage 1 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==2)): logit BP_cat i.MJ gndr ridageyr, or
+```
+
+### Stage 2 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==3)): logit BP_cat i.MJ gndr ridageyr, or
+```
 
 # Model 3: fully adjusted (including mediators)
 
@@ -59,6 +166,61 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or
 ```
 
+## Women
 
+### Elevated BP
 
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==1)): logit BP_cat i.MJ gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+### Stage 1 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==2)): logit BP_cat i.MJ gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+### Stage 2 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0 & (BP_cat==0 | BP_cat==3)): logit BP_cat i.MJ gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+## Men
+
+### Elevated BP
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==1)): logit BP_cat i.MJ gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+### Stage 1 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==2)): logit BP_cat i.MJ gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+### Stage 2 HTN
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==3)): logit BP_cat i.MJ gndr ridageyr i.AL_cat bmxbmi, or
+```
 

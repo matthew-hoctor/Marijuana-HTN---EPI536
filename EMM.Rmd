@@ -29,7 +29,7 @@ if ((Sys.info()["sysname"] == "Darwin"))
 library(Statamarkdown)
 ```
 
-# Final Model
+# Final Model (with mediators)
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -38,11 +38,22 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or
 ```
 
-# Gender
+# Model 2 (without mediators)
 
-# Stratified Analysis
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-## Men
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr ridageyr, or
+```
+
+# Gender EMM analysis
+
+## Full model (Model 3)
+
+### Stratified Analysis
+
+#### Men
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -51,7 +62,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==1): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or
 ```
 
-## Women
+#### Women
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -60,7 +71,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==0): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or
 ```
 
-# Interaction Analysis
+### Interaction Analysis
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -69,7 +80,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr i.AL_cat bmxbmi ridageyr, or
 ```
 
-## previous use lincom
+#### previous use lincom
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -84,7 +95,7 @@ lincom (1*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 1*_IMJXgndr_1 + 0*_
 lincom gndr + _IMJXgndr_1
 ```
 
-## light use lincom
+#### light use lincom
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -99,7 +110,7 @@ lincom (0*_IMJ_1 + 1*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 1*_
 lincom gndr + _IMJXgndr_2
 ```
 
-## moderate use lincom
+#### moderate use lincom
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -114,13 +125,105 @@ lincom (0*_IMJ_1 + 0*_IMJ_2 + 1*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 0*_
 lincom gndr + _IMJXgndr_3
 ```
 
-## heavy use lincom
+#### heavy use lincom
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
 xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr i.AL_cat bmxbmi ridageyr, or
+
+# long form
+lincom (0*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 1*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 1*_IMJXgndr_4) - (0*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 1*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
+
+# reduced form
+lincom gndr + _IMJXgndr_4
+```
+
+
+## Model 2 EMM analysis (Without mediators)
+
+### Stratified Analysis
+
+#### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_cat i.MJ gndr ridageyr, or
+```
+
+#### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_cat i.MJ gndr ridageyr, or
+```
+
+### Interaction Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr ridageyr, or
+```
+
+#### previous use lincom
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr ridageyr, or
+
+# long form
+lincom (1*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 1*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4) - (1*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
+
+# reduced form
+lincom gndr + _IMJXgndr_1
+```
+
+#### light use lincom
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr ridageyr, or
+
+# long form
+lincom (0*_IMJ_1 + 1*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 1*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4) - (0*_IMJ_1 + 1*_IMJ_2 + 0*_IMJ_3 + 0*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
+
+# reduced form
+lincom gndr + _IMJXgndr_2
+```
+
+#### moderate use lincom
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr ridageyr, or
+
+# long form
+lincom (0*_IMJ_1 + 0*_IMJ_2 + 1*_IMJ_3 + 0*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 1*_IMJXgndr_3 + 0*_IMJXgndr_4) - (0*_IMJ_1 + 0*_IMJ_2 + 1*_IMJ_3 + 0*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
+
+# reduced form
+lincom gndr + _IMJXgndr_3
+```
+
+#### heavy use lincom
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ*gndr gndr ridageyr, or
 
 # long form
 lincom (0*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 1*_IMJ_4 + 1*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 1*_IMJXgndr_4) - (0*_IMJ_1 + 0*_IMJ_2 + 0*_IMJ_3 + 1*_IMJ_4 + 0*gndr + 0*_IMJXgndr_1 + 0*_IMJXgndr_2 + 0*_IMJXgndr_3 + 0*_IMJXgndr_4)
