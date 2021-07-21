@@ -16,6 +16,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Variables creation](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Variables.html)
    * [Finished Dataset (zip)](https://github.com/matthew-hoctor/Marijuana-HTN---EPI536/blob/main/data/NHANES0518_new.zip)
  * [Flow diagram](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Flow_Diagram.html)
+ * [Crude Associations](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Crude_Associations.html)
  
 ## Project Submissions
 
