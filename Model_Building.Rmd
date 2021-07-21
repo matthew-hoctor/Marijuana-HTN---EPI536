@@ -40,14 +40,691 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.EDUC_cat i.race_eth i.SMK_cat i.AL_cat bmxbmi hei2015 indfmpir ridageyr, or
 ```
 
+Store full model ORs in a vector for future:
+
+```{r}
+OR0 <- c(.8815766, 1.032565, 1.096764, 1.131927)
+```
+
 # Deletion Cycle 1
+
+## Gender
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ EDUC_cat i.race_eth i.SMK_cat i.AL_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_G <- c(.9582243,1.224804, 1.374418, 1.410263)
+D_OR <- (OR0-OR_G)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
 
 ## Education
 
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_E <- c(.8771625,1.036842, 1.095188, 1.138981)
+D_OR <- (OR0-OR_E)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
 ## Race/Ethnicity
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.EDUC_cat i.SMK_cat i.AL_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_R <- c(.8979156,1.083719  , 1.166191  , 1.182622  )
+D_OR <- (OR0-OR_R)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
 
 ## Smoking
 
-## 
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.EDUC_cat i.race_eth i.AL_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_S <- c(.9031076,1.063007  , 1.132914  , 1.183061  )
+D_OR <- (OR0-OR_S)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.EDUC_cat i.race_eth i.SMK_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_A <- c(.9256275,1.09918  , 1.153825  , 1.200428  )
+D_OR <- (OR0-OR_A)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.EDUC_cat i.race_eth i.SMK_cat i.AL_cat hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_B <- c(.8701768,.9422543  , .9894801, 1.010763)
+D_OR <- (OR0-OR_B)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## HEI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.EDUC_cat i.race_eth i.SMK_cat i.AL_cat bmxbmi indfmpir ridageyr, or
+```
+
+```{r}
+OR_H <- c(.8818887,.991081  , 1.092312  , 1.088388)
+D_OR <- (OR0-OR_H)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.EDUC_cat i.race_eth i.SMK_cat i.AL_cat bmxbmi hei2015 ridageyr, or
+```
+
+```{r}
+OR_I <- c(.8842544,1.072015, 1.123433 , 1.065008)
+D_OR <- (OR0-OR_I)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.EDUC_cat i.race_eth i.SMK_cat i.AL_cat bmxbmi hei2015 indfmpir, or
+```
+
+```{r}
+OR_A <- c(.8669408,.8614717, .8768699 , .9240537)
+D_OR <- (OR0-OR_A)/OR0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, education has the least average change in OR; it will be excluded from the next cycle.
+
+```{r}
+OR1 <- OR_E
+```
+
 
 # Deletion Cycle 2
+
+## Gender
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ i.race_eth i.SMK_cat i.AL_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_G <- c(.9449547,1.213666, 1.360849, 1.398623)
+D_OR <- (OR1-OR_G)/OR1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Race/Ethnicity
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.SMK_cat i.AL_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_R <- c(.8977321,1.095606  , 1.172163  , 1.197926)
+D_OR <- (OR1-OR_R)/OR1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Smoking
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.AL_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_S <- c(.9037291,1.077233  , 1.143289  , 1.204507  )
+D_OR <- (OR1-OR_S)/OR1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat bmxbmi hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_A <- c(.9226442,1.109299  , 1.15981  , 1.210831)
+D_OR <- (OR1-OR_A)/OR1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat hei2015 indfmpir ridageyr, or
+```
+
+```{r}
+OR_B <- c(.8662722,.9497693  , .9908113, 1.021799)
+D_OR <- (OR1-OR_B)/OR1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## HEI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat bmxbmi indfmpir ridageyr, or
+```
+
+```{r}
+OR_H <- c(.8764779,.994088  , 1.093146  , 1.09625)
+D_OR <- (OR1-OR_H)/OR1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat bmxbmi hei2015 ridageyr, or
+```
+
+```{r}
+OR_I <- c(.8729685,1.075685  , 1.122345  , 1.069243  )
+D_OR <- (OR1-OR_I)/OR1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat bmxbmi hei2015 indfmpir, or
+```
+
+```{r}
+OR_A <- c(.853067,.8540309, .8667479 , .9192416)
+D_OR <- (OR1-OR_A)/OR1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, diet quality has the least average change in OR; it will be excluded from the next cycle.
+
+```{r}
+OR2 <- OR_H
+```
+
+# Deletion Cycle 3
+
+## Gender
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ i.race_eth i.SMK_cat i.AL_cat bmxbmi indfmpir ridageyr, or
+```
+
+```{r}
+OR_G <- c(.9492018,1.161927  , 1.387317  , 1.348905  )
+D_OR <- (OR2-OR_G)/OR2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Race/Ethnicity
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.SMK_cat i.AL_cat bmxbmi indfmpir ridageyr, or
+```
+
+```{r}
+OR_R <- c(.8986689,1.04899   , 1.170444   , 1.155208)
+D_OR <- (OR2-OR_R)/OR2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Smoking
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.AL_cat bmxbmi indfmpir ridageyr, or
+```
+
+```{r}
+OR_S <- c(.9047354,1.035177   , 1.148847   , 1.163604)
+D_OR <- (OR2-OR_S)/OR2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat bmxbmi indfmpir ridageyr, or
+```
+
+```{r}
+OR_A <- c(.9256823,1.084228, 1.178992   , 1.192619  )
+D_OR <- (OR2-OR_A)/OR2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat indfmpir ridageyr, or
+```
+
+```{r}
+OR_B <- c(.8641434,.896223  , .9647389, .9823915)
+D_OR <- (OR2-OR_B)/OR2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat bmxbmi ridageyr, or
+```
+
+```{r}
+OR_I <- c(.8715256,1.018565   , 1.106916    , 1.007019   )
+D_OR <- (OR2-OR_I)/OR2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat bmxbmi indfmpir, or
+```
+
+```{r}
+OR_A <- c(.8509172,.829701, .8584919 , .8800438)
+D_OR <- (OR2-OR_A)/OR2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, Income has the least average change in OR; it will be excluded from the next cycle.
+
+```{r}
+OR3 <- OR_I
+```
+
+# Deletion Cycle 4
+
+## Gender
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ i.race_eth i.SMK_cat i.AL_cat bmxbmi ridageyr, or
+```
+
+```{r}
+OR_G <- c(.95096,1.191889  , 1.411954   , 1.240874   )
+D_OR <- (OR3-OR_G)/OR3
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Race/Ethnicity
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.SMK_cat i.AL_cat bmxbmi ridageyr, or
+```
+
+```{r}
+OR_R <- c(.8925672,1.076866     , 1.188852     , 1.063824  )
+D_OR <- (OR3-OR_R)/OR3
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Smoking
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.AL_cat bmxbmi ridageyr, or
+```
+
+```{r}
+OR_S <- c(.9008402,1.065697     , 1.171644     , 1.077879)
+D_OR <- (OR3-OR_S)/OR3
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat bmxbmi ridageyr, or
+```
+
+```{r}
+OR_A <- c(.9215587,1.120635  , 1.19904     , 1.112326   )
+D_OR <- (OR3-OR_A)/OR3
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat ridageyr, or
+```
+
+```{r}
+OR_B <- c(.8525604,.9170568  , .9763369, .9083168)
+D_OR <- (OR3-OR_B)/OR3
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.SMK_cat i.AL_cat bmxbmi indfmpir, or
+```
+
+```{r}
+OR_A <- c(.8509172,.829701, .8584919 , .8800438)
+D_OR <- (OR3-OR_A)/OR3
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, smoking has the least average change in OR; it will be excluded from the next cycle.
+
+```{r}
+OR4 <- OR_S
+```
+
+# Deletion Cycle 5
+
+## Gender
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ i.race_eth i.AL_cat bmxbmi ridageyr, or
+```
+
+```{r}
+OR_G <- c(.9997446,1.271005   , 1.537365     , 1.360446     )
+D_OR <- (OR4-OR_G)/OR4
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Race/Ethnicity
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.AL_cat bmxbmi ridageyr, or
+```
+
+```{r}
+OR_R <- c(.9195897,1.125541   , 1.256641    , 1.136796  )
+D_OR <- (OR4-OR_R)/OR4
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth bmxbmi ridageyr, or
+```
+
+```{r}
+OR_A <- c(.9671812,1.20545 , 1.310135   , 1.228613     )
+D_OR <- (OR4-OR_A)/OR4
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.AL_cat ridageyr, or
+```
+
+```{r}
+OR_B <- c(.8825243,.9491352 , 1.020527   ,  .9561007)
+D_OR <- (OR4-OR_B)/OR4
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.race_eth i.AL_cat bmxbmi indfmpir, or
+```
+
+```{r}
+OR_A <- c(.929861,.9209674, .9745637 , 1.017064)
+D_OR <- (OR4-OR_A)/OR4
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, race/ethnicity has the least average change in OR; it will be excluded from the next cycle.
+
+```{r}
+OR5 <- OR_R
+```
+
+
+# Deletion Cycle 6
+
+## Gender
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ i.AL_cat bmxbmi ridageyr, or
+```
+
+```{r}
+OR_G <- c(1.009946,1.319251   , 1.612652        , 1.408112        )
+D_OR <- (OR5-OR_G)/OR5
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr bmxbmi ridageyr, or
+```
+
+```{r}
+OR_A <- c(.9741905,1.246359 , 1.36807   , 1.266254        )
+D_OR <- (OR5-OR_A)/OR5
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.AL_cat ridageyr, or
+```
+
+```{r}
+OR_B <- c(.894893,1.00085    , 1.096039      ,  1.005481   )
+D_OR <- (OR5-OR_B)/OR5
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_cat i.MJ gndr i.AL_cat bmxbmi indfmpir, or
+```
+
+```{r}
+OR_A <- c(.9619515,.9781208, 1.05203    , 1.081387   )
+D_OR <- (OR5-OR_A)/OR5
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, alcohol use has the least average change in OR.  However, alcohol use has a greater than 10% change in OR for heavy marijuana use.  Therefore no further deletion will be performed.  The variables included in step 5 will produce the final models.  Model 1 will be the crude model; model 2 will include gender and age as confounders; and model 3 will include gender and age, as well as the mediators BMI and alcohol use.
+
