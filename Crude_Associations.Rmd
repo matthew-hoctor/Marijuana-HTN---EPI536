@@ -268,7 +268,331 @@ xi: svy,subpop(if include==1): logit BP_cat i.MJ,or
 
 # Correlations among potential confounders
 
+## Gender
 
+### Education
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr EDUC_cat,row percent
+```
+
+### Race
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr race_eth,row percent
+```
+
+### Survey Year
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr sddsrvyr,row percent
+```
+
+
+
+### Smoking
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr SMK_cat,row percent
+```
+
+### Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr AL_cat,row percent
+```
+
+### BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(gndr)coeflegend
+
+test _b[c.bmxbmi@0bn.gndr] = _b[c.bmxbmi@1.gndr]
+```
+
+### HEI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(gndr)coeflegend
+
+test _b[c.hei2015@0bn.gndr] = _b[c.hei2015@1.gndr]
+```
+
+### Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(gndr)coeflegend
+
+test _b[c.indfmpir@0bn.gndr] = _b[c.indfmpir@1.gndr]
+```
+
+### Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(gndr)coeflegend
+
+test _b[c.ridageyr@0bn.gndr] = _b[c.ridageyr@1.gndr]
+```
+
+## Education
+
+### Race
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta EDUC_cat race_eth,row percent
+```
+
+### Survey Year
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta EDUC_cat sddsrvyr,row percent
+```
+
+
+
+### Smoking
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta EDUC_cat SMK_cat,row percent
+```
+
+### Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta EDUC_cat AL_cat,row percent
+```
+
+### BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(EDUC_cat)coeflegend
+
+test _b[c.bmxbmi@1bn.EDUC_cat] = _b[c.bmxbmi@2.EDUC_cat] = _b[c.bmxbmi@3.EDUC_cat] = _b[c.bmxbmi@4.EDUC_cat] = _b[c.bmxbmi@5.EDUC_cat]
+```
+
+### HEI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(EDUC_cat)coeflegend
+
+test _b[c.hei2015@1bn.EDUC_cat] = _b[c.hei2015@2.EDUC_cat] = _b[c.hei2015@3.EDUC_cat] = _b[c.hei2015@4.EDUC_cat] = _b[c.hei2015@5.EDUC_cat]
+```
+
+### Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(EDUC_cat)coeflegend
+
+test _b[c.indfmpir@1bn.EDUC_cat] = _b[c.indfmpir@2.EDUC_cat] = _b[c.indfmpir@3.EDUC_cat] = _b[c.indfmpir@4.EDUC_cat] = _b[c.indfmpir@5.EDUC_cat]
+```
+
+### Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(EDUC_cat)coeflegend
+
+test _b[c.ridageyr@1bn.EDUC_cat] = _b[c.ridageyr@2.EDUC_cat] = _b[c.ridageyr@3.EDUC_cat] = _b[c.ridageyr@4.EDUC_cat] = _b[c.ridageyr@5.EDUC_cat]
+```
+
+## Race
+
+### Survey Year
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta race_eth sddsrvyr,row percent
+```
+
+### Smoking
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta race_eth SMK_cat,row percent
+```
+
+### Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta race_eth AL_cat,row percent
+```
+
+### BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(race_eth)coeflegend
+
+test _b[c.bmxbmi@1bn.race_eth] = _b[c.bmxbmi@2.race_eth] = _b[c.bmxbmi@3.race_eth] = _b[c.bmxbmi@4.race_eth]
+```
+
+### HEI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(race_eth)coeflegend
+
+test _b[c.hei2015@1bn.race_eth] = _b[c.hei2015@2.race_eth] = _b[c.hei2015@3.race_eth] = _b[c.hei2015@4.race_eth]
+```
+
+### Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(race_eth)coeflegend
+
+test _b[c.indfmpir@1bn.race_eth] = _b[c.indfmpir@2.race_eth] = _b[c.indfmpir@3.race_eth] = _b[c.indfmpir@4.race_eth]
+```
+
+### Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(race_eth)coeflegend
+
+test _b[c.ridageyr@1bn.race_eth] = _b[c.ridageyr@2.race_eth] = _b[c.ridageyr@3.race_eth] = _b[c.ridageyr@4.race_eth]
+```
+
+## Smoking
+
+### Survey Year
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta SMK_cat sddsrvyr,row percent
+```
+
+### Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta SMK_cat AL_cat,row percent
+```
+
+### BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(SMK_cat)coeflegend
+
+test _b[c.bmxbmi@1bn.SMK_cat] = _b[c.bmxbmi@2.SMK_cat] = _b[c.bmxbmi@3.SMK_cat] = _b[c.bmxbmi@4.SMK_cat]
+```
+
+### HEI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(SMK_cat)coeflegend
+
+test _b[c.hei2015@1bn.SMK_cat] = _b[c.hei2015@2.SMK_cat] = _b[c.hei2015@3.SMK_cat] = _b[c.hei2015@4.SMK_cat]
+```
+
+### Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(SMK_cat)coeflegend
+
+test _b[c.indfmpir@1bn.SMK_cat] = _b[c.indfmpir@2.SMK_cat] = _b[c.indfmpir@3.SMK_cat] = _b[c.indfmpir@4.SMK_cat]
+```
+
+### Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(SMK_cat)coeflegend
+
+test _b[c.ridageyr@1bn.SMK_cat] = _b[c.ridageyr@2.SMK_cat] = _b[c.ridageyr@3.SMK_cat] = _b[c.ridageyr@4.SMK_cat]
+```
+
+## Alcohol
+
+## Survey Year
+
+## Income
+
+## Age
+
+## BMI
+
+## Healthy Eating Index
 
 
 

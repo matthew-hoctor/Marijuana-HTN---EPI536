@@ -1228,6 +1228,1357 @@ Note: _cons estimates baseline odds.</code></pre>
 </div>
 <div id="correlations-among-potential-confounders" class="section level1">
 <h1>Correlations among potential confounders</h1>
+<div id="gender-2" class="section level2">
+<h2>Gender</h2>
+<div id="education-2" class="section level3">
+<h3>Education</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr EDUC_cat,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,182
+Number of PSUs     =       214                Population size   =  306,497,065
+                                              Subpop. no. obs   =       21,012
+                                              Subpop. size      =  141,476,473
+                                              Design df         =          109
+
+----------------------------------------------------------------------
+          |                   Recode Education Level                  
+   Gender | Less tha  Less tha  High Sch  Some Col   College     Total
+----------+-----------------------------------------------------------
+   Female |    3.343     9.514     20.25     34.85     32.04       100
+     Male |    4.447     10.94     24.57     31.35      28.7       100
+          | 
+    Total |    3.898     10.23     22.42     33.09     30.36       100
+----------------------------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(4)         =  365.7317
+    Design-based  F(3.67, 400.00) =   22.8025     P = 0.0000</code></pre>
+</div>
+<div id="race-2" class="section level3">
+<h3>Race</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr race_eth,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+
+------------------------------------------------------------
+          |             Recoded Race &amp; Ethnicity            
+   Gender | White-NH  Black_NH    Mex Am       Oth     Total
+----------+-------------------------------------------------
+   Female |    64.68     12.48     8.987     13.85       100
+     Male |    64.74     10.77     10.71     13.78       100
+          | 
+    Total |    64.71     11.62     9.854     13.82       100
+------------------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(3)         =   97.1103
+    Design-based  F(2.87, 312.31) =   14.3662     P = 0.0000</code></pre>
+</div>
+<div id="survey-year-2" class="section level3">
+<h3>Survey Year</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr sddsrvyr,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+
+-------------------------------------------------------------------------------
+         |                             Survey Year                             
+  Gender | 2005-200  2007-200  2009-201  2011-201  2013-201  2015-201  2017-201
+---------+---------------------------------------------------------------------
+  Female |    12.98     13.88     13.77      14.1     14.94     15.09     15.24
+    Male |    12.79     13.96     14.17     14.39     14.85     14.88     14.96
+         | 
+   Total |    12.89     13.92     13.97     14.25      14.9     14.98      15.1
+-------------------------------------------------------------------------------
+
+-------------------
+         |  Survey 
+         |   Year  
+  Gender |    Total
+---------+---------
+  Female |      100
+    Male |      100
+         | 
+   Total |      100
+-------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(6)         =    5.1459
+    Design-based  F(4.99, 544.14) =    0.2324     P = 0.9481</code></pre>
+</div>
+<div id="smoking-2" class="section level3">
+<h3>Smoking</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr SMK_cat,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,139
+Number of PSUs     =       214                Population size   =  306,306,164
+                                              Subpop. no. obs   =       20,969
+                                              Subpop. size      =  141,285,572
+                                              Design df         =          109
+
+----------------------------------------------------------------------
+          |                      Smoking Category                     
+   Gender |    Never  Past Smo  Light, 1  Moderate  Heavy, 2     Total
+----------+-----------------------------------------------------------
+   Female |    61.66     17.22     12.32     7.178     1.625       100
+     Male |    51.58     22.84     13.57     8.728     3.281       100
+          | 
+    Total |    56.59     20.05     12.95     7.957     2.458       100
+----------------------------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(4)         =  860.5035
+    Design-based  F(3.87, 421.67) =   39.8445     P = 0.0000</code></pre>
+</div>
+<div id="alcohol-2" class="section level3">
+<h3>Alcohol</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta gndr AL_cat,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       68,083
+Number of PSUs     =       214                Population size   =  293,445,655
+                                              Subpop. no. obs   =       18,913
+                                              Subpop. size      =  128,425,062
+                                              Design df         =          109
+
+--------------------------------------------------
+          |          Alcohol Use Category         
+   Gender | None-Lig  Moderate     Heavy     Total
+----------+---------------------------------------
+   Female |    48.35     39.24     12.41       100
+     Male |    52.48     24.67     22.84       100
+          | 
+    Total |    50.41     31.97     17.62       100
+--------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(2)         = 2238.9924
+    Design-based  F(1.99, 217.07) =  175.7703     P = 0.0000</code></pre>
+</div>
+<div id="bmi-2" class="section level3">
+<h3>BMI</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(gndr)coeflegend
+
+test _b[c.bmxbmi@0bn.gndr] = _b[c.bmxbmi@1.gndr]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       70,080
+Number of PSUs   =     214      Population size =  305,959,182
+                                Subpop. no. obs =       20,910
+                                Subpop. size    =  140,938,589
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+    c.bmxbmi@|
+        gndr |
+     Female  |   29.11206  _b[c.bmxbmi@0bn.gndr]
+       Male  |   28.81604  _b[c.bmxbmi@1.gndr]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.bmxbmi@0bn.gndr - c.bmxbmi@1.gndr = 0
+
+       F(  1,   109) =    6.17
+            Prob &gt; F =    0.0145</code></pre>
+</div>
+<div id="hei" class="section level3">
+<h3>HEI</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(gndr)coeflegend
+
+test _b[c.hei2015@0bn.gndr] = _b[c.hei2015@1.gndr]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       68,641
+Number of PSUs   =     214      Population size =  297,338,173
+                                Subpop. no. obs =       19,471
+                                Subpop. size    =  132,317,580
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+   c.hei2015@|
+        gndr |
+     Female  |   53.53765  _b[c.hei2015@0bn.gndr]
+       Male  |   50.75907  _b[c.hei2015@1.gndr]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.hei2015@0bn.gndr - c.hei2015@1.gndr = 0
+
+       F(  1,   109) =  153.06
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="income-2" class="section level3">
+<h3>Income</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(gndr)coeflegend
+
+test _b[c.indfmpir@0bn.gndr] = _b[c.indfmpir@1.gndr]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       68,616
+Number of PSUs   =     214      Population size =  298,070,653
+                                Subpop. no. obs =       19,446
+                                Subpop. size    =  133,050,061
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+  c.indfmpir@|
+        gndr |
+     Female  |   2.987887  _b[c.indfmpir@0bn.gndr]
+       Male  |   3.080922  _b[c.indfmpir@1.gndr]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.indfmpir@0bn.gndr - c.indfmpir@1.gndr = 0
+
+       F(  1,   109) =   17.37
+            Prob &gt; F =    0.0001</code></pre>
+</div>
+<div id="age-2" class="section level3">
+<h3>Age</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(gndr)coeflegend
+
+test _b[c.ridageyr@0bn.gndr] = _b[c.ridageyr@1.gndr]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       70,190
+Number of PSUs   =     214      Population size =  306,545,053
+                                Subpop. no. obs =       21,020
+                                Subpop. size    =  141,524,461
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+  c.ridageyr@|
+        gndr |
+     Female  |   39.72442  _b[c.ridageyr@0bn.gndr]
+       Male  |   39.37335  _b[c.ridageyr@1.gndr]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.ridageyr@0bn.gndr - c.ridageyr@1.gndr = 0
+
+       F(  1,   109) =    3.44
+            Prob &gt; F =    0.0663</code></pre>
+</div>
+</div>
+<div id="education-3" class="section level2">
+<h2>Education</h2>
+<div id="race-3" class="section level3">
+<h3>Race</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta EDUC_cat race_eth,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,182
+Number of PSUs     =       214                Population size   =  306,497,065
+                                              Subpop. no. obs   =       21,012
+                                              Subpop. size      =  141,476,473
+                                              Design df         =          109
+
+------------------------------------------------------------
+Recode    |
+Education |             Recoded Race &amp; Ethnicity            
+Level     | White-NH  Black_NH    Mex Am       Oth     Total
+----------+-------------------------------------------------
+ Less tha |    20.86     4.003      52.7     22.44       100
+ Less tha |    48.14     17.02     20.57     14.26       100
+ High Sch |    64.41     13.79     10.71     11.09       100
+ Some Col |    66.68     13.23       7.1     12.99       100
+  College |    74.01     7.439     3.115     15.44       100
+          | 
+    Total |    64.71     11.63     9.857      13.8       100
+------------------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(12)        = 9559.3120
+    Design-based  F(6.29, 685.66) =  145.8654     P = 0.0000</code></pre>
+</div>
+<div id="survey-year-3" class="section level3">
+<h3>Survey Year</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta EDUC_cat sddsrvyr,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,182
+Number of PSUs     =       214                Population size   =  306,497,065
+                                              Subpop. no. obs   =       21,012
+                                              Subpop. size      =  141,476,473
+                                              Design df         =          109
+
+-------------------------------------------------------------------------------
+Recode   |
+Educatio |                             Survey Year                             
+n Level  | 2005-200  2007-200  2009-201  2011-201  2013-201  2015-201  2017-201
+---------+---------------------------------------------------------------------
+Less tha |    13.42     16.33     16.95     12.23     12.38     17.78     10.91
+Less tha |    12.84     18.04     16.38     14.85     15.35     12.44     10.11
+High Sch |     13.4     14.88     14.07     12.42        14     13.28     17.95
+Some Col |    13.32     13.46     13.28     14.52     15.34      15.1     14.99
+ College |    11.97     12.03     13.39     15.38     15.26     16.62     15.34
+         | 
+   Total |    12.88     13.92     13.95     14.25      14.9     14.99      15.1
+-------------------------------------------------------------------------------
+
+-------------------
+Recode   |  Survey 
+Educatio |   Year  
+n Level  |    Total
+---------+---------
+Less tha |      100
+Less tha |      100
+High Sch |      100
+Some Col |      100
+ College |      100
+         | 
+   Total |      100
+-------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(24)        =  692.2766
+    Design-based  F(11.34, 1236.34)=    1.9202    P = 0.0314</code></pre>
+</div>
+<div id="smoking-3" class="section level3">
+<h3>Smoking</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta EDUC_cat SMK_cat,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,132
+Number of PSUs     =       214                Population size   =  306,266,063
+                                              Subpop. no. obs   =       20,962
+                                              Subpop. size      =  141,245,471
+                                              Design df         =          109
+
+----------------------------------------------------------------------
+Recode    |
+Education |                      Smoking Category                     
+Level     |    Never  Past Smo  Light, 1  Moderate  Heavy, 2     Total
+----------+-----------------------------------------------------------
+ Less tha |    54.72     19.27     15.47     7.417     3.116       100
+ Less tha |    38.76     17.77     22.27     15.02      6.17       100
+ High Sch |    46.53     20.55     16.57      12.6     3.745       100
+ Some Col |    55.46     21.24     13.34     7.923      2.03       100
+  College |    71.45     19.25     6.399     2.256     .6407       100
+          | 
+    Total |    56.58     20.05     12.95     7.957     2.458       100
+----------------------------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(16)        = 5491.4023
+    Design-based  F(12.74, 1388.21)=   68.4062    P = 0.0000</code></pre>
+</div>
+<div id="alcohol-3" class="section level3">
+<h3>Alcohol</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta EDUC_cat AL_cat,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       68,076
+Number of PSUs     =       214                Population size   =  293,400,371
+                                              Subpop. no. obs   =       18,906
+                                              Subpop. size      =  128,379,779
+                                              Design df         =          109
+
+--------------------------------------------------
+Recode    |
+Education |          Alcohol Use Category         
+Level     | None-Lig  Moderate     Heavy     Total
+----------+---------------------------------------
+ Less tha |    51.01     20.67     28.31       100
+ Less tha |    44.09     27.52     28.39       100
+ High Sch |    45.18     30.87     23.95       100
+ Some Col |     47.6     34.18     18.22       100
+  College |    58.99     33.06      7.95       100
+          | 
+    Total |    50.41     31.97     17.62       100
+--------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(8)         = 2735.0891
+    Design-based  F(6.78, 739.27) =   61.0964     P = 0.0000</code></pre>
+</div>
+<div id="bmi-3" class="section level3">
+<h3>BMI</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(EDUC_cat)coeflegend
+
+test _b[c.bmxbmi@1bn.EDUC_cat] = _b[c.bmxbmi@2.EDUC_cat] = _b[c.bmxbmi@3.EDUC_cat] = _b[c.bmxbmi@4.EDUC_cat] = _b[c.bmxbmi@5.EDUC_cat]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       70,072
+Number of PSUs   =     214      Population size =  305,911,194
+                                Subpop. no. obs =       20,902
+                                Subpop. size    =  140,890,602
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+    c.bmxbmi@|
+    EDUC_cat |
+Less than..  |   29.33933  _b[c.bmxbmi@1bn.EDUC_cat]
+Less than..  |   29.14553  _b[c.bmxbmi@2.EDUC_cat]
+High Scho..  |   29.60025  _b[c.bmxbmi@3.EDUC_cat]
+Some Coll..  |   29.59903  _b[c.bmxbmi@4.EDUC_cat]
+College G..  |   27.69729  _b[c.bmxbmi@5.EDUC_cat]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.bmxbmi@1bn.EDUC_cat - c.bmxbmi@2.EDUC_cat = 0
+ ( 2)  c.bmxbmi@1bn.EDUC_cat - c.bmxbmi@3.EDUC_cat = 0
+ ( 3)  c.bmxbmi@1bn.EDUC_cat - c.bmxbmi@4.EDUC_cat = 0
+ ( 4)  c.bmxbmi@1bn.EDUC_cat - c.bmxbmi@5.EDUC_cat = 0
+
+       F(  4,   106) =   32.56
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="hei-1" class="section level3">
+<h3>HEI</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(EDUC_cat)coeflegend
+
+test _b[c.hei2015@1bn.EDUC_cat] = _b[c.hei2015@2.EDUC_cat] = _b[c.hei2015@3.EDUC_cat] = _b[c.hei2015@4.EDUC_cat] = _b[c.hei2015@5.EDUC_cat]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       68,634
+Number of PSUs   =     214      Population size =  297,292,477
+                                Subpop. no. obs =       19,464
+                                Subpop. size    =  132,271,885
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+   c.hei2015@|
+    EDUC_cat |
+Less than..  |   52.49825  _b[c.hei2015@1bn.EDUC_cat]
+Less than..  |   48.05227  _b[c.hei2015@2.EDUC_cat]
+High Scho..  |   48.40392  _b[c.hei2015@3.EDUC_cat]
+Some Coll..  |    51.1144  _b[c.hei2015@4.EDUC_cat]
+College G..  |   57.22355  _b[c.hei2015@5.EDUC_cat]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.hei2015@1bn.EDUC_cat - c.hei2015@2.EDUC_cat = 0
+ ( 2)  c.hei2015@1bn.EDUC_cat - c.hei2015@3.EDUC_cat = 0
+ ( 3)  c.hei2015@1bn.EDUC_cat - c.hei2015@4.EDUC_cat = 0
+ ( 4)  c.hei2015@1bn.EDUC_cat - c.hei2015@5.EDUC_cat = 0
+
+       F(  4,   106) =  140.52
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="income-3" class="section level3">
+<h3>Income</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(EDUC_cat)coeflegend
+
+test _b[c.indfmpir@1bn.EDUC_cat] = _b[c.indfmpir@2.EDUC_cat] = _b[c.indfmpir@3.EDUC_cat] = _b[c.indfmpir@4.EDUC_cat] = _b[c.indfmpir@5.EDUC_cat]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       68,611
+Number of PSUs   =     214      Population size =  298,035,877
+                                Subpop. no. obs =       19,441
+                                Subpop. size    =  133,015,285
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+  c.indfmpir@|
+    EDUC_cat |
+Less than..  |   1.398564  _b[c.indfmpir@1bn.EDUC_cat]
+Less than..  |   1.851357  _b[c.indfmpir@2.EDUC_cat]
+High Scho..  |   2.584835  _b[c.indfmpir@3.EDUC_cat]
+Some Coll..  |   2.955572  _b[c.indfmpir@4.EDUC_cat]
+College G..  |   4.020507  _b[c.indfmpir@5.EDUC_cat]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.indfmpir@1bn.EDUC_cat - c.indfmpir@2.EDUC_cat = 0
+ ( 2)  c.indfmpir@1bn.EDUC_cat - c.indfmpir@3.EDUC_cat = 0
+ ( 3)  c.indfmpir@1bn.EDUC_cat - c.indfmpir@4.EDUC_cat = 0
+ ( 4)  c.indfmpir@1bn.EDUC_cat - c.indfmpir@5.EDUC_cat = 0
+
+       F(  4,   106) =  619.35
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="age-3" class="section level3">
+<h3>Age</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(EDUC_cat)coeflegend
+
+test _b[c.ridageyr@1bn.EDUC_cat] = _b[c.ridageyr@2.EDUC_cat] = _b[c.ridageyr@3.EDUC_cat] = _b[c.ridageyr@4.EDUC_cat] = _b[c.ridageyr@5.EDUC_cat]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       70,182
+Number of PSUs   =     214      Population size =  306,497,065
+                                Subpop. no. obs =       21,012
+                                Subpop. size    =  141,476,473
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+  c.ridageyr@|
+    EDUC_cat |
+Less than..  |   40.84891  _b[c.ridageyr@1bn.EDUC_cat]
+Less than..  |   38.74983  _b[c.ridageyr@2.EDUC_cat]
+High Scho..  |   39.40502  _b[c.ridageyr@3.EDUC_cat]
+Some Coll..  |   38.69284  _b[c.ridageyr@4.EDUC_cat]
+College G..  |   40.69157  _b[c.ridageyr@5.EDUC_cat]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.ridageyr@1bn.EDUC_cat - c.ridageyr@2.EDUC_cat = 0
+ ( 2)  c.ridageyr@1bn.EDUC_cat - c.ridageyr@3.EDUC_cat = 0
+ ( 3)  c.ridageyr@1bn.EDUC_cat - c.ridageyr@4.EDUC_cat = 0
+ ( 4)  c.ridageyr@1bn.EDUC_cat - c.ridageyr@5.EDUC_cat = 0
+
+       F(  4,   106) =   10.99
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+</div>
+<div id="race-4" class="section level2">
+<h2>Race</h2>
+<div id="survey-year-4" class="section level3">
+<h3>Survey Year</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta race_eth sddsrvyr,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+
+-------------------------------------------------------------------------------
+Recoded  |
+Race &amp;   |
+Ethnicit |                             Survey Year                             
+y        | 2005-200  2007-200  2009-201  2011-201  2013-201  2015-201  2017-201
+---------+---------------------------------------------------------------------
+White-NH |    14.27     14.59     14.29      14.3     14.49     14.27     13.79
+Black_NH |    11.94     13.85      13.7     14.64     15.05     15.19     15.63
+  Mex Am |    11.08     13.91     14.04     12.66     16.18     15.96     16.17
+     Oth |    8.474     10.85     12.65     14.78     15.76     17.46     20.04
+         | 
+   Total |    12.89     13.92     13.97     14.25      14.9     14.98      15.1
+-------------------------------------------------------------------------------
+
+-------------------
+Recoded  |
+Race &amp;   |  Survey 
+Ethnicit |   Year  
+y        |    Total
+---------+---------
+White-NH |      100
+Black_NH |      100
+  Mex Am |      100
+     Oth |      100
+         | 
+   Total |      100
+-------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(18)        =  641.3817
+    Design-based  F(12.56, 1369.38)=    0.9810    P = 0.4665</code></pre>
+</div>
+<div id="smoking-4" class="section level3">
+<h3>Smoking</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta race_eth SMK_cat,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,139
+Number of PSUs     =       214                Population size   =  306,306,164
+                                              Subpop. no. obs   =       20,969
+                                              Subpop. size      =  141,285,572
+                                              Design df         =          109
+
+----------------------------------------------------------------------
+Recoded   |
+Race &amp;    |                      Smoking Category                     
+Ethnicity |    Never  Past Smo  Light, 1  Moderate  Heavy, 2     Total
+----------+-----------------------------------------------------------
+ White-NH |    52.21     22.87     11.59     9.927     3.401       100
+ Black_NH |    63.16     10.72     19.85     5.573     .6938       100
+   Mex Am |    66.09     17.58      14.3     1.639     .3972       100
+      Oth |    64.84     16.43     12.54     5.205     .9787       100
+          | 
+    Total |    56.59     20.05     12.95     7.957     2.458       100
+----------------------------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(12)        = 2623.5293
+    Design-based  F(9.13, 994.81) =   52.8403     P = 0.0000</code></pre>
+</div>
+<div id="alcohol-4" class="section level3">
+<h3>Alcohol</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta race_eth AL_cat,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       68,083
+Number of PSUs     =       214                Population size   =  293,445,655
+                                              Subpop. no. obs   =       18,913
+                                              Subpop. size      =  128,425,062
+                                              Design df         =          109
+
+--------------------------------------------------
+Recoded   |
+Race &amp;    |          Alcohol Use Category         
+Ethnicity | None-Lig  Moderate     Heavy     Total
+----------+---------------------------------------
+ White-NH |    49.06     33.79     17.15       100
+ Black_NH |    57.46     30.93     11.61       100
+   Mex Am |    41.51     29.09      29.4       100
+      Oth |    57.13      26.3     16.57       100
+          | 
+    Total |    50.41     31.97     17.62       100
+--------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(6)         = 1139.8151
+    Design-based  F(4.82, 525.60) =   35.8628     P = 0.0000</code></pre>
+</div>
+<div id="bmi-4" class="section level3">
+<h3>BMI</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(race_eth)coeflegend
+
+test _b[c.bmxbmi@1bn.race_eth] = _b[c.bmxbmi@2.race_eth] = _b[c.bmxbmi@3.race_eth] = _b[c.bmxbmi@4.race_eth]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       70,080
+Number of PSUs   =     214      Population size =  305,959,182
+                                Subpop. no. obs =       20,910
+                                Subpop. size    =  140,938,589
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+    c.bmxbmi@|
+    race_eth |
+   White-NH  |   28.70752  _b[c.bmxbmi@1bn.race_eth]
+   Black_NH  |   30.70837  _b[c.bmxbmi@2.race_eth]
+     Mex Am  |   30.09838  _b[c.bmxbmi@3.race_eth]
+        Oth  |   27.88915  _b[c.bmxbmi@4.race_eth]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.bmxbmi@1bn.race_eth - c.bmxbmi@2.race_eth = 0
+ ( 2)  c.bmxbmi@1bn.race_eth - c.bmxbmi@3.race_eth = 0
+ ( 3)  c.bmxbmi@1bn.race_eth - c.bmxbmi@4.race_eth = 0
+
+       F(  3,   107) =  102.09
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="hei-2" class="section level3">
+<h3>HEI</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(race_eth)coeflegend
+
+test _b[c.hei2015@1bn.race_eth] = _b[c.hei2015@2.race_eth] = _b[c.hei2015@3.race_eth] = _b[c.hei2015@4.race_eth]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       68,641
+Number of PSUs   =     214      Population size =  297,338,173
+                                Subpop. no. obs =       19,471
+                                Subpop. size    =  132,317,580
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+   c.hei2015@|
+    race_eth |
+   White-NH  |   52.03715  _b[c.hei2015@1bn.race_eth]
+   Black_NH  |   50.19995  _b[c.hei2015@2.race_eth]
+     Mex Am  |   52.07004  _b[c.hei2015@3.race_eth]
+        Oth  |   54.42493  _b[c.hei2015@4.race_eth]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.hei2015@1bn.race_eth - c.hei2015@2.race_eth = 0
+ ( 2)  c.hei2015@1bn.race_eth - c.hei2015@3.race_eth = 0
+ ( 3)  c.hei2015@1bn.race_eth - c.hei2015@4.race_eth = 0
+
+       F(  3,   107) =   40.40
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="income-4" class="section level3">
+<h3>Income</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(race_eth)coeflegend
+
+test _b[c.indfmpir@1bn.race_eth] = _b[c.indfmpir@2.race_eth] = _b[c.indfmpir@3.race_eth] = _b[c.indfmpir@4.race_eth]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       68,616
+Number of PSUs   =     214      Population size =  298,070,653
+                                Subpop. no. obs =       19,446
+                                Subpop. size    =  133,050,061
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+  c.indfmpir@|
+    race_eth |
+   White-NH  |   3.358996  _b[c.indfmpir@1bn.race_eth]
+   Black_NH  |    2.37303  _b[c.indfmpir@2.race_eth]
+     Mex Am  |   1.991095  _b[c.indfmpir@3.race_eth]
+        Oth  |    2.72434  _b[c.indfmpir@4.race_eth]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.indfmpir@1bn.race_eth - c.indfmpir@2.race_eth = 0
+ ( 2)  c.indfmpir@1bn.race_eth - c.indfmpir@3.race_eth = 0
+ ( 3)  c.indfmpir@1bn.race_eth - c.indfmpir@4.race_eth = 0
+
+       F(  3,   107) =  166.48
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="age-4" class="section level3">
+<h3>Age</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(race_eth)coeflegend
+
+test _b[c.ridageyr@1bn.race_eth] = _b[c.ridageyr@2.race_eth] = _b[c.ridageyr@3.race_eth] = _b[c.ridageyr@4.race_eth]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       70,190
+Number of PSUs   =     214      Population size =  306,545,053
+                                Subpop. no. obs =       21,020
+                                Subpop. size    =  141,524,461
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+  c.ridageyr@|
+    race_eth |
+   White-NH  |   40.52855  _b[c.ridageyr@1bn.race_eth]
+   Black_NH  |   38.67865  _b[c.ridageyr@2.race_eth]
+     Mex Am  |   36.57998  _b[c.ridageyr@3.race_eth]
+        Oth  |   37.80206  _b[c.ridageyr@4.race_eth]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.ridageyr@1bn.race_eth - c.ridageyr@2.race_eth = 0
+ ( 2)  c.ridageyr@1bn.race_eth - c.ridageyr@3.race_eth = 0
+ ( 3)  c.ridageyr@1bn.race_eth - c.ridageyr@4.race_eth = 0
+
+       F(  3,   107) =   83.77
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+</div>
+<div id="smoking-5" class="section level2">
+<h2>Smoking</h2>
+<div id="survey-year-5" class="section level3">
+<h3>Survey Year</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta SMK_cat sddsrvyr,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,139
+Number of PSUs     =       214                Population size   =  306,306,164
+                                              Subpop. no. obs   =       20,969
+                                              Subpop. size      =  141,285,572
+                                              Design df         =          109
+
+-------------------------------------------------------------------------------
+Smoking  |                             Survey Year                             
+Category | 2005-200  2007-200  2009-201  2011-201  2013-201  2015-201  2017-201
+---------+---------------------------------------------------------------------
+   Never |    11.81     13.12     14.03     14.29     15.58     15.51     15.66
+Past Smo |    13.47      13.5     13.94     14.38     13.48     15.53     15.72
+Light, 1 |    12.63     14.34     13.82     14.84     16.05     14.33     13.99
+Moderate |    16.42     16.47     14.28     12.54     13.51     12.86     13.92
+Heavy, 2 |    23.38     25.64     12.87     14.97     8.702     8.203     6.224
+         | 
+   Total |     12.9     13.93     13.98     14.26     14.88     14.97     15.09
+-------------------------------------------------------------------------------
+
+-------------------
+         |  Survey 
+Smoking  |   Year  
+Category |    Total
+---------+---------
+   Never |      100
+Past Smo |      100
+Light, 1 |      100
+Moderate |      100
+Heavy, 2 |      100
+         | 
+   Total |      100
+-------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(24)        =  763.2884
+    Design-based  F(14.81, 1614.66)=    3.1712    P = 0.0000</code></pre>
+</div>
+<div id="alcohol-5" class="section level3">
+<h3>Alcohol</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): ta SMK_cat AL_cat,row percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       68,033
+Number of PSUs     =       214                Population size   =  293,207,892
+                                              Subpop. no. obs   =       18,863
+                                              Subpop. size      =  128,187,300
+                                              Design df         =          109
+
+--------------------------------------------------
+Smoking   |          Alcohol Use Category         
+Category  | None-Lig  Moderate     Heavy     Total
+----------+---------------------------------------
+    Never |    60.15     28.72     11.12       100
+ Past Smo |    44.79     37.81     17.39       100
+ Light, 1 |    30.53     37.35     32.12       100
+ Moderate |    30.47     34.24     35.29       100
+ Heavy, 2 |    33.84     24.84     41.32       100
+          | 
+    Total |    50.45     31.95      17.6       100
+--------------------------------------------------
+  Key:  row percentage
+
+  Pearson:
+    Uncorrected   chi2(8)         = 5797.6928
+    Design-based  F(7.07, 770.16) =  114.6442     P = 0.0000</code></pre>
+</div>
+<div id="bmi-5" class="section level3">
+<h3>BMI</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean bmxbmi,over(SMK_cat)coeflegend
+
+test _b[c.bmxbmi@1bn.SMK_cat] = _b[c.bmxbmi@2.SMK_cat] = _b[c.bmxbmi@3.SMK_cat] = _b[c.bmxbmi@4.SMK_cat]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       70,029
+Number of PSUs   =     214      Population size =  305,720,293
+                                Subpop. no. obs =       20,859
+                                Subpop. size    =  140,699,700
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+    c.bmxbmi@|
+     SMK_cat |
+      Never  |    29.0301  _b[c.bmxbmi@0bn.SMK_cat]
+Past Smoker  |   29.70642  _b[c.bmxbmi@1.SMK_cat]
+Light, 1-..  |   28.34088  _b[c.bmxbmi@2.SMK_cat]
+Moderate,..  |     27.907  _b[c.bmxbmi@3.SMK_cat]
+Heavy, 21..  |    28.1059  _b[c.bmxbmi@4.SMK_cat]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.bmxbmi@1.SMK_cat - c.bmxbmi@2.SMK_cat = 0
+ ( 2)  c.bmxbmi@1.SMK_cat - c.bmxbmi@3.SMK_cat = 0
+ ( 3)  c.bmxbmi@1.SMK_cat - c.bmxbmi@4.SMK_cat = 0
+
+       F(  3,   107) =   21.87
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="hei-3" class="section level3">
+<h3>HEI</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean hei2015,over(SMK_cat)coeflegend
+
+test _b[c.hei2015@1bn.SMK_cat] = _b[c.hei2015@2.SMK_cat] = _b[c.hei2015@3.SMK_cat] = _b[c.hei2015@4.SMK_cat]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       68,598
+Number of PSUs   =     214      Population size =  297,152,340
+                                Subpop. no. obs =       19,428
+                                Subpop. size    =  132,131,748
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+   c.hei2015@|
+     SMK_cat |
+      Never  |   53.62846  _b[c.hei2015@0bn.SMK_cat]
+Past Smoker  |   53.79835  _b[c.hei2015@1.SMK_cat]
+Light, 1-..  |   48.30659  _b[c.hei2015@2.SMK_cat]
+Moderate,..  |   45.43294  _b[c.hei2015@3.SMK_cat]
+Heavy, 21..  |   44.67027  _b[c.hei2015@4.SMK_cat]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.hei2015@1.SMK_cat - c.hei2015@2.SMK_cat = 0
+ ( 2)  c.hei2015@1.SMK_cat - c.hei2015@3.SMK_cat = 0
+ ( 3)  c.hei2015@1.SMK_cat - c.hei2015@4.SMK_cat = 0
+
+       F(  3,   107) =  133.35
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="income-5" class="section level3">
+<h3>Income</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean indfmpir,over(SMK_cat)coeflegend
+
+test _b[c.indfmpir@1bn.SMK_cat] = _b[c.indfmpir@2.SMK_cat] = _b[c.indfmpir@3.SMK_cat] = _b[c.indfmpir@4.SMK_cat]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       68,571
+Number of PSUs   =     214      Population size =  297,872,577
+                                Subpop. no. obs =       19,401
+                                Subpop. size    =  132,851,985
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+  c.indfmpir@|
+     SMK_cat |
+      Never  |   3.217312  _b[c.indfmpir@0bn.SMK_cat]
+Past Smoker  |   3.303914  _b[c.indfmpir@1.SMK_cat]
+Light, 1-..  |    2.35325  _b[c.indfmpir@2.SMK_cat]
+Moderate,..  |   2.364263  _b[c.indfmpir@3.SMK_cat]
+Heavy, 21..  |   2.424293  _b[c.indfmpir@4.SMK_cat]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.indfmpir@1.SMK_cat - c.indfmpir@2.SMK_cat = 0
+ ( 2)  c.indfmpir@1.SMK_cat - c.indfmpir@3.SMK_cat = 0
+ ( 3)  c.indfmpir@1.SMK_cat - c.indfmpir@4.SMK_cat = 0
+
+       F(  3,   107) =  118.46
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+<div id="age-5" class="section level3">
+<h3>Age</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if include==1): mean ridageyr,over(SMK_cat)coeflegend
+
+test _b[c.ridageyr@1bn.SMK_cat] = _b[c.ridageyr@2.SMK_cat] = _b[c.ridageyr@3.SMK_cat] = _b[c.ridageyr@4.SMK_cat]</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =     105      Number of obs   =       70,139
+Number of PSUs   =     214      Population size =  306,306,164
+                                Subpop. no. obs =       20,969
+                                Subpop. size    =  141,285,572
+                                Design df       =          109
+
+------------------------------------------------------------------------------
+             |       Mean  Legend
+-------------+----------------------------------------------------------------
+  c.ridageyr@|
+     SMK_cat |
+      Never  |   38.67778  _b[c.ridageyr@0bn.SMK_cat]
+Past Smoker  |   42.73476  _b[c.ridageyr@1.SMK_cat]
+Light, 1-..  |   36.94616  _b[c.ridageyr@2.SMK_cat]
+Moderate,..  |   40.66477  _b[c.ridageyr@3.SMK_cat]
+Heavy, 21..  |   43.69805  _b[c.ridageyr@4.SMK_cat]
+------------------------------------------------------------------------------
+
+
+Adjusted Wald test
+
+ ( 1)  c.ridageyr@1.SMK_cat - c.ridageyr@2.SMK_cat = 0
+ ( 2)  c.ridageyr@1.SMK_cat - c.ridageyr@3.SMK_cat = 0
+ ( 3)  c.ridageyr@1.SMK_cat - c.ridageyr@4.SMK_cat = 0
+
+       F(  3,   107) =   94.95
+            Prob &gt; F =    0.0000</code></pre>
+</div>
+</div>
+<div id="alcohol-6" class="section level2">
+<h2>Alcohol</h2>
+</div>
+<div id="survey-year-6" class="section level2">
+<h2>Survey Year</h2>
+</div>
+<div id="income-6" class="section level2">
+<h2>Income</h2>
+</div>
+<div id="age-6" class="section level2">
+<h2>Age</h2>
+</div>
+<div id="bmi-6" class="section level2">
+<h2>BMI</h2>
+</div>
+<div id="healthy-eating-index-2" class="section level2">
+<h2>Healthy Eating Index</h2>
+</div>
 </div>
 
 
