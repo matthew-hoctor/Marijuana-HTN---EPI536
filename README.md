@@ -85,7 +85,11 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
 ## To Do
 
  * P4
-   * E7 Univariate analysis
-   * E8 Cross tabulation of covariates to assess colinearity
-   * E9 Re-parameterize continuous variables
-   * E10 Model building
+   * Ordinal regression instead of conditional logistic regression
+   * Try model building with interaction term starting in the model and/or ordinal regression
+   * re-check linearity of continuous variables?
+   * Does logit ignore missing data?
+   * test model building with survey year to continue to assess cohort effects
+   * tabulate trends in BP categories over the cycles used to continue to assess cohort effects
+ * P5
+   * Sensitivity analyses
