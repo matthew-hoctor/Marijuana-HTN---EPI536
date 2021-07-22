@@ -224,3 +224,27 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==1 & (BP_cat==0 | BP_cat==3)): logit BP_cat i.MJ gndr ridageyr i.AL_cat bmxbmi, or
 ```
 
+# N Tabulation
+
+For Table 3
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta gndr MJ if include==1
+```
+
+# Table 2
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta BP_cat MJ_cat if include==1,col 
+
+svy, subpop(if include==1): ta BP_cat MJ_cat,col percent
+```
+
+
+
