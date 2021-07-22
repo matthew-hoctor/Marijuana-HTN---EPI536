@@ -246,5 +246,26 @@ ta BP_cat MJ_cat if include==1,col
 svy, subpop(if include==1): ta BP_cat MJ_cat,col percent
 ```
 
+## Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta BP_cat MJ_cat if include==1 & gndr==1,col 
+
+svy, subpop(if include==1 & gndr==1): ta BP_cat MJ_cat,col percent
+```
+
+## Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta BP_cat MJ_cat if include==1 & gndr==0,col 
+
+svy, subpop(if include==1 & gndr==0): ta BP_cat MJ_cat,col percent
+```
 
 

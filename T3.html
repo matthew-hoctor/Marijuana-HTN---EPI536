@@ -1195,6 +1195,138 @@ Category  | Never Us  Past Use   Current     Total
   Pearson:
     Uncorrected   chi2(6)         =   70.3954
     Design-based  F(5.56, 605.89) =    1.9542     P = 0.0758</code></pre>
+<div id="men-3" class="section level2">
+<h2>Men</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta BP_cat MJ_cat if include==1 &amp; gndr==1,col 
+
+svy, subpop(if include==1 &amp; gndr==1): ta BP_cat MJ_cat,col percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+
++-------------------+
+| Key               |
+|-------------------|
+|     frequency     |
+| column percentage |
++-------------------+
+
+            |      Cannabis Use Category
+BP Category | Never Use   Past Use  Current U |     Total
+------------+---------------------------------+----------
+     Normal |     1,770      1,739        798 |     4,307 
+            |     42.85      40.03      42.77 |     41.65 
+------------+---------------------------------+----------
+   Elevated |       753        809        410 |     1,972 
+            |     18.23      18.62      21.97 |     19.07 
+------------+---------------------------------+----------
+Stage 1 HTN |     1,009      1,128        412 |     2,549 
+            |     24.43      25.97      22.08 |     24.65 
+------------+---------------------------------+----------
+Stage 2 HTN |       599        668        246 |     1,513 
+            |     14.50      15.38      13.18 |     14.63 
+------------+---------------------------------+----------
+      Total |     4,131      4,344      1,866 |    10,341 
+            |    100.00     100.00     100.00 |    100.00 
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       10,341
+                                              Subpop. size      = 71,193,951.1
+                                              Design df         =          109
+
+--------------------------------------------------
+BP        |         Cannabis Use Category         
+Category  | Never Us  Past Use   Current     Total
+----------+---------------------------------------
+   Normal |    43.49     41.02     42.51     42.15
+ Elevated |    18.13     18.98     22.83     19.37
+  Stage 1 |     24.7     26.02     22.55     24.94
+  Stage 2 |    13.68     13.98      12.1     13.54
+          | 
+    Total |      100       100       100       100
+--------------------------------------------------
+  Key:  column percentage
+
+  Pearson:
+    Uncorrected   chi2(6)         =  189.5565
+    Design-based  F(5.54, 604.35) =    2.4934     P = 0.0251</code></pre>
+</div>
+<div id="women-3" class="section level2">
+<h2>Women</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta BP_cat MJ_cat if include==1 &amp; gndr==0,col 
+
+svy, subpop(if include==1 &amp; gndr==0): ta BP_cat MJ_cat,col percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+
++-------------------+
+| Key               |
+|-------------------|
+|     frequency     |
+| column percentage |
++-------------------+
+
+            |      Cannabis Use Category
+BP Category | Never Use   Past Use  Current U |     Total
+------------+---------------------------------+----------
+     Normal |     3,379      2,454        741 |     6,574 
+            |     60.64      61.97      64.60 |     61.56 
+------------+---------------------------------+----------
+   Elevated |       725        502        145 |     1,372 
+            |     13.01      12.68      12.64 |     12.85 
+------------+---------------------------------+----------
+Stage 1 HTN |       929        632        165 |     1,726 
+            |     16.67      15.96      14.39 |     16.16 
+------------+---------------------------------+----------
+Stage 2 HTN |       539        372         96 |     1,007 
+            |      9.67       9.39       8.37 |      9.43 
+------------+---------------------------------+----------
+      Total |     5,572      3,960      1,147 |    10,679 
+            |    100.00     100.00     100.00 |    100.00 
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       10,679
+                                              Subpop. size      = 70,330,509.5
+                                              Design df         =          109
+
+--------------------------------------------------
+BP        |         Cannabis Use Category         
+Category  | Never Us  Past Use   Current     Total
+----------+---------------------------------------
+   Normal |    59.89     62.82     66.03     61.85
+ Elevated |    13.66     12.85     12.12     13.13
+  Stage 1 |    17.79     15.91     14.93     16.65
+  Stage 2 |    8.654     8.417     6.927     8.361
+          | 
+    Total |      100       100       100       100
+--------------------------------------------------
+  Key:  column percentage
+
+  Pearson:
+    Uncorrected   chi2(6)         =  131.1846
+    Design-based  F(5.63, 613.53) =    2.1713     P = 0.0481</code></pre>
+</div>
 </div>
 
 
