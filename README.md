@@ -85,6 +85,8 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
 
 ## To Do
 
+ * P3
+   * Fix Fig 1; remove 'sufficient'
  * P4
    * Ordinal regression instead of conditional logistic regression
    * Try model building with interaction term starting in the model and/or ordinal regression
@@ -95,7 +97,12 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * P5
    * Combine document with P3 & P4
    * Do Sensitivity analyses
+      * analysis of unmeasured confounders
+      * misclassification: nondifferential misclassification of BP
+      * misclassification: nondifferential misclassification of MJ
+      * bias from cohort effect?
    * Incorporate feedback
+   * Change 'heavy use' to 'frequent use'
  * STROBE
    * assess STROBE # 5: settings
    * STROBE 7: define alcohol category & smoking category?
