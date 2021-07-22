@@ -95,6 +95,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * Does logit ignore missing data?
    * test model building with survey year to continue to assess cohort effects
    * tabulate trends in BP categories over the cycles used to continue to assess cohort effects
+   * test EMM with AGE
  * P5
    * Combine document with P3 & P4
    * Do Sensitivity analyses
