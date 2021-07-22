@@ -103,6 +103,8 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
       * misclassification: nondifferential misclassification of BP
       * misclassification: nondifferential misclassification of MJ
       * bias from cohort effect?
+      * Unmeasured confounding
+      * Missing values
    * Incorporate feedback
    * Change 'heavy use' to 'frequent use'
  * STROBE
