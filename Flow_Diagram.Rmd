@@ -95,10 +95,10 @@ A;
 A[label = 
     <
     Missing blood pressure data:<br ALIGN = 'LEFT'/> 
-    &#8226; No mobile examination center exam<br ALIGN = 'LEFT'/> 
-    (n = 2826)<br ALIGN = 'LEFT'/> 
-    &#8226; Insufficient BP data for AHA/ACC<br ALIGN = 'LEFT'/>
-    classification (n = 18581)<br ALIGN = 'LEFT'/>
+    &#8226; No mobile examination center<br ALIGN = 'LEFT'/> 
+    exam (n = 2826)<br ALIGN = 'LEFT'/> 
+    &#8226; Less than 3 blood pressure<br ALIGN = 'LEFT'/>
+    readings (n = 18581)<br ALIGN = 'LEFT'/>
     >
 ]
 
@@ -106,7 +106,7 @@ B;
 
 B[label = 
     <
-    Missing cannabis use data<br ALIGN = 'LEFT'/> 
+    Missing cannabis data<br ALIGN = 'LEFT'/> 
     (n = 26462)<br ALIGN = 'LEFT'/>
     >
 ]
@@ -115,7 +115,7 @@ C;
 
 C[label = 
     <
-    Outside of age range 20-59 years<br ALIGN = 'LEFT'/> 
+    Not in age range 20-59 years<br ALIGN = 'LEFT'/> 
     (n = 1301)<br ALIGN = 'LEFT'/>
     >
 ]
