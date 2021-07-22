@@ -22,6 +22,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM.html)
      * [EMM documentation](https://docs.google.com/document/d/1hF95QjIRdBX1g2z73m-7kTxZCSeKgIOy/edit)
    * [T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.html)
+ * [Quantitative Bias Analysis](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Bias_Analysis.html)
  * [Misc Ideas](https://docs.google.com/document/d/1Hr3K0WxC9JroAhuhbhra0eRixK2QiuoAXQiLc44apAU/edit)
  
 ## Project Submissions
@@ -92,4 +93,10 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * test model building with survey year to continue to assess cohort effects
    * tabulate trends in BP categories over the cycles used to continue to assess cohort effects
  * P5
-   * Sensitivity analyses
+   * Combine document with P3 & P4
+   * Do Sensitivity analyses
+   * Incorporate feedback
+ * STROBE
+   * assess STROBE # 5: settings
+   * STROBE 7: define alcohol category & smoking category?
+   * 12e sensitivity analysis
