@@ -1,0 +1,160 @@
+---
+title: "Effect MEasure Modification"
+author: "Bryon Langford, Matthew Hoctor"
+date: "7/21/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if ((Sys.info()["sysname"] == "Darwin"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata/StataIC"))
+```
+
+```{r libraries, include=FALSE}
+library(Statamarkdown)
+```
+
+# Models
+
+From [model building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html).
+
+## Model 1: crude model
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ, rrr
+```
+
+## Model 2 Final Model (without mediators)
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr, rrr
+```
+
+## Model 3 Final Model (with mediators)
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr ridageyr i.AL_cat bmxbmi hei2015 SMK_cat, rrr
+```
+
+# Gender EMM Analysis
+
+## Model 1
+
+### Stratified Analysis
+
+#### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ, rrr
+```
+
+#### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ, rrr
+```
+
+### Interaction Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.MJ*gndr, rrr
+```
+
+## Model 2
+
+### Stratified Analysis
+
+#### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ ridageyr, rrr
+```
+
+#### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ ridageyr, rrr
+```
+
+### Interaction Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.MJ*gndr ridageyr, rrr
+```
+
+## Model 3
+
+### Stratified Analysis
+
+#### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ ridageyr i.AL_cat bmxbmi hei2015 SMK_cat, rrr
+```
+
+#### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ ridageyr i.AL_cat bmxbmi hei2015 SMK_cat, rrr
+```
+
+### Interaction Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.MJ*gndr ridageyr i.AL_cat bmxbmi hei2015 SMK_cat, rrr
+```
+
+# Age
+
+To be calculated later
