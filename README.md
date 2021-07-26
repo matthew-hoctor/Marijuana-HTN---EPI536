@@ -18,6 +18,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * Results
    * [Crude Associations](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Crude_Associations.html)
    * [Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building.html)
+   * [Model Building2](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html)
    * [EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM.html)
      * [EMM documentation](https://docs.google.com/document/d/1hF95QjIRdBX1g2z73m-7kTxZCSeKgIOy/edit)
    * [T2](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.html#Table_2)
