@@ -7,7 +7,6 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [DAGs](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/DAG.html)
    * [DAG on Daggity.net](http://dagitty.net/dags.html?id=DHjoMb#)
  * [Variables Table](https://docs.google.com/spreadsheets/d/1i8GbTjo4PRI1TzPGiHzXwNliISFwh2TPdQciPLfy830/edit#gid=0)
- * [Discussion & Ideas](https://docs.google.com/document/d/1t_8FqfcYVIMI_mKpDdhFYoWq-HbAZvgTPWsuXJigQXM/edit)
  * Dataset
    * [HEI-2015 .dta data file download](https://github.com/matthew-hoctor/Marijuana-HTN---EPI536/blob/main/data/HEI2015R_00518.dta)
    * [Data Cleaning Plan](https://docs.google.com/document/d/13fL2GJl13hHvVIi2gTaqwxHL0G8jI0FdORji8mqZoAQ/edit)
@@ -15,7 +14,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Dataset generation](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Dataset.html)
    * [Variables creation](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Variables.html)
    * [Finished Dataset (zip)](https://github.com/matthew-hoctor/Marijuana-HTN---EPI536/blob/main/data/NHANES0518_new.zip)
- * [Flow diagram](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Flow_Diagram.html)
+   * [Flow diagram](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Flow_Diagram.html)
  * Results
    * [Crude Associations](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Crude_Associations.html)
    * [Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building.html)
@@ -97,7 +96,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * tabulate trends in BP categories over the cycles used to continue to assess cohort effects
    * test EMM with AGE
  * P5
-   * Combine document with P3 & P4
+   * Incorporate feedback
    * Do Sensitivity analyses
       * analysis of unmeasured confounders
       * misclassification: nondifferential misclassification of BP
@@ -105,8 +104,6 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
       * bias from cohort effect?
       * Unmeasured confounding
       * Missing values
-   * Incorporate feedback
-   * Change 'heavy use' to 'frequent use'
  * STROBE
    * assess STROBE # 5: settings
    * STROBE 7: define alcohol category & smoking category?
