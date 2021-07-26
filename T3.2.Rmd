@@ -37,7 +37,7 @@ Model 2; from model_building2:
 use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr, rrr
 ```
 
 # Model 1: Crude
