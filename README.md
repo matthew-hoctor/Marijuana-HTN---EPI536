@@ -88,8 +88,6 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
 
 ## To Do
 
- * P3
-   * Fix Fig 1; remove 'sufficient'
  * P4
    * Ordinal regression instead of conditional logistic regression
    * Try model building with interaction term starting in the model and/or ordinal regression

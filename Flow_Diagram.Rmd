@@ -94,10 +94,10 @@ A;
 
 A[label = 
     <
-    Missing blood pressure data:<br ALIGN = 'LEFT'/> 
-    &#8226; No mobile examination center<br ALIGN = 'LEFT'/> 
-    exam (n = 2826)<br ALIGN = 'LEFT'/> 
-    &#8226; Less than 3 blood pressure<br ALIGN = 'LEFT'/>
+    Missing BP data:<br ALIGN = 'LEFT'/> 
+    &#8226; No mobile examination<br ALIGN = 'LEFT'/> 
+    center exam (n = 2826)<br ALIGN = 'LEFT'/> 
+    &#8226; Less than 3 BP<br ALIGN = 'LEFT'/>
     readings (n = 18581)<br ALIGN = 'LEFT'/>
     >
 ]
@@ -149,8 +149,8 @@ d -> f
 }
 
 [1]: paste0('NHANES 2005-2018 (n = ', data$a, ')')
-[2]: paste0('Sufficient BP data (n = ', data$b, ')')
-[3]: paste0('Sufficient exposure and outcome data (n = ', data$c, ')')
+[2]: paste0('Not missing BP data (n = ', data$b, ')')
+[3]: paste0('Not missing exposure and outcome data (n = ', data$c, ')')
 [4]: paste0('Adults age 20-59 with BP data & cannabis use data (n = ', data$d, ')')
 [5]: paste0('Women (n = ', data$e, ')')
 [6]: paste0('Men (n = ', data$f, ')')
@@ -173,7 +173,7 @@ A;
 
 A[label = 
     <
-    Missing blood pressure data:<br ALIGN = 'LEFT'/> 
+    Missing BP data:<br ALIGN = 'LEFT'/> 
     &#8226; No mobile examination center exam<br ALIGN = 'LEFT'/> 
     (n = 2428)<br ALIGN = 'LEFT'/> 
     &#8226; Insufficient BP data for AHA/ACC<br ALIGN = 'LEFT'/>

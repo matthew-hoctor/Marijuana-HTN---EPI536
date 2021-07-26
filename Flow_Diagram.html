@@ -375,10 +375,10 @@ A;
 
 A[label = 
     &lt;
-    Missing blood pressure data:&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
-    &amp;#8226; No mobile examination center&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
-    exam (n = 2826)&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
-    &amp;#8226; Less than 3 blood pressure&lt;br ALIGN = &#39;LEFT&#39;/&gt;
+    Missing BP data:&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    &amp;#8226; No mobile examination&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    center exam (n = 2826)&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    &amp;#8226; Less than 3 BP&lt;br ALIGN = &#39;LEFT&#39;/&gt;
     readings (n = 18581)&lt;br ALIGN = &#39;LEFT&#39;/&gt;
     &gt;
 ]
@@ -430,14 +430,14 @@ d -&gt; f
 }
 
 [1]: paste0(&#39;NHANES 2005-2018 (n = &#39;, data$a, &#39;)&#39;)
-[2]: paste0(&#39;Sufficient BP data (n = &#39;, data$b, &#39;)&#39;)
-[3]: paste0(&#39;Sufficient exposure and outcome data (n = &#39;, data$c, &#39;)&#39;)
+[2]: paste0(&#39;Not missing BP data (n = &#39;, data$b, &#39;)&#39;)
+[3]: paste0(&#39;Not missing exposure and outcome data (n = &#39;, data$c, &#39;)&#39;)
 [4]: paste0(&#39;Adults age 20-59 with BP data &amp; cannabis use data (n = &#39;, data$d, &#39;)&#39;)
 [5]: paste0(&#39;Women (n = &#39;, data$e, &#39;)&#39;)
 [6]: paste0(&#39;Men (n = &#39;, data$f, &#39;)&#39;)
 &quot;)</code></pre>
-<div id="htmlwidget-29f5b74dc8b669f53a21" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-29f5b74dc8b669f53a21">{"x":{"diagram":"\ndigraph rmarkdown{\n\n# Box\nnode [shape = box]\n\nA;\n\nA[label = \n    <\n    Missing blood pressure data:<br ALIGN = \"LEFT\"/> \n    &#8226; No mobile examination center<br ALIGN = \"LEFT\"/> \n    exam (n = 2826)<br ALIGN = \"LEFT\"/> \n    &#8226; Less than 3 blood pressure<br ALIGN = \"LEFT\"/>\n    readings (n = 18581)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nB;\n\nB[label = \n    <\n    Missing cannabis data<br ALIGN = \"LEFT\"/> \n    (n = 26462)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nC;\n\nC[label = \n    <\n    Not in age range 20-59 years<br ALIGN = \"LEFT\"/> \n    (n = 1301)<br ALIGN = \"LEFT\"/>\n    >\n]\n\na [label = \"NHANES 2005-2018 (n = 70190)\"]\na1 [shape = point width = 0.01]\nb [label = \"Sufficient BP data (n = 48783)\"]\nb1 [shape = point width = 0.01]\nc [label = \"Sufficient exposure and outcome data (n = 22321)\"]\nc1 [shape = point width = 0.01]\nd [label = \"Adults age 20-59 with BP data & cannabis use data (n = 21020)\"]\ne [label = \"Women (n = 10679)\"]\nf [label = \"Men (n = 10341)\"]\n\n\na -> a1 [arrowhead = none]\na1 -> A\na1 -> b \nb -> b1 [arrowhead = none]\nb1 -> B\nb1 -> c\nc -> c1 [arrowhead = none]\nc1 -> C\nc1 -> d -> e\nd -> f\n\n{rank=same; a1 A}\n{rank=same; b1 B}\n{rank=same; c1 C}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-64713a2f7e6a6b9cdc15" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-64713a2f7e6a6b9cdc15">{"x":{"diagram":"\ndigraph rmarkdown{\n\n# Box\nnode [shape = box]\n\nA;\n\nA[label = \n    <\n    Missing BP data:<br ALIGN = \"LEFT\"/> \n    &#8226; No mobile examination<br ALIGN = \"LEFT\"/> \n    center exam (n = 2826)<br ALIGN = \"LEFT\"/> \n    &#8226; Less than 3 BP<br ALIGN = \"LEFT\"/>\n    readings (n = 18581)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nB;\n\nB[label = \n    <\n    Missing cannabis data<br ALIGN = \"LEFT\"/> \n    (n = 26462)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nC;\n\nC[label = \n    <\n    Not in age range 20-59 years<br ALIGN = \"LEFT\"/> \n    (n = 1301)<br ALIGN = \"LEFT\"/>\n    >\n]\n\na [label = \"NHANES 2005-2018 (n = 70190)\"]\na1 [shape = point width = 0.01]\nb [label = \"Not missing BP data (n = 48783)\"]\nb1 [shape = point width = 0.01]\nc [label = \"Not missing exposure and outcome data (n = 22321)\"]\nc1 [shape = point width = 0.01]\nd [label = \"Adults age 20-59 with BP data & cannabis use data (n = 21020)\"]\ne [label = \"Women (n = 10679)\"]\nf [label = \"Men (n = 10341)\"]\n\n\na -> a1 [arrowhead = none]\na1 -> A\na1 -> b \nb -> b1 [arrowhead = none]\nb1 -> B\nb1 -> c\nc -> c1 [arrowhead = none]\nc1 -> C\nc1 -> d -> e\nd -> f\n\n{rank=same; a1 A}\n{rank=same; b1 B}\n{rank=same; c1 C}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="old-2007-2018-flow-diagram" class="section level1">
 <h1>Old 2007-2018 Flow Diagram</h1>
@@ -454,7 +454,7 @@ A;
 
 A[label = 
     &lt;
-    Missing blood pressure data:&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
+    Missing BP data:&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
     &amp;#8226; No mobile examination center exam&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
     (n = 2428)&lt;br ALIGN = &#39;LEFT&#39;/&gt; 
     &amp;#8226; Insufficient BP data for AHA/ACC&lt;br ALIGN = &#39;LEFT&#39;/&gt;
@@ -515,8 +515,8 @@ d -&gt; f
 [5]: paste0(&#39;Women (n = &#39;, data$e, &#39;)&#39;)
 [6]: paste0(&#39;Men (n = &#39;, data$f, &#39;)&#39;)
 &quot;)</code></pre>
-<div id="htmlwidget-d3694c9a1f4766888f34" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d3694c9a1f4766888f34">{"x":{"diagram":"\ndigraph rmarkdown{\n\n# Box\nnode [shape = box]\n\nA;\n\nA[label = \n    <\n    Missing blood pressure data:<br ALIGN = \"LEFT\"/> \n    &#8226; No mobile examination center exam<br ALIGN = \"LEFT\"/> \n    (n = 2428)<br ALIGN = \"LEFT\"/> \n    &#8226; Insufficient BP data for AHA/ACC<br ALIGN = \"LEFT\"/>\n    classification (n = 14740)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nB;\n\nB[label = \n    <\n    Missing cannabis use data<br ALIGN = \"LEFT\"/> \n    (n = 22863)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nC;\n\nC[label = \n    <\n    Outside of age range 20-69 years<br ALIGN = \"LEFT\"/> \n    (n = 1301)<br ALIGN = \"LEFT\"/>\n    >\n]\n\na [label = \"NHANES 2007-2018 (n = 59842)\"]\na1 [shape = point width = 0.01]\nb [label = \"Sufficient BP data (n = 42674)\"]\nb1 [shape = point width = 0.01]\nc [label = \"Sufficient exposure and outcome data (n = 19811)\"]\nc1 [shape = point width = 0.01]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\n\na -> a1 [arrowhead = none]\na1 -> A\na1 -> b \nb -> b1 [arrowhead = none]\nb1 -> B\nb1 -> c\nc -> c1 [arrowhead = none]\nc1 -> C\nc1 -> d -> e\nd -> f\n\n{rank=same; a1 A}\n{rank=same; b1 B}\n{rank=same; c1 C}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3530ec4e794d64da5c7b" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3530ec4e794d64da5c7b">{"x":{"diagram":"\ndigraph rmarkdown{\n\n# Box\nnode [shape = box]\n\nA;\n\nA[label = \n    <\n    Missing BP data:<br ALIGN = \"LEFT\"/> \n    &#8226; No mobile examination center exam<br ALIGN = \"LEFT\"/> \n    (n = 2428)<br ALIGN = \"LEFT\"/> \n    &#8226; Insufficient BP data for AHA/ACC<br ALIGN = \"LEFT\"/>\n    classification (n = 14740)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nB;\n\nB[label = \n    <\n    Missing cannabis use data<br ALIGN = \"LEFT\"/> \n    (n = 22863)<br ALIGN = \"LEFT\"/>\n    >\n]\n\nC;\n\nC[label = \n    <\n    Outside of age range 20-69 years<br ALIGN = \"LEFT\"/> \n    (n = 1301)<br ALIGN = \"LEFT\"/>\n    >\n]\n\na [label = \"NHANES 2007-2018 (n = 59842)\"]\na1 [shape = point width = 0.01]\nb [label = \"Sufficient BP data (n = 42674)\"]\nb1 [shape = point width = 0.01]\nc [label = \"Sufficient exposure and outcome data (n = 19811)\"]\nc1 [shape = point width = 0.01]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\n\na -> a1 [arrowhead = none]\na1 -> A\na1 -> b \nb -> b1 [arrowhead = none]\nb1 -> B\nb1 -> c\nc -> c1 [arrowhead = none]\nc1 -> C\nc1 -> d -> e\nd -> f\n\n{rank=same; a1 A}\n{rank=same; b1 B}\n{rank=same; c1 C}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="old-flow-diagram" class="section level1">
 <h1>Old Flow Diagram</h1>
@@ -555,8 +555,8 @@ d -&gt; f
 [5]: paste0(&#39;Women (n = &#39;, data$e, &#39;)&#39;)
 [6]: paste0(&#39;Men (n = &#39;, data$f, &#39;)&#39;)
 &quot;)</code></pre>
-<div id="htmlwidget-24febfe4b8670f955505" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-24febfe4b8670f955505">{"x":{"diagram":"\ndigraph graph2 {\n\ngraph [layout = dot]\n\n# node definitions with substituted label text\nnode [shape = rectangle, width = 4, fillcolor = Biege]\na [label = \"NHANES 2007-2018 (n = 59842)\"]\na1 [shape = point width = 0.01]\na2 [label = \"Missing BP data\nNo mobile examination center exam\nInsufficient BP data for AHA/ACC clasification\" align = right]\nb [label = \"Adults age 20-69 (n = 28721)\"]\nc [label = \"Adults age 20-69 with BP data (n = 26046)\"]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\na -> a1 [arrowhead = none]\na1 -> b -> c -> d -> e\na1 -> a2\nd -> f\n\n{rank=same; a1 a2}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6966e3dfb2bfa0e07d72" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6966e3dfb2bfa0e07d72">{"x":{"diagram":"\ndigraph graph2 {\n\ngraph [layout = dot]\n\n# node definitions with substituted label text\nnode [shape = rectangle, width = 4, fillcolor = Biege]\na [label = \"NHANES 2007-2018 (n = 59842)\"]\na1 [shape = point width = 0.01]\na2 [label = \"Missing BP data\nNo mobile examination center exam\nInsufficient BP data for AHA/ACC clasification\" align = right]\nb [label = \"Adults age 20-69 (n = 28721)\"]\nc [label = \"Adults age 20-69 with BP data (n = 26046)\"]\nd [label = \"Adults age 20-69 with BP data & cannabis use data (n = 18510)\"]\ne [label = \"Women (n = 9353)\"]\nf [label = \"Men (n = 9157)\"]\n\na -> a1 [arrowhead = none]\na1 -> b -> c -> d -> e\na1 -> a2\nd -> f\n\n{rank=same; a1 a2}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 
