@@ -179,6 +179,7 @@ use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
 svy, subpop(if include==1): ta sddsrvyr BP_cat,col percent
+svy, subpop(if include==1): ta sddsrvyr BP_cat,row percent
 ```
 
 ## Income

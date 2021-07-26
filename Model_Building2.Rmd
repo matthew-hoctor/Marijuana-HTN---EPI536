@@ -1,0 +1,342 @@
+---
+title: "Model Building"
+author: "Bryon Langford, Matthew Hoctor"
+date: "7/21/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if ((Sys.info()["sysname"] == "Darwin"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata/StataIC"))
+```
+
+```{r libraries, include=FALSE}
+library(Statamarkdown)
+```
+
+Model Building by Deletion
+
+# Test Proportional Odds Assumption
+
+A significant result of the score test (AKA Lagrange multiplier test) indicates that the assumption of proportional odds does not hold, in which case multinomial logistic regression must be used instead of ordinal logistic regression.
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): omodel mlogit BP_cat i.MJ gndr i.EDUC_cat i.race_eth indfmpir ridageyr
+```
+
+Because the omodel function does not support survey data, multinomial logistic regression must be used instead of ordinal logistic regression.
+
+# Full Model
+
+This model includes 
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.EDUC_cat i.race_eth indfmpir ridageyr
+```
+
+Store full model ORs in a matrix for future:
+
+```{r}
+data.0 <- c(-.0363006,-.0041059,.2927856,.2812502,-.0717828,-.0207673,-.1160899,-.0415222,-.0026754,.0110587,.0035981,-.019241)
+m.0 <- matrix(data.0, nrow = 3, ncol = 4, byrow = TRUE)
+m.0
+OR.0 <- exp(m.0)
+OR.0
+```
+
+# Deletion Cycle 1
+
+As gender is a political variable, it will not be considered for removal.
+
+## Education
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.race_eth indfmpir ridageyr
+```
+
+```{r}
+data.E <- c(-.0259609,.0306447,.3333996,.3272004,-.0580872,.0137353,-.0749648,.004502,.0114964,.0560183,.0541847,.034036)
+m.E <- matrix(data.E, nrow = 3, ncol = 4, byrow = TRUE)
+#m.E
+OR.E <- exp(m.E)
+OR.E
+```
+
+```{r}
+D_OR <- (OR.0-OR.E)/OR.0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Race/Ethnicity
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.EDUC_cat indfmpir ridageyr
+```
+
+
+```{r}
+data.R <- c(-.0302624, .0128038,.3171098,.2975759,-.0594694   ,.0109809, -.0724136,-.0099068,-.0225278,.0359059,.0292962,-.029817)
+m.R <- matrix(data.R, nrow = 3, ncol = 4, byrow = TRUE)
+#m.R
+OR.R <- exp(m.R)
+OR.R
+```
+
+```{r}
+D_OR <- (OR.0-OR.R)/OR.0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.EDUC_cat i.race_eth ridageyr
+```
+
+```{r}
+data.I <- c(-.0343907,.0116518,.3211071,.2006977,-.0769204, .0046071,-.1511093,-.139263,-.0139708,.0652252, .0515842,.0095457)
+m.I <- matrix(data.I, nrow = 3, ncol = 4, byrow = TRUE)
+#m.I
+OR.I <- exp(m.I)
+OR.I
+```
+
+```{r}
+D_OR <- (OR.0-OR.I)/OR.0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.EDUC_cat i.race_eth indfmpir
+```
+
+```{r}
+data.A <- c(-.0425472, -.1292948,.165799,.1728389,-.0772219,-.2250079,-.3344453,-.2296752,-.0113785,-.3217282,-.3938527,-.3773404)
+m.A <- matrix(data.A, nrow = 3, ncol = 4, byrow = TRUE)
+#m.A
+OR.A <- exp(m.A)
+OR.A
+```
+
+```{r}
+D_OR <- (OR.0-OR.A)/OR.0
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, race has the least average change in OR; it will be excluded from the next cycle.
+
+```{r}
+OR.1 <- OR.R
+```
+
+# Deletion Cycle 2
+
+## Education
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr indfmpir ridageyr
+```
+
+```{r}
+data.E <- c(-.0198477,.0475298,.3575815,.3436251,-.0386858,.0536644,-.0218283,.0459204, -.0025774,.0900549,.088156,.0311304)
+m.E <- matrix(data.E, nrow = 3, ncol = 4, byrow = TRUE)
+#m.E
+OR.E <- exp(m.E)
+OR.E
+```
+
+```{r}
+D_OR <- (OR.1-OR.E)/OR.1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.EDUC_cat ridageyr
+```
+
+```{r}
+data.I <-  c(-.0237849, .0333968,.3524385,.2235829,-.063084,.0397107,-.1019097,-.1035826,-.0446323, .0943642,.0842452,.0039705)
+m.I <- matrix(data.I, nrow = 3, ncol = 4, byrow = TRUE)
+#m.I
+OR.I <- exp(m.I)
+OR.I
+```
+
+```{r}
+D_OR <- (OR.1-OR.I)/OR.1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.EDUC_cat indfmpir
+```
+
+```{r}
+data.A <-  c(-.0251341,-.1032825, .1999113,.1994269,-.0465438,-.1791071,-.2729503,-.1801132,.0007932,-.2554685,-.3034009,-.3234544)
+m.A <- matrix(data.A, nrow = 3, ncol = 4, byrow = TRUE)
+#m.A
+OR.A <- exp(m.A)
+OR.A
+```
+
+```{r}
+D_OR <- (OR.1-OR.A)/OR.1
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, income has the least average change in OR; it will be excluded from the next cycle.
+
+```{r}
+OR.2 <- OR.I
+```
+
+# Deletion Cycle 3
+
+ c(111,222,333,444,222,222,333,444,333,222,333,444)
+
+## Education
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr
+```
+
+```{r}
+data.E <- c(-.0227526,.0797134,.4072004,.2865253,-.0499135,.0921278,-.0401177,-.0355165,-.0548756,.1690277,.1638104,.0852999)
+m.E <- matrix(data.E, nrow = 3, ncol = 4, byrow = TRUE)
+#m.E
+OR.E <- exp(m.E)
+OR.E
+```
+
+```{r}
+D_OR <- (OR.2-OR.E)/OR.2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.EDUC_cat 
+```
+
+```{r}
+data.A <-  c(-.0095226,-.092097,.2123234,.1139486,-.0340005,-.1676792,-.3426363,-.2926804,.0039307,-.2306821,-.3168202,-.3181186)
+m.A <- matrix(data.A, nrow = 3, ncol = 4, byrow = TRUE)
+#m.A
+OR.A <- exp(m.A)
+OR.A
+```
+
+```{r}
+D_OR <- (OR.2-OR.A)/OR.2
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, education has the least average change in OR; it will be excluded from the next cycle.
+
+```{r}
+OR.3 <- OR.E
+```
+
+# Deletion Cycle 4
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr i.EDUC_cat 
+```
+
+```{r}
+data.A <-  c(-.0095226,-.092097,.2123234,.1139486,-.0340005,-.1676792,-.3426363,-.2926804,.0039307,-.2306821,-.3168202,-.3181186)
+m.A <- matrix(data.A, nrow = 3, ncol = 4, byrow = TRUE)
+#m.A
+OR.A <- exp(m.A)
+OR.A
+```
+
+```{r}
+D_OR <- (OR.3-OR.A)/OR.3
+100*D_OR
+100*mean(abs(D_OR))
+```
+
+## Result
+
+Of the variables above, no average change of less than 10% is found.  Therefore the model from deletion cycle 3 is the final model.
+
+# Results
+
+Model 1 will be the crude model, examining BP category only as a function of MJ use category; model 2 will include gender and age as confounders; and model 3 will include gender and age, as well as all mediators (tobacco use, alcohol use, diet, & BMI).
+
