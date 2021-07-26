@@ -21,9 +21,8 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Model Building2](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html)
    * [EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM.html)
      * [EMM documentation](https://docs.google.com/document/d/1hF95QjIRdBX1g2z73m-7kTxZCSeKgIOy/edit)
-   * [T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.2.html)
-     * [Old T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.html)
-   * [T2](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.html#Table_2)
+   * [T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.2.html) ([Old T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.html))
+   * [T2](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.2.html#Table_2)([Old T2](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.html#Table_2))
  * [Quantitative Bias Analysis](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Bias_Analysis.html)
  * [Misc Ideas](https://docs.google.com/document/d/1Hr3K0WxC9JroAhuhbhra0eRixK2QiuoAXQiLc44apAU/edit)
  
