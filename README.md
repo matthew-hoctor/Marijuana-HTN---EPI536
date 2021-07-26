@@ -17,8 +17,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Flow diagram](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Flow_Diagram.html)
  * Results
    * [Crude Associations](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Crude_Associations.html)
-   * [Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building.html)
-   * [Model Building2](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html)
+   * [Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html)([Old Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building.html))
    * [EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM2.html) ([Old EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM.html))
      * [EMM documentation](https://docs.google.com/document/d/1hF95QjIRdBX1g2z73m-7kTxZCSeKgIOy/edit)
    * [T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.2.html) ([Old T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.html))
@@ -89,23 +88,14 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
 ## To Do
 
  * P4
-   * Ordinal regression instead of conditional logistic regression
-   * Try model building with interaction term starting in the model and/or ordinal regression
-   * re-check linearity of continuous variables?
-   * Does logit ignore missing data?
-   * test model building with survey year to continue to assess cohort effects
-   * tabulate trends in BP categories over the cycles used to continue to assess cohort effects
-   * test EMM with AGE
+   * test EMM with AGE?
  * P5
    * Incorporate feedback
-   * Do Sensitivity analyses
-      * analysis of unmeasured confounders
-      * misclassification: nondifferential misclassification of BP
-      * misclassification: nondifferential misclassification of MJ
-      * bias from cohort effect?
-      * Unmeasured confounding
-      * Missing values
+      * P2
+      * P3
+      * P4
+   * Consent: Exercise 7
+   * Table 5 mediation see page 17 of notes
+   * do binary outcome
+   * collapse exposure into 3 categories
  * STROBE
-   * assess STROBE # 5: settings
-   * STROBE 7: define alcohol category & smoking category?
-   * 12e sensitivity analysis
