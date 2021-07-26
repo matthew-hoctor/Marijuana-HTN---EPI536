@@ -336,6 +336,107 @@ D_OR <- (OR.3-OR.A)/OR.3
 
 Of the variables above, no average change of less than 10% is found.  Therefore the model from deletion cycle 3 is the final model.
 
+# Mediation Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr, rrr
+```
+
+Record baseline RRs:
+
+```{r}
+RR0 <-  c(.9775043,1.082977,1.502605   ,1.331792   ,.9513117, 1.096505,.9606764,.9651068,.9466029,1.184153   ,1.177991   ,1.089044   )
+RR0 <- matrix(RR0, nrow = 3, ncol = 4, byrow = TRUE)
+RR0
+```
+
+## Smoking
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr SMK_cat, rrr
+```
+
+```{r}
+RR_S <-  c(.9374249,1.009098,1.383885   ,1.2091   ,.9450747,1.089875   ,.9564369,.9534254,.9076238,1.0976   ,1.079162,.9788363)
+RR_S <- matrix(RR_S, nrow = 3, ncol = 4, byrow = TRUE)
+RR_S
+```
+
+```{r}
+D_RR <- (RR0-RR_S)/RR0
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Alcohol Use
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr AL_cat, rrr
+```
+
+```{r}
+RR_A <-  c(.8969884,.9524878,1.330507   ,1.121004,.8872225,1.013692   ,.9123565,.9089748,.8909407,1.034994   ,.9619987,.956476)
+RR_A <- matrix(RR_A, nrow = 3, ncol = 4, byrow = TRUE)
+RR_A
+```
+
+```{r}
+D_RR <- (RR0-RR_A)/RR0
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr bmxbmi, rrr
+```
+
+```{r}
+RR_B <-  c(.9840052,1.184859   , 1.642366, 1.44872,.9687283,1.231823,1.083761,1.08013,.9675777,1.399027   ,1.400581,1.292246   )
+RR_B <- matrix(RR_B, nrow = 3, ncol = 4, byrow = TRUE)
+RR_B
+```
+
+```{r}
+D_RR <- (RR0-RR_B)/RR0
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Health Eating Index
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ gndr  ridageyr hei2015, rrr
+```
+
+```{r}
+RR_H <-  c(.9800469,1.118512,1.56693,1.350342,.9278013,1.11908   ,.9262348,.9696576,.9125074,1.217197   ,1.012749    ,1.010269)
+RR_H <- matrix(RR_H, nrow = 3, ncol = 4, byrow = TRUE)
+RR_H
+```
+
+```{r}
+D_RR <- (RR0-RR_H)/RR0
+100*D_RR
+100*mean(abs(D_RR))
+```
+
 # Results
 
 Model 1 will be the crude model, examining BP category only as a function of MJ use category; model 2 will include gender and age as confounders; and model 3 will include gender and age, as well as all mediators (tobacco use, alcohol use, diet, & BMI).

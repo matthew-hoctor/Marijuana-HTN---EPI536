@@ -1,5 +1,5 @@
 ---
-title: "Effect MEasure Modification"
+title: "Effect Measure Modification"
 author: "Bryon Langford, Matthew Hoctor"
 date: "7/21/2021"
 output:
