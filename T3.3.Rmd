@@ -60,6 +60,15 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2, rrr
 ```
 
+## Overall
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2, rrr
+```
+
 # Model 2: adjusting for confounders
 
 ```{stata}
@@ -87,6 +96,15 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2 ridageyr, rrr
 ```
 
+## Overall
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr ridageyr, rrr
+```
+
 # Model 3: fully adjusted (including mediators)
 
 ```{stata}
@@ -102,7 +120,7 @@ xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr ridageyr i.AL_cat bmxbmi
 use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2 gndr ridageyr i.AL_cat bmxbmi, rrr
+xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2 ridageyr i.AL_cat bmxbmi, rrr
 ```
 
 ## Men
@@ -111,7 +129,16 @@ xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2 gndr ridageyr i.AL_
 use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2 gndr ridageyr i.AL_cat bmxbmi, rrr
+xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2 ridageyr i.AL_cat bmxbmi, rrr
+```
+
+## Overall
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 ridageyr gndr i.AL_cat bmxbmi, rrr
 ```
 
 # N Tabulation
@@ -190,3 +217,252 @@ ta BP_cat MJ2 if include==1 & gndr==0,col
 
 svy, subpop(if include==1 & gndr==0): ta BP_cat MJ2,col percent
 ```
+
+# Table 4
+
+## N Tabulation
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta gndr MJ2 if include==1,col 
+
+svy, subpop(if include==1): ta gndr MJ2,col percent
+```
+
+## M1
+
+### Overall
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2, or
+```
+
+### Male
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2, or
+```
+
+### Female
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2, or
+```
+
+## M2
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr, or
+```
+
+### Male
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 ridageyr, or
+```
+
+### Female
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 ridageyr, or
+```
+
+## M3
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+
+### Male
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 ridageyr i.AL_cat bmxbmi, or
+```
+
+### Female
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 ridageyr i.AL_cat bmxbmi, or
+```
+
+# T5
+
+Adjusted OR of abnormal blood pressure according to cannabis use: Effect of Adjustment for possible Mediators
+
+## Overall
+
+### Base Model
+
+Model 2
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr, or
+```
+
+### BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr bmxbmi, or
+```
+
+### HEI 2015
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr hei2015, or
+```
+
+### Alcohol Use
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr AL_cat, or
+```
+
+### Tobacco use
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr SMK_cat, or
+```
+
+## Male
+
+### Base Model
+
+Model 2
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 gndr ridageyr, or
+```
+
+### BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 gndr ridageyr bmxbmi, or
+```
+
+### HEI 2015
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 gndr ridageyr hei2015, or
+```
+
+### Alcohol Use
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 gndr ridageyr AL_cat, or
+```
+
+### Tobacco use
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 gndr ridageyr SMK_cat, or
+```
+
+## Female
+
+### Base Model
+
+Model 2
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 gndr ridageyr, or
+```
+
+### BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 gndr ridageyr bmxbmi, or
+```
+
+### HEI 2015
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 gndr ridageyr hei2015, or
+```
+
+### Alcohol Use
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 gndr ridageyr AL_cat, or
+```
+
+### Tobacco use
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 gndr ridageyr SMK_cat, or
+```
+
