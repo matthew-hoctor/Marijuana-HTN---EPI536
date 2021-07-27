@@ -1,5 +1,5 @@
 ---
-title: "Model Building"
+title: "Collapsed Model Building"
 author: "Bryon Langford, Matthew Hoctor"
 date: "7/21/2021"
 output:
@@ -320,12 +320,12 @@ xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr, rrr
 use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr SMK_cat, rrr
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr i.SMK_cat, rrr
 ```
 
 
 ```{r}
-data.S <-  c(1.122802   ,1.260209   ,1.104195    ,.9903049,1.164193   ,1.044001   )
+data.S <-  c(1.12941      ,1.264867      ,1.098333       ,.9869493,1.158231   ,1.043562   )
 RR.S <- matrix(data.S, nrow = 3, ncol = 2, byrow = TRUE)
 RR.S
 ```
@@ -343,11 +343,11 @@ D_RR <- (RR.3-RR.S)/RR.3
 use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
-xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr AL_cat, rrr
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr i.AL_cat, rrr
 ```
 
 ```{r}
-data.Al <-  c(1.087775,1.194265,1.068571   ,.9754946,1.095751   ,1.024581)
+data.Al <-  c(1.091474   ,1.196777   ,1.07003   ,.9762643,1.096724      ,1.025015   )
 RR.Al <- matrix(data.Al, nrow = 3, ncol = 2, byrow = TRUE)
 RR.Al
 ```
@@ -402,7 +402,7 @@ D_RR <- (RR.3-RR.H)/RR.3
 
 ## Results
 
-Only BMI produced a mean change in RR greater than 10%; smoking and alcohol use produced a mean change in RR of less than 10%, but individual changes were greater than 10%; addition of healthy eating index did not produce any changes in RR greater than 10%.  Therefore model 3 will include tobacco use, alcohol use, and BMI, but not HEI.
+Only BMI produced a mean change in RR greater than 10%; alcohol use produced a mean change in RR of less than 10%, but individual changes were greater than 10%; addition of smoking or healthy eating index did not produce any changes in RR greater than 10%.  Therefore model 3 will include alcohol use and BMI, but not HEI or smoking.
 
 # Results
 
