@@ -323,6 +323,20 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr SMK_cat, rrr
 ```
 
+
+```{r}
+data.S <-  c(1.122802   ,1.260209   ,1.104195    ,.9903049,1.164193   ,1.044001   )
+RR.S <- matrix(data.S, nrow = 3, ncol = 2, byrow = TRUE)
+RR.S
+```
+
+```{r}
+D_RR <- (RR.3-RR.S)/RR.3
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+
 ## Alcohol Use
 
 ```{stata}
@@ -330,6 +344,18 @@ use "data\NHANES0518_new.dta", clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr AL_cat, rrr
+```
+
+```{r}
+data.Al <-  c(1.087775,1.194265,1.068571   ,.9754946,1.095751   ,1.024581)
+RR.Al <- matrix(data.Al, nrow = 3, ncol = 2, byrow = TRUE)
+RR.Al
+```
+
+```{r}
+D_RR <- (RR.3-RR.Al)/RR.3
+100*D_RR
+100*mean(abs(D_RR))
 ```
 
 ## BMI
@@ -341,6 +367,18 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr bmxbmi, rrr
 ```
 
+```{r}
+data.B <-  c(1.280623   ,1.460632   ,1.225362   ,1.098991   ,1.424801   ,1.31562   )
+RR.B <- matrix(data.B, nrow = 3, ncol = 2, byrow = TRUE)
+RR.B
+```
+
+```{r}
+D_RR <- (RR.3-RR.B)/RR.3
+100*D_RR
+100*mean(abs(D_RR))
+```
+
 ## Health Eating Index
 
 ```{stata}
@@ -350,7 +388,23 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr hei2015, rrr
 ```
 
+```{r}
+data.H <-  c(1.214348    ,1.364246   ,1.127368   ,1.010226   ,1.238724   ,1.062457   )
+RR.H <- matrix(data.H, nrow = 3, ncol = 2, byrow = TRUE)
+RR.H
+```
+
+```{r}
+D_RR <- (RR.3-RR.H)/RR.3
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Results
+
+Only BMI produced a mean change in RR greater than 10%; smoking and alcohol use produced a mean change in RR of less than 10%, but individual changes were greater than 10%; addition of healthy eating index did not produce any changes in RR greater than 10%.  Therefore model 3 will include tobacco use, alcohol use, and BMI, but not HEI.
+
 # Results
 
-Model 1 will be the crude model, examining BP category only as a function of MJ use category; model 2 will include gender and age as confounders; and model 3 will include gender and age, as well as all mediators (tobacco use, alcohol use, diet, & BMI).
+Model 1 will be the crude model, examining BP category only as a function of MJ use category; model 2 will include gender and age as confounders; and model 3 will include gender and age, as well as all mediators (tobacco use, alcohol use, & BMI).
 
