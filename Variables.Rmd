@@ -251,7 +251,7 @@ label variable MJ2 "Cannabis Use Collapsed"
 
 ta MJ MJ2,m
 
-#save,replace
+save,replace
 ```
 
 # Inclusion criteria
