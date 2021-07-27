@@ -17,7 +17,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [Flow diagram](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Flow_Diagram.html)
  * Results
    * [Crude Associations](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Crude_Associations.html)
-   * [Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html)([Old Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building.html))
+   * [Collapsed Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building3.html) [Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html)([Oldest Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building.html))
    * [EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM2.html) ([Old EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM.html))
      * [EMM documentation](https://docs.google.com/document/d/1hF95QjIRdBX1g2z73m-7kTxZCSeKgIOy/edit)
    * [T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.2.html) ([Old T3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.html))

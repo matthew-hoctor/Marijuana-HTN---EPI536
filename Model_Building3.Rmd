@@ -1,0 +1,356 @@
+---
+title: "Model Building"
+author: "Bryon Langford, Matthew Hoctor"
+date: "7/21/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if ((Sys.info()["sysname"] == "Darwin"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata/StataIC"))
+```
+
+```{r libraries, include=FALSE}
+library(Statamarkdown)
+```
+
+The current round of model building uses the collapsed MJ exposure variable
+
+# Full Model
+
+This model includes 
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.EDUC_cat i.race_eth indfmpir ridageyr,rrr
+```
+
+Store full model RRs in a matrix for future:
+
+```{r}
+data.0 <- c(1.081166   ,1.351174,1.002551   ,.9995363,1.010595,.9817426)
+RR0 <- matrix(data.0, nrow = 3, ncol = 2, byrow = TRUE)
+RR0
+```
+
+# Deletion Cycle 1
+
+As gender is a political variable, it will not be considered for removal.
+
+## Education
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.race_eth indfmpir ridageyr,rrr
+```
+
+```{r}
+data.E <- c( 1.114028   ,1.406301   ,1.030628    ,1.038105   ,1.049833   ,1.027226    )
+RR.E <- matrix(data.E, nrow = 3, ncol = 2, byrow = TRUE)
+RR.E
+```
+
+```{r}
+D_RR <- (RR0-RR.E)/RR0
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Race/Ethnicity
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.EDUC_cat indfmpir ridageyr,rrr
+```
+
+
+```{r}
+data.R <-c(1.097158   ,1.368162    ,1.029004    ,1.022993,1.047966   ,.9823627)
+RR.R <- matrix(data.R, nrow = 3, ncol = 2, byrow = TRUE)
+RR.R
+```
+
+```{r}
+D_RR <- (RR0-RR.R)/RR0
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.EDUC_cat i.race_eth ridageyr,rrr
+```
+
+```{r}
+data.I <- c(1.100949,1.245111   ,1.020784    ,.9092115,1.072668,1.017075)
+RR.I <- matrix(data.I, nrow = 3, ncol = 2, byrow = TRUE)
+RR.I
+```
+
+```{r}
+D_RR <- (RR0-RR.I)/RR0
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.EDUC_cat i.race_eth indfmpir,rrr
+```
+
+```{r}
+data.A <- c(.9571534,1.216895,.8176119,.8307283,.719317,.6899826)
+RR.A <- matrix(data.A, nrow = 3, ncol = 2, byrow = TRUE)
+RR.A
+```
+
+```{r}
+D_RR <- (RR0-RR.A)/RR0
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Result
+
+Of the variables above, race has the least average change in RR; it will be excluded from the next cycle.
+
+```{r}
+RR.1 <- RR.R
+```
+
+# Deletion Cycle 2
+
+c(111,222,222,222,333,222)
+
+## Education
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr indfmpir ridageyr,rrr
+```
+
+```{r}
+data.E <- c(1.130602   ,1.424398   ,1.062758    ,1.068938   ,1.095178,1.032786   )
+RR.E <- matrix(data.E, nrow = 3, ncol = 2, byrow = TRUE)
+RR.E
+```
+
+```{r}
+D_RR <- (RR.1-RR.E)/RR.1
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.EDUC_cat ridageyr,rrr
+```
+
+```{r}
+data.I <-  c(1.120333   ,1.265921   ,1.050681   ,.9334824,1.124236    ,1.028818    )
+RR.I <- matrix(data.I, nrow = 3, ncol = 2, byrow = TRUE)
+RR.I
+```
+
+```{r}
+D_RR <- (RR.1-RR.I)/RR.1
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.EDUC_cat indfmpir,rrr
+```
+
+```{r}
+data.A <-  c(.9741474,1.237044   ,.8432503,.8569868,.7669189,.7231507)
+RR.A <- matrix(data.A, nrow = 3, ncol = 2, byrow = TRUE)
+RR.A
+```
+
+```{r}
+D_RR <- (RR.1-RR.A)/RR.1
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Result
+
+Of the variables above, education has the least average change in RR; it will be excluded from the next cycle.
+
+```{r}
+RR.2 <- RR.E
+```
+
+# Deletion Cycle 3
+
+c(111,222,222,222,333,222)
+
+## Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr ridageyr,rrr
+```
+
+```{r}
+data.I <- c(1.174563   ,1.347399    ,1.100645,.991614,1.218877   ,1.122065   )
+RR.I <- matrix(data.I, nrow = 3, ncol = 2, byrow = TRUE)
+RR.I
+```
+
+```{r}
+D_RR <- (RR.2-RR.I)/RR.2
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr indfmpir,rrr
+```
+
+```{r}
+data.A <-  c(1.001713   ,1.28306   ,.8688678,.8923507,.7980226,.7616256)
+RR.A <- matrix(data.A, nrow = 3, ncol = 2, byrow = TRUE)
+RR.A
+```
+
+```{r}
+D_RR <- (RR.2-RR.A)/RR.2
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Result
+
+Of the variables above, income has the least average change in RR; it will be excluded from the next cycle.
+
+```{r}
+RR.3 <- RR.I
+```
+
+# Deletion Cycle 4
+
+c(111,222,222,222,333,222)
+
+## Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr,rrr
+```
+
+```{r}
+data.A <-  c(1.024774      ,1.191097      ,.8685494,.7976393,.8321702,.7859162)
+RR.A <- matrix(data.A, nrow = 3, ncol = 2, byrow = TRUE)
+RR.A
+```
+
+```{r}
+D_RR <- (RR.3-RR.A)/RR.3
+100*D_RR
+100*mean(abs(D_RR))
+```
+
+## Result
+
+Of the variables above, no average change of less than 10% is found.  Therefore the model from deletion cycle 3 is the final model.
+
+# Mediation Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr, rrr
+```
+
+## Smoking
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr SMK_cat, rrr
+```
+
+## Alcohol Use
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr AL_cat, rrr
+```
+
+## BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr bmxbmi, rrr
+```
+
+## Health Eating Index
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr hei2015, rrr
+```
+
+# Results
+
+Model 1 will be the crude model, examining BP category only as a function of MJ use category; model 2 will include gender and age as confounders; and model 3 will include gender and age, as well as all mediators (tobacco use, alcohol use, diet, & BMI).
+
