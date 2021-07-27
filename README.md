@@ -98,4 +98,5 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * Table 5 mediation see page 17 of notes
    * do binary outcome
    * collapse exposure into 3 categories
+   * Prevalence of HTN
  * STROBE

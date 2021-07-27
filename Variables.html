@@ -470,6 +470,34 @@ Not Missing BP |     48,783       69.50       69.50
 
 file data\NHANES0518_new.dta saved</code></pre>
 </div>
+<div id="elevated-bp" class="section level2">
+<h2>Elevated BP</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+
+recode BP_cat 0=0 1=1 2=1 3=1 .=., gen(BP_abn)
+
+label define BP_abn 0 &quot;Normal BP&quot; 1 &quot;Abnormal BP&quot;
+label values BP_abn BP_abn
+label variable BP_abn &quot;Abnormal/Normal BP&quot;
+
+ta BP_cat BP_abn,m
+
+save,replace</code></pre>
+<pre><code>(15107 differences between BP_cat and BP_abn)
+
+            |        Abnormal/Normal BP
+BP Category | Normal BP  Abnormal           . |     Total
+------------+---------------------------------+----------
+     Normal |    26,634          0          0 |    26,634 
+   Elevated |         0      7,042          0 |     7,042 
+Stage 1 HTN |         0      7,910          0 |     7,910 
+Stage 2 HTN |         0      7,197          0 |     7,197 
+          . |         0          0     21,407 |    21,407 
+------------+---------------------------------+----------
+      Total |    26,634     22,149     21,407 |    70,190 
+
+file data\NHANES0518_new.dta saved</code></pre>
+</div>
 </div>
 <div id="cannabis-use-categories" class="section level1">
 <h1>Cannabis Use Categories</h1>
@@ -810,6 +838,35 @@ Not Missing MJ |    22,321      1,239 |    23,560
          Total |    48,783     21,407 |    70,190 
 
 file data\NHANES0518_new.dta saved</code></pre>
+</div>
+<div id="collapsed-mj-variable" class="section level2">
+<h2>Collapsed MJ variable</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+
+recode MJ 0=0 1=0 2=1 3=1 4=2 .=., gen(MJ2)
+
+label define MJ2 0 &quot;Never/Past Use&quot; 1 &quot;Light-Moderate 1-20 times in past 30 days&quot; 2 &quot;Frequent 21-30 times in past 30 days&quot;
+label values MJ2 MJ2
+label variable MJ2 &quot;Cannabis Use Collapsed&quot;
+
+ta MJ MJ2,m
+
+#save,replace</code></pre>
+<pre><code>(12593 differences between MJ and MJ2)
+
+                      |           Cannabis Use Collapsed
+         Cannabis Use | Never/Pas  Light-Mod  Frequent           . |     Total
+----------------------+--------------------------------------------+----------
+            Never Use |    10,967          0          0          0 |    10,967 
+             Past Use |     9,092          0          0          0 |     9,092 
+1-10 times in past 30 |         0      1,993          0          0 |     1,993 
+11-20 times in past 3 |         0        472          0          0 |       472 
+21-30 times in past 3 |         0          0      1,036          0 |     1,036 
+                    . |         0          0          0     46,630 |    46,630 
+----------------------+--------------------------------------------+----------
+                Total |    20,059      2,465      1,036     46,630 |    70,190 
+
+Unknown #command</code></pre>
 </div>
 </div>
 <div id="inclusion-criteria" class="section level1">
