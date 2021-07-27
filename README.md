@@ -21,8 +21,8 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
      * [Collapsed Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building3.html)
      * [Collapsed EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM3.html)
      * [T3 - results](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.3.html)
-     * [T4 - Abnormal BP results](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.3.html)
-     * [T5 - mediation results](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.3.html)
+     * [T4 - Abnormal BP results](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.3.html#Table_4)
+     * [T5 - mediation results](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.3.html#T5)
    * Results pre-MJ variable collapse
      * [Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html)([Oldest Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building.html))
      * [EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM2.html) ([Old EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM.html))
