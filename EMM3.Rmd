@@ -1,0 +1,160 @@
+---
+title: "Effect Measure Modification"
+author: "Bryon Langford, Matthew Hoctor"
+date: "7/21/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if ((Sys.info()["sysname"] == "Darwin"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata/StataIC"))
+```
+
+```{r libraries, include=FALSE}
+library(Statamarkdown)
+```
+
+# Models
+
+From [model building 3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building3.html) using the collapsed MJ exposure variable, MJ2.
+
+## Model 1: crude model
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2, rrr
+```
+
+## Model 2 Final Model (without mediators)
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr, rrr
+```
+
+## Model 3 Final Model (with mediators)
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr ridageyr i.AL_cat bmxbmi, rrr
+```
+
+# Gender EMM Analysis
+
+## Model 1
+
+### Stratified Analysis
+
+#### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2, rrr
+```
+
+#### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2, rrr
+```
+
+### Interaction Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.MJ2*gndr, rrr
+```
+
+## Model 2
+
+### Stratified Analysis
+
+#### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2 ridageyr, rrr
+```
+
+#### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2 ridageyr, rrr
+```
+
+### Interaction Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.MJ2*gndr ridageyr, rrr
+```
+
+### Results
+
+One interaction term was significant, the gender-light-moderate-use interaction term for elevated blood pressure.  Other interaction terms were not significant.  Women had RR of elevated BP given light-moderate MJ use of 1.07 (0.81, 1.42), whereas men had RR of elevated BP given light-moderate MJ use of 1.19 (1.00, 1.43).
+
+## Model 3
+
+### Stratified Analysis
+
+#### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2 ridageyr i.AL_cat bmxbmi SMK_cat, rrr
+```
+
+#### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2 ridageyr i.AL_cat bmxbmi SMK_cat, rrr
+```
+
+### Interaction Analysis
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.MJ2*gndr ridageyr i.AL_cat bmxbmi SMK_cat, rrr
+```

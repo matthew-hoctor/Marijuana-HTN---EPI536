@@ -18,7 +18,8 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * Results
    * [Crude Associations](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Crude_Associations.html)
    * Results for collapsed variables
-     * [Collapsed Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building3.html) 
+     * [Collapsed Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building3.html)
+     * [Collapsed EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM3.html)
    * Results pre-MJ variable collapse
      * [Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building2.html)([Oldest Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building.html))
      * [EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM2.html) ([Old EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM.html))
