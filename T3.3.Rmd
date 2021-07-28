@@ -40,9 +40,11 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr ridageyr, rrr
 ```
 
-# Model 1: Crude
+# Table 3: e/evated/Stage 1/ Stage2
 
-## Women
+## Model 1: Crude
+
+### Women
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -51,7 +53,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2, rrr
 ```
 
-## Men
+### Men
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -60,7 +62,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2, rrr
 ```
 
-## Overall
+### Overall
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -69,7 +71,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2, rrr
 ```
 
-# Model 2: adjusting for confounders
+## Model 2: adjusting for confounders
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -78,7 +80,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr ridageyr, rrr
 ```
 
-## Women
+### Women
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -87,7 +89,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2 ridageyr, rrr
 ```
 
-## Men
+### Men
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -96,7 +98,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2 ridageyr, rrr
 ```
 
-## Overall
+### Overall
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -105,7 +107,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr ridageyr, rrr
 ```
 
-# Model 3: fully adjusted (including mediators)
+## Model 3: fully adjusted (including mediators)
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -114,7 +116,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr ridageyr i.AL_cat bmxbmi, rrr
 ```
 
-## Women
+### Women
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -123,7 +125,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==0): mlogit BP_cat i.MJ2 ridageyr i.AL_cat bmxbmi, rrr
 ```
 
-## Men
+### Men
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -132,7 +134,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1 & gndr==1): mlogit BP_cat i.MJ2 ridageyr i.AL_cat bmxbmi, rrr
 ```
 
-## Overall
+### Overall
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -141,9 +143,7 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 ridageyr gndr i.AL_cat bmxbmi, rrr
 ```
 
-# N Tabulation
-
-For Table 3
+# Table 3: N Tabulation
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
@@ -151,6 +151,111 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
 ta gndr MJ2 if include==1
 ```
+
+# Table 3 Abnormal BP
+
+## Model 1: Crude
+
+### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2, or
+```
+
+### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2, or
+```
+
+### Overall
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2, or
+```
+
+## Model 2: adjusting for confounders
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr, or
+```
+
+### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 ridageyr, or
+```
+
+### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 ridageyr, or
+```
+
+### Overall
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr, or
+```
+
+## Model 3: fully adjusted (including mediators)
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+### Women
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==0): logit BP_abn i.MJ2 ridageyr i.AL_cat bmxbmi, or
+```
+
+### Men
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 & gndr==1): logit BP_abn i.MJ2 ridageyr i.AL_cat bmxbmi, or
+```
+
+### Overall
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 ridageyr gndr i.AL_cat bmxbmi, or
+```
+
+
 
 # Table 2
 

@@ -20,6 +20,8 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * Results for collapsed variables
      * [Collapsed Model Building](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building3.html)
      * [Collapsed EMM](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/EMM3.html)
+     * [T1 Google Doc](https://docs.google.com/spreadsheets/d/1qachHLkkIOsZv92kehfHVyvta0Tg15ls6GUvtMd__Iw/edit#gid=0)
+     * [T2 Google Doc](https://docs.google.com/spreadsheets/d/1O_9TsVBso_mAB3THgbZRraextHt1HBt7pbSHuUPSgiE/edit#gid=0)
      * [T3 - results](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.3.html)
        * [T3 Google Doc](https://docs.google.com/spreadsheets/d/1MDiq9c1CKQRdC6tUV2tvEv4XeGzIymzvjz4WgKzgpsU/edit#gid=0)
      * [T4 - Abnormal BP results](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/T3.3.html#Table_4)
