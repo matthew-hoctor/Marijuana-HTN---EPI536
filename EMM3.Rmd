@@ -29,7 +29,7 @@ if ((Sys.info()["sysname"] == "Darwin"))
 library(Statamarkdown)
 ```
 
-# Models
+# Polytomous Models
 
 From [model building 3](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/Model_Building3.html) using the collapsed MJ exposure variable, MJ2.
 
@@ -158,3 +158,65 @@ svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
 xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr i.MJ2*gndr ridageyr i.AL_cat bmxbmi SMK_cat, rrr
 ```
+
+# Conventional Logistic Regression 
+
+## Models
+
+### M1
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2, or
+```
+
+### M2
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr, or
+```
+
+### M3
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+## Interaction Analysis
+
+### M1
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr i.MJ2*gndr, or
+```
+
+### M2
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2  gndr i.MJ2*gndr ridageyr, or
+```
+
+### M3
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2  gndr i.MJ2*gndr ridageyr i.AL_cat bmxbmi, or
+```
+
+
