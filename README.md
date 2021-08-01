@@ -98,17 +98,3 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [2017-2018](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SMQ_J.htm)
 
 ## To Do
-
- * P4
-   * test EMM with AGE?
- * P5
-   * Incorporate feedback
-      * P2
-      * P3
-      * P4
-   * Consent: Exercise 7
-   * Table 5 mediation see page 17 of notes
-   * do binary outcome
-   * collapse exposure into 3 categories
-   * Prevalence of HTN
- * STROBE
