@@ -7,6 +7,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [DAGs](https://matthew-hoctor.github.io/Marijuana-HTN---EPI536/DAG.html)
    * [DAG on Daggity.net](http://dagitty.net/dags.html?id=DHjoMb#)
  * [Variables Table](https://docs.google.com/spreadsheets/d/1i8GbTjo4PRI1TzPGiHzXwNliISFwh2TPdQciPLfy830/edit#gid=0)
+ * [Evidence Table](https://docs.google.com/spreadsheets/d/1MW-EBosx-rXKfnaY8FiA3SFZlnukhjrW8eE3ZThKIq4/edit#gid=0)
  * Dataset
    * [HEI-2015 .dta data file download](https://github.com/matthew-hoctor/Marijuana-HTN---EPI536/blob/main/data/HEI2015R_00518.dta)
    * [Data Cleaning Plan](https://docs.google.com/document/d/13fL2GJl13hHvVIi2gTaqwxHL0G8jI0FdORji8mqZoAQ/edit)
@@ -55,6 +56,7 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
  * [RStudio Git Integration Setup](https://happygitwithr.com/rstudio-git-github.html)
  * [STROBE/CONSORT Flowcharts in R with DiagrammeR](https://dannyjnwong.github.io/STROBE-CONSORT-Diagrams-in-R/)
  * [Am J Epi Instructions for Authors](https://academic.oup.com/aje/pages/Instructions_To_Authors)
+ * [Annals general statistical guidance](https://www.acpjournals.org/journal/aim/authors/statistical-guidance#missing-data)
 
 ## NHANES Data & Documentation
 
@@ -98,3 +100,10 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [2017-2018](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SMQ_J.htm)
 
 ## To Do
+
+ * P7
+   * gtsummary?
+   * Stratify T2 by gender
+   * Consolidate T1
+   * Incorporate P1 feedback
+   * Incorporate P6 feedback
