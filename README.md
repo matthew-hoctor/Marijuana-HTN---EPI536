@@ -109,6 +109,9 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
 
 ## To Do
 
+ * Resubmit
+   * P2
+   * P4
  * P7
    * gtsummary?
    * Stratify T2 by gender
