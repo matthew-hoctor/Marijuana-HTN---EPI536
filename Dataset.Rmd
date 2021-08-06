@@ -586,7 +586,7 @@ clear
 
 ```{stata}
 import sasxport5 "data/2017-2018/ALQ_J.XPT"
-keep seqn alq101 alq130
+keep seqn alq111 alq121
 save "temp/2017-2018/ALQ_J.dta",replace
 de
 clear
