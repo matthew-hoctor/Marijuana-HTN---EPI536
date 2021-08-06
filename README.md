@@ -98,6 +98,14 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [2013-2014](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/SMQ_H.htm)
    * [2015-2016](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/SMQ_I.htm)
    * [2017-2018](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SMQ_J.htm)
+ * Alcohol Questionnaire
+   * [2005-2006](https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/ALQ_D.htm)
+   * [2007-2008](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/ALQ_E.htm)
+   * [2009-2010](https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/ALQ_F.htm)
+   * [2011-2012](https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/ALQ_G.htm)
+   * [2013-2014](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/ALQ_H.htm)
+   * [2015-2016](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/ALQ_I.htm)
+   * [2017-2018](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/ALQ_J.htm)
 
 ## To Do
 
