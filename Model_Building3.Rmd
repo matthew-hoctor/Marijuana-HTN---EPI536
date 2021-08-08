@@ -347,7 +347,7 @@ xi: svy,subpop(if include==1): mlogit BP_cat i.MJ2 gndr  ridageyr i.AL_cat, rrr
 ```
 
 ```{r}
-data.Al <-  c(1.091474   ,1.196777   ,1.07003   ,.9762643,1.096724      ,1.025015   )
+data.Al <-  c(1.104569      ,1.192533   ,1.056009   ,.9712096,1.074217      ,1.078072   )
 RR.Al <- matrix(data.Al, nrow = 3, ncol = 2, byrow = TRUE)
 RR.Al
 ```
