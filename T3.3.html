@@ -303,10 +303,12 @@ Stage_2_HTN  |
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
-<div id="model-1-crude" class="section level1">
-<h1>Model 1: Crude</h1>
-<div id="women" class="section level2">
-<h2>Women</h2>
+<div id="table-3-eevatedstage-1-stage2" class="section level1">
+<h1>Table 3: e/evated/Stage 1/ Stage2</h1>
+<div id="model-1-crude" class="section level2">
+<h2>Model 1: Crude</h2>
+<div id="women" class="section level3">
+<h3>Women</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -354,8 +356,8 @@ Stage_2_HTN  |
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
-<div id="men" class="section level2">
-<h2>Men</h2>
+<div id="men" class="section level3">
+<h3>Men</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -403,8 +405,8 @@ Stage_2_HTN  |
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
-<div id="overall" class="section level2">
-<h2>Overall</h2>
+<div id="overall" class="section level3">
+<h3>Overall</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -453,8 +455,8 @@ Stage_2_HTN  |
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
 </div>
-<div id="model-2-adjusting-for-confounders" class="section level1">
-<h1>Model 2: adjusting for confounders</h1>
+<div id="model-2-adjusting-for-confounders" class="section level2">
+<h2>Model 2: adjusting for confounders</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -507,8 +509,8 @@ Stage_2_HTN  |
        _cons |   .0040827   .0005002   -44.90   0.000     .0032025    .0052047
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
-<div id="women-1" class="section level2">
-<h2>Women</h2>
+<div id="women-1" class="section level3">
+<h3>Women</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -559,8 +561,8 @@ Stage_2_HTN  |
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
-<div id="men-1" class="section level2">
-<h2>Men</h2>
+<div id="men-1" class="section level3">
+<h3>Men</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -611,8 +613,8 @@ Stage_2_HTN  |
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
-<div id="overall-1" class="section level2">
-<h2>Overall</h2>
+<div id="overall-1" class="section level3">
+<h3>Overall</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -667,8 +669,8 @@ Stage_2_HTN  |
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
 </div>
-<div id="model-3-fully-adjusted-including-mediators" class="section level1">
-<h1>Model 3: fully adjusted (including mediators)</h1>
+<div id="model-3-fully-adjusted-including-mediators" class="section level2">
+<h2>Model 3: fully adjusted (including mediators)</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -686,12 +688,12 @@ i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
 
 Survey: Multinomial logistic regression
 
-Number of strata   =       105                Number of obs     =       67,991
-Number of PSUs     =       214                Population size   =  292,944,878
-                                              Subpop. no. obs   =       18,821
-                                              Subpop. size      =  127,924,286
+Number of strata   =       105                Number of obs     =       68,614
+Number of PSUs     =       214                Population size   =  296,797,030
+                                              Subpop. no. obs   =       19,444
+                                              Subpop. size      =  131,776,438
                                               Design df         =          109
-                                              F(  21,     89)   =        83.66
+                                              F(  21,     89)   =        88.29
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
@@ -701,38 +703,38 @@ Number of PSUs     =       214                Population size   =  292,944,878
 Normal       |  (base outcome)
 -------------+----------------------------------------------------------------
 Elevated     |
-     _IMJ2_1 |    1.18907   .0958878     2.15   0.034     1.013433    1.395147
-     _IMJ2_2 |    1.30479   .1737977     2.00   0.048     1.002047       1.699
-        gndr |   2.433773   .1273676    17.00   0.000     2.193986    2.699768
-    ridageyr |   1.027306   .0030228     9.16   0.000     1.021333    1.033315
-  _IAL_cat_1 |    1.08711   .0796698     1.14   0.257     .9401391    1.257057
-  _IAL_cat_2 |   1.314678   .1107666     3.25   0.002     1.112493    1.553608
-      bmxbmi |   1.062911   .0051213    12.66   0.000     1.052809     1.07311
-       _cons |   .0112267   .0020332   -24.79   0.000      .007841    .0160744
+     _IMJ2_1 |   1.205777   .1003403     2.25   0.027      1.02244    1.421988
+     _IMJ2_2 |   1.303003   .1732425     1.99   0.049     1.001157    1.695854
+        gndr |    2.40363    .123965    17.00   0.000     2.170076    2.662321
+    ridageyr |   1.026969   .0030686     8.91   0.000     1.020905    1.033069
+  _IAL_cat_1 |   1.081904   .0766249     1.11   0.269     .9402134    1.244948
+  _IAL_cat_2 |   1.310025   .1081971     3.27   0.001     1.112214    1.543018
+      bmxbmi |   1.064217   .0049431    13.40   0.000     1.054465    1.074059
+       _cons |    .011041    .001912   -26.02   0.000     .0078334    .0155621
 -------------+----------------------------------------------------------------
 Stage_1_HTN  |
-     _IMJ2_1 |   1.188509   .1008407     2.04   0.044     1.004547     1.40616
-     _IMJ2_2 |   1.082407   .1410556     0.61   0.545     .8360256    1.401398
-        gndr |   2.668435   .1435724    18.24   0.000     2.398526    2.968717
-    ridageyr |   1.048978   .0028223    17.77   0.000     1.043399    1.054586
-  _IAL_cat_1 |   1.147197   .0779982     2.02   0.046      1.00257    1.312686
-  _IAL_cat_2 |   1.311935   .1022692     3.48   0.001     1.124122    1.531125
-      bmxbmi |   1.078146   .0044717    18.14   0.000     1.069319    1.087045
-       _cons |   .0036868   .0006747   -30.61   0.000     .0025651    .0052988
+     _IMJ2_1 |   1.171018   .1020712     1.81   0.073     .9852266    1.391846
+     _IMJ2_2 |   1.074954   .1348259     0.58   0.566     .8383583    1.378321
+        gndr |   2.592831   .1429113    17.29   0.000     2.324509    2.892127
+    ridageyr |   1.048616   .0027539    18.08   0.000     1.043172    1.054088
+  _IAL_cat_1 |    1.12873   .0774353     1.77   0.080     .9852323    1.293127
+  _IAL_cat_2 |   1.300216   .0995582     3.43   0.001     1.117139    1.513297
+      bmxbmi |   1.077195   .0042692    18.76   0.000     1.068766    1.085689
+       _cons |   .0039603    .000705   -31.07   0.000     .0027829     .005636
 -------------+----------------------------------------------------------------
 Stage_2_HTN  |
-     _IMJ2_1 |   1.269826   .1374891     2.21   0.029     1.024582    1.573772
-     _IMJ2_2 |   1.192516   .2176642     0.96   0.337     .8305279    1.712277
-        gndr |   3.181072   .2311443    15.93   0.000     2.754412    3.673823
-    ridageyr |   1.088467   .0032648    28.26   0.000     1.082016    1.094957
-  _IAL_cat_1 |   1.348174   .1035372     3.89   0.000     1.157821    1.569822
-  _IAL_cat_2 |   1.691413   .1749037     5.08   0.000     1.377975    2.076146
-      bmxbmi |   1.103586   .0058826    18.49   0.000     1.091988    1.115306
-       _cons |   .0001444   .0000344   -37.15   0.000     .0000901    .0002314
+     _IMJ2_1 |   1.244438   .1362472     2.00   0.048      1.00169    1.546013
+     _IMJ2_2 |   1.252059   .2226305     1.26   0.209      .880181    1.781055
+        gndr |   3.096627   .2266328    15.44   0.000     2.678506    3.580018
+    ridageyr |   1.088977   .0032248    28.78   0.000     1.082605    1.095388
+  _IAL_cat_1 |   1.293558   .0992258     3.36   0.001     1.111115    1.505957
+  _IAL_cat_2 |   1.635608   .1629647     4.94   0.000     1.342509    1.992697
+      bmxbmi |   1.104262   .0056514    19.38   0.000     1.093118     1.11552
+       _cons |   .0001461   .0000337   -38.31   0.000     .0000925    .0002307
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
-<div id="women-2" class="section level2">
-<h2>Women</h2>
+<div id="women-2" class="section level3">
+<h3>Women</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -750,12 +752,12 @@ i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
 
 Survey: Multinomial logistic regression
 
-Number of strata   =       105                Number of obs     =       69,151
-Number of PSUs     =       214                Population size   =  300,284,148
-                                              Subpop. no. obs   =        9,640
-                                              Subpop. size      = 64,069,604.7
+Number of strata   =       105                Number of obs     =       69,498
+Number of PSUs     =       214                Population size   =  302,374,280
+                                              Subpop. no. obs   =        9,987
+                                              Subpop. size      = 66,159,736.7
                                               Design df         =          109
-                                              F(  18,     92)   =        49.45
+                                              F(  18,     92)   =        50.52
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
@@ -765,36 +767,36 @@ Number of PSUs     =       214                Population size   =  300,284,148
 Normal       |  (base outcome)
 -------------+----------------------------------------------------------------
 Elevated     |
-     _IMJ2_1 |   .9908576   .1525185    -0.06   0.953      .730329    1.344324
-     _IMJ2_2 |   .9466183   .2321694    -0.22   0.823     .5821889    1.539168
-    ridageyr |   1.052219   .0044169    12.13   0.000     1.043501     1.06101
-  _IAL_cat_1 |   1.030311   .1004786     0.31   0.760     .8492293    1.250005
-  _IAL_cat_2 |   1.275638    .183785     1.69   0.094     .9587726    1.697225
-      bmxbmi |   1.069225   .0057844    12.37   0.000     1.057821    1.080751
-       _cons |   .0037338    .000929   -22.47   0.000     .0022803    .0061138
+     _IMJ2_1 |   1.057479   .1663734     0.36   0.723     .7741917    1.444425
+     _IMJ2_2 |    .940194   .2318249    -0.25   0.803     .5767389    1.532695
+    ridageyr |   1.052513   .0044564    12.09   0.000     1.043718    1.061383
+  _IAL_cat_1 |   1.019527   .0997199     0.20   0.844     .8398625    1.237626
+  _IAL_cat_2 |   1.257752   .1824334     1.58   0.117     .9435061    1.676662
+      bmxbmi |   1.070391   .0056648    12.85   0.000     1.059222    1.081677
+       _cons |    .003589   .0008772   -23.03   0.000      .002211    .0058256
 -------------+----------------------------------------------------------------
 Stage_1_HTN  |
-     _IMJ2_1 |   1.189638   .1628177     1.27   0.207     .9070028    1.560346
-     _IMJ2_2 |   1.076468   .2535383     0.31   0.755     .6749456    1.716855
-    ridageyr |   1.070045   .0050867    14.24   0.000     1.060011    1.080174
-  _IAL_cat_1 |   1.136371   .1107132     1.31   0.192     .9368264    1.378419
-  _IAL_cat_2 |   1.194488   .1775017     1.20   0.234     .8897599    1.603581
-      bmxbmi |   1.074611   .0054092    14.30   0.000     1.063944    1.085386
-       _cons |   .0018285    .000534   -21.59   0.000      .001025    .0032621
+     _IMJ2_1 |   1.200665   .1657115     1.33   0.188     .9133205    1.578413
+     _IMJ2_2 |   1.121593    .255824     0.50   0.616     .7136825    1.762647
+    ridageyr |   1.070265   .0049779    14.60   0.000     1.060445    1.080177
+  _IAL_cat_1 |   1.093994   .1108211     0.89   0.377     .8949945    1.337239
+  _IAL_cat_2 |   1.151269    .173583     0.93   0.352     .8538783    1.552237
+      bmxbmi |   1.073228   .0051134    14.83   0.000     1.063142    1.083411
+       _cons |   .0019576   .0005675   -21.51   0.000     .0011021    .0034773
 -------------+----------------------------------------------------------------
 Stage_2_HTN  |
-     _IMJ2_1 |   1.106801   .1823631     0.62   0.539     .7984473     1.53424
-     _IMJ2_2 |   1.251787   .3831072     0.73   0.465     .6824909    2.295957
-    ridageyr |   1.117426   .0050824    24.41   0.000     1.107398    1.127545
-  _IAL_cat_1 |   1.220087   .1488548     1.63   0.106     .9580215    1.553839
-  _IAL_cat_2 |   1.791742   .2956051     3.53   0.001      1.29201    2.484763
-      bmxbmi |   1.089734   .0079329    11.80   0.000     1.074124    1.105571
-       _cons |   .0000713   .0000253   -26.90   0.000     .0000353    .0001442
+     _IMJ2_1 |    1.05934    .178823     0.34   0.733     .7581138    1.480255
+     _IMJ2_2 |   1.288758   .3670241     0.89   0.375     .7328868    2.266238
+    ridageyr |   1.120796   .0051528    24.81   0.000      1.11063    1.131055
+  _IAL_cat_1 |   1.157486   .1347632     1.26   0.212     .9189666    1.457913
+  _IAL_cat_2 |   1.721043   .2775155     3.37   0.001     1.250247    2.369123
+      bmxbmi |   1.090813   .0075302    12.59   0.000      1.07599    1.105841
+       _cons |   .0000635    .000022   -27.84   0.000     .0000319    .0001263
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
-<div id="men-2" class="section level2">
-<h2>Men</h2>
+<div id="men-2" class="section level3">
+<h3>Men</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -812,12 +814,12 @@ i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
 
 Survey: Multinomial logistic regression
 
-Number of strata   =       105                Number of obs     =       69,030
-Number of PSUs     =       214                Population size   =  299,205,783
-                                              Subpop. no. obs   =        9,181
-                                              Subpop. size      = 63,854,681.3
+Number of strata   =       105                Number of obs     =       69,306
+Number of PSUs     =       214                Population size   =  300,967,803
+                                              Subpop. no. obs   =        9,457
+                                              Subpop. size      =   65,616,701
                                               Design df         =          109
-                                              F(  18,     92)   =        33.76
+                                              F(  18,     92)   =        33.84
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
@@ -827,36 +829,36 @@ Number of PSUs     =       214                Population size   =  299,205,783
 Normal       |  (base outcome)
 -------------+----------------------------------------------------------------
 Elevated     |
-     _IMJ2_1 |    1.27348   .1193373     2.58   0.011     1.057623    1.533393
-     _IMJ2_2 |   1.384357   .2368165     1.90   0.060     .9862834    1.943097
-    ridageyr |   1.006007   .0036209     1.66   0.099     .9988563    1.013209
-  _IAL_cat_1 |   1.161806   .1098059     1.59   0.115     .9633424    1.401156
-  _IAL_cat_2 |   1.348806    .137665     2.93   0.004     1.101785     1.65121
-      bmxbmi |   1.062767   .0080216     8.07   0.000     1.046986    1.078785
-       _cons |   .0582697   .0158329   -10.46   0.000     .0340064    .0998448
+     _IMJ2_1 |   1.264938   .1165922     2.55   0.012     1.053735    1.518473
+     _IMJ2_2 |   1.379079   .2322852     1.91   0.059     .9876595    1.925621
+    ridageyr |   1.004976   .0036403     1.37   0.173     .9977867    1.012217
+  _IAL_cat_1 |   1.169623   .1080269     1.70   0.093     .9739708    1.404578
+  _IAL_cat_2 |   1.355378   .1352987     3.05   0.003     1.112081    1.651902
+      bmxbmi |   1.064844    .007682     8.71   0.000     1.049727    1.080179
+       _cons |   .0569171   .0146403   -11.14   0.000     .0341851     .094765
 -------------+----------------------------------------------------------------
 Stage_1_HTN  |
-     _IMJ2_1 |   1.212398    .136139     1.72   0.089     .9704917    1.514604
-     _IMJ2_2 |   1.068916   .1925118     0.37   0.712     .7480335    1.527447
-    ridageyr |   1.029981   .0030775     9.89   0.000       1.0239    1.036099
-  _IAL_cat_1 |   1.155581   .0976585     1.71   0.090     .9773668    1.366291
-  _IAL_cat_2 |   1.350776   .1342514     3.03   0.003     1.109262    1.644874
-      bmxbmi |   1.089709    .006711    13.95   0.000     1.076489    1.103092
-       _cons |    .014442   .0031593   -19.37   0.000     .0093611    .0222806
+     _IMJ2_1 |   1.177737   .1347072     1.43   0.155     .9388505    1.477406
+     _IMJ2_2 |   1.041642   .1827003     0.23   0.817      .735774    1.474661
+    ridageyr |   1.028865   .0030745     9.52   0.000     1.022789    1.034976
+  _IAL_cat_1 |   1.166109   .0964313     1.86   0.066     .9898256    1.373787
+  _IAL_cat_2 |   1.362106     .13169     3.20   0.002     1.124583    1.649795
+      bmxbmi |   1.089893   .0066267    14.16   0.000     1.076838    1.103106
+       _cons |   .0149519     .00329   -19.10   0.000      .009667    .0231259
 -------------+----------------------------------------------------------------
 Stage_2_HTN  |
-     _IMJ2_1 |   1.382439   .1948225     2.30   0.023     1.045544    1.827888
-     _IMJ2_2 |    1.16395   .2685134     0.66   0.512     .7368262     1.83867
-    ridageyr |   1.067004   .0044654    15.50   0.000     1.058191    1.075892
-  _IAL_cat_1 |   1.459724   .1575524     3.50   0.001     1.178601    1.807902
-  _IAL_cat_2 |   1.664361   .2000551     4.24   0.000     1.311551    2.112078
-      bmxbmi |   1.126257   .0090506    14.80   0.000     1.108461    1.144339
-       _cons |   .0005405   .0001793   -22.67   0.000       .00028    .0010433
+     _IMJ2_1 |   1.359583   .1903247     2.19   0.030     1.030174    1.794325
+     _IMJ2_2 |   1.229514   .2835473     0.90   0.372     .7784446    1.941955
+    ridageyr |   1.065788   .0043725    15.53   0.000     1.057157     1.07449
+  _IAL_cat_1 |   1.429549   .1600167     3.19   0.002     1.145118     1.78463
+  _IAL_cat_2 |   1.624723   .1901672     4.15   0.000     1.288342    2.048932
+      bmxbmi |   1.127731   .0087038    15.58   0.000     1.110612    1.145114
+       _cons |   .0005553   .0001779   -23.40   0.000     .0002943    .0010477
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
-<div id="overall-2" class="section level2">
-<h2>Overall</h2>
+<div id="overall-2" class="section level3">
+<h3>Overall</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -874,12 +876,12 @@ i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
 
 Survey: Multinomial logistic regression
 
-Number of strata   =       105                Number of obs     =       67,991
-Number of PSUs     =       214                Population size   =  292,944,878
-                                              Subpop. no. obs   =       18,821
-                                              Subpop. size      =  127,924,286
+Number of strata   =       105                Number of obs     =       68,614
+Number of PSUs     =       214                Population size   =  296,797,030
+                                              Subpop. no. obs   =       19,444
+                                              Subpop. size      =  131,776,438
                                               Design df         =          109
-                                              F(  21,     89)   =        83.66
+                                              F(  21,     89)   =        88.29
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
@@ -889,41 +891,41 @@ Number of PSUs     =       214                Population size   =  292,944,878
 Normal       |  (base outcome)
 -------------+----------------------------------------------------------------
 Elevated     |
-     _IMJ2_1 |    1.18907   .0958878     2.15   0.034     1.013433    1.395147
-     _IMJ2_2 |    1.30479   .1737977     2.00   0.048     1.002047       1.699
-    ridageyr |   1.027306   .0030228     9.16   0.000     1.021333    1.033315
-        gndr |   2.433773   .1273676    17.00   0.000     2.193986    2.699768
-  _IAL_cat_1 |    1.08711   .0796698     1.14   0.257     .9401391    1.257057
-  _IAL_cat_2 |   1.314678   .1107666     3.25   0.002     1.112493    1.553608
-      bmxbmi |   1.062911   .0051213    12.66   0.000     1.052809     1.07311
-       _cons |   .0112267   .0020332   -24.79   0.000      .007841    .0160744
+     _IMJ2_1 |   1.205777   .1003403     2.25   0.027      1.02244    1.421988
+     _IMJ2_2 |   1.303003   .1732425     1.99   0.049     1.001157    1.695854
+    ridageyr |   1.026969   .0030686     8.91   0.000     1.020905    1.033069
+        gndr |    2.40363    .123965    17.00   0.000     2.170076    2.662321
+  _IAL_cat_1 |   1.081904   .0766249     1.11   0.269     .9402134    1.244948
+  _IAL_cat_2 |   1.310025   .1081971     3.27   0.001     1.112214    1.543018
+      bmxbmi |   1.064217   .0049431    13.40   0.000     1.054465    1.074059
+       _cons |    .011041    .001912   -26.02   0.000     .0078334    .0155621
 -------------+----------------------------------------------------------------
 Stage_1_HTN  |
-     _IMJ2_1 |   1.188509   .1008407     2.04   0.044     1.004547     1.40616
-     _IMJ2_2 |   1.082407   .1410556     0.61   0.545     .8360256    1.401398
-    ridageyr |   1.048978   .0028223    17.77   0.000     1.043399    1.054586
-        gndr |   2.668435   .1435724    18.24   0.000     2.398526    2.968717
-  _IAL_cat_1 |   1.147197   .0779982     2.02   0.046      1.00257    1.312686
-  _IAL_cat_2 |   1.311935   .1022692     3.48   0.001     1.124122    1.531125
-      bmxbmi |   1.078146   .0044717    18.14   0.000     1.069319    1.087045
-       _cons |   .0036868   .0006747   -30.61   0.000     .0025651    .0052988
+     _IMJ2_1 |   1.171018   .1020712     1.81   0.073     .9852266    1.391846
+     _IMJ2_2 |   1.074954   .1348259     0.58   0.566     .8383583    1.378321
+    ridageyr |   1.048616   .0027539    18.08   0.000     1.043172    1.054088
+        gndr |   2.592831   .1429113    17.29   0.000     2.324509    2.892127
+  _IAL_cat_1 |    1.12873   .0774353     1.77   0.080     .9852323    1.293127
+  _IAL_cat_2 |   1.300216   .0995582     3.43   0.001     1.117139    1.513297
+      bmxbmi |   1.077195   .0042692    18.76   0.000     1.068766    1.085689
+       _cons |   .0039603    .000705   -31.07   0.000     .0027829     .005636
 -------------+----------------------------------------------------------------
 Stage_2_HTN  |
-     _IMJ2_1 |   1.269826   .1374891     2.21   0.029     1.024582    1.573772
-     _IMJ2_2 |   1.192516   .2176642     0.96   0.337     .8305279    1.712277
-    ridageyr |   1.088467   .0032648    28.26   0.000     1.082016    1.094957
-        gndr |   3.181072   .2311443    15.93   0.000     2.754412    3.673823
-  _IAL_cat_1 |   1.348174   .1035372     3.89   0.000     1.157821    1.569822
-  _IAL_cat_2 |   1.691413   .1749037     5.08   0.000     1.377975    2.076146
-      bmxbmi |   1.103586   .0058826    18.49   0.000     1.091988    1.115306
-       _cons |   .0001444   .0000344   -37.15   0.000     .0000901    .0002314
+     _IMJ2_1 |   1.244438   .1362472     2.00   0.048      1.00169    1.546013
+     _IMJ2_2 |   1.252059   .2226305     1.26   0.209      .880181    1.781055
+    ridageyr |   1.088977   .0032248    28.78   0.000     1.082605    1.095388
+        gndr |   3.096627   .2266328    15.44   0.000     2.678506    3.580018
+  _IAL_cat_1 |   1.293558   .0992258     3.36   0.001     1.111115    1.505957
+  _IAL_cat_2 |   1.635608   .1629647     4.94   0.000     1.342509    1.992697
+      bmxbmi |   1.104262   .0056514    19.38   0.000     1.093118     1.11552
+       _cons |   .0001461   .0000337   -38.31   0.000     .0000925    .0002307
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline relative risk for each outcome.</code></pre>
 </div>
 </div>
-<div id="n-tabulation" class="section level1">
-<h1>N Tabulation</h1>
-<p>For Table 3</p>
+</div>
+<div id="table-3-n-tabulation" class="section level1">
+<h1>Table 3: N Tabulation</h1>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
 
@@ -942,6 +944,436 @@ ta gndr MJ2 if include==1</code></pre>
       Male |     8,475      1,271        595 |    10,341 
 -----------+---------------------------------+----------
      Total |    18,007      2,097        916 |    21,020 </code></pre>
+</div>
+<div id="table-3-abnormal-bp" class="section level1">
+<h1>Table 3 Abnormal BP</h1>
+<div id="model-1-crude-1" class="section level2">
+<h2>Model 1: Crude</h2>
+<div id="women-3" class="section level3">
+<h3>Women</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 &amp; gndr==0): logit BP_abn i.MJ2, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       10,679
+                                              Subpop. size      = 70,330,509.5
+                                              Design df         =          109
+                                              F(   2,    108)   =         4.13
+                                              Prob &gt; F          =       0.0187
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   .7936889   .0653237    -2.81   0.006     .6742277    .9343166
+     _IMJ2_2 |   .8773115    .146366    -0.78   0.434     .6303034    1.221119
+       _cons |    .630271   .0197932   -14.70   0.000     .5922374    .6707472
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+<div id="men-3" class="section level3">
+<h3>Men</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 &amp; gndr==1): logit BP_abn i.MJ2, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       10,341
+                                              Subpop. size      = 71,193,951.1
+                                              Design df         =          109
+                                              F(   2,    108)   =         0.09
+                                              Prob &gt; F          =       0.9181
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |    .996259    .075491    -0.05   0.961     .8573316    1.157699
+     _IMJ2_2 |   .9545312   .1077371    -0.41   0.681     .7631979    1.193832
+       _cons |   1.376755   .0486795     9.04   0.000     1.283577    1.476697
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+<div id="overall-3" class="section level3">
+<h3>Overall</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+                                              F(   2,    108)   =         0.31
+                                              Prob &gt; F          =       0.7360
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.008883   .0533953     0.17   0.868     .9084166    1.120461
+     _IMJ2_2 |   1.068427   .0898673     0.79   0.433     .9043671    1.262248
+       _cons |   .9216882    .024326    -3.09   0.003     .8747143    .9711848
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+</div>
+<div id="model-2-adjusting-for-confounders-1" class="section level2">
+<h2>Model 2: adjusting for confounders</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+                                              F(   4,    106)   =       316.01
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.154821   .0673943     2.47   0.015     1.028683    1.296426
+     _IMJ2_2 |   1.154975    .110962     1.50   0.137     .9547223    1.397231
+        gndr |   2.368786   .0882831    23.14   0.000     2.200118    2.550384
+    ridageyr |   1.047687   .0020572    23.73   0.000     1.043618    1.051772
+       _cons |   .0922189   .0074624   -29.46   0.000     .0785538    .1082612
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+<div id="women-4" class="section level3">
+<h3>Women</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 &amp; gndr==0): logit BP_abn i.MJ2 ridageyr, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       10,679
+                                              Subpop. size      = 70,330,509.5
+                                              Design df         =          109
+                                              F(   3,    107)   =       210.39
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.140678   .0985242     1.52   0.130     .9612064     1.35366
+     _IMJ2_2 |   1.186826   .2077724     0.98   0.330     .8388764    1.679098
+    ridageyr |   1.071178   .0029664    24.83   0.000     1.065315    1.077074
+       _cons |   .0367337   .0044348   -27.37   0.000     .0289165    .0466641
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+<div id="men-4" class="section level3">
+<h3>Men</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 &amp; gndr==1): logit BP_abn i.MJ2 ridageyr, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       10,341
+                                              Subpop. size      = 71,193,951.1
+                                              Design df         =          109
+                                              F(   3,    107)   =        43.27
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.138015   .0880995     1.67   0.098     .9761408    1.326733
+     _IMJ2_2 |   1.092278   .1285448     0.75   0.455     .8650377    1.379214
+    ridageyr |    1.02792   .0025521    11.09   0.000     1.022874     1.03299
+       _cons |   .4581415   .0501147    -7.14   0.000     .3688452    .5690563
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+<div id="overall-4" class="section level3">
+<h3>Overall</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+                                              F(   4,    106)   =       316.01
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.154821   .0673943     2.47   0.015     1.028683    1.296426
+     _IMJ2_2 |   1.154975    .110962     1.50   0.137     .9547223    1.397231
+        gndr |   2.368786   .0882831    23.14   0.000     2.200118    2.550384
+    ridageyr |   1.047687   .0020572    23.73   0.000     1.043618    1.051772
+       _cons |   .0922189   .0074624   -29.46   0.000     .0785538    .1082612
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+</div>
+<div id="model-3-fully-adjusted-including-mediators-1" class="section level2">
+<h2>Model 3: fully adjusted (including mediators)</h2>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 gndr ridageyr i.AL_cat bmxbmi, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       68,614
+Number of PSUs     =       214                Population size   =  296,797,030
+                                              Subpop. no. obs   =       19,444
+                                              Subpop. size      =  131,776,438
+                                              Design df         =          109
+                                              F(   7,    103)   =       225.00
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.202959   .0733552     3.03   0.003     1.066013    1.357497
+     _IMJ2_2 |   1.200407   .1243141     1.76   0.081     .9776615    1.473902
+        gndr |   2.605168   .1086162    22.97   0.000     2.398549    2.829587
+    ridageyr |   1.047848   .0022484    21.78   0.000     1.043401    1.052314
+  _IAL_cat_1 |   1.138895   .0584702     2.53   0.013      1.02871    1.260883
+  _IAL_cat_2 |    1.36091   .0891629     4.70   0.000     1.195185    1.549615
+      bmxbmi |   1.077406   .0037993    21.14   0.000     1.069902    1.084963
+       _cons |   .0091305   .0012481   -34.36   0.000     .0069636    .0119717
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+<div id="women-5" class="section level3">
+<h3>Women</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 &amp; gndr==0): logit BP_abn i.MJ2 ridageyr i.AL_cat bmxbmi, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       69,498
+Number of PSUs     =       214                Population size   =  302,374,280
+                                              Subpop. no. obs   =        9,987
+                                              Subpop. size      = 66,159,736.7
+                                              Design df         =          109
+                                              F(   6,    104)   =       114.68
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.126048   .1130626     1.18   0.240     .9228504    1.373987
+     _IMJ2_2 |   1.083061   .1872574     0.46   0.645     .7688314     1.52572
+    ridageyr |   1.072018    .003441    21.67   0.000     1.065219    1.078859
+  _IAL_cat_1 |   1.075934   .0780864     1.01   0.315     .9317854    1.242383
+  _IAL_cat_2 |   1.282675   .1337174     2.39   0.019     1.043239    1.577066
+      bmxbmi |   1.075201   .0042838    18.20   0.000     1.066744    1.083724
+       _cons |   .0039128   .0007979   -27.18   0.000     .0026119    .0058617
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+<div id="men-5" class="section level3">
+<h3>Men</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1 &amp; gndr==1): logit BP_abn i.MJ2 ridageyr i.AL_cat bmxbmi, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       69,306
+Number of PSUs     =       214                Population size   =  300,967,803
+                                              Subpop. no. obs   =        9,457
+                                              Subpop. size      =   65,616,701
+                                              Design df         =          109
+                                              F(   6,    104)   =        64.55
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.250669    .102945     2.72   0.008     1.062409    1.472289
+     _IMJ2_2 |   1.218662   .1688295     1.43   0.156     .9260544    1.603724
+    ridageyr |   1.027107    .002808     9.78   0.000     1.021557    1.032688
+  _IAL_cat_1 |   1.212714   .0768931     3.04   0.003     1.069501    1.375103
+  _IAL_cat_2 |   1.405375   .1175936     4.07   0.000     1.190608    1.658881
+      bmxbmi |   1.087982   .0057816    15.87   0.000     1.076583    1.099501
+       _cons |   .0377906   .0071692   -17.27   0.000     .0259473    .0550397
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+<div id="overall-5" class="section level3">
+<h3>Overall</h3>
+<pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+xi: svy,subpop(if include==1): logit BP_abn i.MJ2 ridageyr gndr i.AL_cat bmxbmi, or</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
+
+i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
+i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
+(running logit on estimation sample)
+
+Survey: Logistic regression
+
+Number of strata   =       105                Number of obs     =       68,614
+Number of PSUs     =       214                Population size   =  296,797,030
+                                              Subpop. no. obs   =       19,444
+                                              Subpop. size      =  131,776,438
+                                              Design df         =          109
+                                              F(   7,    103)   =       225.00
+                                              Prob &gt; F          =       0.0000
+
+------------------------------------------------------------------------------
+             |             Linearized
+      BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     _IMJ2_1 |   1.202959   .0733552     3.03   0.003     1.066013    1.357497
+     _IMJ2_2 |   1.200407   .1243141     1.76   0.081     .9776615    1.473902
+    ridageyr |   1.047848   .0022484    21.78   0.000     1.043401    1.052314
+        gndr |   2.605168   .1086162    22.97   0.000     2.398549    2.829587
+  _IAL_cat_1 |   1.138895   .0584702     2.53   0.013      1.02871    1.260883
+  _IAL_cat_2 |    1.36091   .0891629     4.70   0.000     1.195185    1.549615
+      bmxbmi |   1.077406   .0037993    21.14   0.000     1.069902    1.084963
+       _cons |   .0091305   .0012481   -34.36   0.000     .0069636    .0119717
+------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.</code></pre>
+</div>
+</div>
 </div>
 <div id="table-2" class="section level1">
 <h1>Table 2</h1>
@@ -1008,7 +1440,7 @@ Category  | Never Us  Past Use   Current     Total
   Pearson:
     Uncorrected   chi2(6)         =   70.3954
     Design-based  F(5.56, 605.89) =    1.9542     P = 0.0758</code></pre>
-<div id="men-3" class="section level2">
+<div id="men-6" class="section level2">
 <h2>Men</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
@@ -1074,7 +1506,7 @@ Category  | Never Us  Past Use   Current     Total
     Uncorrected   chi2(6)         =  189.5565
     Design-based  F(5.54, 604.35) =    2.4934     P = 0.0251</code></pre>
 </div>
-<div id="women-3" class="section level2">
+<div id="women-6" class="section level2">
 <h2>Women</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
@@ -1206,7 +1638,7 @@ Category  | Never/Pa  Light-Mo  Frequent     Total
   Pearson:
     Uncorrected   chi2(6)         =   78.0180
     Design-based  F(5.64, 614.81) =    2.3247     P = 0.0348</code></pre>
-<div id="men-4" class="section level2">
+<div id="men-7" class="section level2">
 <h2>Men</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
@@ -1272,7 +1704,7 @@ Category  | Never/Pa  Light-Mo  Frequent     Total
     Uncorrected   chi2(6)         =  180.2785
     Design-based  F(5.49, 598.30) =    2.4796     P = 0.0263</code></pre>
 </div>
-<div id="women-4" class="section level2">
+<div id="women-7" class="section level2">
 <h2>Women</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
@@ -1341,7 +1773,7 @@ Category  | Never/Pa  Light-Mo  Frequent     Total
 </div>
 <div id="table-4" class="section level1">
 <h1>Table 4</h1>
-<div id="n-tabulation-1" class="section level2">
+<div id="n-tabulation" class="section level2">
 <h2>N Tabulation</h2>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
@@ -1401,7 +1833,7 @@ Number of PSUs     =       214                Population size   =  306,545,053
 </div>
 <div id="m1" class="section level2">
 <h2>M1</h2>
-<div id="overall-3" class="section level3">
+<div id="overall-6" class="section level3">
 <h3>Overall</h3>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
@@ -1641,26 +2073,26 @@ i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
 
 Survey: Logistic regression
 
-Number of strata   =       105                Number of obs     =       67,991
-Number of PSUs     =       214                Population size   =  292,944,878
-                                              Subpop. no. obs   =       18,821
-                                              Subpop. size      =  127,924,286
+Number of strata   =       105                Number of obs     =       68,614
+Number of PSUs     =       214                Population size   =  296,797,030
+                                              Subpop. no. obs   =       19,444
+                                              Subpop. size      =  131,776,438
                                               Design df         =          109
-                                              F(   7,    103)   =       221.90
+                                              F(   7,    103)   =       225.00
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
              |             Linearized
       BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-     _IMJ2_1 |    1.20759   .0747217     3.05   0.003     1.068215    1.365149
-     _IMJ2_2 |   1.194591   .1253127     1.69   0.093     .9703442    1.470662
-        gndr |   2.662121   .1092002    23.87   0.000     2.454254    2.887593
-    ridageyr |   1.047906   .0022563    21.73   0.000     1.043444    1.052388
-  _IAL_cat_1 |    1.15799   .0614299     2.77   0.007      1.04242    1.286373
-  _IAL_cat_2 |   1.376358   .0929352     4.73   0.000     1.203957    1.573446
-      bmxbmi |   1.077091   .0039284    20.36   0.000     1.069333    1.084905
-       _cons |   .0089558   .0012704   -33.24   0.000     .0067609    .0118633
+     _IMJ2_1 |   1.202959   .0733552     3.03   0.003     1.066013    1.357497
+     _IMJ2_2 |   1.200407   .1243141     1.76   0.081     .9776615    1.473902
+        gndr |   2.605168   .1086162    22.97   0.000     2.398549    2.829587
+    ridageyr |   1.047848   .0022484    21.78   0.000     1.043401    1.052314
+  _IAL_cat_1 |   1.138895   .0584702     2.53   0.013      1.02871    1.260883
+  _IAL_cat_2 |    1.36091   .0891629     4.70   0.000     1.195185    1.549615
+      bmxbmi |   1.077406   .0037993    21.14   0.000     1.069902    1.084963
+       _cons |   .0091305   .0012481   -34.36   0.000     .0069636    .0119717
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline odds.</code></pre>
 <div id="male-2" class="section level3">
@@ -1682,25 +2114,25 @@ i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
 
 Survey: Logistic regression
 
-Number of strata   =       105                Number of obs     =       69,030
-Number of PSUs     =       214                Population size   =  299,205,783
-                                              Subpop. no. obs   =        9,181
-                                              Subpop. size      = 63,854,681.3
+Number of strata   =       105                Number of obs     =       69,306
+Number of PSUs     =       214                Population size   =  300,967,803
+                                              Subpop. no. obs   =        9,457
+                                              Subpop. size      =   65,616,701
                                               Design df         =          109
-                                              F(   6,    104)   =        61.81
+                                              F(   6,    104)   =        64.55
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
              |             Linearized
       BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-     _IMJ2_1 |   1.272617   .1035071     2.96   0.004     1.083151    1.495225
-     _IMJ2_2 |   1.222042   .1730156     1.42   0.160     .9230404    1.617899
-    ridageyr |   1.028076   .0027722    10.27   0.000     1.022596    1.033585
-  _IAL_cat_1 |   1.209917   .0781051     2.95   0.004     1.064609    1.375058
-  _IAL_cat_2 |   1.404112    .120462     3.96   0.000     1.184555    1.664363
-      bmxbmi |   1.086683   .0059148    15.27   0.000     1.075023    1.098469
-       _cons |   .0376992   .0073134   -16.90   0.000     .0256655     .055375
+     _IMJ2_1 |   1.250669    .102945     2.72   0.008     1.062409    1.472289
+     _IMJ2_2 |   1.218662   .1688295     1.43   0.156     .9260544    1.603724
+    ridageyr |   1.027107    .002808     9.78   0.000     1.021557    1.032688
+  _IAL_cat_1 |   1.212714   .0768931     3.04   0.003     1.069501    1.375103
+  _IAL_cat_2 |   1.405375   .1175936     4.07   0.000     1.190608    1.658881
+      bmxbmi |   1.087982   .0057816    15.87   0.000     1.076583    1.099501
+       _cons |   .0377906   .0071692   -17.27   0.000     .0259473    .0550397
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline odds.</code></pre>
 </div>
@@ -1723,25 +2155,25 @@ i.AL_cat          _IAL_cat_0-2        (naturally coded; _IAL_cat_0 omitted)
 
 Survey: Logistic regression
 
-Number of strata   =       105                Number of obs     =       69,151
-Number of PSUs     =       214                Population size   =  300,284,148
-                                              Subpop. no. obs   =        9,640
-                                              Subpop. size      = 64,069,604.7
+Number of strata   =       105                Number of obs     =       69,498
+Number of PSUs     =       214                Population size   =  302,374,280
+                                              Subpop. no. obs   =        9,987
+                                              Subpop. size      = 66,159,736.7
                                               Design df         =          109
-                                              F(   6,    104)   =       109.43
+                                              F(   6,    104)   =       114.68
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
              |             Linearized
       BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-     _IMJ2_1 |    1.10091   .1157751     0.91   0.363     .8937825    1.356037
-     _IMJ2_2 |   1.058793   .1883271     0.32   0.749     .7442326    1.506308
-    ridageyr |   1.071184   .0034648    21.26   0.000     1.064339    1.078073
-  _IAL_cat_1 |   1.109351   .0826059     1.39   0.166     .9571368    1.285771
-  _IAL_cat_2 |   1.320395   .1386446     2.65   0.009     1.072315    1.625869
-      bmxbmi |   1.075146    .004407    17.68   0.000     1.066447    1.083916
-       _cons |   .0039365   .0008109   -26.88   0.000     .0026169    .0059215
+     _IMJ2_1 |   1.126048   .1130626     1.18   0.240     .9228504    1.373987
+     _IMJ2_2 |   1.083061   .1872574     0.46   0.645     .7688314     1.52572
+    ridageyr |   1.072018    .003441    21.67   0.000     1.065219    1.078859
+  _IAL_cat_1 |   1.075934   .0780864     1.01   0.315     .9317854    1.242383
+  _IAL_cat_2 |   1.282675   .1337174     2.39   0.019     1.043239    1.577066
+      bmxbmi |   1.075201   .0042838    18.20   0.000     1.066744    1.083724
+       _cons |   .0039128   .0007979   -27.18   0.000     .0026119    .0058617
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline odds.</code></pre>
 </div>
@@ -1750,7 +2182,7 @@ Note: _cons estimates baseline odds.</code></pre>
 <div id="t5" class="section level1">
 <h1>T5</h1>
 <p>Adjusted OR of abnormal blood pressure according to cannabis use: Effect of Adjustment for possible Mediators</p>
-<div id="overall-4" class="section level2">
+<div id="overall-7" class="section level2">
 <h2>Overall</h2>
 <div id="base-model" class="section level3">
 <h3>Base Model</h3>
@@ -1887,24 +2319,24 @@ i.MJ2             _IMJ2_0-2           (naturally coded; _IMJ2_0 omitted)
 
 Survey: Logistic regression
 
-Number of strata   =       105                Number of obs     =       68,083
-Number of PSUs     =       214                Population size   =  293,445,655
-                                              Subpop. no. obs   =       18,913
-                                              Subpop. size      =  128,425,062
+Number of strata   =       105                Number of obs     =       68,710
+Number of PSUs     =       214                Population size   =  297,316,373
+                                              Subpop. no. obs   =       19,540
+                                              Subpop. size      =  132,295,780
                                               Design df         =          109
-                                              F(   5,    105)   =       250.38
+                                              F(   5,    105)   =       241.11
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
              |             Linearized
       BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-     _IMJ2_1 |   1.084977   .0645936     1.37   0.174     .9642187    1.220858
-     _IMJ2_2 |   1.072563   .1064632     0.71   0.482     .8810151    1.305756
-        gndr |   2.507315   .0993982    23.19   0.000     2.317852    2.712265
-    ridageyr |   1.050742   .0022044    23.59   0.000     1.046382    1.055121
-      AL_cat |    1.18916   .0404073     5.10   0.000     1.111711    1.272004
-       _cons |   .0717108   .0064478   -29.31   0.000     .0600054    .0856996
+     _IMJ2_1 |    1.07985   .0632877     1.31   0.193     .9614271     1.21286
+     _IMJ2_2 |   1.077968   .1064205     0.76   0.449     .8863986    1.310939
+        gndr |   2.461356   .0998585    22.20   0.000     2.271187    2.667447
+    ridageyr |   1.050699   .0022082    23.53   0.000     1.046332    1.055085
+      AL_cat |   1.178286   .0386243     5.00   0.000     1.104167    1.257379
+       _cons |   .0735804   .0066442   -28.90   0.000      .061523    .0880009
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline odds.</code></pre>
 </div>
@@ -2093,24 +2525,24 @@ note: gndr omitted because of collinearity
 
 Survey: Logistic regression
 
-Number of strata   =       105                Number of obs     =       69,067
-Number of PSUs     =       214                Population size   =  299,441,638
-                                              Subpop. no. obs   =        9,218
-                                              Subpop. size      =   64,090,536
+Number of strata   =       105                Number of obs     =       69,343
+Number of PSUs     =       214                Population size   =  301,203,657
+                                              Subpop. no. obs   =        9,494
+                                              Subpop. size      = 65,852,555.7
                                               Design df         =          109
-                                              F(   4,    106)   =        43.49
+                                              F(   4,    106)   =        40.17
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
              |             Linearized
       BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-     _IMJ2_1 |   1.091132   .0868871     1.10   0.276     .9318259    1.277672
-     _IMJ2_2 |   1.050257   .1344173     0.38   0.702     .8149509    1.353505
+     _IMJ2_1 |   1.071611   .0868686     0.85   0.395     .9125588    1.258384
+     _IMJ2_2 |    1.04393   .1315131     0.34   0.734     .8132688    1.340012
         gndr |          1  (omitted)
-    ridageyr |   1.032614   .0026423    12.54   0.000     1.027391    1.037864
-      AL_cat |   1.220009   .0503132     4.82   0.000     1.124256    1.323917
-       _cons |   .3428262   .0401549    -9.14   0.000      .271803    .4324079
+    ridageyr |   1.031874   .0026697    12.13   0.000     1.026596    1.037178
+      AL_cat |   1.218727   .0489625     4.92   0.000     1.125448    1.319737
+       _cons |   .3537031   .0419791    -8.76   0.000     .2795634    .4475047
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline odds.</code></pre>
 </div>
@@ -2301,24 +2733,24 @@ note: gndr omitted because of collinearity
 
 Survey: Logistic regression
 
-Number of strata   =       105                Number of obs     =       69,206
-Number of PSUs     =       214                Population size   =  300,549,070
-                                              Subpop. no. obs   =        9,695
-                                              Subpop. size      = 64,334,526.3
+Number of strata   =       105                Number of obs     =       69,557
+Number of PSUs     =       214                Population size   =  302,657,768
+                                              Subpop. no. obs   =       10,046
+                                              Subpop. size      = 66,443,224.6
                                               Design df         =          109
-                                              F(   4,    106)   =       129.04
+                                              F(   4,    106)   =       137.09
                                               Prob &gt; F          =       0.0000
 
 ------------------------------------------------------------------------------
              |             Linearized
       BP_abn | Odds Ratio   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-     _IMJ2_1 |   1.046102   .1019881     0.46   0.645      .862295    1.269089
-     _IMJ2_2 |    1.01393   .1830753     0.08   0.939     .7089076    1.450195
+     _IMJ2_1 |   1.065488   .0981535     0.69   0.493     .8876771    1.278917
+     _IMJ2_2 |   1.044505   .1848386     0.25   0.806     .7355094    1.483312
         gndr |          1  (omitted)
-    ridageyr |   1.071616   .0032929    22.51   0.000      1.06511    1.078162
-      AL_cat |   1.140278   .0573225     2.61   0.010     1.032143    1.259742
-       _cons |   .0328512   .0046534   -24.11   0.000     .0248099    .0434989
+    ridageyr |   1.072271   .0032528    23.00   0.000     1.065843    1.078737
+      AL_cat |   1.117404   .0551134     2.25   0.026      1.01334    1.232154
+       _cons |   .0328599    .004608   -24.36   0.000     .0248862    .0433883
 ------------------------------------------------------------------------------
 Note: _cons estimates baseline odds.</code></pre>
 </div>
