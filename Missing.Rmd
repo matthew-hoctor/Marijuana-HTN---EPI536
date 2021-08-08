@@ -1,0 +1,407 @@
+---
+title: "Missing Variables"
+author: "Bryon Langford, Matthew Hoctor"
+date: "8/6/2021"
+output:
+  html_document:
+    number_sections: no
+    theme: lumen
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+if (Sys.info()["sysname"] == "Windows") 
+  knitr::opts_chunk$set(engine.path = list(stata = "C:/Program Files/Stata17/StataBE-64")) 
+if ((Sys.info()["sysname"] == "Darwin"))
+  knitr::opts_chunk$set(engine.path = list(stata = "/Applications/Stata/StataIC"))
+```
+
+```{r libraries, include=FALSE}
+library(Statamarkdown)
+```
+
+# Examining Missing Alcohol
+
+## Creating the missing alcohol variable
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+ta AL_cat AL_miss,m
+```
+
+## Al_miss vs MJ
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): ta MJ AL_miss,col percent
+```
+
+## Al_miss vs BP_cat
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): ta BP_cat AL_miss,col percent
+```
+
+## Al_miss vs gndr
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): ta gndr AL_miss,col percent
+```
+
+## Al_miss vs race_eth
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): ta race_eth AL_miss,col percent
+```
+
+## Al_miss vs SMK_cat
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): ta SMK_cat AL_miss,col percent
+```
+
+## Al_miss vs EDUC_cat
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): ta EDUC_cat AL_miss,col percent
+```
+
+## Al_miss vs sddsrvyr
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): ta sddsrvyr AL_miss,col percent
+svy, subpop(if include==1): ta sddsrvyr AL_miss,row percent
+```
+
+## Al_miss vs HEI2015
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): mean hei2015, over(AL_miss)
+```
+
+## Al_miss vs BMI
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): mean bmxbmi, over(AL_miss)
+```
+
+## Al_miss vs Age
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): mean ridageyr, over(AL_miss)
+```
+
+## Al_miss vs Income
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+svy, subpop(if include==1): mean indfmpir, over(AL_miss)
+```
+
+## Results
+
+Those with missing alcohol use data are:
+  * less light MJ use
+  * slightly more stage 2 htn
+  * Slightly more male
+  * Very similar race/eth
+  * Slightly more moderate-heavy smokers
+  * Slightly less educated
+  * Disproportionately in 2017-2018 cycle
+  * slightly lower HEI2015
+  * Similar BMI
+  * Similar Age
+  * slightly lower income
+  
+Most importantly: Very similar results with or without those with missing alcohol data.
+
+# New key results 
+
+## T1 alcohol use re-tabulated
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat .=3, gen(ALC_cat)
+
+label define ALC_cat 0 "None-Light" 1 "Moderate" 2 "Heavy" 3 "Missing"
+label values ALC_cat ALC_cat
+label variable ALC_cat "Alcohol Use Category"
+
+svy, subpop(if include==1): ta ALC_cat MJ_cat, col percent
+ta ALC_cat MJ_cat if include==1,m
+```
+
+## T3 Model 2 result
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+xi: svy,subpop(if include==1 & AL_miss==0): logit BP_abn i.MJ2 gndr ridageyr, or
+```
+
+## T4 Model 2 result
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat 0=0 1=0 2=0 3=0 4=0 .=1, gen(AL_miss)
+
+label define AL_miss 0 "Not Missing" 1 "Missing"
+label values AL_miss AL_miss
+label variable AL_miss "Alcohol Use Missing"
+
+xi: svy,subpop(if include==1 & AL_miss==0): mlogit BP_cat i.MJ2 gndr ridageyr, rrr
+```
+
+# Examining Excluded in Age 20-59
+
+## Age
+
+### Exclusions vs age criteria
+
+Most observations (44k / 70k) were not in the correct age range.
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta AGE_exclude include,m
+```
+
+### Mean
+
+mean ages are quite similar
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if AGE_exclude==0): mean ridageyr, over(include)
+```
+
+## Gender
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if AGE_exclude==0): ta gndr include, col percent
+ta gndr include if AGE_exclude==0,m
+```
+
+## Race
+
+Included participants were a bit whiter than excluded.
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if AGE_exclude==0): ta race_eth include, col percent
+ta race_eth include if AGE_exclude==0,m
+```
+
+## Education
+
+Included were slightly more educated; note difference in less than 9th grade education.
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if AGE_exclude==0): ta EDUC_cat include, col percent
+ta EDUC_cat include if AGE_exclude==0,m
+```
+
+## Tobacco Use
+
+Similar
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if AGE_exclude==0): ta SMK_cat include, col percent
+ta SMK_cat include if AGE_exclude==0,m
+```
+
+## BMI
+
+Similar
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if AGE_exclude==0): mean bmxbmi, over(include)
+```
+
+## Income
+
+Excluded had slightly lower income.
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if AGE_exclude==0): mean indfmpir, over(include)
+```
+
+## Alcohol
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+recode AL_cat .=3, gen(ALC_cat)
+
+label define ALC_cat 0 "None-Light" 1 "Moderate" 2 "Heavy" 3 "Missing"
+label values ALC_cat ALC_cat
+label variable ALC_cat "Alcohol Use Category"
+
+svy, subpop(if AGE_exclude==0): ta AL_cat include, col percent
+svy, subpop(if AGE_exclude==0): ta ALC_cat include, col percent
+ta ALC_cat include if AGE_exclude==0,m
+```
+
+## Diet Quality
+
+Similar
+
+```{stata}
+use "data\NHANES0518_new.dta", clear
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+svy, subpop(if AGE_exclude==0): mean hei2015, over(include)
+```
+
+
+
+
+
+
+
