@@ -376,7 +376,7 @@ save,replace
 use "data\NHANES0518_new.dta", clear
 
 recode alq130 min/2=0 3/4=1 5/95=2 99/max=., gen(AL_cat)
-  replace AL_cat=0 if alq101==2
+  replace AL_cat=0 if alq101==2 | alq111==2 | alq121==0
   replace AL_cat=1 if alq130==2 & riagendr==2
   replace AL_cat=2 if alq130==4 & riagendr==2
 
@@ -493,8 +493,8 @@ gen PIR_miss=0
   replace PIR_miss=1 if indfmpir==.
 ta PIR_miss include,m
 
-gen HEI_miss=0
-  replace HEI_miss=1 if hei2015==.
+# gen HEI_miss=0
+#   replace HEI_miss=1 if hei2015==.
 ta HEI_miss include,m
 ```
 
@@ -511,8 +511,8 @@ gen AGE_miss =0
   replace AGE_miss=1 if ridageyr==.
 ta AGE_miss MJ_cat,m
 
-gen BMI_miss=0
-  replace BMI_miss=1 if bmxbmi==.
+# gen BMI_miss=0
+#   replace BMI_miss=1 if bmxbmi==.
 ta BMI_miss MJ_cat,m
 
 gen PIR_miss=0

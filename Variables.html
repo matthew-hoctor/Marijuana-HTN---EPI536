@@ -1150,7 +1150,7 @@ file data\NHANES0518_new.dta saved</code></pre>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
 
 recode alq130 min/2=0 3/4=1 5/95=2 99/max=., gen(AL_cat)
-  replace AL_cat=0 if alq101==2
+  replace AL_cat=0 if alq101==2 | alq111==2 | alq121==0
   replace AL_cat=1 if alq130==2 &amp; riagendr==2
   replace AL_cat=2 if alq130==4 &amp; riagendr==2
 
@@ -1165,7 +1165,7 @@ ta AL_cat,m
 save,replace</code></pre>
 <pre><code>(23615 differences between alq130 and AL_cat)
 
-(7,209 real changes made)
+(8,843 real changes made)
 
 (3,288 real changes made)
 
@@ -1178,10 +1178,10 @@ save,replace</code></pre>
 Alcohol Use |
    Category |      Freq.     Percent        Cum.
 ------------+-----------------------------------
- None-Light |     18,640       26.56       26.56
-   Moderate |      7,686       10.95       37.51
-      Heavy |      4,232        6.03       43.54
-          . |     39,632       56.46      100.00
+ None-Light |     20,274       28.88       28.88
+   Moderate |      7,686       10.95       39.83
+      Heavy |      4,232        6.03       45.86
+          . |     37,998       54.14      100.00
 ------------+-----------------------------------
       Total |     70,190      100.00
 
@@ -1388,8 +1388,8 @@ gen PIR_miss=0
   replace PIR_miss=1 if indfmpir==.
 ta PIR_miss include,m
 
-gen HEI_miss=0
-  replace HEI_miss=1 if hei2015==.
+# gen HEI_miss=0
+#   replace HEI_miss=1 if hei2015==.
 ta HEI_miss include,m</code></pre>
 <pre><code>                      |     Meets Overall
      Recode Education |  Inclusion Criteria
@@ -1431,10 +1431,10 @@ Moderate, 11-20 cig/d |       974      1,566 |     2,540
        Use |  Inclusion Criteria
   Category |  Excluded   Included |     Total
 -----------+----------------------+----------
-None-Light |     8,812      9,828 |    18,640 
+None-Light |     9,819     10,455 |    20,274 
   Moderate |     2,028      5,658 |     7,686 
      Heavy |       805      3,427 |     4,232 
-         . |    37,525      2,107 |    39,632 
+         . |    36,518      1,480 |    37,998 
 -----------+----------------------+----------
      Total |    49,170     21,020 |    70,190 
 
@@ -1473,11 +1473,17 @@ Unknown #command
 -----------+----------------------+----------
      Total |    49,170     21,020 |    70,190 
 
-variable HEI_miss already defined
-r(110);
+Unknown #command
+Unknown #command
 
-end of do-file
-r(110);</code></pre>
+           |     Meets Overall
+           |  Inclusion Criteria
+  HEI_miss |  Excluded   Included |     Total
+-----------+----------------------+----------
+         0 |    35,606     19,471 |    55,077 
+         1 |    13,564      1,549 |    15,113 
+-----------+----------------------+----------
+     Total |    49,170     21,020 |    70,190 </code></pre>
 </div>
 <div id="cross-tabulation-of-missing-variables-for-t1-by-mj_cat" class="section level1">
 <h1>Cross tabulation of missing variables for T1, by MJ_cat</h1>
@@ -1491,8 +1497,8 @@ gen AGE_miss =0
   replace AGE_miss=1 if ridageyr==.
 ta AGE_miss MJ_cat,m
 
-gen BMI_miss=0
-  replace BMI_miss=1 if bmxbmi==.
+# gen BMI_miss=0
+#   replace BMI_miss=1 if bmxbmi==.
 ta BMI_miss MJ_cat,m
 
 gen PIR_miss=0
@@ -1539,10 +1545,10 @@ Moderate, 11-20 cig/d |       260        863        558        859 |     2,540
        Use |            Cannabis Use Category
   Category | Never Use   Past Use  Current U          . |     Total
 -----------+--------------------------------------------+----------
-None-Light |     6,532      3,486        989      7,633 |    18,640 
+None-Light |     7,072      3,644      1,054      8,504 |    20,274 
   Moderate |     2,057      2,870      1,239      1,520 |     7,686 
      Heavy |     1,055      1,691      1,023        463 |     4,232 
-         . |     1,323      1,045        250     37,014 |    39,632 
+         . |       783        887        185     36,143 |    37,998 
 -----------+--------------------------------------------+----------
      Total |    10,967      9,092      3,501     46,630 |    70,190 
 
@@ -1556,7 +1562,29 @@ None-Light |     6,532      3,486        989      7,633 |    18,640
 -----------+--------------------------------------------+----------
      Total |    10,967      9,092      3,501     46,630 |    70,190 
 
-variable BMI_miss already defined
+Unknown #command
+Unknown #command
+
+           |            Cannabis Use Category
+  BMI_miss | Never Use   Past Use  Current U          . |     Total
+-----------+--------------------------------------------+----------
+         0 |    10,871      9,022      3,469     38,231 |    61,593 
+         1 |        96         70         32      8,399 |     8,597 
+-----------+--------------------------------------------+----------
+     Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+
+(6,332 real changes made)
+
+           |            Cannabis Use Category
+  PIR_miss | Never Use   Past Use  Current U          . |     Total
+-----------+--------------------------------------------+----------
+         0 |     9,885      8,570      3,267     42,136 |    63,858 
+         1 |     1,082        522        234      4,494 |     6,332 
+-----------+--------------------------------------------+----------
+     Total |    10,967      9,092      3,501     46,630 |    70,190 
+
+variable HEI_miss already defined
 r(110);
 
 end of do-file
