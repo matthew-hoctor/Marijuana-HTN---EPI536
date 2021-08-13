@@ -502,26 +502,29 @@ ta HEI_miss include,m
 
 ```{stata}
 use "data\NHANES0518_new.dta", clear
-ta EDUC_cat MJ_cat,m
-ta gndr MJ_cat,m
-ta SMK_cat MJ_cat,m
-ta AL_cat MJ_cat,m
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta EDUC_cat MJ_cat if include==1,m
+ta gndr MJ_cat if include==1,m
+ta SMK_cat MJ_cat if include==1,m
+ta AL_cat MJ_cat if include==1,m
 
 gen AGE_miss =0
   replace AGE_miss=1 if ridageyr==.
-ta AGE_miss MJ_cat,m
+ta AGE_miss MJ_cat if include==1,m
 
 # gen BMI_miss=0
 #   replace BMI_miss=1 if bmxbmi==.
-ta BMI_miss MJ_cat,m
+ta BMI_miss MJ_cat if include==1,m
 
 gen PIR_miss=0
   replace PIR_miss=1 if indfmpir==.
-ta PIR_miss MJ_cat,m
+ta PIR_miss MJ_cat if include==1,m
 
-gen HEI_miss=0
-  replace HEI_miss=1 if hei2015_total_score==.
-ta HEI_miss MJ_cat,m
+# gen HEI_miss=0
+#   replace HEI_miss=1 if hei2015_total_score==.
+ta HEI_miss MJ_cat if include==1,m
+svy, subpop(if include==1): ta HEI_miss MJ_cat, col percent
 ```
 
 # Create .zip file for github upload

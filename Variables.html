@@ -1488,107 +1488,145 @@ Unknown #command
 <div id="cross-tabulation-of-missing-variables-for-t1-by-mj_cat" class="section level1">
 <h1>Cross tabulation of missing variables for T1, by MJ_cat</h1>
 <pre class="stata"><code>use &quot;data\NHANES0518_new.dta&quot;, clear
-ta EDUC_cat MJ_cat,m
-ta gndr MJ_cat,m
-ta SMK_cat MJ_cat,m
-ta AL_cat MJ_cat,m
+svyset sdmvpsu [pw=wtmec12yr], strata(sdmvstra)
+
+ta EDUC_cat MJ_cat if include==1,m
+ta gndr MJ_cat if include==1,m
+ta SMK_cat MJ_cat if include==1,m
+ta AL_cat MJ_cat if include==1,m
 
 gen AGE_miss =0
   replace AGE_miss=1 if ridageyr==.
-ta AGE_miss MJ_cat,m
+ta AGE_miss MJ_cat if include==1,m
 
 # gen BMI_miss=0
 #   replace BMI_miss=1 if bmxbmi==.
-ta BMI_miss MJ_cat,m
+ta BMI_miss MJ_cat if include==1,m
 
 gen PIR_miss=0
   replace PIR_miss=1 if indfmpir==.
-ta PIR_miss MJ_cat,m
+ta PIR_miss MJ_cat if include==1,m
 
-gen HEI_miss=0
-  replace HEI_miss=1 if hei2015_total_score==.
-ta HEI_miss MJ_cat,m</code></pre>
-<pre><code>     Recode Education |            Cannabis Use Category
-                Level | Never Use   Past Use  Current U          . |     Total
-----------------------+--------------------------------------------+----------
-  Less than 9th Grade |     1,200        251         82      2,849 |     4,382 
-Less than High School |     1,387      1,110        594      2,617 |     5,708 
-      High School/GED |     2,135      2,006        875      4,086 |     9,102 
-         Some College |     2,813      3,128      1,180      4,440 |    11,561 
-     College Graduate |     2,757      2,252        429      3,497 |     8,935 
-                    . |       675        345        341     29,141 |    30,502 
-----------------------+--------------------------------------------+----------
-                Total |    10,967      9,092      3,501     46,630 |    70,190 
+# gen HEI_miss=0
+#   replace HEI_miss=1 if hei2015_total_score==.
+ta HEI_miss MJ_cat if include==1,m
+svy, subpop(if include==1): ta HEI_miss MJ_cat, col percent</code></pre>
+<pre><code>      pweight: wtmec12yr
+          VCE: linearized
+  Single unit: missing
+     Strata 1: sdmvstra
+         SU 1: sdmvpsu
+        FPC 1: &lt;zero&gt;
 
-           |            Cannabis Use Category
-    Gender | Never Use   Past Use  Current U          . |     Total
------------+--------------------------------------------+----------
-    Female |     6,331      4,382      1,334     23,434 |    35,481 
-      Male |     4,636      4,710      2,167     23,196 |    34,709 
------------+--------------------------------------------+----------
-     Total |    10,967      9,092      3,501     46,630 |    70,190 
+     Recode Education |      Cannabis Use Category
+                Level | Never Use   Past Use  Current U |     Total
+----------------------+---------------------------------+----------
+  Less than 9th Grade |     1,122        244         76 |     1,442 
+Less than High School |     1,301      1,050        559 |     2,910 
+      High School/GED |     2,007      1,890        841 |     4,738 
+         Some College |     2,662      2,966      1,126 |     6,754 
+     College Graduate |     2,604      2,153        411 |     5,168 
+                    . |         7          1          0 |         8 
+----------------------+---------------------------------+----------
+                Total |     9,703      8,304      3,013 |    21,020 
 
-                      |            Cannabis Use Category
-     Smoking Category | Never Use   Past Use  Current U          . |     Total
-----------------------+--------------------------------------------+----------
-                Never |     8,490      4,025      1,084      9,277 |    22,876 
-          Past Smoker |     1,046      2,268        542      5,671 |     9,527 
-  Light, 1-10 cif/day |       801      1,585      1,103      2,200 |     5,689 
-Moderate, 11-20 cig/d |       260        863        558        859 |     2,540 
-   Heavy, 21+ cig/day |        93        250        143        232 |       718 
-                    . |       277        101         71     28,391 |    28,840 
-----------------------+--------------------------------------------+----------
-                Total |    10,967      9,092      3,501     46,630 |    70,190 
+           |      Cannabis Use Category
+    Gender | Never Use   Past Use  Current U |     Total
+-----------+---------------------------------+----------
+    Female |     5,572      3,960      1,147 |    10,679 
+      Male |     4,131      4,344      1,866 |    10,341 
+-----------+---------------------------------+----------
+     Total |     9,703      8,304      3,013 |    21,020 
+
+                      |      Cannabis Use Category
+     Smoking Category | Never Use   Past Use  Current U |     Total
+----------------------+---------------------------------+----------
+                Never |     7,616      3,643        900 |    12,159 
+          Past Smoker |       993      2,163        509 |     3,665 
+  Light, 1-10 cif/day |       729      1,449        943 |     3,121 
+Moderate, 11-20 cig/d |       248        800        518 |     1,566 
+   Heavy, 21+ cig/day |        90        231        137 |       458 
+                    . |        27         18          6 |        51 
+----------------------+---------------------------------+----------
+                Total |     9,703      8,304      3,013 |    21,020 
 
 
    Alcohol |
-       Use |            Cannabis Use Category
-  Category | Never Use   Past Use  Current U          . |     Total
------------+--------------------------------------------+----------
-None-Light |     7,072      3,644      1,054      8,504 |    20,274 
-  Moderate |     2,057      2,870      1,239      1,520 |     7,686 
-     Heavy |     1,055      1,691      1,023        463 |     4,232 
-         . |       783        887        185     36,143 |    37,998 
------------+--------------------------------------------+----------
-     Total |    10,967      9,092      3,501     46,630 |    70,190 
+       Use |      Cannabis Use Category
+  Category | Never Use   Past Use  Current U |     Total
+-----------+---------------------------------+----------
+None-Light |     6,237      3,305        913 |    10,455 
+  Moderate |     1,899      2,668      1,091 |     5,658 
+     Heavy |       969      1,557        901 |     3,427 
+         . |       598        774        108 |     1,480 
+-----------+---------------------------------+----------
+     Total |     9,703      8,304      3,013 |    21,020 
 
 
 (0 real changes made)
 
-           |            Cannabis Use Category
-  AGE_miss | Never Use   Past Use  Current U          . |     Total
------------+--------------------------------------------+----------
-         0 |    10,967      9,092      3,501     46,630 |    70,190 
------------+--------------------------------------------+----------
-     Total |    10,967      9,092      3,501     46,630 |    70,190 
+           |      Cannabis Use Category
+  AGE_miss | Never Use   Past Use  Current U |     Total
+-----------+---------------------------------+----------
+         0 |     9,703      8,304      3,013 |    21,020 
+-----------+---------------------------------+----------
+     Total |     9,703      8,304      3,013 |    21,020 
 
 Unknown #command
 Unknown #command
 
-           |            Cannabis Use Category
-  BMI_miss | Never Use   Past Use  Current U          . |     Total
------------+--------------------------------------------+----------
-         0 |    10,871      9,022      3,469     38,231 |    61,593 
-         1 |        96         70         32      8,399 |     8,597 
------------+--------------------------------------------+----------
-     Total |    10,967      9,092      3,501     46,630 |    70,190 
+           |      Cannabis Use Category
+  BMI_miss | Never Use   Past Use  Current U |     Total
+-----------+---------------------------------+----------
+         0 |     9,657      8,261      2,992 |    20,910 
+         1 |        46         43         21 |       110 
+-----------+---------------------------------+----------
+     Total |     9,703      8,304      3,013 |    21,020 
 
 
 (6,332 real changes made)
 
-           |            Cannabis Use Category
-  PIR_miss | Never Use   Past Use  Current U          . |     Total
------------+--------------------------------------------+----------
-         0 |     9,885      8,570      3,267     42,136 |    63,858 
-         1 |     1,082        522        234      4,494 |     6,332 
------------+--------------------------------------------+----------
-     Total |    10,967      9,092      3,501     46,630 |    70,190 
+           |      Cannabis Use Category
+  PIR_miss | Never Use   Past Use  Current U |     Total
+-----------+---------------------------------+----------
+         0 |     8,769      7,850      2,827 |    19,446 
+         1 |       934        454        186 |     1,574 
+-----------+---------------------------------+----------
+     Total |     9,703      8,304      3,013 |    21,020 
 
-variable HEI_miss already defined
-r(110);
+Unknown #command
+Unknown #command
 
-end of do-file
-r(110);</code></pre>
+           |      Cannabis Use Category
+  HEI_miss | Never Use   Past Use  Current U |     Total
+-----------+---------------------------------+----------
+         0 |     9,010      7,762      2,699 |    19,471 
+         1 |       693        542        314 |     1,549 
+-----------+---------------------------------+----------
+     Total |     9,703      8,304      3,013 |    21,020 
+
+(running tabulate on estimation sample)
+
+Number of strata   =       105                Number of obs     =       70,190
+Number of PSUs     =       214                Population size   =  306,545,053
+                                              Subpop. no. obs   =       21,020
+                                              Subpop. size      =  141,524,461
+                                              Design df         =          109
+
+--------------------------------------------------
+          |         Cannabis Use Category         
+ HEI_miss | Never Us  Past Use   Current     Total
+----------+---------------------------------------
+        0 |    93.79     94.17     90.56     93.49
+        1 |    6.213     5.834      9.44     6.506
+          | 
+    Total |      100       100       100       100
+--------------------------------------------------
+  Key:  column percentage
+
+  Pearson:
+    Uncorrected   chi2(2)         =  170.9026
+    Design-based  F(1.96, 213.52) =   16.8948     P = 0.0000</code></pre>
 </div>
 <div id="create-.zip-file-for-github-upload" class="section level1">
 <h1>Create .zip file for github upload</h1>
