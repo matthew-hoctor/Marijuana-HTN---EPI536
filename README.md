@@ -107,6 +107,22 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [2013-2014](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/ALQ_H.htm)
    * [2015-2016](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/ALQ_I.htm)
    * [2017-2018](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/ALQ_J.htm)
+ * Diet D1
+   * [2005-2006 D1](https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DR1TOT_D.htm)
+   * [2007-2008 D1](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DR1TOT_E.htm)
+   * [2009-2010 D1](https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DR1TOT_F.htm)
+   * [2011-2012 D1](https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DR1TOT_G.htm)
+   * [2013-2014 D1](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DR1TOT_H.htm)
+   * [2015-2016 D1](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR1TOT_I.htm)
+   * [2017-2018 D1](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DR1TOT_J.htm)
+ * Diet D2
+   * [2005-2006 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/DR2TOT_D.htm)
+   * [2007-2008 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2007-2008/DR2TOT_E.htm)
+   * [2009-2010 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DR2TOT_F.htm)
+   * [2011-2012 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DR2TOT_G.htm)
+   * [2013-2014 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DR2TOT_H.htm)
+   * [2015-2016 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR2TOT_I.htm)
+   * [2017-2018 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DR2TOT_J.htm)
 
 ## To Do
 
