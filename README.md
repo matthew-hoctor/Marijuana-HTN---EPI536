@@ -123,16 +123,3 @@ A repository for analysis of NHANES data examining marijuana use and hypertensio
    * [2013-2014 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DR2TOT_H.htm)
    * [2015-2016 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR2TOT_I.htm)
    * [2017-2018 D2](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DR2TOT_J.htm)
-
-## To Do
-
- * Resubmit
-   * P2
-   * P4
- * P7
-   * gtsummary?
-   * Stratify T2 by gender
-   * Consolidate T1
-   * Incorporate P1 feedback
-   * Incorporate P6 feedback
-   * Continue literature search for cannabis-BP
